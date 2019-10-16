@@ -162,15 +162,10 @@ Trello is a great platform for sharing the group to-do lists. All of the artifac
 
 ----
 ### Highlights
-**Note this section is optional**
-YOUR ANSWER GOES HERE ...
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
+When considering how to divide our roles, one choice is to separate the team into two groups including a frontend group and a backend group. If we do like this, the tasks of two groups are divided clearly and the two groups will develop separately. However, this choice may cause some problems when connecting frontend and backend, and team members will only get some practice in only one part. The other choice is not separating frontend and backend, we may work together on one part and then the other. In this way, our team members get more practice and experience in both frontend and backend development and we will connect the two parts more easily without causing link up problems. In the end, our members wish to learn more on both parts, so we decided to take the second way.
 
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product plan.
+While deciding upon what tech stack to use, we held a relatively lengthy discussion to understand what technologies each team member is comfortable with. For back-end/server-side, the team first decided to use Golang but after further consideration and realizing that most of the members are willing to further learn JavaScript, we decided to choose Node.js and Express.js instead. Similarly for front-end development, the team at first was inclined to only use HTML/CSS and Bootstrap but since the members wish to make this project a better learning experience, we decided to include React.js as well. 
+
+In the beginning, there was a slight confusion as to how the team members should collaborate with each other. For example, we were unsure about how often face-to-face meetings must be held, and what the appropriate time slots would be for the meetings such that everyone is able to attend. We finally came to the conclusion to mimic the Agile development process as much as possible. Keeping that in mind, we decided to use Trello which provides a table like format to divide the development process effectively. Every member will refer to the table and initiate any of the available tasks, or start a new one. Along with that, we also decided to schedule team meetings every week, where the first 15 minutes will be dedicated in understanding what contributions each member has made in the past week. The rest of the meeting will focus on planning for the tasks to be completed in the coming days. Moreover, the team will also ensure that our partner is kept updated regularly through emails and by scheduling a meeting every two weeks.
+
