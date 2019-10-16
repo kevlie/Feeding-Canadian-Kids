@@ -7,17 +7,17 @@
 ## Product Details
  
 #### Q1: What are you planning to build?
+ 
+Our product is a mobile-friendly website that will provide a centralized platform for registration and communication between FCK staff, restaurants, and programs.
 
- * Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+The mobile-friendly website will centralize communication and management tasks to enable FCK to spend less time managing and communicating with partners, and more time expanding the project nationally. Additionally, our product will provide partners with synchronized, up-to-date, and relevant information that they need for their operations. 
+
+Presently, there are several existing problems: An immense amount of resources are spent communicating between Program and Restaurant Partners to ensure that all parties involved have agreed upon and are clear about the goals, tasks, locations, etc. There is currently no central platform and it is not always easy for all parties to communicate in an efficient and organized manner. 
+
+With the help of our website, prospective partners and restaurants will have a streamlined application process. Some common use cases are as follows:
+ - FCK staff will have an organized and centralized hub to keep track of current and prospective partners’ statuses and details. 
+ - FCK staff can approve certain fields of the application and provide feedback through the website, and applicants will be automatically informed about their status. Applicants can also check the progress of their application on a single page. 
+ - Once approved and registered, partners can view their information and obligations by logging on to their profile.
 
 
 #### Q2: Who are your target users?
