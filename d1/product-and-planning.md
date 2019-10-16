@@ -38,15 +38,15 @@ With the help of our website, prospective partners and restaurants will have a s
 See User Stories for details about their needs.
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+    
+The current system uses Google Forms to accept applications responses, staff members then use Microsoft Excel to manually record potential partners’ responses separately. FCK staff members then manually contact applicants individually to provide them next steps in the approval process. Restaurants and Programs do not have a way to easily access up-to-date information about their partner.
++ There will be automated emails that detail the verification/screening/approval process and timeline. Automating part of the application process will significantly reduce the time and effort of FCK staff members and allow the FCK team to process applications more quickly, improving the scalability of the project. 
++ There will be registration forms that partners can use to register. The forms will help to reduce manual efforts by capturing and recording directly through the website in a streamlined manner, completely automatically. 
++ With a central platform that stores all relevant information about restaurants and programs on a database, FCK staff can easily query, sort, and update such information in one place.
++ Restaurant Partners can view the number of meals they need to provide, at what time, to which location in one place. Currently, restaurants rely on reminders from FCK staff or need to keep track of such information on their own, locally. Our website will make sure this information is easily viewable and synchronized between programs and restaurants.
++ Program Partners can view how many meals they can still request, at what time, and from which restaurant. Currently, programs rely on reminders from FCK staff or need to keep track of such information on their own, locally. Our website will make sure this information is easily viewable and synchronized between programs and restaurants.
 
- * Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-    * Does this application exist in another form? If so, how does your differ and provide value to the users?
-    * How does this align with your partner's organization's values/mission/mandate?
+Overall, our product as mentioned above will lessen the manual workload of FCK staff, allowing them to focus less on micro management of numerous different local documents, and more on expansion of the project to those in need. 
 
 #### Q4: How will you build it?
 
