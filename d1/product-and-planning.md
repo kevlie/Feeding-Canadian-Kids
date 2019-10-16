@@ -21,11 +21,21 @@ With the help of our website, prospective partners and restaurants will have a s
 
 
 #### Q2: Who are your target users?
+   
++ Restaurant Partners:
+  - Restaurants that work closely with FCK staff members and use the Uber Eats app to accept orders from program partners. 
++ Program Partners: 
+  - After school programs for children that the project serves. 
+  - Although program partners use the Uber Eats app to place orders, verify payment profiles, confirm address selection, etc., there is also a great amount of back-and-forth between FCK and the program partners to ensure that weekly orders are received on time.
++ Prospective Restaurant Partners: 
+  - Restaurants that want to become Restaurant Partners and support underprivileged children.
+  - Restaurants that have lots of leftovers they want to donate instead of just throwing it away.
++ Prospective Program Partners: 
+  - After school programs with an identified need for a nutritious dinner delivery service that are seeking such services.
++ Feeding Canadian Kids Staff:
+  - Feeding Canadian Kids staff who manages the daily operations such as verification, restaurant and program matching, and screening.
 
- * Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * Feel free (but not obligated) to use personas.         
-   You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).
+See User Stories for details about their needs.
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
