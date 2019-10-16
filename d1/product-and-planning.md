@@ -125,46 +125,46 @@ List each team member and:
  
 Roles: 
 + Product Manager
- - Sets roadmap (prioritization and planning)
- - Defines features
- - Communicate with Partner to ensure product meets Partner’s demands
+  - Sets roadmap (prioritization and planning)
+  - Defines features
+  - Communicate with Partner to ensure product meets Partner’s demands
 + Developer
- - Contributes to frontend
- - Contributes to backend
- - Code Reviews
+  - Contributes to frontend
+  - Contributes to backend
+  - Code Reviews
 + Quality Assurance
- - Code Reviews
- - Manual Testing
+  - Code Reviews
+  - Manual Testing
 We will be alternating who does what role no one person will always do a single role.
 Team members:
 + Ali Muntasir:
- - Responsibilities: Developer, QA, Product Manager (alternating roles)
- - Strengths: Python, JavaScript, SQL
- - Weaknesses: Frontend
+  - Responsibilities: Developer, QA, Product Manager (alternating roles)
+  - Strengths: Python, JavaScript, SQL
+  - Weaknesses: Frontend
 + Christina Wang:
- - Responsibilities: Developer in frontend/backend, QA
- - Strengths: Python, JavaScript, SQL
- - Weaknesses: React, Express, Bootstrap
+  - Responsibilities: Developer in frontend/backend, QA
+  - Strengths: Python, JavaScript, SQL
+  - Weaknesses: React, Express, Bootstrap
 + Dhruvasu Bhatia:
- - Responsibilities: Developer in frontend and backend, QA
- - Strengths: Python, Javascript, SQL
- - Weaknesses: Amazon SES, Frontend, Node.js
+  - Responsibilities: Developer in frontend and backend, QA
+  - Strengths: Python, Javascript, SQL
+  - Weaknesses: Amazon SES, Frontend, Node.js
 + Ibrahim Farooq:
- - Responsibilities: developer in frontend and backend
- - Strengths: Python, JavaScript, Bootstrap, Node.js
- - Weaknesses: React, Express, mySQL
+  - Responsibilities: developer in frontend and backend
+  - Strengths: Python, JavaScript, Bootstrap, Node.js
+  - Weaknesses: React, Express, mySQL
 + Kelvin Fan:
- - Responsibilities: APIs, participate in both frontend and backend
- - Strengths: JavaScript, Express, working with new technologies
- - Weaknesses: poor prioritization, React
+  - Responsibilities: APIs, participate in both frontend and backend
+  - Strengths: JavaScript, Express, working with new technologies
+  - Weaknesses: poor prioritization, React
 + Kevin Lie:
- - Responsibilities: Developer (frontend and backend), QA
- - Strengths: Python, Bootstrap, SQL, Javascript
- - Weaknesses: Express, Amazon SES, Frontend, Node.js
+  - Responsibilities: Developer (frontend and backend), QA
+  - Strengths: Python, Bootstrap, SQL, Javascript
+  - Weaknesses: Express, Amazon SES, Frontend, Node.js
 + Stephen Utama:
- - Responsibilities: Developer, QA, Product Manager
- - Strengths: Python, Javascript, Bootstrap, SQL
- - Weaknesses: React, Express, Amazon SES
+  - Responsibilities: Developer, QA, Product Manager
+  - Strengths: Python, Javascript, Bootstrap, SQL
+  - Weaknesses: React, Express, Amazon SES
 
 
 #### Team Rules
