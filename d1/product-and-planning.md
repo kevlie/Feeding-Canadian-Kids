@@ -62,6 +62,36 @@ Overall, our product as mentioned above will lessen the manual workload of FCK s
  * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
  * Will you be using third party applications or APIs? If so, what are they?
  * What is your testing strategy?
+ 
+Technology stack: Python, Javascript, Node.js, Express, mySQL database, React, Bootstrap, Amazon SES.
+
+Frontend: Javascript+React+Bootstrap.
+
+Backend Framework: Node.js + Express, mySQL database.
+
+Deployment: AWS ec2 instances scp from local; since we will be rarely deploying we’ll scp from our local to an ec2 instance to deploy. The opportunity cost of configuring a deployment CI is not worth it for the few deploys we will be doing.
+Third party interface: Amazon SES SMTP for automated email
+
+Testing: Will be using Postman for manual testing, Mocha for unit tests on our backend, front end will be manually tested and Jest will be used for unit tests. 
+
+We will have two backend servers that we will be using one will be our own backend server and the other will be an AWS SES instance which will be hit by our front end when automated emails need to be sent.
+
+We will have the following endpoints (may update the params or add more endpoints as needed): 
++ GET validate_login; used for when a user logs in
++ POST register_restaurant; used for when a new restaurant registers
++ POST register_program; used for when a new program resisters
++ GET program_delivery_dates PARAMS: program_id; shows 
++ GET resturant_delivery_dates PARAMS: restaurant_id
++ GET remaining_meals PARAMS: restaurant_id, date
++ GET paired_restaurants PARAMS: program_id
++ GET paired_programs PARAMS: restaurant_id
++ GET program_info PARAMS: program_id
++ GET restaurant_info PARAMS: restaurant_id
++ GET pending_program_applications
++ GET pending_restaurant_applications
++ GET view_application PARAMS: application_id
++ PUT update_registartion_status PARAMS: resturant_id
++ POST delivery_status PARAMS: resturant_id
 
 #### Q5: What are the user stories that make up the MVP?
  
@@ -83,8 +113,6 @@ Overall, our product as mentioned above will lessen the manual workload of FCK s
 ----
 
 ## Process Details
-
-
 
 #### Roles & responsibilities
 
