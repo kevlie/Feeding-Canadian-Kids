@@ -58,11 +58,6 @@ Overall, our product as mentioned above will lessen the manual workload of FCK s
  * What is your testing strategy?
 
 #### Q5: What are the user stories that make up the MVP?
-
- * At least 5 user stories concerning the main features of the application - note that this can broken down further
- * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
- * If you have a partner, these must be reviewed and accepted by them
- * The user stories should be written in Github and each one must have clear acceptance criteria
  
 + As a user, I want to have login credentials so I can securely access my account profile.
 + As an administrator, I want to be notified of new partner requests so I can review and approve them quickly.
@@ -89,42 +84,40 @@ List each team member and:
 
 #### Team Rules
 
-Describe your team's working culture.
+We have a fun and relaxed working culture.
 
 Communications:
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
+For communication within team, we will mainly use Facebook Messenger to discuss and share things, and whenever a group member has a problem, other members can answer and help. Also, we will also use Trello to keep track of tasks and the progress of each group member. 
+For communication with our partner, we agreed to meet in person once every two weeks on Wednesdays. During each meeting, we will ask our project partner when she’s available next time to meet up and book a room in Gerstein in advance and meet there. In addition, we will send emails when there is something that we have to communicate with the partner to make sure that we are on the right track.
  
 Meetings:
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
+We will keep meeting minutes in a Google doc so that everybody can get to know what was discussed during the meeting and the corresponding decisions. For action items, we will use task tracking software such as Trello in order to ensure everyone knows what to do. Members can mark tasks with tags such as not started, in progress or done to show the progress, and also make checklists so that other people know what has been done for a task and which step the member is currently working on. Anyone experiencing difficulties can contact the rest of the group via messenger. Members must attend all regular meetings.
  
 Conflict Resolution:
- * List at least three team scenarios/conflicts you discussed in lecture and how you decided you will resolve them. Indecisions? Non-responsive team members? Any other scenarios you can think of?
++ Indecisions:
+  - Since our primary source of communication is Messenger, in case the team hits a point where no one is able to come to a conclusion, an effort will be made to schedule a meeting ASAP to ensure that everyone is on the same page. 
++ Decision-making policy:
+  - Whenever someone has an idea, he/she must be able to come up with valid reasons to back it up if others do not agree with them. Voting (via poll on messenger) will be our typical solution. If there is a tie, Adam will be the tie-breaker. 
++ Distribution of tasks:
+  - We will schedule face to face meetings (one hour before/after tutorial on Tuesdays). They are essential when working on the project because they act as a push factor in making everyone contribute and avoid slacking off. We will also set a deadline for each action item, where the assigned person/sub-group can ask for help if they encounter any difficulties before it is too late. For this to work, we will assess each team member’s skills before delegating tasks. 
++ Non-responsive team members:
+  - We will remind ourselves of the importance of this project (worth 50% and FCK’s belief in us) and address the unresponsiveness in an effective and positive way. This, again, can be done by scheduling a meeting so that the individual(s) can express their concerns/opinions and get feedback in a quicker manner. In the unlikely scenario that a team member’s non responsive attitude persists, we will contact a TA. 
 
 
-#### Events
+#### Events 
+We will schedule regular face to face meetings (one hour before/after tutorial on Tuesdays). These regular meetings will be where we make and review weekly plans. The first 15 minutes of these meetings will serve as a “stand up meeting” in the agile process. We will get up to date with the current tasks and resolve issues. After we get updated on each member’s progress, we will create the next weekly plan and assign tasks to each member for the week. After each member is assigned tasks, we will go over all the assignments as a group, and decide whether such assignments will allow us to meet our final goal on time, and make adjustments if necessary. 
 
-Describe meetings (and other events) you are planning to have:
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
+When a lot of decisions need to be made and discussions are essential in between weekly regular meetings, we will raise a poll and choose a time when most people are available, and for the best case everybody can be present. These meetings can be online or on campus, depending on availability. 
+
+The assigned tasks will be updated on Trello, so the entire team can see every team member’s progress at any time. Code reviews will be done online, at members' request. 
+In addition to in person meetings, we will be regularly communicating in the Messenger group chat. 
 
 #### Partner Meetings
-You must have at least 2 meetings with your project partner - an initial planning meeting and a document review meeting. Describe the meetings here:
-* When and where?
-* What did you discuss during the meeting (**note you must have meeting minutes**)?
-* What were the outcomes of each meeting?
+Our first meeting with partner was held in Gerstein on October 9th which lasted for about one hour. For the planning meeting, we came up with all the questions that needed to be asked in advance. And the first meeting was mainly on the sharing of the overall idea. Our partner introduced the main operations of Feeding Canadian Kid and how everything is done currently in FCK as well as the main requirements for this project. Then we raised our questions and concerns: what are we exactly building, what users are we targeting, what each kind of users need to access from our website, when an email is triggered, what should the manager manage on our website, how large is the scale that we need to support, how the food is allocated, etc.  We discussed a lot of things, through the process, we get to know the project requirements better and we know more about what is needed to be accomplished. 
 
 
 #### Artifacts
-
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be To-Do lists, Task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+Trello is a great platform for sharing the group to-do lists. All of the artifacts will be done on Trello including the to-do lists, task boards and schedules. During our discussion, we will figure out the tasks that need to be done, and put them on Trello, where we can keep track of them. Some tasks may be the prerequisites of further tasks, so we will prioritize the prerequisites. Moreover, tasks on main features will be prioritized over task on extension features. The distribution of tasks will be done based on the roles of our team members, as well as the strengths and weaknesses so that we can make full use of everybody’s strengths. After tasks get assigned, corresponding information will be marked on Trello so that the distribution can been seen more clearly.
 
 ----
 ### Highlights
