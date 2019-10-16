@@ -135,8 +135,8 @@ Roles:
 + Quality Assurance
   - Code Reviews
   - Manual Testing
-We will be alternating who does what role no one person will always do a single role.
-Team members:
++ We will be alternating who does what role no one person will always do a single role.
++ Team members:
 + Ali Muntasir:
   - Responsibilities: Developer, QA, Product Manager (alternating roles)
   - Strengths: Python, JavaScript, SQL
