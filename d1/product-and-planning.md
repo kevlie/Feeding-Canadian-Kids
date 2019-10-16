@@ -66,12 +66,19 @@ Overall, our product as mentioned above will lessen the manual workload of FCK s
 #### Q5: What are the user stories that make up the MVP?
  
 + As a user, I want to have login credentials so I can securely access my account profile.
+  - AC: each user must have their own unique login credentials which only they can use to access their accounts.
 + As an administrator, I want to be notified of new partner requests so I can review and approve them quickly.
+  - AC: When a new partner request is added it should be reflected on the page of all Admin users.
 + As a FCK staff member, I want to easily view the pool of applicants and their information so I can better pair restaurants with programs.
-+ As a FCK staff member, I want to be able to see whether restaurants are fulfilling their commitments so I know when I should intervene and adjust allocation and pairings if necessary. 
+  - AC: FCK staff users should be able to view all program applicant info and all restaurant info.
++ As a FCK staff member, I want to be able to see whether restaurants are fulfilling their commitments so I know when I should intervene and adjust allocation and pairings if necessary.
+  - AC: Programs users should be able to update how their delivery went (i.e. if they got the amount of food that was expected) and FCK staff users should be able to view these updates
 + As a restaurant partner, I want to know how much food I need to send to my partner program so I can plan ahead.
+  - AC: Restaurant partners should be able to easily view the amount of food they committed to in their application for each day.
 + As a potential restaurant partner, I want to know the status of my application so I can be assured that it is under review, and also get to know my required actions. 
+  - AC: restaurant users should be able to view their application status and any feedback given by FCK staff members.
 + As a partner, I want to know how much food im receiving and which restaurant is providing it so I can plan ahead.
+  - AC: Program partners should be able to view the amount of food that the partners they’ve been paired with have committed to them. 
 
 ----
 
