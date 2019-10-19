@@ -16,9 +16,9 @@ Feeding Canadian Kids: Electronic Systems,
  
 Our product is a mobile-friendly website that will provide a centralized platform for registration and communication between FCK staff, restaurants, and programs.
 
-The mobile-friendly website will centralize communication and management tasks to enable FCK to spend less time managing and communicating with partners, and more time expanding the project nationally. Additionally, our product will provide partners with synchronized, up-to-date, and relevant information that they need for their operations. 
-
 Presently, there are several existing problems: An immense amount of resources are spent communicating between Program and Restaurant Partners to ensure that all parties involved have agreed upon and are clear about the goals, tasks, locations, etc. There is currently no central platform and it is not always easy for all parties to communicate in an efficient and organized manner. 
+
+The mobile-friendly website will centralize communication and management tasks to enable FCK to spend less time managing and communicating with partners, and more time expanding the project nationally. Additionally, our product will provide partners with synchronized, up-to-date, and relevant information that they need for their operations. 
 
 With the help of our website, prospective partners and restaurants will have a streamlined application process. Some common use cases are as follows:
  - FCK staff will have an organized and centralized hub to keep track of current and prospective partners’ statuses and details. 
@@ -41,18 +41,17 @@ With the help of our website, prospective partners and restaurants will have a s
 + Feeding Canadian Kids Staff:
   - Feeding Canadian Kids staff who manages the daily operations such as verification, restaurant and program matching, and screening.
 
-See User Stories for details about their needs.
+See [User Stories](#abcd) for details about their needs. 
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
     
+Our product will lessen the manual workload of FCK staff, allowing them to focus less on micro management of numerous different local documents, and more on expansion of the project to those in need. 
 The current system uses Google Forms to accept applications responses, staff members then use Microsoft Excel to manually record potential partners’ responses separately. FCK staff members then manually contact applicants individually to provide them next steps in the approval process. Restaurants and Programs do not have a way to easily access up-to-date information about their partner.
 + There will be automated emails that detail the verification/screening/approval process and timeline. Automating part of the application process will significantly reduce the time and effort of FCK staff members and allow the FCK team to process applications more quickly, improving the scalability of the project. 
 + There will be registration forms that partners can use to register. The forms will help to reduce manual efforts by capturing and recording directly through the website in a streamlined manner, completely automatically. 
 + With a central platform that stores all relevant information about restaurants and programs on a database, FCK staff can easily query, sort, and update such information in one place.
 + Restaurant Partners can view the number of meals they need to provide, at what time, to which location in one place. Currently, restaurants rely on reminders from FCK staff or need to keep track of such information on their own, locally. Our website will make sure this information is easily viewable and synchronized between programs and restaurants.
 + Program Partners can view how many meals they can still request, at what time, and from which restaurant. Currently, programs rely on reminders from FCK staff or need to keep track of such information on their own, locally. Our website will make sure this information is easily viewable and synchronized between programs and restaurants.
-
-Overall, our product as mentioned above will lessen the manual workload of FCK staff, allowing them to focus less on micro management of numerous different local documents, and more on expansion of the project to those in need. 
 
 #### Q4: How will you build it?
 
@@ -69,8 +68,9 @@ Frontend: Javascript+React+Bootstrap.
 
 Backend Framework: Node.js + Express, mySQL database.
 
-Deployment: AWS ec2 instances scp from local; since we will be rarely deploying we’ll scp from our local to an ec2 instance to deploy. The opportunity cost of configuring a deployment CI is not worth it for the few deploys we will be doing.
-Third party interface: Amazon SES SMTP for automated email
+Deployment: scp to AWS EC2 instances from local machine; since we will rarely be deploying we will scp from our local machine to an EC2 instance to deploy. The opportunity cost of configuring a deployment CI is not worth it for the few deploys we will be doing.
+
+Third party interface: Amazon SES SMTP for automated email.
 
 Testing: Will be using Postman for manual testing, Mocha for unit tests on our backend, front end will be manually tested and Jest will be used for unit tests. 
 
@@ -93,7 +93,7 @@ We will have the following endpoints (may update the params or add more endpoint
 + PUT update_registartion_status PARAMS: resturant_id
 + POST delivery_status PARAMS: resturant_id
 
-#### Q5: What are the user stories that make up the MVP?
+#### Q5: What are the user stories that make up the MVP? <a name="abcd"></a>
  
 + As a user, I want to have login credentials so I can securely access my account profile.
   - AC: each user must have their own unique login credentials which only they can use to access their accounts.
@@ -136,7 +136,7 @@ Roles:
   - Code Reviews
   - Manual Testing
 
-We will be alternating who does what role no one person will always do a single role.
+We will be alternating who does which role, no one person will always do a single role.
 
 Team members:
 + Ali Muntasir:
@@ -174,7 +174,7 @@ Team members:
 We have a fun and relaxed working culture.
 
 Communications:
-For communication within team, we will mainly use Facebook Messenger to discuss and share things, and whenever a group member has a problem, other members can answer and help. Also, we will also use Trello to keep track of tasks and the progress of each group member. 
+For communication within team, we will mainly use Facebook Messenger to discuss and share things, and whenever a group member has a problem, other members can answer and help. Also, we will use Trello to keep track of tasks and the progress of each group member. 
 For communication with our partner, we agreed to meet in person once every two weeks on Wednesdays. During each meeting, we will ask our project partner when she’s available next time to meet up and book a room in Gerstein in advance and meet there. In addition, we will send emails when there is something that we have to communicate with the partner to make sure that we are on the right track.
  
 Meetings:
