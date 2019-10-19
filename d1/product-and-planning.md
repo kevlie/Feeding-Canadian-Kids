@@ -99,6 +99,8 @@ We will have the following endpoints (may update the params or add more endpoint
   - AC: each user must have their own unique login credentials which only they can use to access their accounts.
 + As an administrator, I want to be notified of new partner requests so I can review and approve them quickly.
   - AC: When a new partner request is added it should be reflected on the page of all Admin users.
++ As an administrator, I want to be able to review and process new partner requests so I can easily add more members in a single, organized place.
+  - AC: Admin users will have the ability to click a button on a applicant's application to accept/decline them.
 + As a FCK staff member, I want to easily view the pool of applicants and their information so I can better pair restaurants with programs.
   - AC: FCK staff users should be able to view all program applicant info and all restaurant info.
 + As a FCK staff member, I want to be able to see whether restaurants are fulfilling their commitments so I know when I should intervene and adjust allocation and pairings if necessary.
@@ -107,6 +109,8 @@ We will have the following endpoints (may update the params or add more endpoint
   - AC: Restaurant partners should be able to easily view the amount of food they committed to in their application for each day.
 + As a potential restaurant partner, I want to know the status of my application so I can be assured that it is under review, and also get to know my required actions. 
   - AC: restaurant users should be able to view their application status and any feedback given by FCK staff members.
++ As a prospective restaurant/program partner, I want a streamlined application form in a central place so I can join the Feeding Canadian Kids project easily.
+  - AC: proospective restaurant/program partners should be able to submit a form that requests all the required information to apply on the website.
 + As a partner, I want to know how much food im receiving and which restaurant is providing it so I can plan ahead.
   - AC: Program partners should be able to view the amount of food that the partners they’ve been paired with have committed to them. 
 
