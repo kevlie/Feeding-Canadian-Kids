@@ -113,6 +113,8 @@ We will have the following endpoints (may update the params or add more endpoint
   - AC: proospective restaurant/program partners should be able to submit a form that requests all the required information to apply on the website.
 + As a partner, I want to know how much food im receiving and which restaurant is providing it so I can plan ahead.
   - AC: Program partners should be able to view the amount of food that the partners they’ve been paired with have committed to them. 
++ As a new partner, I want to see trainining resources after I am verified by FCK, so I can start delivering meals/receiving meals as soon as possible.
+  - AC: New program/restaurant partners should have access to a page that contains to links to training materials after they have been verified by FCK staff. 
 
 ----
 
