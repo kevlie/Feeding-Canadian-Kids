@@ -42,6 +42,18 @@ const ProgramRegistration = () => (
         <Form.Control placeholder="Address" />
       </Form.Group>
 
+      <Form.Group controlId="formGridArea">
+        <Form.Label>Toronto Neighbourhood area of program</Form.Label>
+        <Form.Control placeholder="Area" />
+      </Form.Group>
+
+
+      <Form.Group controlId="DeliveryInstruction">
+        <Form.Label>Instructions for delivery(how to deliver to your program)</Form.Label>
+        <Form.Control as="textarea" rows="4" />
+      </Form.Group>
+
+
       {/* <Form.Group controlId="formGridZipCode">
         <Form.Label>Zip/Postal Code</Form.Label>
         <Form.Control placeholder="Zip/Postal Code" />
