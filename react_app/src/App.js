@@ -17,14 +17,15 @@ class App extends Component {
     this.state = { apiResponse: "" };
   }
 
+  // This is a sample that calls testAPI from the Express backend.
   callAPI() {
     fetch("http://localhost:9000/testAPI")
       .then(res => res.text())
-      .then(res => this.setState({ apiResponse: res }))
+      .then(res => this.setState({ apiResponse: res })) // store the result in this.state.apiResponse
       .catch(err => err);
   }
 
-  componentDidMount() {
+  componentDidMount() { // calls callAPI() once mounted
     this.callAPI();
   }
 
@@ -45,7 +46,7 @@ class App extends Component {
             component={ProgramRegistration}
           />
         </Switch>
-        <p className="App-intro">{this.state.apiResponse}</p>
+        <p>{this.state.apiResponse}</p>
       </div >
     );
   }
