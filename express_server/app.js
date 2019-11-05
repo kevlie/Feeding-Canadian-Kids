@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
 var restaurantApplicationRouter = require('./routes/restaurantApplication');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -31,7 +32,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: 'secret',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 6000 }
 }));
 
 // routes
@@ -39,6 +41,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/restaurantApplication', restaurantApplicationRouter);
+app.use('/auth', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

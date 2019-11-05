@@ -23,3 +23,5 @@ loginRouter.post('/', function (req, res) {
         res.end();
     }
 });
+
+module.exports = loginRouter;
