@@ -3,3 +3,5 @@
 /node_modules
 /.vscode
 /.DS_Store
+/express_server/node_modules
+/react_app/node_modules

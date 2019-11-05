@@ -4,12 +4,10 @@ import RestaurantRegistration from "./components/RestaurantRegistration/Restaura
 import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration.component";
 import Login from "./components/Login/Login.js";
 import "./App.css";
-
+import Header from "./components/Header/Header";
 
 function HomePage() {
-  return (
-    <h1>Feeding Canadian Kids</h1>
-  );
+  return <h1>Feeding Canadian Kids</h1>;
 }
 class App extends Component {
   constructor(props) {
@@ -25,29 +23,31 @@ class App extends Component {
       .catch(err => err);
   }
 
-  componentDidMount() { // calls callAPI() once mounted
+  componentDidMount() {
+    // calls callAPI() once mounted
     this.callAPI();
   }
 
   render() {
     return (
       <div>
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/login' component={Login} />
-          <Route
-            exact
-            path="/restaurantRegistration"
-            component={RestaurantRegistration}
-          />
-          <Route
-            exact
-            path="/programRegistration"
-            component={ProgramRegistration}
-          />
-        </Switch>
-        <p>{this.state.apiResponse}</p>
-      </div >
+        <Header/>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/login" component={Login} />
+              <Route
+                exact
+                path="/restaurantRegistration"
+                component={RestaurantRegistration}
+              />
+              <Route
+                exact
+                path="/programRegistration"
+                component={ProgramRegistration}
+              />
+            </Switch>
+            <p>{this.state.apiResponse}</p>
+      </div>
     );
   }
 }
