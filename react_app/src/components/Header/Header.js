@@ -3,8 +3,11 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import {Container, Row, Col, Image} from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import FeedingCKbanner from '../../img/FeedingCK-banner.png';
 import { sign_in } from "../../redux/actions";
+import "./Header.css";
 
 const mapStateToProps = state => {
   return {
@@ -19,9 +22,20 @@ class Header extends Component {
 
   render() {
     return (
+      <>
+      {/* <Container fluid className="banner-container no-scroll">
+                <Row>
+                    <Col lg={7} fluid>
+                        <Image className = "banner-image" src = {FeedingCKbanner}></Image>
+                    </Col>
+                    <Col lg={5}>
+
+                    </Col>
+                </Row>
+      </Container> */}
       <Navbar bg="light" expand="lg">
         <Navbar.Brand onClick={e => this.props.history.push("/")}>
-          FCK2
+          <Image className = "banner-image" src = {FeedingCKbanner}></Image>
         </Navbar.Brand>
         <Nav className="ml-auto">
           {!this.props.isLoggedIn ? (
@@ -41,6 +55,7 @@ class Header extends Component {
           )}
         </Nav>
       </Navbar>
+      </>
     );
   }
 }
