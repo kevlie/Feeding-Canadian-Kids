@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration.component";
+import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration";
 import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration.component";
 import Login from "./components/Login/Login.js";
 import "./App.css";
