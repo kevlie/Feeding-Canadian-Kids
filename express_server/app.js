@@ -38,10 +38,10 @@ app.use(session({
 
 // routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/testAPI', testAPIRouter);
-app.use('/restaurantApplication', restaurantApplicationRouter);
-app.use('/auth', loginRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/testAPI', testAPIRouter);
+app.use('/api/restaurantApplication', restaurantApplicationRouter);
+app.use('/api/auth', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
