@@ -1,0 +1,7 @@
+.banner-container{
+    border-bottom: 0px;
+}
+.banner-image{
+    max-height: 70px;
+    max-width: 100%;
+}
