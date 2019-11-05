@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
-  secret: 'secret',
+  secret: 'fck-secret',
   resave: true,
   saveUninitialized: true,
   cookie: { maxAge: 6000 }

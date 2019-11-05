@@ -16,7 +16,7 @@ loginRouter.post('/', function (req, res) {
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.email = email;
-                res.send("Credentials valid.")
+                res.send("Credentials valid. ")
             } else {
                 res.send('Incorrect email and/or password!');
             }

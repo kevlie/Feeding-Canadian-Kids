@@ -35,7 +35,11 @@ restaurantApplicationRouter.post('/', function (req, res) {
 
     sql.query(queryGeneral, (err, result) => {
         if (err) {
-            return res.status(500).send(err);
+            if (err.code === "ER_DUP_ENTRY") {
+                return res.send("A restaurant with this name already exists.");
+            } else {
+                return res.status(500).send(err);
+            }
         }
         else {
             sql.query("SELECT * FROM `restaurant_partners` WHERE name = " + "'" + restaurantName + "'", function (err, result, fields) {
