@@ -29,7 +29,7 @@ restaurantApplicationRouter.post('/', function (req, res) {
     let applicantName = req.body.name;
 
     let queryGeneral = "INSERT INTO `restaurant_partners` (name, address, contact_person, contact_email, password_hash, phone, delivery_capability, uber_eats_status, num_meals, packaging, monday, tuesday, wednesday, thursday, friday) VALUES ('" +
-        restaurantName + "', '" + restaurantAddress + "', '" + contactPerson + "', '" + contactEmail + "', '" + "', '" + passwordHash + "', " + contactPhone + "', '" + deliveryCapability + "', '" + uberEatsStatus + "', '" + numMeals + "', '" + packaging + "', '" + monday + "', '" + tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "')";
+        restaurantName + "', '" + restaurantAddress + "', '" + contactPerson + "', '" + contactEmail + "', '" + passwordHash + "', '" + contactPhone + "', '" + deliveryCapability + "', '" + uberEatsStatus + "', '" + numMeals + "', '" + packaging + "', '" + monday + "', '" + tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "')";
 
 
 
