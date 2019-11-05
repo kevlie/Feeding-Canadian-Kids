@@ -15,7 +15,9 @@ restaurantApplicationRouter.post('/', function (req, res) {
     let { monday, tuesday, wednesday, thursday, friday } = req.body.daysAvailable;
     let numMeals = req.body.numMeals;
     let deliveryCapability = req.body.deliveryCapability;
+    let uberEatsStatus = req.body.uberEatsStatus
     let packaging = req.body.packaging;
+    let passwordHash = req.body.passwordHash;
     // let location = req.body.location; Todo: what's this
 
     // application specific info
@@ -25,16 +27,19 @@ restaurantApplicationRouter.post('/', function (req, res) {
     let phone = req.body.phone;
     let email = req.body.email;
     let applicantName = req.body.name;
-    let approvalStatus = "0"; // default to not approved
 
-    let queryGeneral = "INSERT INTO `restaurant_partners` (name, address, contact_person, contact_email, phone, delivery_capability, num_meals, packaging, monday, tuesday, wednesday, thursday, friday) VALUES ('" +
-        restaurantName + "', '" + restaurantAddress + "', '" + contactPerson + "', '" + contactEmail + "', '" + contactPhone + "', '" + deliveryCapability + "', '" + numMeals + "', '" + packaging + "', '" + monday + "', '" + tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "')";
+    let queryGeneral = "INSERT INTO `restaurant_partners` (name, address, contact_person, contact_email, password_hash, phone, delivery_capability, uber_eats_status, num_meals, packaging, monday, tuesday, wednesday, thursday, friday) VALUES ('" +
+        restaurantName + "', '" + restaurantAddress + "', '" + contactPerson + "', '" + contactEmail + "', '" + passwordHash + "', '" + contactPhone + "', '" + deliveryCapability + "', '" + uberEatsStatus + "', '" + numMeals + "', '" + packaging + "', '" + monday + "', '" + tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "')";
 
 
 
     sql.query(queryGeneral, (err, result) => {
         if (err) {
-            return res.status(500).send(err);
+            if (err.code === "ER_DUP_ENTRY") {
+                return res.send("A restaurant with this name already exists.");
+            } else {
+                return res.status(500).send(err);
+            }
         }
         else {
             sql.query("SELECT * FROM `restaurant_partners` WHERE name = " + "'" + restaurantName + "'", function (err, result, fields) {
@@ -50,8 +55,8 @@ restaurantApplicationRouter.post('/', function (req, res) {
                     ('00' + date.getUTCMinutes()).slice(-2) + ':' +
                     ('00' + date.getUTCSeconds()).slice(-2);
 
-                let queryApplicationSpecific = "INSERT INTO `restaurant_review` (restaurant_id, applicant_email, applicant_phone, discovery_info, extra_info, approval_status, applicant_name, timing, date_submitted) VALUES ('" +
-                    restaurantId + "', '" + email + "', '" + phone + "', '" + discoveryInfo + "', '" + extraInfo + "', '" + approvalStatus + "', '" + applicantName + "', '" + timing + "', '" + date + "')";
+                let queryApplicationSpecific = "INSERT INTO `restaurant_review` (restaurant_id, applicant_email, applicant_phone, discovery_info, extra_info, applicant_name, timing, date_submitted) VALUES ('" +
+                    restaurantId + "', '" + email + "', '" + phone + "', '" + discoveryInfo + "', '" + extraInfo + "', '" + applicantName + "', '" + timing + "', '" + date + "')";
 
                 sql.query(queryApplicationSpecific, (err, result) => {
                     if (err) {

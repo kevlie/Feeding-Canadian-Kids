@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration";
 import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration.component";
+import RestaurantUserPage from './components/RestaurantUserPage/RestaurantUserPage.js';
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -45,6 +46,10 @@ class App extends Component {
                 path="/programRegistration"
                 component={ProgramRegistration}
               />
+              <Route 
+                exact
+                path= "/restaurantuserpage"
+                component={RestaurantUserPage}/>
             </Switch>
             <p>{this.state.apiResponse}</p>
       </div>
