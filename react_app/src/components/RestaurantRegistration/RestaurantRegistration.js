@@ -3,10 +3,14 @@ import Button from "react-bootstrap/Button";
 import { Form, Col, Container } from "react-bootstrap";
 
 const registerRestaurant = data => {
-  fetch("http://localhost:9000/testAPI", {
-    method: "POST",
+  fetch("http://localhost:9000/api/restaurantApplication", {
+    method: "post",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(data)
-  });
+  })
 };
 var hash = require("object-hash");
 
@@ -18,7 +22,7 @@ class RestaurantRegistration extends React.Component {
       passwordHash: "",
       applicantName: "",
       phone: "",
-      restarurantName: "",
+      restaurantName: "",
       restaurantAddress: "",
       contactEmail: "",
       contactPerson: "",
@@ -30,7 +34,7 @@ class RestaurantRegistration extends React.Component {
         thursday: "0",
         friday: "0"
       },
-      uberEats: "1",
+      uberEatsStatus: "1",
       deliveryCapability: "1",
       numMeals: "0",
       packaging: "",
@@ -39,25 +43,7 @@ class RestaurantRegistration extends React.Component {
       extraInfo: ""
     };
   }
-  // onChange={e => {
-  //   let index = -1;
-  //   let i = 0;
-  //   for (i = 0; i < this.state.availableDays.length; i++) {
-  //     if (this.state.availableDays[i] === "Monday") {
-  //       index = i;
-  //       break;
-  //     }
-  //   }
-  //   if (index == -1) {
-  //     this.state.availableDays.push("Monday");
-  //   } else {
-  //     this.state.availableDays.splice(i, 1);
-  //   }
-  //   this.setState({
-  //     availableDays: this.state.availableDays
-  //   });
-  //   console.log(this.state.availableDays);
-  // }}
+  
   render() {
     return (
       <Container>
@@ -70,7 +56,7 @@ class RestaurantRegistration extends React.Component {
                 placeholder="A valid email address"
                 onChange={e => {
                   this.setState({
-                    applicantEmail: e.target.value.toString()
+                    email: e.target.value.toString()
                   });
                 }}
               />
@@ -83,7 +69,7 @@ class RestaurantRegistration extends React.Component {
                 placeholder="password"
                 onChange={e => {
                   this.setState({
-                    applicantPassword: hash(e.target.value.toString())
+                    passwordHash: hash(e.target.value.toString())
                   });
                 }}
               />
@@ -96,7 +82,7 @@ class RestaurantRegistration extends React.Component {
               placeholder="Name"
               onChange={e => {
                 this.setState({
-                  name: e.target.value.toString()
+                  applicantName: e.target.value.toString()
                 });
               }}
             />
@@ -108,7 +94,7 @@ class RestaurantRegistration extends React.Component {
               placeholder="Phone number"
               onChange={e => {
                 this.setState({
-                  applicantPhoneNumber: e.target.value.toString()
+                  phone: e.target.value.toString()
                 });
               }}
             />
@@ -153,7 +139,7 @@ class RestaurantRegistration extends React.Component {
               placeholder="Name"
               onChange={e => {
                 this.setState({
-                  contactName: e.target.value.toString()
+                  contactPerson: e.target.value.toString()
                 });
               }}
             />
@@ -180,7 +166,7 @@ class RestaurantRegistration extends React.Component {
               placeholder="Phone number"
               onChange={e => {
                 this.setState({
-                  contactPhoneNumber: e.target.value.toString()
+                  contactPhone: e.target.value.toString()
                 });
               }}
             />
@@ -205,7 +191,6 @@ class RestaurantRegistration extends React.Component {
                     friday: this.state.daysAvailable.friday
                   }
                 });
-                console.log(this.state.daysAvailable);
               }}
             />
             <Form.Check
@@ -216,9 +201,9 @@ class RestaurantRegistration extends React.Component {
               onChange={e => {
                 this.setState({
                   daysAvailable: {
+                    monday: this.state.daysAvailable.monday,
                     tuesday:
                       this.state.daysAvailable.tuesday === "0" ? "1" : "0",
-                    monday: this.state.daysAvailable.monday,
                     wednesday: this.state.daysAvailable.wednesday,
                     thursday: this.state.daysAvailable.thursday,
                     friday: this.state.daysAvailable.friday
@@ -234,10 +219,10 @@ class RestaurantRegistration extends React.Component {
               onChange={e => {
                 this.setState({
                   daysAvailable: {
+                    monday: this.state.daysAvailable.monday,
+                    tuesday: this.state.daysAvailable.tuesday,
                     wednesday:
                       this.state.daysAvailable.wednesday === "0" ? "1" : "0",
-                    tuesday: this.state.daysAvailable.tuesday,
-                    monday: this.state.daysAvailable.monday,
                     thursday: this.state.daysAvailable.thursday,
                     friday: this.state.daysAvailable.friday
                   }
@@ -252,11 +237,11 @@ class RestaurantRegistration extends React.Component {
               onChange={e => {
                 this.setState({
                   daysAvailable: {
-                    thursday:
-                      this.state.daysAvailable.thursday === "0" ? "1" : "0",
+                    monday: this.state.daysAvailable.monday,
                     tuesday: this.state.daysAvailable.tuesday,
                     wednesday: this.state.daysAvailable.wednesday,
-                    monday: this.state.daysAvailable.monday,
+                    thursday:
+                      this.state.daysAvailable.thursday === "0" ? "1" : "0",
                     friday: this.state.daysAvailable.friday
                   }
                 });
@@ -270,11 +255,11 @@ class RestaurantRegistration extends React.Component {
               onChange={e => {
                 this.setState({
                   daysAvailable: {
-                    friday: this.state.daysAvailable.friday === "0" ? "1" : "0",
+                    monday: this.state.daysAvailable.monday,
                     tuesday: this.state.daysAvailable.tuesday,
                     wednesday: this.state.daysAvailable.wednesday,
                     thursday: this.state.daysAvailable.thursday,
-                    monday: this.state.daysAvailable.monday
+                    friday: this.state.daysAvailable.friday === "0" ? "1" : "0"
                   }
                 });
               }}
@@ -289,7 +274,7 @@ class RestaurantRegistration extends React.Component {
               as="select"
               onChange={e => {
                 this.setState({
-                  uberEats: this.state.uberEats === 1 ? 0 : 1
+                  uberEatsStatus: this.state.uberEatsStatus === 1 ? 0 : 1
                 });
               }}
             >
@@ -307,7 +292,7 @@ class RestaurantRegistration extends React.Component {
               as="select"
               onChange={e => {
                 this.setState({
-                  inHouseCapacity: this.state.deliveryCapability === 1 ? 0 : 1
+                  deliveryCapability: this.state.deliveryCapability === 1 ? 0 : 1
                 });
               }}
             >
@@ -325,7 +310,7 @@ class RestaurantRegistration extends React.Component {
               placeholder="Number"
               onChange={e => {
                 this.setState({
-                  numMeals: parseInt(e.target.value)
+                  numMeals: e.target.value.toString()
                 });
               }}
             />
@@ -342,7 +327,7 @@ class RestaurantRegistration extends React.Component {
               placeholder="Packaging methods"
               onChange={e => {
                 this.setState({
-                  packagingMethod: e.target.value.toString()
+                  packaging: e.target.value.toString()
                 });
               }}
             />
@@ -375,7 +360,7 @@ class RestaurantRegistration extends React.Component {
               rows="4"
               onChange={e => {
                 this.setState({
-                  fck: e.target.value.toString()
+                  discoveryInfo: e.target.value.toString()
                 });
               }}
             />
@@ -388,7 +373,7 @@ class RestaurantRegistration extends React.Component {
               rows="4"
               onChange={e => {
                 this.setState({
-                  else: e.target.value.toString()
+                  extraInfo: e.target.value.toString()
                 });
               }}
             />
@@ -404,7 +389,6 @@ class RestaurantRegistration extends React.Component {
 
           <Button
             variant="primary"
-            type="submit"
             onClick={e => {
               registerRestaurant(this.state);
             }}
