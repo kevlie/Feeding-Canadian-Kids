@@ -20,5 +20,6 @@ loginRouter.post('/', function (req, res) {
         })
     } else {
         res.send('Please enter email and password!');
+        res.end();
     }
-}
+});

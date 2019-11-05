@@ -17,6 +17,7 @@ restaurantApplicationRouter.post('/', function (req, res) {
     let deliveryCapability = req.body.deliveryCapability;
     let uberEatsStatus = req.body.uberEatsStatus
     let packaging = req.body.packaging;
+    let passwordHash = req.body.passwordHash;
     // let location = req.body.location; Todo: what's this
 
     // application specific info
@@ -27,8 +28,8 @@ restaurantApplicationRouter.post('/', function (req, res) {
     let email = req.body.email;
     let applicantName = req.body.name;
 
-    let queryGeneral = "INSERT INTO `restaurant_partners` (name, address, contact_person, contact_email, phone, delivery_capability, uber_eats_status, num_meals, packaging, monday, tuesday, wednesday, thursday, friday) VALUES ('" +
-        restaurantName + "', '" + restaurantAddress + "', '" + contactPerson + "', '" + contactEmail + "', '" + contactPhone + "', '" + deliveryCapability + "', '" + uberEatsStatus + "', '" + numMeals + "', '" + packaging + "', '" + monday + "', '" + tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "')";
+    let queryGeneral = "INSERT INTO `restaurant_partners` (name, address, contact_person, contact_email, password_hash, phone, delivery_capability, uber_eats_status, num_meals, packaging, monday, tuesday, wednesday, thursday, friday) VALUES ('" +
+        restaurantName + "', '" + restaurantAddress + "', '" + contactPerson + "', '" + contactEmail + "', '" + "', '" + passwordHash + "', " + contactPhone + "', '" + deliveryCapability + "', '" + uberEatsStatus + "', '" + numMeals + "', '" + packaging + "', '" + monday + "', '" + tuesday + "', '" + wednesday + "', '" + thursday + "', '" + friday + "')";
 
 
 
