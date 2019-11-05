@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 // routers
 var indexRouter = require('./routes/index');
@@ -18,6 +19,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// middleware
 app.use(cors()); // use cors to allow cross-origin resource sharing since React is making calls to Express
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,6 +27,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
 
 // routes
 app.use('/', indexRouter);
