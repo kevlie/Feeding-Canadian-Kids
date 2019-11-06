@@ -20,8 +20,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// cors settings
+const corsOptions = {
+  origin: 'http://localhost:3000',    // address of React server
+  methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS", // type of actions allowed
+  credentials: true,                // required to pass
+  allowedHeaders: "Content-Type, Authorization, X-Requested-With",
+}
+// intercept pre-flight check for all routes. Pre-flight checks happen when dealing with special http headers.
+app.options('*', cors(corsOptions));
+
 // middleware
-app.use(cors()); // use cors to allow cross-origin resource sharing since React is making calls to Express
+app.use(cors(corsOptions)); // use cors to allow cross-origin resource sharing since React is making calls to Express
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,11 +39,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({
-  secret: 'fck-secret',
+app.use(session({ // session for login
+  secret: 'fck-secret', // for signing the cookie
   resave: true,
   saveUninitialized: true,
-  cookie: { maxAge: 6000 }
+  cookie: {
+    maxAge: 200000, // when the cookie/session expires
+    httpOnly: false,
+    secure: false
+  }
 }));
 
 // routes

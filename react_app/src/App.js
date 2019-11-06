@@ -15,20 +15,6 @@ function HomePage() {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
-  }
-
-  // This is a sample that calls testAPI from the Express backend.
-  callAPI() {
-    fetch("http://localhost:9000/testAPI")
-      .then(res => res.text())
-      .then(res => this.setState({ apiResponse: res })) // store the result in this.state.apiResponse
-      .catch(err => err);
-  }
-
-  componentDidMount() {
-    // calls callAPI() once mounted
-    this.callAPI();
   }
 
   render() {
@@ -61,7 +47,6 @@ class App extends Component {
                 path= "/admin/new"
                 component={NewSignups}/>
             </Switch>
-            <p>{this.state.apiResponse}</p>
       </div>
     );
   }
