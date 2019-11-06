@@ -4,7 +4,7 @@ var express = require('express');
 var loginRouter = express.Router();
 const sql = require('../db.js');
 
-loginRouter.post('/', function (req, res) {
+loginRouter.post('/login', function (req, res) {
     let email = req.body.contactEmail;
     let passwordHash = req.body.passwordHash;
 
@@ -16,7 +16,7 @@ loginRouter.post('/', function (req, res) {
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.email = email;
-                res.send("Credentials valid. ")
+                res.send("Credentials valid. Log in successful.");
             } else {
                 res.send('Incorrect email and/or password!');
             }
@@ -25,6 +25,14 @@ loginRouter.post('/', function (req, res) {
     } else {
         res.send('Please enter email and password!');
         res.end();
+    }
+});
+
+loginRouter.get('/validate-login', function (req, res) {
+    if (req.session.loggedin) {
+        res.send(true);
+    } else {
+        res.send(false);
     }
 });
 
