@@ -16,7 +16,7 @@ loginRouter.post('/login', function (req, res) {
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.email = email;
-                res.send("Credentials valid. ")
+                res.send("Credentials valid. Log in successful.");
             } else {
                 res.send('Incorrect email and/or password!');
             }
@@ -29,8 +29,11 @@ loginRouter.post('/login', function (req, res) {
 });
 
 loginRouter.get('/validate-login', function (req, res) {
-    let loggedin = req.session.loggedin;
-    res.send(loggedin);
+    if (req.session.loggedin) {
+        res.send(true);
+    } else {
+        res.send(false);
+    }
 });
 
 module.exports = loginRouter;
