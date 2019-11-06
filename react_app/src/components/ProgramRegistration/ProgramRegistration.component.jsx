@@ -6,30 +6,40 @@ const ProgramRegistration = () => (
   <Container>
     <Form>
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridEmail">
+        <Form.Group as={Col} controlId="formGridApplicantEmail">
           <Form.Label>Your email</Form.Label>
           <Form.Control type="email" placeholder="A valid email address" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Your password</Form.Label>
-          <Form.Control type="password" placeholder="password" />
+          <Form.Control type="password" placeholder="new password" />
         </Form.Group>
       </Form.Row>
 
-      <Form.Group controlId="formGridName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control placeholder="Name" />
+      <Form.Group controlId="formGridApplicantName">
+        <Form.Label>Your Name</Form.Label>
+        <Form.Control placeholder="Your Name" />
       </Form.Group>
 
-      <Form.Group controlId="formGridPhoneNumber">
-        <Form.Label>Phone number</Form.Label>
+      <Form.Group controlId="formGridApplicantPhoneNumber">
+        <Form.Label>Your Phone Number</Form.Label>
         <Form.Control placeholder="Phone number" />
       </Form.Group>
 
       <Form.Group controlId="formGridProgramName">
         <Form.Label>Program Name</Form.Label>
         <Form.Control placeholder="Program Name" />
+      </Form.Group>
+
+      <Form.Group controlId="formGridProgramPhoneNumber">
+        <Form.Label>Program Phone Number</Form.Label>
+        <Form.Control placeholder="Phone number" />
+      </Form.Group>
+
+      <Form.Group controlId="formGridProgramEmail">
+        <Form.Label>Program Email</Form.Label>
+        <Form.Control type="email" placeholder="A valid email address" />
       </Form.Group>
 
       <Form.Group controlId="formGridAddress">
