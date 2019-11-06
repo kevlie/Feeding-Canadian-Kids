@@ -51,6 +51,10 @@
 .nav-color{
     background-color:rgb(34,34,34);
 }
+.order-div{
+    max-width: 97%;
+    height: 100%;
+}
 /******************************************/
 #WelcomeMessage h1, h2{
     text-align: center;
