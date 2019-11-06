@@ -27,18 +27,13 @@ const ProgramRegistration = () => (
         <Form.Control placeholder="Phone number" />
       </Form.Group>
 
-      <Form.Group controlId="formGridPosition">
-        <Form.Label>Position</Form.Label>
-        <Form.Control placeholder="Position" />
-      </Form.Group>
-
       <Form.Group controlId="formGridProgramName">
         <Form.Label>Program Name</Form.Label>
         <Form.Control placeholder="Program Name" />
       </Form.Group>
 
       <Form.Group controlId="formGridAddress">
-        <Form.Label>Address or program</Form.Label>
+        <Form.Label>Address of program</Form.Label>
         <Form.Control placeholder="Address" />
       </Form.Group>
 
@@ -84,35 +79,35 @@ const ProgramRegistration = () => (
 
       <Form.Group controlId="mealDays">
         <Form.Label>Which days of the week do you need dinner deliveries?</Form.Label>
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="monday"
-        label="Monday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="monday"
+          label="Monday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="tuesday"
-        label="Tuesday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="tuesday"
+          label="Tuesday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="wednesday"
-        label="Wednesday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="wednesday"
+          label="Wednesday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="thursday"
-        label="Thursday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="thursday"
+          label="Thursday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="friday"
-        label="Friday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="friday"
+          label="Friday"
         />
       </Form.Group>
 
@@ -136,11 +131,11 @@ const ProgramRegistration = () => (
         <Form.Control as="textarea" rows="4" />
       </Form.Group>
 
-      <div style={{marginBottom:"20px"}}>
-        <em>Thank-you very much for registering with Feeding Canadian Kids! 
+      <div style={{ marginBottom: "20px" }}>
+        <em>Thank-you very much for registering with Feeding Canadian Kids!
           Our team will review your information and get back to you within 48 hours (Monday-Friday).
         </em>
-      </div> 
+      </div>
 
       <Button variant="primary" type="submit">
         Submit
