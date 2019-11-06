@@ -33,7 +33,7 @@ app.use(session({
   secret: 'fck-secret',
   resave: true,
   saveUninitialized: true,
-  cookie: { maxAge: 6000 }
+  cookie: { maxAge: 60000 }
 }));
 
 // routes
