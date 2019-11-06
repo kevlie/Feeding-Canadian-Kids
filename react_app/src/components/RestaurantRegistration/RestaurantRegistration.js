@@ -12,7 +12,8 @@ const registerRestaurant = data => {
     body: JSON.stringify(data)
   })
 };
-var hash = require("object-hash");
+
+const hash = require("object-hash");
 
 class RestaurantRegistration extends React.Component {
   constructor(props) {
