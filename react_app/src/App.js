@@ -6,6 +6,8 @@ import RestaurantUserPage from './components/RestaurantUserPage/RestaurantUserPa
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
+import Admin from "./components/Admin/Admin.js";
+import NewSignups from "./components/Admin/NewSignups.js";
 
 function HomePage() {
   return <h1></h1>;
