@@ -4,7 +4,7 @@ var express = require('express');
 var loginRouter = express.Router();
 const sql = require('../db.js');
 
-loginRouter.post('/', function (req, res) {
+loginRouter.post('/login', function (req, res) {
     let email = req.body.contactEmail;
     let passwordHash = req.body.passwordHash;
 
@@ -26,6 +26,11 @@ loginRouter.post('/', function (req, res) {
         res.send('Please enter email and password!');
         res.end();
     }
+});
+
+loginRouter.get('/validate-login', function (req, res) {
+    let loggedin = req.session.loggedin;
+    res.send(loggedin);
 });
 
 module.exports = loginRouter;
