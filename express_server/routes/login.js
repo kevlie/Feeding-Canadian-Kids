@@ -32,7 +32,7 @@ loginRouter.get('/validate-login', function (req, res) {
     if (req.session.loggedin) {
         res.send(req.session.loggedin);
     } else {
-        res.send(false);
+        res.status(401).send(false);
     }
 });
 
