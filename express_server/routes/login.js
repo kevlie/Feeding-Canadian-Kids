@@ -9,31 +9,52 @@ loginRouter.post('/login', function (req, res) {
     let passwordHash = req.body.passwordHash;
 
     if (email && passwordHash) {
-        sql.query('SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
+        sql.query('SELECT * FROM admin WHERE email = ? AND password_hash = ?', [email, passwordHash], function (err, results) {
             if (err) {
                 return res.status(500).send(err);
             }
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.email = email;
-                res.send("Credentials valid. Log in successful.");
+                req.session.isAdmin = true;
+                res.status(200).send("Logged in as admin.")
             } else {
-                res.send('Incorrect email and/or password!');
+                sql.query('SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
+                    if (err) {
+                        return res.status(500).send(err);
+                    }
+                    if (results.length > 0) {
+                        req.session.loggedin = true;
+                        req.session.email = email;
+                        req.session.isAdmin = false;
+                        res.status(200).send("Credentials valid. Log in successful.");
+                    } else {
+                        res.status(401).send('Incorrect email and/or password!');
+                    }
+                    res.end();
+                })
             }
-            res.end();
         })
     } else {
-        res.send('Please enter email and password!');
+        res.status(401).send('Please enter email and password!');
         res.end();
     }
 });
 
 loginRouter.get('/validate-login', function (req, res) {
     if (req.session.loggedin) {
-        res.send(req.session.loggedin);
+        res.status(200).send(req.session.loggedin);
     } else {
         res.status(401).send(false);
     }
 });
+
+loginRouter.get('/validate-admin', function (req, res) {
+    if (req.session.loggedin) {
+        res.status(200).send(req.session.isAdmin);
+    } else {
+        res.status(401).send(false);
+    }
+})
 
 module.exports = loginRouter;
