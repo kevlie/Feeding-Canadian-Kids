@@ -17,7 +17,7 @@ loginRouter.post('/login', function (req, res) {
                 req.session.loggedin = true;
                 req.session.email = email;
                 req.session.isAdmin = true;
-                res.send("Logged in as admin.")
+                res.status(200).send("Logged in as admin.")
             } else {
                 sql.query('SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
                     if (err) {
@@ -27,17 +27,16 @@ loginRouter.post('/login', function (req, res) {
                         req.session.loggedin = true;
                         req.session.email = email;
                         req.session.isAdmin = false;
-                        res.send("Credentials valid. Log in successful.");
+                        res.status(200).send("Credentials valid. Log in successful.");
                     } else {
-                        res.send('Incorrect email and/or password!');
+                        res.status(401).send('Incorrect email and/or password!');
                     }
                     res.end();
                 })
             }
         })
-
     } else {
-        res.send('Please enter email and password!');
+        res.status(401).send('Please enter email and password!');
         res.end();
     }
 });

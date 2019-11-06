@@ -29,9 +29,8 @@ function Login(props) {
       credentials: "include",
       body: JSON.stringify(data)
     })
-      .then(res => res.text())
       .then(res => {
-        if (res === "Credentials valid. Log in successful.") {
+        if (res.status === 200) {
           props.dispatch(sign_in());
           props.history.push("/");
         } else {
