@@ -43,7 +43,7 @@ loginRouter.post('/login', function (req, res) {
 
 loginRouter.get('/validate-login', function (req, res) {
     if (req.session.loggedin) {
-        res.send(req.session.loggedin);
+        res.status(200).send(req.session.loggedin);
     } else {
         res.status(401).send(false);
     }
@@ -51,7 +51,7 @@ loginRouter.get('/validate-login', function (req, res) {
 
 loginRouter.get('/validate-admin', function (req, res) {
     if (req.session.loggedin) {
-        res.send(req.session.isAdmin);
+        res.status(200).send(req.session.isAdmin);
     } else {
         res.status(401).send(false);
     }
