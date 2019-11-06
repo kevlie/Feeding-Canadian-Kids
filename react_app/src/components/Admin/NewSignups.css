@@ -24,10 +24,14 @@ tr, th, td {
 	margin-top: 100px;
 }
 
-th {
+#tableHeader {
 	background-color: turquoise;
 }
 
-tr:nth-of-type(odd) {
+#odd {
+	background-color: white;
+}
+
+#even {
 	background-color: lightblue;
 }

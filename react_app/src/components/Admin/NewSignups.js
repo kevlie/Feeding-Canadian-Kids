@@ -17,26 +17,26 @@ class NewSignups extends React.Component {
 
 				<table id="programTable">
 					<tr>
-						<th>
+						<th id="tableHeader">
 							Program Name
 						</th>
-						<th>
+						<th id="tableHeader">
 							Program Address
 						</th>
 					</tr>
-					<tr>
+					<tr id="odd">
 						<td><a href="#">Program 1</a></td>
 						<td>Example Address 1</td>
 					</tr>
-					<tr>
+					<tr id="even">
 						<td><a href="#">Program 2</a></td>
 						<td>Example Address 2</td>
 					</tr>
-					<tr>
+					<tr id="odd">
 						<td><a href="#">Program 3</a></td>
 						<td>Example Address 3</td>
 					</tr>
-					<tr>
+					<tr id="even">
 						<td><a href="#">Program 4</a></td>
 						<td>Example Address 4</td>
 					</tr>
@@ -44,26 +44,26 @@ class NewSignups extends React.Component {
 
 				<table id="restaurantTable">
 					<tr>
-						<th>
+						<th id="tableHeader">
 							Restaurant Name
 						</th>
-						<th>
+						<th id="tableHeader">
 							Restaurant Address
 						</th>
 					</tr>
-					<tr>
+					<tr id="odd">
 						<td><a href="#">Restaurant 1</a></td>
 						<td>Example Address 1</td>
 					</tr>
-					<tr>
+					<tr id="even">
 						<td><a href="#">Restaurant 2</a></td>
 						<td>Example Address 2</td>
 					</tr>
-					<tr>
+					<tr id="odd">
 						<td><a href="#">Restaurant 3</a></td>
 						<td>Example Address 3</td>
 					</tr>
-					<tr>
+					<tr id="even">
 						<td><a href="#">Restaurant 4</a></td>
 						<td>Example Address 4</td>
 					</tr>
