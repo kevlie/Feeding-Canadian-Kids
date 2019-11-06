@@ -38,6 +38,14 @@ class App extends Component {
             exact
             path="/restaurantuserpage"
             component={RestaurantUserPage} />
+          <Route
+            exact
+            path="/admin"
+            component={Admin} />
+          <Route
+            exact
+            path="/admin/new"
+            component={NewSignups} />
         </Switch>
       </div>
     );
