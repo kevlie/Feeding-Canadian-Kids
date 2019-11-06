@@ -16,7 +16,7 @@ class Admin extends React.Component {
 				  </div>
 				</div>
 
-				<div class="tab">
+				<div class="first tab">
 					<div id="number" class="programText">10</div>
 					<div id="program" class="programText">Active Programs</div>
 				</div>
@@ -27,8 +27,13 @@ class Admin extends React.Component {
 				</div>
 
 				<div class="tab">
-					<div id="number" class="programText">3</div>
-					<div id="program" class="programText">New Sign-Ups</div>
+					<div id="number" class="programText">4</div>
+					<div id="program" class="programText">New Programs</div>
+				</div>
+
+				<div class="tab">
+					<div id="number" class="programText">4</div>
+					<div id="program" class="programText">New Restaurants</div>
 				</div>
 			</div>
 		)

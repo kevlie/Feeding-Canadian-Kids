@@ -12,10 +12,18 @@
 	background-color: #b0f5c3;
 	width: 150px;
 	height: 150px;
-	margin-left: 225px;
+	margin-left: 100px;
 	margin-top: 70px;
 	padding: 0px;
 	display: inline-block;
+}
+
+.first {
+	margin-left: 225px;
+}
+
+.tab:nth-of-type(1) {
+	margin-left: 225px;
 }
 
 #program {

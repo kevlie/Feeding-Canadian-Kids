@@ -25,12 +25,20 @@ class NewSignups extends React.Component {
 						</th>
 					</tr>
 					<tr>
-						<td>Program 1</td>
-						<td>27 King's College Circle</td>
+						<td><a href="#">Program 1</a></td>
+						<td>Example Address 1</td>
 					</tr>
 					<tr>
-						<td>Program 1</td>
-						<td>27 King's College Circle</td>
+						<td><a href="#">Program 2</a></td>
+						<td>Example Address 2</td>
+					</tr>
+					<tr>
+						<td><a href="#">Program 3</a></td>
+						<td>Example Address 3</td>
+					</tr>
+					<tr>
+						<td><a href="#">Program 4</a></td>
+						<td>Example Address 4</td>
 					</tr>
 				</table>
 
@@ -44,12 +52,20 @@ class NewSignups extends React.Component {
 						</th>
 					</tr>
 					<tr>
-						<td>Restaurant 1</td>
-						<td>27 King's College Circle</td>
+						<td><a href="#">Restaurant 1</a></td>
+						<td>Example Address 1</td>
 					</tr>
 					<tr>
-						<td>Restaurant 1</td>
-						<td>27 King's College Circle</td>
+						<td><a href="#">Restaurant 2</a></td>
+						<td>Example Address 2</td>
+					</tr>
+					<tr>
+						<td><a href="#">Restaurant 3</a></td>
+						<td>Example Address 3</td>
+					</tr>
+					<tr>
+						<td><a href="#">Restaurant 4</a></td>
+						<td>Example Address 4</td>
 					</tr>
 				</table>
 			</div>

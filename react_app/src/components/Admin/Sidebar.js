@@ -35,8 +35,10 @@ class Sidebar extends React.Component {
       <div id={this.state.sidebar} class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>&times;</a>
         <a href="/admin">Admin Home</a>
-        <a href="/admin/games">Games</a>
-        <a href="/admin/courts">Courts</a>
+        <a href="/admin/new">New Sign-Ups</a>
+        <a href="/admin/programs">Programs Info</a>
+        <a href="/admin/restaurants">Restaurants Info</a>
+        <a href="/admin/pairings">Programs + Restaurants</a>
         <img id="logo" src={ logo }></img>
       </div>
 
