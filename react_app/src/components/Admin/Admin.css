@@ -1,0 +1,32 @@
+.jumbotron {
+	width: 70%;
+	margin-left: 200px;
+	height: 250px;
+}
+
+.programText {
+	font-family: "Comic Sans MS";
+}
+
+.tab {
+	background-color: #b0f5c3;
+	width: 150px;
+	height: 150px;
+	margin-left: 225px;
+	margin-top: 70px;
+	padding: 0px;
+	display: inline-block;
+}
+
+#program {
+	margin-top: 0px;
+	text-align: center;
+	color: blue;
+}
+
+#number {
+	margin-bottom: 0px;
+	color: blue;
+	font-size: 80px;
+	text-align: center;
+}
