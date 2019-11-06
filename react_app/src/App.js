@@ -10,7 +10,7 @@ import Admin from "./components/Admin/Admin.js";
 import NewSignups from "./components/Admin/NewSignups.js";
 
 function HomePage() {
-  return <h1>Feeding Canadian Kids</h1>;
+  return <h1></h1>;
 }
 class App extends Component {
   constructor(props) {
@@ -20,33 +20,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header/>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/login" component={Login} />
-              <Route
-                exact
-                path="/restaurantRegistration"
-                component={RestaurantRegistration}
-              />
-              <Route
-                exact
-                path="/programRegistration"
-                component={ProgramRegistration}
-              />
-              <Route 
-                exact
-                path= "/restaurantuserpage"
-                component={RestaurantUserPage}/>
-              <Route 
-                exact
-                path= "/admin"
-                component={Admin}/>
-              <Route 
-                exact
-                path= "/admin/new"
-                component={NewSignups}/>
-            </Switch>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/login" component={Login} />
+          <Route
+            exact
+            path="/restaurantRegistration"
+            component={RestaurantRegistration}
+          />
+          <Route
+            exact
+            path="/programRegistration"
+            component={ProgramRegistration}
+          />
+          <Route
+            exact
+            path="/restaurantuserpage"
+            component={RestaurantUserPage} />
+        </Switch>
       </div>
     );
   }
