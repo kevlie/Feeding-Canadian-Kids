@@ -26,6 +26,7 @@ function Login(props) {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
+      credentials: "include",
       body: JSON.stringify(data)
     })
       .then(res => res.text())
@@ -39,27 +40,28 @@ function Login(props) {
       }); // store the result in this.state.apiResponse
   };
 
-// just for testing 
-//   const verifyLoginApi = () => {
-//     fetch("http://localhost:9000/api/auth/validate-login", {
-//       method: "get",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json"
-//       },
-//     }).then((res) => {
-// 		console.log(res.text())
-// 	})
-//   };
+  // todo just for testing 
+  // const verifyLoginApi = () => {
+  //   fetch("http://localhost:9000/api/auth/validate-login", {
+  //     method: "get",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     credentials: "include",
+  //   }).then((res) => {
+  //     console.log(res.text())
+  //   })
+  // };
 
   function handleLogin(e) {
     e.preventDefault();
-	loginApiCall({ contactEmail: email, passwordHash: hash(password) });
-	// setTimeout(verifyLoginApi, 9000) delete this later
+    loginApiCall({ contactEmail: email, passwordHash: hash(password) });
+    // setTimeout(verifyLoginApi, 4000) // todo delete this later
   }
 
   function handleProgram(e) {
-	e.preventDefault();
+    e.preventDefault();
     props.history.push("/programRegistration");
   }
 
