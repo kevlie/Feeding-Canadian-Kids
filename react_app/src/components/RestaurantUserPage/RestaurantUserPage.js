@@ -4,6 +4,7 @@ import FeedingCKbanner from '../../img/FeedingCK-banner.png';
 
 
 // import FeedCKOneKid from '../../img/feedingCK-one-kid.jpg';
+import Orders from "./Orders.js";
 import WelcomeMessage from "./WelcomeMessage.js";
 import "./RestaurantUserPage.css";
 
@@ -42,14 +43,17 @@ class RestaurantUserPage extends React.Component{
                         </Nav>
                     </Col>
                         <Col sm={10} className="m-height">
-                            <Tab.Content>
-                                <Tab.Pane eventKey="first">
+                            <Tab.Content className="m-height">
+                                <Tab.Pane eventKey="first" className="m-height">
                                     <WelcomeMessage/> 
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="second">
-                                    Wagwan
+                                <Tab.Pane eventKey="second" className="m-height">
+                                    <div className = "order-div">
+                                        <Orders/>
+                                    </div>
+                                    
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="third">
+                                <Tab.Pane eventKey="third" className="m-height">
                                     Wagwan
                                 </Tab.Pane>
 
