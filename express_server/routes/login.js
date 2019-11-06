@@ -30,7 +30,7 @@ loginRouter.post('/login', function (req, res) {
 
 loginRouter.get('/validate-login', function (req, res) {
     if (req.session.loggedin) {
-        res.send(true);
+        res.send(req.session.loggedin);
     } else {
         res.send(false);
     }
