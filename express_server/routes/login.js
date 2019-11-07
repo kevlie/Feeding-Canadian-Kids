@@ -36,7 +36,7 @@ loginRouter.post('/login', function (req, res) {
             }
         })
     } else {
-        res.status(401).send('Please enter email and password!');
+        res.status(400).send('Please enter email and password!');
         res.end();
     }
 });

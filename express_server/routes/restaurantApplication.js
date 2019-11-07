@@ -62,8 +62,8 @@ restaurantApplicationRouter.post('/', function (req, res) {
                     if (err) {
                         return res.status(500).send(err);
                     }
-                    res.send("Successfully submitted new application to database.");
-                })
+                    res.status(200).send("Successfully submitted new application to database.");
+                });
             });
         }
     })
