@@ -64,6 +64,7 @@ programApplicationRouter.post('/', function (req, res) {
                 });
             });
         }
-    }
-
+    });
 });
+
+module.exports = programApplicationRouter;

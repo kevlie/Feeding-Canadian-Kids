@@ -66,7 +66,7 @@ restaurantApplicationRouter.post('/', function (req, res) {
                 });
             });
         }
-    })
+    });
 
 });
 
