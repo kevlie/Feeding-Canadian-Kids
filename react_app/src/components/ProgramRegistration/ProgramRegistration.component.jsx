@@ -6,30 +6,25 @@ const ProgramRegistration = () => (
   <Container>
     <Form>
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridEmail">
+        <Form.Group as={Col} controlId="formGridApplicantEmail">
           <Form.Label>Your email</Form.Label>
           <Form.Control type="email" placeholder="A valid email address" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Your password</Form.Label>
-          <Form.Control type="password" placeholder="password" />
+          <Form.Control type="password" placeholder="new password" />
         </Form.Group>
       </Form.Row>
 
-      <Form.Group controlId="formGridName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control placeholder="Name" />
+      <Form.Group controlId="formGridApplicantName">
+        <Form.Label>Your Name</Form.Label>
+        <Form.Control placeholder="Your Name" />
       </Form.Group>
 
-      <Form.Group controlId="formGridPhoneNumber">
-        <Form.Label>Phone number</Form.Label>
+      <Form.Group controlId="formGridApplicantPhoneNumber">
+        <Form.Label>Your Phone Number</Form.Label>
         <Form.Control placeholder="Phone number" />
-      </Form.Group>
-
-      <Form.Group controlId="formGridPosition">
-        <Form.Label>Position</Form.Label>
-        <Form.Control placeholder="Position" />
       </Form.Group>
 
       <Form.Group controlId="formGridProgramName">
@@ -37,8 +32,18 @@ const ProgramRegistration = () => (
         <Form.Control placeholder="Program Name" />
       </Form.Group>
 
+      <Form.Group controlId="formGridProgramPhoneNumber">
+        <Form.Label>Program Phone Number</Form.Label>
+        <Form.Control placeholder="Phone number" />
+      </Form.Group>
+
+      <Form.Group controlId="formGridProgramEmail">
+        <Form.Label>Program Email</Form.Label>
+        <Form.Control type="email" placeholder="A valid email address" />
+      </Form.Group>
+
       <Form.Group controlId="formGridAddress">
-        <Form.Label>Address or program</Form.Label>
+        <Form.Label>Address of program</Form.Label>
         <Form.Control placeholder="Address" />
       </Form.Group>
 
@@ -84,35 +89,35 @@ const ProgramRegistration = () => (
 
       <Form.Group controlId="mealDays">
         <Form.Label>Which days of the week do you need dinner deliveries?</Form.Label>
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="monday"
-        label="Monday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="monday"
+          label="Monday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="tuesday"
-        label="Tuesday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="tuesday"
+          label="Tuesday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="wednesday"
-        label="Wednesday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="wednesday"
+          label="Wednesday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="thursday"
-        label="Thursday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="thursday"
+          label="Thursday"
         />
-        <Form.Check 
-        custom
-        type='checkbox'
-        id="friday"
-        label="Friday"
+        <Form.Check
+          custom
+          type='checkbox'
+          id="friday"
+          label="Friday"
         />
       </Form.Group>
 
@@ -136,11 +141,11 @@ const ProgramRegistration = () => (
         <Form.Control as="textarea" rows="4" />
       </Form.Group>
 
-      <div style={{marginBottom:"20px"}}>
-        <em>Thank-you very much for registering with Feeding Canadian Kids! 
+      <div style={{ marginBottom: "20px" }}>
+        <em>Thank-you very much for registering with Feeding Canadian Kids!
           Our team will review your information and get back to you within 48 hours (Monday-Friday).
         </em>
-      </div> 
+      </div>
 
       <Button variant="primary" type="submit">
         Submit
