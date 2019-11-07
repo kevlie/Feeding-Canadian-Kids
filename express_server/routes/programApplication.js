@@ -26,7 +26,7 @@ programApplicationRouter.post('/', function (req, res) {
     let dinnerNeeds = req.body.dinnerNeeds;
     let inKindSupport = req.body.inKindSupport;
     let preferredTime = req.body.preferredTime;
-    let discoveryInfo = req.body.discovery;
+    let discoveryInfo = req.body.discoveryInfo;
     let extraInfo = req.body.extraInfo;
 
     let queryGeneral = "INSERT INTO `program_partners` (name, address, area, delivery_instructions, phone, email, age_range, num_kids, dietary_restrictions, monday, tuesday, wednesday, thursday, friday, password_hash) VALUES ('" +
@@ -54,7 +54,7 @@ programApplicationRouter.post('/', function (req, res) {
                     ('00' + date.getUTCSeconds()).slice(-2);
 
                 let queryApplicationSpecific = "INSERT INTO `program_review` (program_id, in_kind_support, discovery_info, extra_info, dinner_needs, applicant_name, applicant_phone, applicant_email, preferred_time, date_submitted) VALUES ('" +
-                    programId + "', '" + inKindSupport + "', '" + discoveryInfo + "', '" + extraInfo + "', '" + dinnerNeeds + "', '" + applicantName + "', '" + applicantPhone + "', '" + applicantEmail + "', " + preferredTime + "', " + date + "')";
+                    programId + "', '" + inKindSupport + "', '" + discoveryInfo + "', '" + extraInfo + "', '" + dinnerNeeds + "', '" + applicantName + "', '" + applicantPhone + "', '" + applicantEmail + "', '" + preferredTime + "', '" + date + "')";
 
                 sql.query(queryApplicationSpecific, (err, result) => {
                     if (err) {
