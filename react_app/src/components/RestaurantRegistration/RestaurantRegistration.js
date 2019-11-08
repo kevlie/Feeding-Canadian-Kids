@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { Form, Col, Container } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 const registerRestaurant = data => {
   fetch("http://localhost:9000/api/restaurantApplication", {
@@ -398,8 +399,10 @@ class RestaurantRegistration extends React.Component {
 
           <Button
             variant="primary"
+            type="submit"
             onClick={e => {
               registerRestaurant(this.state);
+              this.props.history.push("/RegistrationComplete");
             }}
           >
             Submit
@@ -410,4 +413,4 @@ class RestaurantRegistration extends React.Component {
   }
 }
 
-export default RestaurantRegistration;
+export default withRouter(RestaurantRegistration);
