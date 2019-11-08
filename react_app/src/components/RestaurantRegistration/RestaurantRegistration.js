@@ -6,11 +6,11 @@ const registerRestaurant = data => {
   fetch("http://localhost:9000/api/restaurantApplication", {
     method: "post",
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      Accept: "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  })
+  });
 };
 
 const hash = require("object-hash");
@@ -44,10 +44,17 @@ class RestaurantRegistration extends React.Component {
       extraInfo: ""
     };
   }
-  
+
   render() {
     return (
       <Container>
+        <div style={{ marginBottom: "20px" }}>
+          <em>
+            Please fill out this registration form with as much detail as
+            possible and we will work to get back to you within 48 business
+            hours.
+          </em>
+        </div>
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
@@ -293,7 +300,8 @@ class RestaurantRegistration extends React.Component {
               as="select"
               onChange={e => {
                 this.setState({
-                  deliveryCapability: this.state.deliveryCapability === 1 ? 0 : 1
+                  deliveryCapability:
+                    this.state.deliveryCapability === 1 ? 0 : 1
                 });
               }}
             >

@@ -4,6 +4,12 @@ import { Form, Col, Container } from "react-bootstrap";
 
 const ProgramRegistration = () => (
   <Container>
+    <div style={{ marginBottom: "20px" }}>
+      <em>
+        Please fill out this registration form with as much detail as possible
+        and we will work to get back to you within 48 business hours.
+      </em>
+    </div>
     <Form>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridApplicantEmail">
@@ -52,12 +58,12 @@ const ProgramRegistration = () => (
         <Form.Control placeholder="Area" />
       </Form.Group>
 
-
       <Form.Group controlId="DeliveryInstruction">
-        <Form.Label>Instructions for delivery(how to deliver to your program)</Form.Label>
+        <Form.Label>
+          Instructions for delivery(how to deliver to your program)
+        </Form.Label>
         <Form.Control as="textarea" rows="4" />
       </Form.Group>
-
 
       {/* <Form.Group controlId="formGridZipCode">
         <Form.Label>Zip/Postal Code</Form.Label>
@@ -68,66 +74,58 @@ const ProgramRegistration = () => (
         <Form.Control type="email" placeholder="City" />
       </Form.Group> */}
       <Form.Group controlId="needForDinners">
-        <Form.Label>Tell us about the need for dinners at your program</Form.Label>
+        <Form.Label>
+          Tell us about the need for dinners at your program
+        </Form.Label>
         <Form.Control as="textarea" rows="4" />
       </Form.Group>
 
       <Form.Group controlId="formGridAgeRange">
-        <Form.Label>What is the age range of the kids in your program? (i.e. ages 6-12)</Form.Label>
+        <Form.Label>
+          What is the age range of the kids in your program? (i.e. ages 6-12)
+        </Form.Label>
         <Form.Control placeholder="Age range" />
       </Form.Group>
 
       <Form.Group controlId="formGridKidNumber">
-        <Form.Label>How many children in your after-school program need meals? </Form.Label>
+        <Form.Label>
+          How many children in your after-school program need meals?{" "}
+        </Form.Label>
         <Form.Control placeholder="Number" />
       </Form.Group>
 
       <Form.Group controlId="inKindSupport">
-        <Form.Label>Do you currently receive in-kind support for your meal and/or snack program?</Form.Label>
+        <Form.Label>
+          Do you currently receive in-kind support for your meal and/or snack
+          program?
+        </Form.Label>
         <Form.Control as="textarea" rows="4" />
       </Form.Group>
 
       <Form.Group controlId="mealDays">
-        <Form.Label>Which days of the week do you need dinner deliveries?</Form.Label>
-        <Form.Check
-          custom
-          type='checkbox'
-          id="monday"
-          label="Monday"
-        />
-        <Form.Check
-          custom
-          type='checkbox'
-          id="tuesday"
-          label="Tuesday"
-        />
-        <Form.Check
-          custom
-          type='checkbox'
-          id="wednesday"
-          label="Wednesday"
-        />
-        <Form.Check
-          custom
-          type='checkbox'
-          id="thursday"
-          label="Thursday"
-        />
-        <Form.Check
-          custom
-          type='checkbox'
-          id="friday"
-          label="Friday"
-        />
+        <Form.Label>
+          Which days of the week do you need dinner deliveries?
+        </Form.Label>
+        <Form.Check custom type="checkbox" id="monday" label="Monday" />
+        <Form.Check custom type="checkbox" id="tuesday" label="Tuesday" />
+        <Form.Check custom type="checkbox" id="wednesday" label="Wednesday" />
+        <Form.Check custom type="checkbox" id="thursday" label="Thursday" />
+        <Form.Check custom type="checkbox" id="friday" label="Friday" />
       </Form.Group>
 
       <Form.Group controlId="formGridTime">
-        <Form.Label>Around what time would you like dinners to be delivered to your program? </Form.Label>
+        <Form.Label>
+          Around what time would you like dinners to be delivered to your
+          program?{" "}
+        </Form.Label>
         <Form.Control placeholder="Time" />
       </Form.Group>
 
       <Form.Group controlId="DietaryRestrictions">
-        <Form.Label>Please inform us of any specific dietary restrictions and/or allergies we should be aware of.</Form.Label>
+        <Form.Label>
+          Please inform us of any specific dietary restrictions and/or allergies
+          we should be aware of.
+        </Form.Label>
         <Form.Control as="textarea" rows="4" />
       </Form.Group>
 
@@ -142,8 +140,10 @@ const ProgramRegistration = () => (
       </Form.Group>
 
       <div style={{ marginBottom: "20px" }}>
-        <em>Thank-you very much for registering with Feeding Canadian Kids!
-          Our team will review your information and get back to you within 48 hours (Monday-Friday).
+        <em>
+          Thank-you very much for registering with Feeding Canadian Kids! Our
+          team will review your information and get back to you within 48 hours
+          (Monday-Friday).
         </em>
       </div>
 

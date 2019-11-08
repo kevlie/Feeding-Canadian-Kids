@@ -78,10 +78,11 @@ function Login(props) {
           right place!
         </h5>
         <br></br>
-        <h6>
+        <em>
           If you already have a Feeding Candian Kids profile, please log on with
           your credentials.
-        </h6>
+        </em>
+        <br></br>
         <em>
           For testing: program/program or restaurant/restaurant or admin/admin>
         </em>
