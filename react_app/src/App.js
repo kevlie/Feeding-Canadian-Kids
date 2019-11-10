@@ -40,7 +40,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/RegistrationComplete"
+            path="/registrationcomplete"
             component={RegistrationComplete}
           />
           <Route

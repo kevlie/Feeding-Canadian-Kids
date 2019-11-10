@@ -167,7 +167,7 @@ class ProgramRegistration extends React.Component {
             variant="primary"
             type="submit"
             onClick={e => {
-              this.props.history.push("/RegistrationComplete");
+              this.props.history.push("/registrationcomplete");
             }}
           >
             Submit
