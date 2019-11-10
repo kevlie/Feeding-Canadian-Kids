@@ -6,8 +6,11 @@ import RestaurantUserPage from "./components/RestaurantUserPage/RestaurantUserPa
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
+
 import Admin from "./components/Admin/Admin";
 import NewSignups from "./components/Admin/NewSignups";
+import NewSignupsProgramInfo from "./components/Admin/NewSignupsProgramInfo";
+import NewSignupsRestaurantInfo from "./components/Admin/NewSignupsRestaurantInfo";
 import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
 
 function HomePage() {
@@ -37,11 +40,21 @@ class App extends Component {
           />
           <Route
             exact
-            path="/RegistrationComplete"
+            path="/registrationcomplete"
             component={RegistrationComplete}
           />
           <Route
             exact
+            path="/admin/newSignups"
+            component={NewSignups} />
+          <Route
+            exact
+            path="/admin/newSignups/program/:id"
+            component={NewSignupsProgramInfo} />
+          <Route
+            exact
+            path="/admin/newSignups/restaurant/:id"
+            component={NewSignupsRestaurantInfo} />
             path="/restaurantuserpage"
             component={RestaurantUserPage}
           />
