@@ -1,7 +1,6 @@
 .jumbotron {
 	width: 70%;
 	margin-left: 200px;
-	margin-bottom: 200px;
 	height: 200px;
 }
 
@@ -14,14 +13,16 @@
 #restaurantTable {
 	margin-left: 200px;
 	display: inline;
-	margin-top: 500px;
+}
+
+#footer {
+	margin-bottom: 30px;
 }
 
 tr, th, td {
 	border: 1px solid black;
 	padding: 15px;
 	text-align: center;
-	margin-top: 100px;
 }
 
 #tableHeader {

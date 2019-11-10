@@ -6,8 +6,11 @@ import RestaurantUserPage from './components/RestaurantUserPage/RestaurantUserPa
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
+
 import Admin from "./components/Admin/Admin";
 import NewSignups from "./components/Admin/NewSignups";
+import NewSignupsProgramInfo from "./components/Admin/NewSignupsProgramInfo";
+import NewSignupsRestaurantInfo from "./components/Admin/NewSignupsRestaurantInfo";
 
 function HomePage() {
   return <h1></h1>;
@@ -44,8 +47,16 @@ class App extends Component {
             component={Admin} />
           <Route
             exact
-            path="/admin/new"
+            path="/admin/newSignups"
             component={NewSignups} />
+          <Route
+            exact
+            path="/admin/newSignups/program/:id"
+            component={NewSignupsProgramInfo} />
+          <Route
+            exact
+            path="/admin/newSignups/restaurant/:id"
+            component={NewSignupsRestaurantInfo} />
         </Switch>
       </div>
     );
