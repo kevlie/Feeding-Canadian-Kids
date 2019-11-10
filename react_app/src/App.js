@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration";
-import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration.component";
-import RestaurantUserPage from './components/RestaurantUserPage/RestaurantUserPage.js';
+import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration";
+import RestaurantUserPage from "./components/RestaurantUserPage/RestaurantUserPage.js";
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -11,6 +11,7 @@ import Admin from "./components/Admin/Admin";
 import NewSignups from "./components/Admin/NewSignups";
 import NewSignupsProgramInfo from "./components/Admin/NewSignupsProgramInfo";
 import NewSignupsRestaurantInfo from "./components/Admin/NewSignupsRestaurantInfo";
+import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
 
 function HomePage() {
   return <h1></h1>;
@@ -39,12 +40,9 @@ class App extends Component {
           />
           <Route
             exact
-            path="/restaurantuserpage"
-            component={RestaurantUserPage} />
-          <Route
-            exact
-            path="/admin"
-            component={Admin} />
+            path="/RegistrationComplete"
+            component={RegistrationComplete}
+          />
           <Route
             exact
             path="/admin/newSignups"
@@ -57,6 +55,11 @@ class App extends Component {
             exact
             path="/admin/newSignups/restaurant/:id"
             component={NewSignupsRestaurantInfo} />
+            path="/restaurantuserpage"
+            component={RestaurantUserPage}
+          />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin/new" component={NewSignups} />
         </Switch>
       </div>
     );
