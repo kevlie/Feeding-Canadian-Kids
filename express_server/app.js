@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
 var restaurantApplicationRouter = require('./routes/restaurantApplication');
 var loginRouter = require('./routes/login');
+var pendingPrograms = require('./routes/pendingPrograms');
 
 var app = express();
 
@@ -56,7 +57,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/testAPI', testAPIRouter);
 app.use('/api/restaurantApplication', restaurantApplicationRouter);
 app.use('/api/auth', loginRouter);
-
+app.use('/api/pendingPrograms', pendingPrograms);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
