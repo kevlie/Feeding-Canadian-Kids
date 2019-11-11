@@ -7,7 +7,7 @@ const sql = require('../db.js');
 pendingProgramsRouter.get('/' , function(req, res) {
   sql.query("SELECT * FROM program_review WHERE approval_status = FALSE", function(err, result, fields) {
     if (err) throw err;
-    res.send(result);
+    res.json({"pendingPrograms" : result});
   });
 });
 
