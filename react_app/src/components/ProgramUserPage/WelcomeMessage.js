@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Container, Row, Col } from "react-bootstrap";
 import FeedingCKKids from "../../img/FeedingCK-kids.png";
-import "./RestaurantUserPage.css";
+import "./ProgramUserPage.css";
 
 class WelcomeMessage extends React.Component {
   render() {

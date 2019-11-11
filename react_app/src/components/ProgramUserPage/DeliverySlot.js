@@ -8,24 +8,24 @@ class DeliverySlot extends React.Component {
       show: false,
       sampleInfo: [
         {
-          Restaurant: "AfterScoolBuddies",
-          Meals: "47",
-          Address: "123 Mclevin Avenue"
+          Restaurant: "Taylor's Landing",
+          Meals: "34",
+          Address: "150 Grenoble Drive, North York, ON M3C 1E3"
         },
         {
-          Restaurant: "York Youth Program",
-          Meals: "50",
-          Address: "6560 Sewells Road"
-        },
-        {
-          Restaurant: "Toronto Centre for Youth",
+          Restaurant: "Harper's Landing",
           Meals: "30",
-          Address: "100 Bay Street"
+          Address: "485 Kerr St, Oakville, ON L6K 3C5"
         },
         {
-          Restaurant: "Aboriginal Students Society",
-          Meals: "25",
-          Address: "16 Keele Street"
+          Restaurant: "Jackson's Landing",
+          Meals: "50",
+          Address: "4228 New St, Burlington, ON L7L 1T3"
+        },
+        {
+          Restaurant: "Hunter's Landing",
+          Meals: "18",
+          Address: "20 Portugal Square M6J 3P2"
         }
       ]
     };
@@ -57,7 +57,7 @@ class DeliverySlot extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <h3>
-              {"Program: "}
+              {"Restaurant: "}
               {info.Restaurant}
             </h3>
             <h3>

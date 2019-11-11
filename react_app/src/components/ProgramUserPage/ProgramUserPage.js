@@ -1,13 +1,11 @@
 import React from "react";
 import { Container, Row, Col, Image, Nav, Tab } from "react-bootstrap";
-import FeedingCKbanner from "../../img/FeedingCK-banner.png";
 
-// import FeedCKOneKid from '../../img/feedingCK-one-kid.jpg';
-import Orders from "./Orders.js";
+import Deliveries from "./Deliveries";
 import WelcomeMessage from "./WelcomeMessage.js";
-import "./RestaurantUserPage.css";
+import "./ProgramUserPage.css";
 
-class RestaurantUserPage extends React.Component {
+class ProgramUserPage extends React.Component {
   componentDidMount() {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
@@ -64,4 +62,4 @@ class RestaurantUserPage extends React.Component {
   }
 }
 
-export default RestaurantUserPage;
+export default ProgramUserPage;
