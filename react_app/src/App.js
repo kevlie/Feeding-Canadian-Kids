@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration";
 import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration";
 import RestaurantUserPage from "./components/RestaurantUserPage/RestaurantUserPage.js";
+import ProgramUserPage from "./components/ProgramUserPage/ProgramUserPage.js";
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -58,6 +59,7 @@ class App extends Component {
             path="/restaurantuserpage"
             component={RestaurantUserPage}
           />
+          <Route exact path="/programuserpage" component={ProgramUserPage} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/new" component={NewSignups} />
         </Switch>
