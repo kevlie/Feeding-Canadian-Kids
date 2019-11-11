@@ -1,0 +1,72 @@
+.trial {
+  width: 100%;
+  height: 86vh;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.hunnid {
+  height: 100%;
+}
+
+.fck-banner {
+  background-color: white;
+  border-bottom: 3px solid black;
+}
+
+.m-height {
+  height: 100%;
+}
+
+/************************************/
+.pill-text-color {
+  text-decoration-color: white;
+}
+.banner-image {
+  max-height: 70px;
+  max-width: 100%;
+}
+.banner-container {
+  border-bottom: 0px;
+}
+.pill-container {
+  height: calc(100vh - 120px);
+  padding-right: 0px;
+}
+.no-scroll {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.pill-tabs {
+  text-decoration-color: white;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.pill-tabs-color {
+  background-color: rgb(104, 212, 153);
+}
+.nav-color {
+  background-color: rgb(34, 34, 34);
+}
+.order-div {
+  max-width: 97%;
+  height: 100%;
+}
+/******************************************/
+#WelcomeMessage h1,
+h2 {
+  text-align: center;
+}
+#WelcomeMessage h1 {
+  font-size: 5em;
+}
+
+.WelcomeMessage-Image {
+  max-height: 150px;
+  max-width: 200 px;
+  position: absolute;
+  bottom: 0;
+  left: 250px;
+}

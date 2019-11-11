@@ -1,0 +1,16 @@
+thead tr th {
+  text-align: center;
+  width: 140px;
+}
+table {
+  top: 25%;
+  max-height: 100%;
+}
+
+m-height {
+  max-height: 80%;
+}
+
+tbody tr td {
+  height: 50vh;
+}
