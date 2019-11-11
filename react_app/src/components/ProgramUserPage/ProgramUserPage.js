@@ -3,6 +3,7 @@ import { Row, Col, Nav, Tab } from "react-bootstrap";
 
 import Deliveries from "./Deliveries";
 import WelcomeMessage from "./WelcomeMessage.js";
+import RestaurantsPartners from "./RestaurantsPartners.js";
 import "./ProgramUserPage.css";
 
 class ProgramUserPage extends React.Component {
@@ -50,7 +51,7 @@ class ProgramUserPage extends React.Component {
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third" className="m-height">
-                    Restaurants
+                    <RestaurantsPartners />
                   </Tab.Pane>
                 </Tab.Content>
               </Col>
