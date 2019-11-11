@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FeedingCKbanner from "../../img/FeedingCK-banner.png";
 import "./Header.css";

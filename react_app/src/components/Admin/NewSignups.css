@@ -1,0 +1,38 @@
+.jumbotron {
+	width: 70%;
+	margin-left: 200px;
+	height: 200px;
+}
+
+#programTable {
+	margin-left: 230px;
+	display: inline;
+	margin-top: 100px;
+}
+
+#restaurantTable {
+	margin-left: 200px;
+	display: inline;
+}
+
+#footer {
+	margin-bottom: 30px;
+}
+
+tr, th, td {
+	border: 1px solid black;
+	padding: 15px;
+	text-align: center;
+}
+
+#tableHeader {
+	background-color: turquoise;
+}
+
+#odd {
+	background-color: white;
+}
+
+#even {
+	background-color: lightblue;
+}

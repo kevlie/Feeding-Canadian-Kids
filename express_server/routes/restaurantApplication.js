@@ -15,7 +15,7 @@ restaurantApplicationRouter.post('/', function (req, res) {
     let { monday, tuesday, wednesday, thursday, friday } = req.body.daysAvailable;
     let numMeals = req.body.numMeals;
     let deliveryCapability = req.body.deliveryCapability;
-    let uberEatsStatus = req.body.uberEatsStatus
+    let uberEatsStatus = req.body.uberEatsStatus;
     let packaging = req.body.packaging;
     let passwordHash = req.body.passwordHash;
     // let location = req.body.location; Todo: what's this
@@ -62,11 +62,11 @@ restaurantApplicationRouter.post('/', function (req, res) {
                     if (err) {
                         return res.status(500).send(err);
                     }
-                    res.send("Successfully submitted new application to database.");
-                })
+                    res.status(200).send("Successfully submitted new application to database.");
+                });
             });
         }
-    })
+    });
 
 });
 

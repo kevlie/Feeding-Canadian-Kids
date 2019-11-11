@@ -7,7 +7,7 @@ const db_name = 'fck_test_db'; // name of database to connect to
 const connection = mysql.createConnection({
     host: db_ip,
     user: 'root',
-    password: '',
+    password: 'woffuk-qivzo8-jeCfuz',
     database: db_name
 });
 
