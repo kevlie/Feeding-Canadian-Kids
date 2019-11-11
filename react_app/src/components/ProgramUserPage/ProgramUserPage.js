@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Image, Nav, Tab } from "react-bootstrap";
+import { Row, Col, Nav, Tab } from "react-bootstrap";
 
 import Deliveries from "./Deliveries";
 import WelcomeMessage from "./WelcomeMessage.js";

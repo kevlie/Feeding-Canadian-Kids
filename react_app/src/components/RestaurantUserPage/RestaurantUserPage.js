@@ -1,8 +1,6 @@
 import React from "react";
-import { Container, Row, Col, Image, Nav, Tab } from "react-bootstrap";
-import FeedingCKbanner from "../../img/FeedingCK-banner.png";
+import { Row, Col, Nav, Tab } from "react-bootstrap";
 
-// import FeedCKOneKid from '../../img/feedingCK-one-kid.jpg';
 import Orders from "./Orders.js";
 import WelcomeMessage from "./WelcomeMessage.js";
 import "./RestaurantUserPage.css";
