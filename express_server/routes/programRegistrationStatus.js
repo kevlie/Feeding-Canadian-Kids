@@ -13,3 +13,5 @@ programRegistrationStatusRouter.get('/', function(req, res) {
     res.send(result[0])
   });
 })
+
+module.exports = programRegistrationStatusRouter
