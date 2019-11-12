@@ -2,7 +2,7 @@
 
 ## Iteration 2
  - Start date: October 25th, 2019
- - End date: November 12th, 2019
+ - End date: November 13th, 2019
 ## Process
 
 #### Roles & responsibilities
@@ -173,5 +173,5 @@ The following tasks(ordered from most to least important) will have to be comple
 
 ### Artifacts
  * We will sketch out wireframes in order to create a graphical representation of our website containing the essential elements and the content. Sketching out wireframes requires little amount of time and allow all members to have a higher level understanding of the website’s structure which helps to avoid overlooking something. 
- * We will produce a prototype for our product by the second meeting with our partner so that our partner can experience the content and interactions in the interface which will allow them to provide us with immediate feedback.
+ * We will produce a prototype of our product by the second meeting with our partner so that our partner can experience the content and interactions in the interface which will allow them to provide us with immediate feedback. This prototype includes a fully functioning login page, a dashboard for the admin with dummy data, a dashboard for restaurant partners, and a dashboard for restaurant partners.
  * With the help of https://dbdiagram.io/home, we will sketch out our database model and relationships between entities. By seeing an entity-relationship diagram, we can easily understand relationships among entities.
