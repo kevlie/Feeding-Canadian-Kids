@@ -3,7 +3,7 @@
 ## Iteration 2
  - Start date: October 25th, 2019
  - End date: November 12th, 2019
-## Process Details
+## Process
 
 #### Roles & responsibilities
 
@@ -51,7 +51,7 @@ Team members:
   - Strengths: JavaScript, Express, REST, working with new technologies
   - Weaknesses: poor prioritization, React
 + Kevin Lie:
-  - Responsibilities: Developer (frontend and backend), QA
+  - Responsibilities: Developer in frontend, QA
   - Strengths: Python, Bootstrap, SQL, Javascript
   - Weaknesses: Express, Amazon SES, Frontend, Node.js
 + Stephen Utama:
@@ -98,9 +98,6 @@ Our first meeting with partner was held in Gerstein on October 9th which lasted 
 Trello is a great platform for sharing the group to-do lists. All of the artifacts will be done on Trello including the to-do lists, task boards and schedules. During our discussion, we will figure out the tasks that need to be done, and put them on Trello, where we can keep track of them. Some tasks may be the prerequisites of further tasks, so we will prioritize the prerequisites. Moreover, tasks on main features will be prioritized over task on extension features. The distribution of tasks will be done based on the roles of our team members, as well as the strengths and weaknesses so that we can make full use of everybody’s strengths. After tasks get assigned, corresponding information will be marked on Trello so that the distribution can be seen more clearly.
 
 The following is the link to our Trello platform: [https://trello.com/b/l2fEKkwm/feeding-canadian-children](https://trello.com/b/l2fEKkwm/feeding-canadian-children)
-
-The following is the link to our database schema:
-[https://dbdiagram.io/home](https://dbdiagram.io/home)
 
 The following link is our meeting notes:
 [https://docs.google.com/document/d/13SMVHqXcIq44Oe_v943LQ-U6-pYSwQJ7270Us3UbHJE/edit](https://docs.google.com/document/d/13SMVHqXcIq44Oe_v943LQ-U6-pYSwQJ7270Us3UbHJE/edit)
@@ -173,3 +170,8 @@ The following tasks(ordered from most to least important) will have to be comple
     
 
 	-   AC: New program/restaurant partners should have access to a page that contain links to training materials after they have been verified by FCK staff.
+
+### Artifacts
+ * We will sketch out wireframes in order to create a graphical representation of our website containing the essential elements and the content. Sketching out wireframes requires little amount of time and allow all members to have a higher level understanding of the website’s structure which helps to avoid overlooking something. 
+ * We will produce a prototype for our product by the second meeting with our partner so that our partner can experience the content and interactions in the interface which will allow them to provide us with immediate feedback.
+ * With the help of https://dbdiagram.io/home, we will sketch out our database model and relationships between entities. By seeing an entity-relationship diagram, we can easily understand relationships among entities.
