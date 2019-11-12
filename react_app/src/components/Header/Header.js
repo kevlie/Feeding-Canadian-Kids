@@ -37,18 +37,18 @@ class Header extends Component {
                 Login / Register
               </Nav.Link>
             ) : (
-              <NavDropdown title="USERNAME" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                <NavDropdown.Item
-                  href="#action/3.3"
-                  onClick={e => {
-                    this.props.dispatch(sign_in());
-                  }}
-                >
-                  Log Out
+                <NavDropdown title="SIGNED IN" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                  <NavDropdown.Item
+                    href="#action/3.3"
+                    onClick={e => {
+                      this.props.dispatch(sign_in());
+                    }}
+                  >
+                    Log Out
                 </NavDropdown.Item>
-              </NavDropdown>
-            )}
+                </NavDropdown>
+              )}
           </Nav>
         </Navbar>
       </>
@@ -56,3 +56,20 @@ class Header extends Component {
   }
 }
 export default withRouter(connect(mapStateToProps)(Header));
+
+const checkLoginApiCall = () => {
+  fetch("http://localhost:9000/api/auth/validate-login", {
+    method: "get",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    credentials: "include",
+  }).then(res => {
+    if (res.status === 200) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+};
