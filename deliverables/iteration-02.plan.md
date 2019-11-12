@@ -6,13 +6,6 @@
 ## Process
 
 #### Roles & responsibilities
-
-Describe the different roles on the team and the responsibilities associated with each role. 
- * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.
-
-List each team member and:
- * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
- * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
  
 Roles: 
 + Product Manager
@@ -69,7 +62,7 @@ For communication within team, we will mainly use Facebook Messenger to discuss 
 For communication with our partner, we agreed to meet in person once every two weeks on Wednesdays. During each meeting, we will ask our project partner when she’s available next time to meet up and book a room in Gerstein in advance and meet there. In addition, we will send emails when there is something that we have to communicate with the partner to make sure that we are on the right track.
  
 Meetings:
-We will keep meeting minutes in a Google doc so that everybody can get to know what was discussed during the meeting and the corresponding decisions. For action items, we will use task tracking software such as Trello in order to ensure everyone knows what to do. Members can mark tasks with tags such as not started, in progress or done to show the progress, and also make checklists so that other people know what has been done for a task and which step the member is currently working on. Anyone experiencing difficulties can contact the rest of the group via messenger. Members must attend all regular meetings.
+We will keep meeting minutes in a Google doc so that everybody can get to know what was discussed during the meeting and the corresponding decisions. For action items, we will use task tracking software such as Trello in order to ensure everyone knows what to do. Members can mark tasks with tags such as not started, in progress or done to show the progress, and also make checklists so that other people know what has been done for a task and which step the member is currently working on. Anyone experiencing difficulties can contact the rest of the group via messenger. Members must attend all regular meetings. If a member misses a meeting, he/she must send a message to the group chat on messenger detailing the reason for their absence, promptly read up on the meeting notes, and explain what he/she will do to make up for the missed meeting.
  
 Conflict Resolution:
 + Indecisions:
