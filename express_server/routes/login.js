@@ -54,7 +54,8 @@ loginRouter.post('/login', function (req, res) {
 });
 
 loginRouter.get('/validate-login', function (req, res) {
-    if (req.session.loggedin) {
+    console.log(req.session)
+    if (req.session.loggedin === true) {
         res.status(200).send(req.session.email);
     } else {
         res.status(401).send(false);
@@ -62,7 +63,7 @@ loginRouter.get('/validate-login', function (req, res) {
 });
 
 loginRouter.get('/validate-admin', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin === true && req.session.isAdmin === true) {
         res.status(200).send(req.session.email);
     } else {
         res.status(401).send(false);
@@ -70,14 +71,15 @@ loginRouter.get('/validate-admin', function (req, res) {
 })
 
 loginRouter.get('/logout', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin === true) {
         req.session.loggedin = false;
         req.session.email = null;
         req.session.isAdmin = null;
 
-        res.status(200).send("Logged out.")
+        res.status(200).send("Logged out.");
     } else {
-        res.status(304)
+        res.status(304);
+        console.log("req.session.loggedin is undefined or not true")
     }
 })
 

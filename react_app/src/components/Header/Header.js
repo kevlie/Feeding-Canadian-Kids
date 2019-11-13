@@ -92,6 +92,7 @@ class Header extends Component {
                     onClick={e => {
                       this.logout();
                       this.props.history.push("/login");
+                      window.location.reload();
                     }}
                   >
                     Log Out

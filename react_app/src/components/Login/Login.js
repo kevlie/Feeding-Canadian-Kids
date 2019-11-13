@@ -4,6 +4,7 @@ import "./Login.css";
 import { sign_in } from "../../redux/actions";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom'
 
 
 const hash = require("object-hash");
@@ -33,13 +34,15 @@ class Login extends React.Component {
         this.setState({
           isLoggedIn: true
         });
+        // this.props.history.push("/programuserpage");
+        // return <Redirect to='/programuserpage' />
       }
     })
   }
 
-  componentDidMount() {
-    this.setLoginStatus();
-  }
+  // componentDidMount() {
+  //   this.setLoginStatus();
+  // }
 
   render() {
     const loginApiCall = data => {
@@ -61,7 +64,9 @@ class Login extends React.Component {
             this.setState({
               isLoggedIn: true
             });
-            this.props.history.push("/restaurantuserpage");
+            this.props.history.push("/programuserpage");
+            // return <Redirect to='/restaurantuserpage' />
+            window.location.reload();
           } else {
             this.setState({
               error: "Error"
@@ -162,21 +167,7 @@ class Login extends React.Component {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* BELOW IS THE ORIGINAL IMPLEMENTATION USING REDUX */
 
 // const mapStateToProps = state => {
 //   return {
