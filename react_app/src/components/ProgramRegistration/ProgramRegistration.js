@@ -3,18 +3,23 @@ import Button from "react-bootstrap/Button";
 import { Form, Col, Container } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 
-//wait for api to complete to uncomment
+const registerProgram = data => {
 
-// const registerProgram = data => {
-//   fetch("http://localhost:9000/api/programApplication", {
-//     method: "post",
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(data)
-//   });
-// };
+  fetch("http://localhost:9000/api/programApplication", {
+    method: "post",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  }).then(res => {
+    if (res.status === 200) {
+      return true
+    } else {
+      return false
+    }
+  });
+};
 
 const hash = require("object-hash");
 
@@ -22,28 +27,28 @@ class ProgramRegistration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      applicantEmail: "",
       passwordHash: "",
       applicantName: "",
       applicantPhone: "",
       programName: "",
-      programPhone: "",
-      programEmail: "",
-      programAddress: "",
-      programArea: "",
-      deliveryInstruction: "",
-      needForDinners: "",
+      phone: "",
+      email: "",
+      address: "",
+      area: "",
+      deliveryInstructions: "",
+      dinnerNeeds: "",
       ageRange: "",
       numKids: "",
-      inkindSupport: "",
-      daysNeedMeals: {
+      inKindSupport: "0",
+      daysRequired: {
         monday: "0",
         tuesday: "0",
         wednesday: "0",
         thursday: "0",
         friday: "0"
       },
-      deliveryTime: "",
+      preferredTime: "",
       dietaryRestrictions: "",
       discoveryInfo: "",
       extraInfo: ""
@@ -64,12 +69,12 @@ class ProgramRegistration extends React.Component {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridApplicantEmail">
               <Form.Label>Your email</Form.Label>
-              <Form.Control 
-                type="email" 
-                placeholder="A valid email address" 
+              <Form.Control
+                type="email"
+                placeholder="A valid email address"
                 onChange={e => {
                   this.setState({
-                    email: e.target.value.toString()
+                    applicantEmail: e.target.value.toString()
                   });
                 }}
               />
@@ -77,9 +82,9 @@ class ProgramRegistration extends React.Component {
 
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Your password</Form.Label>
-              <Form.Control 
-                type="password" 
-                placeholder="new password" 
+              <Form.Control
+                type="password"
+                placeholder="new password"
                 onChange={e => {
                   this.setState({
                     passwordHash: hash(e.target.value.toString())
@@ -91,8 +96,8 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridApplicantName">
             <Form.Label>Your Name</Form.Label>
-            <Form.Control 
-              placeholder="Your Name" 
+            <Form.Control
+              placeholder="Your Name"
               onChange={e => {
                 this.setState({
                   applicantName: e.target.value.toString()
@@ -103,8 +108,8 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridApplicantPhoneNumber">
             <Form.Label>Your Phone Number</Form.Label>
-            <Form.Control 
-              placeholder="Phone number" 
+            <Form.Control
+              placeholder="Phone number"
               onChange={e => {
                 this.setState({
                   applicantPhone: e.target.value.toString()
@@ -115,8 +120,8 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridProgramName">
             <Form.Label>Program Name</Form.Label>
-            <Form.Control 
-              placeholder="Program Name" 
+            <Form.Control
+              placeholder="Program Name"
               onChange={e => {
                 this.setState({
                   programName: e.target.value.toString()
@@ -127,11 +132,11 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridProgramPhoneNumber">
             <Form.Label>Program Phone Number</Form.Label>
-            <Form.Control 
-              placeholder="Phone number" 
+            <Form.Control
+              placeholder="Phone number"
               onChange={e => {
                 this.setState({
-                  programPhone: e.target.value.toString()
+                  phone: e.target.value.toString()
                 });
               }}
             />
@@ -139,12 +144,12 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridProgramEmail">
             <Form.Label>Program Email</Form.Label>
-            <Form.Control 
-              type="email" 
-              placeholder="A valid email address" 
+            <Form.Control
+              type="email"
+              placeholder="A valid email address"
               onChange={e => {
                 this.setState({
-                  programEmail: e.target.value.toString()
+                  email: e.target.value.toString()
                 });
               }}
             />
@@ -152,11 +157,11 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridAddress">
             <Form.Label>Address of program</Form.Label>
-            <Form.Control 
-              placeholder="Address" 
+            <Form.Control
+              placeholder="Address"
               onChange={e => {
                 this.setState({
-                  programAddress: e.target.value.toString()
+                  address: e.target.value.toString()
                 });
               }}
             />
@@ -164,26 +169,26 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="formGridArea">
             <Form.Label>Toronto Neighbourhood area of program</Form.Label>
-            <Form.Control 
-              placeholder="Area" 
+            <Form.Control
+              placeholder="Area"
               onChange={e => {
                 this.setState({
-                  programArea: e.target.value.toString()
+                  area: e.target.value.toString()
                 });
               }}
             />
           </Form.Group>
 
-          <Form.Group controlId="DeliveryInstruction">
+          <Form.Group controlId="DeliveryInstructions">
             <Form.Label>
               Instructions for delivery(how to deliver to your program)
             </Form.Label>
-            <Form.Control 
-              as="textarea" 
-              rows="4" 
+            <Form.Control
+              as="textarea"
+              rows="4"
               onChange={e => {
                 this.setState({
-                  deliveryInstruction: e.target.value.toString()
+                  deliveryInstructions: e.target.value.toString()
                 });
               }}
             />
@@ -201,9 +206,9 @@ class ProgramRegistration extends React.Component {
             <Form.Label>
               Tell us about the need for dinners at your program
             </Form.Label>
-            <Form.Control 
-              as="textarea" 
-              rows="4" 
+            <Form.Control
+              as="textarea"
+              rows="4"
               onChange={e => {
                 this.setState({
                   needForDinners: e.target.value.toString()
@@ -217,8 +222,8 @@ class ProgramRegistration extends React.Component {
               What is the age range of the kids in your program? (i.e. ages
               6-12)
             </Form.Label>
-            <Form.Control 
-              placeholder="Age range" 
+            <Form.Control
+              placeholder="Age range"
               onChange={e => {
                 this.setState({
                   ageRange: e.target.value.toString()
@@ -231,8 +236,8 @@ class ProgramRegistration extends React.Component {
             <Form.Label>
               How many children in your after-school program need meals?{" "}
             </Form.Label>
-            <Form.Control 
-              placeholder="Number" 
+            <Form.Control
+              placeholder="Number"
               onChange={e => {
                 this.setState({
                   numKids: e.target.value.toString()
@@ -244,14 +249,16 @@ class ProgramRegistration extends React.Component {
           <Form.Group controlId="inKindSupport">
             <Form.Label>
               Do you currently receive in-kind support for your meal and/or
-              snack program?
+              snack program? Leave unchecked if no.
             </Form.Label>
-            <Form.Control 
-              as="textarea" 
-              rows="4" 
+            <Form.Check
+              custom
+              type="checkbox"
+              id="inKindsupport"
+              label="Yes"
               onChange={e => {
                 this.setState({
-                  inkindSupport: e.target.value.toString()
+                  inKindSupport: this.state.inKindSupport === "0" ? "1" : "0",
                 });
               }}
             />
@@ -261,36 +268,36 @@ class ProgramRegistration extends React.Component {
             <Form.Label>
               Which days of the week do you need dinner deliveries?
             </Form.Label>
-            <Form.Check 
-              custom 
-              type="checkbox" 
-              id="monday" 
-              label="Monday" 
+            <Form.Check
+              custom
+              type="checkbox"
+              id="monday"
+              label="Monday"
               onChange={e => {
                 this.setState({
-                  daysNeedMeals: {
-                    monday: this.state.daysNeedMeals.monday === "0" ? "1" : "0",
-                    tuesday: this.state.daysNeedMeals.tuesday,
-                    wednesday: this.state.daysNeedMeals.wednesday,
-                    thursday: this.state.daysNeedMeals.thursday,
-                    friday: this.state.daysNeedMeals.friday
+                  daysRequired: {
+                    monday: this.state.daysRequired.monday === "0" ? "1" : "0",
+                    tuesday: this.state.daysRequired.tuesday,
+                    wednesday: this.state.daysRequired.wednesday,
+                    thursday: this.state.daysRequired.thursday,
+                    friday: this.state.daysRequired.friday
                   }
                 });
               }}
             />
-            <Form.Check 
-              custom 
-              type="checkbox" 
-              id="tuesday" 
-              label="Tuesday" 
+            <Form.Check
+              custom
+              type="checkbox"
+              id="tuesday"
+              label="Tuesday"
               onChange={e => {
                 this.setState({
-                  daysNeedMeals: {
-                    monday: this.state.daysNeedMeals.monday,
-                    tuesday: this.state.daysNeedMeals.tuesday === "0" ? "1" : "0",
-                    wednesday: this.state.daysNeedMeals.wednesday,
-                    thursday: this.state.daysNeedMeals.thursday,
-                    friday: this.state.daysNeedMeals.friday
+                  daysRequired: {
+                    monday: this.state.daysRequired.monday,
+                    tuesday: this.state.daysRequired.tuesday === "0" ? "1" : "0",
+                    wednesday: this.state.daysRequired.wednesday,
+                    thursday: this.state.daysRequired.thursday,
+                    friday: this.state.daysRequired.friday
                   }
                 });
               }}
@@ -302,46 +309,46 @@ class ProgramRegistration extends React.Component {
               label="Wednesday"
               onChange={e => {
                 this.setState({
-                  daysNeedMeals: {
-                    monday: this.state.daysNeedMeals.monday,
-                    tuesday: this.state.daysNeedMeals.tuesday,
-                    wednesday: this.state.daysNeedMeals.wednesday=== "0" ? "1" : "0",
-                    thursday: this.state.daysNeedMeals.thursday,
-                    friday: this.state.daysNeedMeals.friday
+                  daysRequired: {
+                    monday: this.state.daysRequired.monday,
+                    tuesday: this.state.daysRequired.tuesday,
+                    wednesday: this.state.daysRequired.wednesday === "0" ? "1" : "0",
+                    thursday: this.state.daysRequired.thursday,
+                    friday: this.state.daysRequired.friday
                   }
                 });
               }}
             />
-            <Form.Check 
-              custom 
-              type="checkbox" 
-              id="thursday" 
-              label="Thursday" 
+            <Form.Check
+              custom
+              type="checkbox"
+              id="thursday"
+              label="Thursday"
               onChange={e => {
                 this.setState({
-                  daysNeedMeals: {
-                    monday: this.state.daysNeedMeals.monday,
-                    tuesday: this.state.daysNeedMeals.tuesday,
-                    wednesday: this.state.daysNeedMeals.wednesday,
-                    thursday: this.state.daysNeedMeals.thursday=== "0" ? "1" : "0",
-                    friday: this.state.daysNeedMeals.friday
+                  daysRequired: {
+                    monday: this.state.daysRequired.monday,
+                    tuesday: this.state.daysRequired.tuesday,
+                    wednesday: this.state.daysRequired.wednesday,
+                    thursday: this.state.daysRequired.thursday === "0" ? "1" : "0",
+                    friday: this.state.daysRequired.friday
                   }
                 });
               }}
             />
-            <Form.Check 
-              custom 
-              type="checkbox" 
-              id="friday" 
-              label="Friday" 
+            <Form.Check
+              custom
+              type="checkbox"
+              id="friday"
+              label="Friday"
               onChange={e => {
                 this.setState({
-                  daysNeedMeals: {
-                    monday: this.state.daysNeedMeals.monday,
-                    tuesday: this.state.daysNeedMeals.tuesday,
-                    wednesday: this.state.daysNeedMeals.wednesday,
-                    thursday: this.state.daysNeedMeals.thursday,
-                    friday: this.state.daysNeedMeals.friday=== "0" ? "1" : "0"
+                  daysRequired: {
+                    monday: this.state.daysRequired.monday,
+                    tuesday: this.state.daysRequired.tuesday,
+                    wednesday: this.state.daysRequired.wednesday,
+                    thursday: this.state.daysRequired.thursday,
+                    friday: this.state.daysRequired.friday === "0" ? "1" : "0"
                   }
                 });
               }}
@@ -353,11 +360,11 @@ class ProgramRegistration extends React.Component {
               Around what time would you like dinners to be delivered to your
               program?{" "}
             </Form.Label>
-            <Form.Control 
-              placeholder="Time" 
+            <Form.Control
+              placeholder="Time"
               onChange={e => {
                 this.setState({
-                  deliveryTime: e.target.value.toString()
+                  preferredTime: e.target.value.toString()
                 });
               }}
             />
@@ -368,9 +375,9 @@ class ProgramRegistration extends React.Component {
               Please inform us of any specific dietary restrictions and/or
               allergies we should be aware of.
             </Form.Label>
-            <Form.Control 
-              as="textarea" 
-              rows="4" 
+            <Form.Control
+              as="textarea"
+              rows="4"
               onChange={e => {
                 this.setState({
                   dietaryRestrictions: e.target.value.toString()
@@ -383,9 +390,9 @@ class ProgramRegistration extends React.Component {
             <Form.Label>
               How did you learn about Feeding Canadian Kids?
             </Form.Label>
-            <Form.Control 
-              as="textarea" 
-              rows="4" 
+            <Form.Control
+              as="textarea"
+              rows="4"
               onChange={e => {
                 this.setState({
                   discoveryInfo: e.target.value.toString()
@@ -396,9 +403,9 @@ class ProgramRegistration extends React.Component {
 
           <Form.Group controlId="else">
             <Form.Label>Anything else we should know at the moment?</Form.Label>
-            <Form.Control 
-              as="textarea" 
-              rows="4" 
+            <Form.Control
+              as="textarea"
+              rows="4"
               onChange={e => {
                 this.setState({
                   extraInfo: e.target.value.toString()
@@ -407,19 +414,12 @@ class ProgramRegistration extends React.Component {
             />
           </Form.Group>
 
-          <div style={{ marginBottom: "20px" }}>
-            <em>
-              Thank-you very much for registering with Feeding Canadian Kids!
-              Our team will review your information and get back to you within
-              48 hours (Monday-Friday).
-            </em>
-          </div>
-
           <Button
             variant="primary"
             type="submit"
             onClick={e => {
-              this.props.history.push("/registrationcomplete");
+              registerProgram(this.state);
+              this.props.history.push("/registrationcomplete"); // TODO only redirect if success
             }}
           >
             Submit
