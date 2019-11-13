@@ -1,7 +1,8 @@
 .jumbotron {
 	width: 70%;
 	margin-left: 200px;
-	height: 250px;
+	height: 220px;
+	background-color: #cb9eff;
 }
 
 .programText {

@@ -48,16 +48,15 @@ class App extends Component {
             path="/admin/newSignups"
             component={NewSignups} />
           <Route
-            exact
             path="/admin/newSignups/program/:id"
             component={NewSignupsProgramInfo} />
           <Route
             exact
             path="/admin/newSignups/restaurant/:id"
             component={NewSignupsRestaurantInfo} />
+          <Route
             path="/restaurantuserpage"
-            component={RestaurantUserPage}
-          />
+            component={RestaurantUserPage} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/new" component={NewSignups} />
         </Switch>

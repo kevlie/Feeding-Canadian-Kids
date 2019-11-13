@@ -3,15 +3,14 @@ import Sidebar from "./Sidebar";
 import "./NewSignups.css";
 import NewSignupsPrograms from "./NewSignupsPrograms";
 
-class NewSignups extends React.Component {
+class NewSignups extends React.PureComponent {
 
 	constructor(props) {
 		super(props)
 		this.state = {
-			values: [[{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}], 
-					 [{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}, {"id": 3, "name": "name3", "address": "address3"}], []],
-			programIndices: [],
-			restaurantIndices: [{}, {}, {}, {}, {}, {}]
+			//values: [[{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}], 
+			//		 [{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}, {"id": 3, "name": "name3", "address": "address3"}]],
+			values: [[], []]
 		}
 	}
 
@@ -36,42 +35,50 @@ class NewSignups extends React.Component {
 			programIndices: indices1,
 			restaurantIndices: indices2
 		})
-
-		console.log(this.state.programIndices)
-		console.log(this.state.restaurantIndices)
 	}
 
 	componentDidMount = () => {
 		fetch("http://localhost:9000/api/admin/newSignups")
 			.then((res) => res.json())
-			.then((values) => this.setState({values}, () => console.log(this.state.values)))
-			.then(() => this.addIndices())
+			.then((values) => this.setState({values}))
+			.then(() => this.updateState())
 	}
 
-// { this.state.restaurantIndices.map(function(num) {
-// 	oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
-// 	return <NewSignupsPrograms status = { oddOrEven } />
-// })}
+	updateState() {
+		if (this.state.values[0]) {
+			this.setState({
+				numPrograms: this.state.values[0].length
+			})
+		}
+		if (this.state.values[1]) {
+			this.setState({
+				numRestaurants: this.state.values[1].length
+			})
+		}
+	}
 
 	render() {
 		var oddOrEven = "even";
 		var indices = this.state.restaurantIndices;
 
+		const numPrograms = this.state.numPrograms;
+		const numRestaurants = this.state.numRestaurants;
+
 		var rows1 = []
 		var rows2 = []
 
-		for (var i = 0; i < this.state.values[0].length; i++) {
+	    for (var i = 0; i < numPrograms; i++) {
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
 	      	var cell = []
 	      	var program = this.state.values[0][i]
-	      	cell.push(<td><a href={ "newSignups/program/" + program["id"] }> { program["name"] } </a></td>)
+	      	cell.push(<td><a href={ "newSignups/program/" + program["program_id"] }> { program["name"] } </a></td>)
 	      	cell.push(<td> { program["address"] } </td>)
 	      	rows1.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
 
 	    oddOrEven = "even";
 
-	    for (var i = 0; i < this.state.values[1].length; i++) {
+	  	for (var i = 0; i < numRestaurants; i++) {
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
 	      	var cell = []
 	      	var restaurant = this.state.values[1][i]
@@ -81,7 +88,7 @@ class NewSignups extends React.Component {
 	    }
 
 		return (
-			<div>
+			<div id="newSignups">
 				<Sidebar />
 				<div class="jumbotron jumbotron-fluid">
 				  <div class="container">
@@ -90,6 +97,8 @@ class NewSignups extends React.Component {
 				    				to join Feeding Canadian Kids</p>
 				  </div>
 				</div>
+
+				<h3 class="tableHeadings">New Program Signups</h3>
 
 				<table id="programTable">
 					<tr>
@@ -102,6 +111,8 @@ class NewSignups extends React.Component {
 					</tr>
 					{ rows1 }
 				</table>
+
+				<h3 class="tableHeadings">New Restaurant Signups</h3>
 
 				<table id="restaurantTable">
 					<tr>
