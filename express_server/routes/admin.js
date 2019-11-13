@@ -1,6 +1,6 @@
 var express = require('express');
 var adminRouter = express.Router();
-//const sql = require('../db.js');
+const sql = require('../db.js');
 
 adminRouter.get("/", function(req, res) {
 	var values = [];
@@ -32,7 +32,7 @@ adminRouter.get("/", function(req, res) {
 		console.log(values);
 	})
 
-	query3 = "SELECT count(program_id) as count FROM program_review WHERE approval_status=1";
+	query3 = "SELECT count(program_id) as count FROM program_review WHERE approval_status=0";
 	sql.query(query3, function(err, results) {
 		let numNewPrograms = results[0]["count"]
 		let obj3 = {"newPrograms": numNewPrograms}
@@ -41,7 +41,7 @@ adminRouter.get("/", function(req, res) {
 		console.log(values);
 	})
 
-	query4 = "SELECT count(restaurant_id) as count FROM restaurant_review WHERE approval_status=1";
+	query4 = "SELECT count(restaurant_id) as count FROM restaurant_review WHERE approval_status=0";
 	sql.query(query4, function(err, results) {
 		let numNewRestaurants = results[0]["count"]
 		let obj4 = {"newRestaurants": numNewRestaurants}

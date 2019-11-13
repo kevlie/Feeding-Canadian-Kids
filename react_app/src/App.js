@@ -46,13 +46,16 @@ class App extends Component {
           />
           <Route exact path="/admin/newSignups" component={NewSignups} />
           <Route
-            exact
             path="/admin/newSignups/program/:id"
             component={NewSignupsProgramInfo}
           />
           <Route
             exact
             path="/admin/newSignups/restaurant/:id"
+            component={NewSignupsRestaurantInfo} />
+          <Route
+            path="/restaurantuserpage"
+            component={RestaurantUserPage} />
             component={NewSignupsRestaurantInfo}
           />
           />
