@@ -29,9 +29,22 @@ loginRouter.post('/login', function (req, res) {
                         req.session.isAdmin = false;
                         res.status(200).send("Credentials valid. Log in successful.");
                     } else {
-                        res.status(401).send('Incorrect email and/or password!');
+                        sql.query('SELECT * FROM program_partners WHERE email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
+                            if (err) {
+                                return res.status(500).send(err);
+                            }
+                            if (results.length > 0) {
+                                req.session.loggedin = true;
+                                req.session.email = email;
+                                req.session.isAdmin = false;
+                                res.status(200).send("Credentials valid. Log in successful.");
+                            } else {
+                                res.status(401).send('Incorrect email and/or password!');
+                            }
+                            res.end();
+                        })
                     }
-                    res.end();
+                    // res.end();
                 })
             }
         })

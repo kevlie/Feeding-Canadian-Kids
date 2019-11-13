@@ -55,9 +55,8 @@ class App extends Component {
             component={NewSignupsRestaurantInfo} />
           <Route
             path="/restaurantuserpage"
-            component={RestaurantUserPage} />
+            component={RestaurantUserPage}
             component={NewSignupsRestaurantInfo}
-          />
           />
           <Route
             exact

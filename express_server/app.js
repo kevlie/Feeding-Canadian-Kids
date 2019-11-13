@@ -65,7 +65,6 @@ app.use('/api/testAPI', testAPIRouter);
 app.use('/api/restaurantApplication', restaurantApplicationRouter);
 app.use('/api/programApplication', programApplicationRouter);
 app.use('/api/auth', loginRouter);
-app.use('/api/registerProgram', registerProgram);
 app.use('/api/admin', adminRouter);
 app.use('/api/admin/pendingPrograms', pendingPrograms);
 app.use('/api/admin/newSignups', newSignupsRouter);
