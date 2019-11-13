@@ -20,32 +20,57 @@ class Login extends React.Component {
     }
   }
 
+  setLoginStatus() {
+    fetch("http://localhost:9000/api/auth/validate-login", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    }).then(res => {
+      if (res.status === 200 || res.status === 304) {
+        this.setState({
+          isLoggedIn: true
+        });
+      }
+    })
+  }
 
+  componentDidMount() {
+    this.setLoginStatus();
+  }
 
   render() {
     const loginApiCall = data => {
-      fetch("http://localhost:9000/api/auth/login", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify(data)
-      }).then(res => {
-        if (res.status === 200) {
-          this.setState({
-            isLoggedIn: true
-          });
-          this.props.history.push("/");
-        } else {
-          // setError("Error");
-          this.setState({
-            error: "Error"
-          })
-          console.error("Error");
-        }
-      });
+      if (this.state.isLoggedIn) {
+        this.setState({
+          error: "You are already logged in!"
+        })
+      } else {
+        fetch("http://localhost:9000/api/auth/login", {
+          method: "post",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          credentials: "include",
+          body: JSON.stringify(data)
+        }).then(res => {
+          if (res.status === 200) {
+            this.setState({
+              isLoggedIn: true
+            });
+            this.props.history.push("/");
+          } else {
+            // setError("Error");
+            this.setState({
+              error: "Error"
+            })
+            console.error("Error");
+          }
+        });
+      }
     };
 
     const handleLogin = (e) => {
