@@ -389,20 +389,12 @@ class RestaurantRegistration extends React.Component {
             />
           </Form.Group>
 
-          <div style={{ marginBottom: "20px" }}>
-            <em>
-              Thank-you very much for registering with Feeding Canadian Kids!
-              Our team will review your information and get back to you within
-              48 hours (Monday-Friday).
-            </em>
-          </div>
-
           <Button
             variant="primary"
             type="submit"
             onClick={e => {
               registerRestaurant(this.state);
-              this.props.history.push("/RegistrationComplete");
+              this.props.history.push("/RegistrationComplete"); // TODO only redirect if success
             }}
           >
             Submit
