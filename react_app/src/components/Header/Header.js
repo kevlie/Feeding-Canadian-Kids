@@ -38,7 +38,7 @@ class Header extends Component {
       if (res.status === 200 || res.status === 304) {
         let state = {
           isLoggedIn: true,
-          // email: res.text()
+          email: "SIGNED IN"
         }
         this.setState(state);
       }
