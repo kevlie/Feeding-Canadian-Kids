@@ -81,6 +81,9 @@ class DeliverySlot extends React.Component {
               {"Contact Person: "} {info.POC}
             </h3>
           </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary">Confirm Delivery</Button>
+          </Modal.Footer>
         </Modal>
       </>
     );
