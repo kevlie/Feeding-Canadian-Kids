@@ -18,6 +18,7 @@ class Login extends React.Component {
       password: "",
       isLoggedIn: false,
       error: "",
+      partnerType: "",
     }
   }
 
@@ -51,6 +52,30 @@ class Login extends React.Component {
           error: "You are already logged in!"
         })
       } else {
+        // fetch("http://localhost:9000/api/auth/login", {
+        //   method: "post",
+        //   headers: {
+        //     Accept: "application/json",
+        //     "Content-Type": "application/json"
+        //   },
+        //   credentials: "include",
+        //   body: JSON.stringify(data)
+        // }).then(res => {
+        //   if (res.status === 200) {
+        //     this.setState({
+        //       isLoggedIn: true
+        //     });
+        //     this.props.history.push("/programuserpage");
+        //     // return <Redirect to='/restaurantuserpage' />
+        //     window.location.reload();
+        //   } else {
+        //     this.setState({
+        //       error: "Error"
+        //     })
+        //     console.error("Error");
+        //   }
+        // });
+
         fetch("http://localhost:9000/api/auth/login", {
           method: "post",
           headers: {
@@ -59,21 +84,35 @@ class Login extends React.Component {
           },
           credentials: "include",
           body: JSON.stringify(data)
-        }).then(res => {
-          if (res.status === 200) {
-            this.setState({
-              isLoggedIn: true
-            });
-            this.props.history.push("/programuserpage");
-            // return <Redirect to='/restaurantuserpage' />
-            window.location.reload();
-          } else {
-            this.setState({
-              error: "Error"
-            })
-            console.error("Error");
+        }).then((response) => {
+          if (response.status !== 200) {
+            this.setState({ error: "Invalid Username or Password" });
           }
-        });
+          response.json().then((resJSON) => {
+            if (resJSON.email) {
+              let state = {
+                isLoggedIn: true,
+                email: resJSON.email,
+                partnerType: resJSON.partnerType
+              }
+              this.setState(state);
+              if (resJSON.partnerType === "program") {
+                this.props.history.push("/programuserpage");
+                window.location.reload();
+              } else if (resJSON.partnerType === "restaurant") {
+                this.props.history.push("/restaurantuserpage");
+                window.location.reload();
+              } else {
+                // this.props.history.push("/adminuserpage"); //TODO: uncomment when implemented adminuserpage
+                // window.location.reload();
+              }
+            } else {
+              this.setState({
+                error: "Unknown Error"
+              })
+            }
+          });
+        })
       }
     };
 

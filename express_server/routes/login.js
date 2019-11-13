@@ -28,7 +28,11 @@ loginRouter.post('/login', function (req, res) {
                         req.session.loggedin = true;
                         req.session.email = email;
                         req.session.isAdmin = false;
-                        res.status(200).send("Credentials valid. Log in successful.");
+                        res.status(200).send({
+                            email: email,
+                            isAdmin: false,
+                            partnerType: "program"
+                        });
                     } else {
                         sql.query('SELECT * FROM program_partners WHERE email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
                             if (err) {
@@ -39,7 +43,11 @@ loginRouter.post('/login', function (req, res) {
                                 req.session.email = email;
                                 req.session.isAdmin = false;
                                 req.session.partnerType = "restaurant";
-                                res.status(200).send("Credentials valid. Log in successful.");
+                                res.status(200).send({
+                                    email: email,
+                                    isAdmin: false,
+                                    partnerType: "restaurant"
+                                });
                             } else {
                                 res.status(401).send('Incorrect email and/or password!');
                             }
@@ -56,11 +64,13 @@ loginRouter.post('/login', function (req, res) {
 });
 
 loginRouter.get('/validate-login', function (req, res) {
-    if (req.session.loggedin === true) {
-        res.status(200).send({
-            email: req.session.email,
-            partnerType: req.session.partnerType
-        });
+    if (req.session.loggedin) {
+        if (req.session.loggedin === true) {
+            res.status(200).send({
+                email: req.session.email,
+                partnerType: req.session.partnerType
+            });
+        }
     } else {
         res.status(401).send(false);
     }

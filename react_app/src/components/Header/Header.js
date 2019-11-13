@@ -23,8 +23,28 @@ class Header extends Component {
       password: "",
       isLoggedIn: false,
       error: "",
+      partnerType: "",
     }
   }
+
+  // setLoginStatus() {
+  //   fetch("http://localhost:9000/api/auth/validate-login", {
+  //     method: "get",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     credentials: "include"
+  //   }).then(res => {
+  //     if (res.status === 200 || res.status === 304) {
+  //       let state = {
+  //         isLoggedIn: true,
+  //         email: "SIGNED IN"
+  //       }
+  //       this.setState(state);
+  //     }
+  //   })
+  // }
 
   setLoginStatus() {
     fetch("http://localhost:9000/api/auth/validate-login", {
@@ -34,13 +54,18 @@ class Header extends Component {
         "Content-Type": "application/json"
       },
       credentials: "include"
-    }).then(res => {
-      if (res.status === 200 || res.status === 304) {
-        let state = {
-          isLoggedIn: true,
-          email: "SIGNED IN"
-        }
-        this.setState(state);
+    }).then((response) => {
+      if (response.status === 200 || response.status === 304) {
+        response.json().then((resJSON) => {
+          if (resJSON.email) {
+            let state = {
+              isLoggedIn: true,
+              email: resJSON.email,
+              partnerType: resJSON.partnerType
+            }
+            this.setState(state);
+          }
+        });
       }
     })
   }
