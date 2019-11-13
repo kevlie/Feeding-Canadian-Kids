@@ -7,8 +7,8 @@ class Deliveries extends React.Component {
   render() {
     return (
       <>
-        <h1> Your Orders for the Week</h1>
-        <h2> Click on an order below to see further information</h2>
+        <h1> Your Deliveries for the Week</h1>
+        <h2> Click on a scheduled delivery below to see further information</h2>
         <Table striped bordered size="sm">
           <thead>
             <tr>
