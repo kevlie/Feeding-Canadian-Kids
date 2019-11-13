@@ -1,0 +1,29 @@
+.infoTitle {
+	width: 70%;
+	margin-left: 200px;
+	height: 120px;
+	background-color: #cb9eff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.restaurantName {
+	text-align: center;
+}
+
+#odd {
+	background-color: #dbeeff;
+}
+
+#even {
+	background-color: #a6ffa3;
+}
+
+.narrow {
+	width: 200px;
+}
+
+.wide {
+	width:680px;
+}
