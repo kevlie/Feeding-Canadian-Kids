@@ -18,6 +18,79 @@ const mapStateToProps = state => {
 class Header extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: "",
+      password: "",
+      isLoggedIn: false,
+      error: "",
+      partnerType: "",
+    }
+  }
+
+  // setLoginStatus() {
+  //   fetch("http://localhost:9000/api/auth/validate-login", {
+  //     method: "get",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     credentials: "include"
+  //   }).then(res => {
+  //     if (res.status === 200 || res.status === 304) {
+  //       let state = {
+  //         isLoggedIn: true,
+  //         email: "SIGNED IN"
+  //       }
+  //       this.setState(state);
+  //     }
+  //   })
+  // }
+
+  setLoginStatus() {
+    fetch("http://localhost:9000/api/auth/validate-login", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    }).then((response) => {
+      if (response.status === 200 || response.status === 304) {
+        response.json().then((resJSON) => {
+          if (resJSON.email) {
+            let state = {
+              isLoggedIn: true,
+              email: resJSON.email,
+              partnerType: resJSON.partnerType
+            }
+            this.setState(state);
+          }
+        });
+      }
+    })
+  }
+
+  logout() {
+    fetch("http://localhost:9000/api/auth/logout", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    }).then(res => {
+      if (res.status === 200 || res.status === 304) {
+        let state = {
+          isLoggedIn: false,
+          email: "",
+        }
+        this.setState(state);
+      }
+    })
+  }
+
+  componentDidMount() {
+    this.setLoginStatus();
   }
 
   render() {
@@ -28,7 +101,7 @@ class Header extends Component {
             <Image className="banner-image" src={FeedingCKbanner}></Image>
           </Navbar.Brand>
           <Nav className="ml-auto">
-            {!this.props.isLoggedIn ? (
+            {!this.state.isLoggedIn ? (
               <Nav.Link
                 onClick={e => {
                   this.props.history.push("/login");
@@ -37,18 +110,20 @@ class Header extends Component {
                 Login / Register
               </Nav.Link>
             ) : (
-              <NavDropdown title="USERNAME" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                <NavDropdown.Item
-                  href="#action/3.3"
-                  onClick={e => {
-                    this.props.dispatch(sign_in());
-                  }}
-                >
-                  Log Out
+                <NavDropdown title={this.state.email} id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                  <NavDropdown.Item
+                    href="#action/3.3"
+                    onClick={e => {
+                      this.logout();
+                      this.props.history.push("/login");
+                      window.location.reload();
+                    }}
+                  >
+                    Log Out
                 </NavDropdown.Item>
-              </NavDropdown>
-            )}
+                </NavDropdown>
+              )}
           </Nav>
         </Navbar>
       </>
