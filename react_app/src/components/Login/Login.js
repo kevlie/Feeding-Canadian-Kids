@@ -15,7 +15,7 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
-      isLoggedIn: "",
+      isLoggedIn: false,
       error: "",
     }
   }
@@ -61,9 +61,8 @@ class Login extends React.Component {
             this.setState({
               isLoggedIn: true
             });
-            this.props.history.push("/");
+            this.props.history.push("/restaurantuserpage");
           } else {
-            // setError("Error");
             this.setState({
               error: "Error"
             })

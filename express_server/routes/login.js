@@ -69,4 +69,16 @@ loginRouter.get('/validate-admin', function (req, res) {
     }
 })
 
+loginRouter.get('/logout', function (req, res) {
+    if (req.session.loggedin) {
+        req.session.loggedin = false;
+        req.session.email = null;
+        req.session.isAdmin = null;
+
+        res.status(200).send("Logged out.")
+    } else {
+        res.status(304)
+    }
+})
+
 module.exports = loginRouter;

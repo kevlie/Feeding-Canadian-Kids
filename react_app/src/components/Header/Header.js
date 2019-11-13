@@ -45,6 +45,25 @@ class Header extends Component {
     })
   }
 
+  logout() {
+    fetch("http://localhost:9000/api/auth/logout", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    }).then(res => {
+      if (res.status === 200 || res.status === 304) {
+        let state = {
+          isLoggedIn: false,
+          email: "",
+        }
+        this.setState(state);
+      }
+    })
+  }
+
   componentDidMount() {
     this.setLoginStatus();
   }
@@ -71,7 +90,8 @@ class Header extends Component {
                   <NavDropdown.Item
                     href="#action/3.3"
                     onClick={e => {
-                      this.props.dispatch(sign_in());
+                      this.logout();
+                      this.props.history.push("/login");
                     }}
                   >
                     Log Out
@@ -85,20 +105,3 @@ class Header extends Component {
   }
 }
 export default withRouter(connect(mapStateToProps)(Header));
-
-const checkLoginApiCall = () => {
-  fetch("http://localhost:9000/api/auth/validate-login", {
-    method: "get",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    credentials: "include",
-  }).then(res => {
-    if (res.status === 200) {
-      return true;
-    } else {
-      return false;
-    }
-  })
-};
