@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration";
 import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration";
 import RestaurantUserPage from "./components/RestaurantUserPage/RestaurantUserPage.js";
+import ProgramUserPage from "./components/ProgramUserPage/ProgramUserPage.js";
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -43,13 +44,11 @@ class App extends Component {
             path="/registrationcomplete"
             component={RegistrationComplete}
           />
-          <Route
-            exact
-            path="/admin/newSignups"
-            component={NewSignups} />
+          <Route exact path="/admin/newSignups" component={NewSignups} />
           <Route
             path="/admin/newSignups/program/:id"
-            component={NewSignupsProgramInfo} />
+            component={NewSignupsProgramInfo}
+          />
           <Route
             exact
             path="/admin/newSignups/restaurant/:id"
@@ -57,6 +56,15 @@ class App extends Component {
           <Route
             path="/restaurantuserpage"
             component={RestaurantUserPage} />
+            component={NewSignupsRestaurantInfo}
+          />
+          />
+          <Route
+            exact
+            path="/restaurantuserpage"
+            component={RestaurantUserPage}
+          />
+          <Route exact path="/programuserpage" component={ProgramUserPage} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/new" component={NewSignups} />
         </Switch>

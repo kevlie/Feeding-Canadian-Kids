@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Route, Redirect } from "react-router";
 import { Form, Button } from "react-bootstrap";
 import "./Login.css";
 import { sign_in } from "../../redux/actions";
@@ -55,7 +54,6 @@ function Login(props) {
   function handleLogin(e) {
     e.preventDefault();
     loginApiCall({ contactEmail: email, passwordHash: hash(password) });
-    // setTimeout(verifyLoginApi, 4000) // todo delete this later
   }
 
   function handleProgram(e) {
@@ -79,13 +77,10 @@ function Login(props) {
         </h5>
         <br></br>
         <em>
-          If you already have a Feeding Candian Kids profile, please log on with
+          If you already have a Feeding Candian Kids profile, please log in with
           your credentials.
         </em>
         <br></br>
-        <em>
-          For testing: program/program or restaurant/restaurant or admin/admin>
-        </em>
         <p className="error">{error}</p>
         <Form>
           <Form.Group controlId="formBasicEmail">
