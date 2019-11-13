@@ -17,6 +17,7 @@ loginRouter.post('/login', function (req, res) {
                 req.session.loggedin = true;
                 req.session.email = email;
                 req.session.isAdmin = true;
+                req.session.partnerType = "Program";
                 res.status(200).send("Logged in as admin.")
             } else {
                 sql.query('SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
@@ -37,6 +38,7 @@ loginRouter.post('/login', function (req, res) {
                                 req.session.loggedin = true;
                                 req.session.email = email;
                                 req.session.isAdmin = false;
+                                req.session.partnerType = "restaurant";
                                 res.status(200).send("Credentials valid. Log in successful.");
                             } else {
                                 res.status(401).send('Incorrect email and/or password!');
@@ -54,9 +56,11 @@ loginRouter.post('/login', function (req, res) {
 });
 
 loginRouter.get('/validate-login', function (req, res) {
-    console.log(req.session)
     if (req.session.loggedin === true) {
-        res.status(200).send(req.session.email);
+        res.status(200).send({
+            email: req.session.email,
+            partnerType: req.session.partnerType
+        });
     } else {
         res.status(401).send(false);
     }
@@ -65,6 +69,15 @@ loginRouter.get('/validate-login', function (req, res) {
 loginRouter.get('/validate-admin', function (req, res) {
     if (req.session.loggedin === true && req.session.isAdmin === true) {
         res.status(200).send(req.session.email);
+    } else {
+        res.status(401).send(false);
+    }
+})
+
+loginRouter.get('/get-partner-type', function (req, res) {
+    if (req.session.loggedin === true) {
+        let partnerType = req.session.partnerType;
+        res.status(200).send(partnerType);
     } else {
         res.status(401).send(false);
     }
