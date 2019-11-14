@@ -9,26 +9,18 @@ class ProgramsPartners extends React.Component {
         <Table striped bordered>
           <thead>
             <tr>
-              <th>Program Name</th>
-              <th>Status</th>
-              <th>PA Days</th>
-              <th>Last Day of Programming</th>
-              <th>Restaurant Address</th>
-              <th>Radius</th>
-              <th>Delivery Time</th>
-              <th>Contact e-mail</th>
+              <th>Program Location</th>
+              <th>Toronto Neighbourhood Area</th>
+              <th>Weekday</th>
+              <th>Active Service</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Taylor's Landing</td>
-              <td>Active (Feb 8th)</td>
-              <td>Feb 15th, June 7th, June 28th</td>
-              <td></td>
-              <td>150 Grenoble Dr, North York, ON M3C 0H1</td>
-              <td>3.6 Km</td>
-              <td>3:30:00 PM (11:30 on PA Days)</td>
-              <td>winston@thelandinggroup.ca</td>
+              <td>Kerr St. Mission</td>
+              <td>Oakville</td>
+              <td>Wednesday</td>
+              <td>Yes</td>
             </tr>
           </tbody>
         </Table>
