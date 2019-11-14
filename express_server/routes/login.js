@@ -68,7 +68,8 @@ loginRouter.get('/validate-login', function (req, res) {
         if (req.session.loggedin === true) {
             res.status(200).send({
                 email: req.session.email,
-                partnerType: req.session.partnerType
+                partnerType: req.session.partnerType,
+                isAdmin: req.session.isAdmin
             });
         }
     } else {
