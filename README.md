@@ -76,7 +76,7 @@ The following instructions are for a prospective restaurant partner, but steps a
 	+ Click on the navigation button at the top left corner, you will see the sidebar
 	+ Click on ``New Signups`` tab on the left sidebar to see the new program signups and the new restaurant signups
 	+ Click on the restaurant name or program name to see their application details
-	+ Click on the ``Approve Application`` button if you want to approve the partner’s application or click on the ``Reject Application`` button if you want to reject the partner’s application. (Currently work in progress)
+	+ Click on the ``Approve Application`` button if you want to approve the partner’s application or click on the ``Reject Application`` button if you want to reject the partner’s application. (Redirection after successful input currently work in progress)
 	+ Click on ``Programs Info`` tab on the left sidebar to see the current program partners 
 	+ Click on the program name to see its information
 	+ Click on ``Restaurants Info`` tab on the left sidebar to see the current restaurant partners 
