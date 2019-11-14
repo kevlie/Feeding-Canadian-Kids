@@ -30,13 +30,19 @@ List any process-related changes you are planning to make (if there are any)
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
-1. 
+1. Restaurants and programs registration pages. Basically presenting potential partners with the ability to sign up with Feeding Canadian Kids by answering some questions. Their answers are stored via database calls for admins to check for future reference.
+2. Admins portal gives the admins the ability to review active partners who are already with Feeding Canadian Kids, as well as potential partners who recently requested to be signed up. The admin can view information of each active and recently signed up partner. The admin can also accept or reject the application of a potential partner. Doing so changes the information of each partner in the database.
+3. The restaurant user page is where a restaurant can view its profile and other details of meals arrangement, such as the programs they are currently paired with and the schedule of the deliveries they have to make in the current week.
+4. The login page is the first page that any user would see. As the name suggests, it is where current users (program, restaurant, admin) can sign in, and potential users (new restaurant or program) can sign up. The info entered here for current users is matched up with the information stored in the database to verify a user's credentials. For new users, it redirects them to the registration pages.
+
 
 
 
 #### Goals and/or tasks that were planned but not met/completed:
 
 1. Originally we had planned to implement an automatic email feature that would email relevant parties whenever a program or restaurant partner was approved, however, due to time constraints we were not able to complete this feature. We came to a point where we had to choose between completing this feature or other ones. We came to the conclusion not completing the email feature would have the least negative impact since there are other ways to know if a partner has been approved or not (i.e. admins can simply log in and view the admin page or partners can see their application status on their page as well) since there are other features that accomplish the same thing as the automatic emails we decided it was lower priority. 
+
+2. Another goal that is not met by this iteration is displaying the training resources for the users of the app. As mentioned in the previous point, due to time constraint we had to prioritize our tasks according to their importance. As a result, we felt that this feature was not as vital as other features which were crucial for the working of the app. Also, it can be easily extended from our existing features.  We plan to have this feature 100% done for the final app.
 
 #### How was your product demo?
 We prepared the demo by first understanding the requirements our project partner have given to us. We then broke down the requirements into smaller tasks each corresponding to a feature of our product. We also focused on tasks that had a higher priority. For example, since restaurants/programs registration and login were key features of the demo, we worked on those first. When we met up with our partner, we were able to show them the login/registration view, admin page and programs/restaurants profile. We also showed them the process of signing up for an account and using those credentials to successfully log on the website. Overall, our partner was pretty happy with the features we had implemented except for some of the descriptions we had written for the application process. We accepted their change requests and corrected our wordings using the correct description they provided us. From the demo we learned that it was still an incomplete product and there were still improvements for us to work on. Besides, we got some ideas on how to improve the UI to make it prettier and user interactive and also realized that we were missing some features such as the function of confirming received food as well as enabling the administrator to have the ability to pair after school programs with restaurants.
