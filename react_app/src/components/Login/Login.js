@@ -77,8 +77,8 @@ function Login(props) {
         </h5>
         <br></br>
         <em>
-          If you already have a Feeding Candian Kids profile, please log in with
-          your credentials.
+          If you already have a Feeding Canadian Kids profile, please log in
+          with your credentials.
         </em>
         <br></br>
         <p className="error">{error}</p>
