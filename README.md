@@ -60,8 +60,8 @@ The following instructions are for a prospective restaurant partner, but steps a
 	+ Click on ``Your Deliveries`` tab on the left sidebar to check the schedule of deliveries for the current week
 	+ If you want to check the details of any delivery, click on the time slot shown in the table, then you will see the details including restaurant name, contact information as well as the number of meals to be delivered.
 	+ To confirm delivery, click on the corresponding time slot and click the ``Confirm Delivery`` button.
-	+ Click on “Your Restaurants” tab on the left sidebar, you will see the details of all restaurants that are paired with you.
-	+ Click on “Home” tab on the left sidebar to return to home page
+	+ Click on ``Your Restaurants`` tab on the left sidebar, you will see the details of all restaurants that are paired with you.
+	+ Click on ``Home`` tab on the left sidebar to return to home page
 
 + To operate on user page as a restaurant partner:
 	+ First make sure that you have registered as a restaurant partner and log in
