@@ -64,19 +64,19 @@ The following instructions are for a prospective restaurant partner, but steps a
 	+ Click on ``Home`` tab on the left sidebar to return to home page
 
 + To operate on user page as a restaurant partner:
-	+ First make sure that you have registered as a restaurant partner and log in
+	+ First make sure that you have registered as a restaurant partner and logged in
 	+ Click on ``Your Orders`` tab on the left sidebar to check the schedule of deliveries that need to be made for the current week
 	+ If you want to check the details of any delivery, click on the time slot shown in the table, then you will see the details including program name,  address as well as the number of meals to be delivered to the program.
 	+ Click on ``Your Partners`` tab on the left sidebar, you will see the details of all program partners that are paired with you.
 	+ Click on ``Home`` tab on the left sidebar to return to home page
 
 + To operate on user page as an administrator:
-	+ First make sure that you have logged in as admin
+	+ First make sure that you have logged in as admin (Use credentials ```username: admin@mail.com``` ```password: a@mail.com)
 	+ You should see the number of active programs and active restaurants, number of new program applications and new restaurant applications
 	+ Click on the navigation button at the top left corner, you will see the sidebar
 	+ Click on ``New Signups`` tab on the left sidebar to see the new program signups and the new restaurant signups
 	+ Click on the restaurant name or program name to see their application details
-	+ Click on the ``Approve Application`` button if you want to approve the partner’s application or click on the ``Reject Application`` button if you want to reject the partner’s application.
+	+ Click on the ``Approve Application`` button if you want to approve the partner’s application or click on the ``Reject Application`` button if you want to reject the partner’s application. (Currently work in progress)
 	+ Click on ``Programs Info`` tab on the left sidebar to see the current program partners 
 	+ Click on the program name to see its information
 	+ Click on ``Restaurants Info`` tab on the left sidebar to see the current restaurant partners 
