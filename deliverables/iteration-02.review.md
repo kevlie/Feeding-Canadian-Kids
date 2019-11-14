@@ -1,6 +1,6 @@
 # Feeding Canadian Kids: Unified Platform for Services
 
-## Iteration XX - Review & Retrospect
+## Iteration 2 - Review & Retrospect
 
  * When: October 25th, 2019
  * Where: November 13th, 2019
