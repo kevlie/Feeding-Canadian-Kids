@@ -101,8 +101,8 @@ class Login extends React.Component {
                 this.props.history.push("/restaurantuserpage");
                 window.location.reload();
               } else {
-                // this.props.history.push("/adminuserpage"); //TODO: uncomment when implemented adminuserpage
-                // window.location.reload();
+                this.props.history.push("/admin");
+                window.location.reload();
               }
             } else {
               this.setState({
