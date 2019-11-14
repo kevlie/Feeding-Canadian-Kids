@@ -55,6 +55,34 @@ The following instructions are for a prospective restaurant partner, but steps a
 	+ Click ``Login``
 	+ The navbar should be updated to show your email address once signed in. You should be automatically directed to your "Restaurant User" page. Information you can see may be limited due to your inactive status. In this iteration, there is hardcoded dummy data as placeholders until full frontend and backend integration is complete. 
 	+ Your login should be persistent, i.e. reloading the website or navigating to a different page should keep you logged in until you log out.
++ To operate on user page as a program partner:
+	+ First make sure that you have registered as a program partner and log in
+	+ Click on ``Your Deliveries`` tab on the left sidebar to check the schedule of deliveries for the current week
++ If you want to check the details of any delivery, click on the time slot shown in the table, then you will see the details including restaurant name, contact information as well as the number of meals to be delivered.
++ To confirm delivery, click on the corresponding time slot and click the ``Confirm Delivery`` button.
++ Click on “Your Restaurants” tab on the left sidebar, you will see the details of all restaurants that are paired with you.
++ Click on “Home” tab on the left sidebar to return to home page
+
++ To operate on user page as a restaurant partner:
+	+ First make sure that you have registered as a restaurant partner and log in
+	+ Click on ``Your Orders`` tab on the left sidebar to check the schedule of deliveries that need to be made for the current week
++ If you want to check the details of any delivery, click on the time slot shown in the table, then you will see the details including program name,  address as well as the number of meals to be delivered to the program.
++ Click on ``Your Partners`` tab on the left sidebar, you will see the details of all program partners that are paired with you.
++ Click on ``Home`` tab on the left sidebar to return to home page
+
++ To operate on user page as an administrator:
+	+ First make sure that you have logged in as admin
+	+ You should see the number of active programs and active restaurants, number of new program applications and new restaurant applications
+	+ Click on the navigation button at the top left corner, you will see the sidebar
+	+ Click on ``New Signups`` tab on the left sidebar to see the new program signups and the new restaurant signups
+	+ Click on the restaurant name or program name to see their application details
+	+ Click on the ``Approve Application`` button if you want to approve the partner’s application or click on the ``Reject Application`` button if you want to reject the partner’s application.
+	+ Click on ``Programs Info`` tab on the left sidebar to see the current program partners 
+	+ Click on the program name to see its information
+	+ Click on ``Restaurants Info`` tab on the left sidebar to see the current restaurant partners 
+	+ Click on the restaurant name to see its information
+	+ Click on ``Admin Home`` tab on the left sidebar to return to home page
+
 + To log out:
 	+ Click on your email in the upper right corner in the navigation bar.
 	+ A dropdown menu should give you the option to log out. Click ``Log Out``
