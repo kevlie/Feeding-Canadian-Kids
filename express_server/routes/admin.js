@@ -5,14 +5,14 @@ const sql = require('../db.js');
 adminRouter.get("/", function(req, res) {
 	var values = [];
 
-	query1 = "SELECT count(program_id) as count FROM program_review";
+	query1 = "SELECT count(program_id) as count FROM program_review WHERE approval_status = 1";
 	sql.query(query1, function(err, results) {
 		let numPrograms = results[0]["count"]
 		let obj = {"programs": numPrograms}
 		values.push(obj)
 	})
 
-	query2 = "SELECT count(restaurant_id) as count FROM restaurant_review";
+	query2 = "SELECT count(restaurant_id) as count FROM restaurant_review WHERE approval_status = 1";
 	sql.query(query2, function(err, results) {
 		let numRestaurants = results[0]["count"]
 		let obj2 = {"restaurants": numRestaurants}
