@@ -58,10 +58,11 @@ class App extends Component {
           <Route
             exact
             path="/admin/newSignups/restaurant/:id"
-            component={NewSignupsRestaurantInfo} />
+            component={NewSignupsRestaurantInfo}
+          />
           <Route
-            path="/restaurantuserpage"
-            component={RestaurantUserPage}
+            exact
+            path="/restaurantapprovalpage"
             component={NewSignupsRestaurantInfo}
           />
 
@@ -76,7 +77,11 @@ class App extends Component {
           <Route exact path="/admin/programs" component={Programs} />
           <Route exact path="/admin/restaurants" component={Restaurants} />
           <Route exact path="/admin/program/:id" component={ProgramInfo} />
-          <Route exact path="/admin/restaurant/:id" component={RestaurantInfo} />
+          <Route
+            exact
+            path="/admin/restaurant/:id"
+            component={RestaurantInfo}
+          />
           <Route exact path="/admin/pairing" component={Pairing} />
         </Switch>
       </div>
