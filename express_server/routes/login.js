@@ -17,8 +17,12 @@ loginRouter.post('/login', function (req, res) {
                 req.session.loggedin = true;
                 req.session.email = email;
                 req.session.isAdmin = true;
-                req.session.partnerType = "Program";
-                res.status(200).send("Logged in as admin.")
+                req.session.partnerType = "";
+                res.status(200).send({
+                    email: email,
+                    isAdmin: true,
+                    partnerType: ""
+                })
             } else {
                 sql.query('SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {
                     if (err) {
