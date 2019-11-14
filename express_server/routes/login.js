@@ -36,7 +36,7 @@ loginRouter.post('/login', function (req, res) {
                         res.status(200).send({
                             email: email,
                             isAdmin: false,
-                            partnerType: "program"
+                            partnerType: "restaurant"
                         });
                     } else {
                         sql.query('SELECT * FROM program_partners WHERE email = ? AND password_hash = ?', [email, passwordHash], function (err, results, fields) {

@@ -8,11 +8,13 @@ The mobile-friendly website will centralize communication and management tasks t
 
 
 ## Key Features
-With the help of our website, prospective partners and restaurants will have a streamlined application process. Some key features are as follows:
+With the help of our website, prospective partners and restaurants will have a streamlined application process. Some key high level features are as follows:
 
 - FCK staff will have an organized and centralized hub to keep track of current and prospective partners’ statuses and details.
 
-- FCK staff to review applications and make pair restaurants with programs based on the information provided in their applications.
+- FCK staff can review applications and pair restaurants with programs based on the information provided in their applications.
+
+- Prospective restaurants and after school programs can apply to join Feeding Canadian Kids through an easy and intuitive process on the website. 
 
 - Once approved and registered, partners can view their information and obligations by logging on to their profile on the website.
 
@@ -20,24 +22,24 @@ With the help of our website, prospective partners and restaurants will have a s
 ## Instructions
 The steps below are instructions for deploying locally.
  
- 1. Clone the project.
+ 1. Clone the project:
 ```git clone https://github.com/csc301-fall-2019/team-project-feeding-canadian-kids-team-2.git```
-2. Enter the project root directory
+2. Enter the project root directory:
 ```cd team-project-feeding-canadian-kids-team-2```
-3. Enter the backend server directory
+3. Enter the backend server directory:
 ```cd express_server```
-4. Install the necessary modules for Express
+4. Install the necessary modules for Express:
 ```npm install```
-5. Start the backend server
+5. Start the backend server:
 ```npm start```
-6. In a separate window, go back to the project root directory
-7. Enter the frontend server directory
+6. In a separate window, go back to the project root directory.
+7. Enter the frontend server directory:
 ```cd react_app```
-8. Install the necessary modules for React
+8. Install the necessary modules for React:
 ```npm install```
-9. Start the frontend server
+9. Start the frontend server:
 ```npm start```
-10. You can now access the web app in a browser at local host, port 3000
+10. You can now access the web app in a browser at local host, port 3000:
 ```http://localhost:3000/```
 
 ### Functionality Testing Directions
@@ -92,5 +94,3 @@ The steps below are instructions for deploying locally.
 	+ Click on your email in the upper right corner in the navigation bar.
 	+ A dropdown menu should give you the option to log out. Click ``Log Out``.
 	+ You are now logged out and you should be automatically redirected to the log in page. 
-
-
