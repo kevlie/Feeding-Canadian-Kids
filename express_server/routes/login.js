@@ -32,6 +32,7 @@ loginRouter.post('/login', function (req, res) {
                         req.session.loggedin = true;
                         req.session.email = email;
                         req.session.isAdmin = false;
+                        req.session.partnerType = "restaurant"
                         res.status(200).send({
                             email: email,
                             isAdmin: false,
@@ -46,11 +47,11 @@ loginRouter.post('/login', function (req, res) {
                                 req.session.loggedin = true;
                                 req.session.email = email;
                                 req.session.isAdmin = false;
-                                req.session.partnerType = "restaurant";
+                                req.session.partnerType = "program";
                                 res.status(200).send({
                                     email: email,
                                     isAdmin: false,
-                                    partnerType: "restaurant"
+                                    partnerType: "program"
                                 });
                             } else {
                                 res.status(401).send('Incorrect email and/or password!');
