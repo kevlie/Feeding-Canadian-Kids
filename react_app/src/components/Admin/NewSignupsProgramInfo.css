@@ -20,6 +20,16 @@
 	background-color: #a6ffa3;
 }
 
+.appButtons {
+	margin-top: 50px;
+	margin-left: 500px;
+	margin-bottom: 20px;
+}
+
+.btn1 {
+	margin-right: 20px;
+}
+
 .narrow {
 	width: 200px;
 }

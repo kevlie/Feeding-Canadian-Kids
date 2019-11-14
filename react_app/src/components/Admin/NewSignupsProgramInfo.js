@@ -22,6 +22,22 @@ class NewSignupsProgramInfo extends React.Component {
 			.then((program) => this.setState({program}, () => console.log(this.state.program)))
 	}
 
+	approveApp = () => {
+		const newId = this.props.match.params.id;
+		const fetchURL = "http://localhost:9000/api/admin/newSignups/program/" + newId + "/approve";
+		fetch(fetchURL, {
+	      method: "post",
+	    })
+	}
+
+	rejectApp = () => {
+		const newId = this.props.match.params.id;
+		const fetchURL = "http://localhost:9000/api/admin/newSignups/program/" + newId + "/reject";
+		fetch(fetchURL, {
+	      method: "post",
+	    })
+	}
+
 	render() {
 		return (
 			<div>
@@ -92,6 +108,11 @@ class NewSignupsProgramInfo extends React.Component {
 						</td>
 					</tr>
 				</table>
+
+				<div class="appButtons">
+					<a class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
+					<a class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
+				</div>
 			</div>
 		)
 	}

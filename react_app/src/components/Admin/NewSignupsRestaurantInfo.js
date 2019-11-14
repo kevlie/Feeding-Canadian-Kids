@@ -6,7 +6,7 @@ class NewSignupsRestaurantInfo extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			restaurant: []
+			restaurant: [[]]
 			//restaurant: [{"name": "Dhruv", "discovery_info": "Website", "extra_info": "NAH", "in_kind_support": "Not at all",
 			//		   "dinner_needs": "need food", "applicant_name": "Dhruv", "applicant_phone": "123", 
 			//		   "applicant_email": "a@mail.com", "preferred_time": "morning"}]
@@ -20,6 +20,22 @@ class NewSignupsRestaurantInfo extends React.Component {
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((restaurant) => this.setState({restaurant}, () => console.log(this.state.restaurant)))
+	}
+
+	approveApp = () => {
+		const newId = this.props.match.params.id;
+		const fetchURL = "http://localhost:9000/api/admin/newSignups/restaurant/" + newId + "/approve";
+		fetch(fetchURL, {
+	      method: "post",
+	    })
+	}
+
+	rejectApp = () => {
+		const newId = this.props.match.params.id;
+		const fetchURL = "http://localhost:9000/api/admin/newSignups/restaurant/" + newId + "/reject";
+		fetch(fetchURL, {
+	      method: "post",
+	    })
 	}
 
 	render() {
@@ -92,6 +108,10 @@ class NewSignupsRestaurantInfo extends React.Component {
 						</td>
 					</tr>
 				</table>
+				<div class="appButtons">
+					<a class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
+					<a class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
+				</div>
 			</div>
 		)
 	}
