@@ -23,7 +23,10 @@ router.post("/:id/approve", function(req, res) {
 router.post("/:id/reject", function(req, res) {
 	console.log("DONE");
 	query = "DELETE FROM restaurant_review WHERE restaurant_id = " + req.params.id;
-	sql.query(query)
+	sql.query(query, function(err, results) {
+		query2 = "DELETE FROM restaurant_partners WHERE restaurant_id = " + req.params.id;	
+		sql.query(query2)
+	})
 })
 
 module.exports = router;
