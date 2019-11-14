@@ -79,7 +79,7 @@ class NewSignups extends React.PureComponent {
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
 	      	var cell = []
 	      	var restaurant = this.state.values[1][i]
-	      	cell.push(<td><a href={ "newSignups/restaurant/" + restaurant["id"] }> { restaurant["name"] } </a></td>)
+	      	cell.push(<td><a href={ "newSignups/restaurant/" + restaurant["restaurant_id"] }> { restaurant["name"] } </a></td>)
 	      	cell.push(<td> { restaurant["address"] } </td>)
 	      	rows2.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
