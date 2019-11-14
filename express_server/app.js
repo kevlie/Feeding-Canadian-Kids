@@ -26,6 +26,7 @@ var programInfoRouter = require('./routes/programInfo');
 var restaurantInfoRouter = require('./routes/restaurantInfo');
 
 var programRegistrationStatusRouter = require('./routes/programRegistrationStatus');
+var restaurantRegistrationStatusRouter = require('./routes/restaurantRegistrationStatus');
 
 var app = express();
 
@@ -77,6 +78,7 @@ app.use('/api/admin/newSignups', newSignupsRouter);
 app.use('/api/admin/newSignups/program', newSignupsProgramInfoRouter);
 app.use('/api/admin/newSignups/restaurant', newSignupsRestaurantInfoRouter);
 app.use('/api/admin/programRegistrationStatus/:programId', programRegistrationStatusRouter);
+app.use('api/admin/restaurantRegistrationStatus/:restaurantId', restaurantRegistrationStatusRouter);
 app.use('/api/admin/programs', programsRouter);
 app.use('/api/admin/restaurants', restaurantsRouter);
 app.use('/api/admin/program', programInfoRouter);
