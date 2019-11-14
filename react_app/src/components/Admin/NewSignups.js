@@ -1,15 +1,12 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import "./NewSignups.css";
-import NewSignupsPrograms from "./NewSignupsPrograms";
 
 class NewSignups extends React.PureComponent {
 
 	constructor(props) {
 		super(props)
 		this.state = {
-			//values: [[{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}], 
-			//		 [{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}, {"id": 3, "name": "name3", "address": "address3"}]],
 			values: [[], []]
 		}
 	}

@@ -20,6 +20,11 @@ var adminRouter = require('./routes/admin');
 var newSignupsRouter = require('./routes/newSignups');
 var newSignupsProgramInfoRouter = require('./routes/newSignupsProgramInfo');
 var newSignupsRestaurantInfoRouter = require('./routes/newSignupsRestaurantInfo');
+var programsRouter = require('./routes/programs');
+var restaurantsRouter = require('./routes/restaurants');
+var programInfoRouter = require('./routes/programInfo');
+var restaurantInfoRouter = require('./routes/restaurantInfo');
+
 var programRegistrationStatusRouter = require('./routes/programRegistrationStatus');
 
 var app = express();
@@ -71,7 +76,10 @@ app.use('/api/admin/newSignups', newSignupsRouter);
 app.use('/api/admin/newSignups/program', newSignupsProgramInfoRouter);
 app.use('/api/admin/newSignups/restaurant', newSignupsRestaurantInfoRouter);
 app.use('/api/admin/programRegistrationStatus/:programId', programRegistrationStatusRouter);
-
+app.use('/api/admin/programs', programsRouter);
+app.use('/api/admin/restaurants', restaurantsRouter);
+app.use('/api/admin/program', programInfoRouter);
+app.use('/api/admin/restaurant', restaurantInfoRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

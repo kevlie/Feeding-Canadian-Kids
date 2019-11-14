@@ -1,22 +1,18 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import "./NewSignupsProgramInfo.css";
+import "./ProgramInfo.css";
 
-class NewSignupsProgramInfo extends React.Component {
+class ProgramInfo extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			program: [[]]
-			//program: [{"name": "Dhruv", "discovery_info": "Website", "extra_info": "NAH", "in_kind_support": "Not at all",
-			//		   "dinner_needs": "need food", "applicant_name": "Dhruv", "applicant_phone": "123", 
-			//		   "applicant_email": "a@mail.com", "preferred_time": "morning"}]
 		}
 	}
 
 	componentDidMount = () => {
-		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/program/" + newId;
-		//const fetchURL = "http://localhost:9000/api/admin/newSignups/program/7";
+		const id = this.props.match.params.id;
+		const fetchURL = "http://localhost:9000/api/admin/program/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((program) => this.setState({program}, () => console.log(this.state.program)))
@@ -37,58 +33,66 @@ class NewSignupsProgramInfo extends React.Component {
 				<table id="programTable">
 					<tr id="even">
 						<td class="narrow">
-							Dinner Needs
+							Address
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["dinner_needs"]}
+							{ this.state.program[0]["address"]}
 						</td>
 					</tr>
 					<tr id="odd">
 						<td class="narrow">
-							In-Kind Support
+							Area
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["in_kind_support"]}
+							{ this.state.program[0]["area"]}
 						</td>
 					</tr>
 					<tr id="even">
 						<td class="narrow">
-							Discovery Info
+							Delivery Instructions
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["discovery_info"]}
+							{ this.state.program[0]["delivery_instructions"]}
 						</td>
 					</tr>
 					<tr id="odd">
 						<td class="narrow">
-							Preferred Time
+							Phone
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["preferred_time"]}
+							{ this.state.program[0]["phone"]}
 						</td>
 					</tr>
 					<tr id="even">
 						<td class="narrow">
-							Applicant Name
+							Email
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["applicant_name"]}
+							{ this.state.program[0]["email"]}
 						</td>
 					</tr>
 					<tr id="odd">
 						<td class="narrow">
-							Applicant Phone
+							Age Range
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["applicant_phone"]}
+							{ this.state.program[0]["age_range"]}
 						</td>
 					</tr>
 					<tr id="even">
 						<td class="narrow">
-							Applicant Email
+							Number of Kids
 						</td>
 						<td class="wide">
-							{ this.state.program[0]["applicant_email"]}
+							{ this.state.program[0]["num_kids"]}
+						</td>
+					</tr>
+					<tr id="odd">
+						<td class="narrow">
+							Dietary Restrictions
+						</td>
+						<td class="wide">
+							{ this.state.program[0]["dietary_restrictions"]}
 						</td>
 					</tr>
 				</table>
@@ -97,4 +101,4 @@ class NewSignupsProgramInfo extends React.Component {
 	}
 }
 
-export default NewSignupsProgramInfo;
+export default ProgramInfo;

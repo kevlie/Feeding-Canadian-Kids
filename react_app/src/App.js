@@ -12,6 +12,12 @@ import Admin from "./components/Admin/Admin";
 import NewSignups from "./components/Admin/NewSignups";
 import NewSignupsProgramInfo from "./components/Admin/NewSignupsProgramInfo";
 import NewSignupsRestaurantInfo from "./components/Admin/NewSignupsRestaurantInfo";
+import Programs from "./components/Admin/Programs";
+import Restaurants from "./components/Admin/Restaurants";
+import ProgramInfo from "./components/Admin/ProgramInfo";
+import RestaurantInfo from "./components/Admin/RestaurantInfo";
+import Pairing from "./components/Admin/Pairing";
+
 import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
 
 function HomePage() {
@@ -58,6 +64,7 @@ class App extends Component {
             component={RestaurantUserPage}
             component={NewSignupsRestaurantInfo}
           />
+
           <Route
             exact
             path="/restaurantuserpage"
@@ -66,6 +73,11 @@ class App extends Component {
           <Route exact path="/programuserpage" component={ProgramUserPage} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/new" component={NewSignups} />
+          <Route exact path="/admin/programs" component={Programs} />
+          <Route exact path="/admin/restaurants" component={Restaurants} />
+          <Route exact path="/admin/program/:id" component={ProgramInfo} />
+          <Route exact path="/admin/restaurant/:id" component={RestaurantInfo} />
+          <Route exact path="/admin/pairing" component={Pairing} />
         </Switch>
       </div>
     );

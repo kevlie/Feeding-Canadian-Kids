@@ -5,16 +5,6 @@ const sql = require('../db.js');
 adminRouter.get("/", function(req, res) {
 	var values = [];
 
-	// res.json([{
-	//     id: 1,
-	//     name: "Hiccup",
-	//     password: 'hiccup'
-	//   }, {
-	//     id: 2,
-	//     name: "King Arthur",
-	//     password: 'king-arthur'
-	//   }]);
-
 	query1 = "SELECT count(program_id) as count FROM program_review";
 	sql.query(query1, function(err, results) {
 		console.log(results)
