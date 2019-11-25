@@ -4,6 +4,7 @@ import { Row, Col, Nav, Tab } from "react-bootstrap";
 import Orders from "./Orders.js";
 import WelcomeMessage from "./WelcomeMessage.js";
 import ProgramsPartners from "./ProgramsPartners.js";
+import RestaurantTraining from "./RestaurantTraining.js";
 import "./RestaurantUserPage.css";
 
 class RestaurantUserPage extends React.Component {
@@ -33,6 +34,9 @@ class RestaurantUserPage extends React.Component {
                     <Nav.Link eventKey="first">Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
+                    <Nav.Link eventKey="fourth">Onboarding Guide</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
                     <Nav.Link eventKey="second">Your Orders</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
@@ -44,6 +48,9 @@ class RestaurantUserPage extends React.Component {
                 <Tab.Content className="m-height">
                   <Tab.Pane eventKey="first" className="m-height">
                     <WelcomeMessage />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="fourth" className="m-height">
+                    <RestaurantTraining />
                   </Tab.Pane>
                   <Tab.Pane eventKey="second" className="m-height">
                     <div className="order-div">

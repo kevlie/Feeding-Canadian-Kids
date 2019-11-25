@@ -1,9 +1,9 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import programTrainingImg from "../../img/program.png";
-import "./ProgramUserPage.css";
+import restaurantTrainingImg from "../../img/restaurant.png";
+import "./RestaurantUserPage.css";
 
-class ProgramTraining extends React.Component {
+class RestaurantTraining extends React.Component {
     render() {
       return (
         <div id="programTraining">
@@ -21,7 +21,7 @@ class ProgramTraining extends React.Component {
                         marginBottom: "30px"
                     }}
                 >
-                    <Card.Img variant="top" src= {programTrainingImg}/>
+                    <Card.Img variant="top" src= {restaurantTrainingImg}/>
                     <Card.Title 
                         style = {{
                             marginLeft:"20px",
@@ -36,14 +36,15 @@ class ProgramTraining extends React.Component {
                             marginRight:"20px"
                         }}
                     >
-                        This guide will walk you through the delivery process, 
-                        from getting prepared, inputting an order, 
-                        tracking the order and troubleshooting delivery issues. 
+                        This guide will walk you through 
+                        how to use the Uber Eats tablet and 
+                        what to look for when accepting the scheduled orders 
+                        that will be delivered to the after school programs.
                     </Card.Text>
                     <Card.Body>
                         <Card.Link 
                             className="cardLink"
-                            href="https://docs.google.com/presentation/d/1A4Fo3A-ZxdzBpn-utPoyHlG0Iqaot7cVBn6y4Z32qvo/edit?usp=sharing"
+                            href="https://docs.google.com/presentation/d/1bL74v2nxmysxlHgh_R8yNaWrU_Pk_-uFPKs6f9uMFvM/edit?usp=sharing"
                         >
                             View here
                         </Card.Link>
@@ -55,5 +56,5 @@ class ProgramTraining extends React.Component {
     }
   }
 
-  export default ProgramTraining
+  export default RestaurantTraining
   
