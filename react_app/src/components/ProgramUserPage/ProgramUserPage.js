@@ -4,6 +4,7 @@ import { Row, Col, Nav, Tab } from "react-bootstrap";
 import Deliveries from "./Deliveries";
 import WelcomeMessage from "./WelcomeMessage.js";
 import RestaurantsPartners from "./RestaurantsPartners.js";
+import ProgramTraining from "./ProgramTraining.js";
 import "./ProgramUserPage.css";
 
 class ProgramUserPage extends React.Component {
@@ -33,6 +34,9 @@ class ProgramUserPage extends React.Component {
                     <Nav.Link eventKey="first">Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
+                    <Nav.Link eventKey="fourth">Onboarding Guide</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
                     <Nav.Link eventKey="second">Your Deliveries</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
@@ -44,6 +48,9 @@ class ProgramUserPage extends React.Component {
                 <Tab.Content className="m-height">
                   <Tab.Pane eventKey="first" className="m-height">
                     <WelcomeMessage />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="fourth" className="m-height">
+                    <ProgramTraining />
                   </Tab.Pane>
                   <Tab.Pane eventKey="second" className="m-height">
                     <div className="order-div">

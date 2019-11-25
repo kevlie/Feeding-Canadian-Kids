@@ -70,3 +70,16 @@ h2 {
   bottom: 0;
   left: 250px;
 }
+
+/*****************************************/
+#programTraining h2{
+  text-align: left;
+}
+
+.cardLink{
+  color: rgb(19, 168, 86);
+}
+
+.cardLink:hover{
+  color: rgb(8, 110, 54);
+}
