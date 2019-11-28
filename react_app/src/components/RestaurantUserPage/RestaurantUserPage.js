@@ -11,12 +11,46 @@ class RestaurantUserPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: this.props.history.location.state.email
+      email: this.props.history.location.state.email,
+      name: ""
     };
   }
+
+  getRestaurantName = data => {
+    return new Promise (function(resolve, reject) {
+      fetch("http://localhost:9000/api/restaurantuserpage/name", {
+            method: "post",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify(data)
+          }).then((res) => {
+            resolve(res.json())
+          })
+
+    });
+
+
+  } 
+
   componentDidMount() {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
+
+    this.getRestaurantName({restaurantEmail: this.state.email})
+    .then((value) => {
+      let state = {
+        email: this.state.email,
+        name: value[0].name
+      }
+      this.setState(state)
+      return this.state.name
+    })
+    .then( (value) => {
+      console.log(value)
+    })
     //this.setUser()
     //console.log(this.props.history.location);
     //this.setState({email: this.props.history.location.state.email})
@@ -78,7 +112,7 @@ class RestaurantUserPage extends React.Component {
               <Col sm={10} className="m-height">
                 <Tab.Content className="m-height">
                   <Tab.Pane eventKey="first" className="m-height">
-                    <WelcomeMessage />
+                    <WelcomeMessage name = {this.state.name}/>
                   </Tab.Pane>
                   <Tab.Pane eventKey="fourth" className="m-height">
                     <RestaurantTraining />

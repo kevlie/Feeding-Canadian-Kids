@@ -31,7 +31,8 @@ class OrderSlot extends React.Component {
       time: this.props.time,
       program: this.props.program,
       meals: this.props.meals,
-      address: this.props.address
+      address: this.props.address,
+      dietary_restriction: this.props.dietary_restriction
     };
   }
   render() {
@@ -60,7 +61,7 @@ class OrderSlot extends React.Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
+              Order Information
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -73,6 +74,9 @@ class OrderSlot extends React.Component {
             </h3>
             <h3>
               {"Address: "} {this.state.address}
+            </h3>
+            <h3>
+              {"Dietary Restrictions: "} {this.state.dietary_restriction ? this.state.dietary_restriction: "None"}
             </h3>
           </Modal.Body>
         </Modal>

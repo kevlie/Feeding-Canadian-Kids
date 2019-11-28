@@ -2,14 +2,74 @@
   color: red;
   font-weight: bold;
 }
-.page {
+
+.card{
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin-top:20px;
+  padding: 20px 0 20px 0;
+  width: 70%;
+  background-color: aliceblue;
 }
+
+.page { 
+  background-size: cover;
+  width: 100%;
+  height:100%;
+}
+
+.textfield{
+  width: 70%;
+  left: 15%;
+}
+
+.MuiButton-root.loginButton{
+  width: 30%;
+  left:  35%;
+  background-color: rgb(14, 180, 64);
+}
+
+.MuiButton-root.loginButton:hover{
+  background-color: rgb(13, 156, 56);
+}
+
+.FCKimg{
+  height:100%;
+  width: 100%;
+  background-image: url("../../img/FeedingCK-kids.png");
+}
+
+.buttonGroup{
+  width: 90%;
+  left:  5%;
+  padding-Left: 10%;
+}
+
+.MuiButton-root.registerButton{
+  width:30%;
+  margin-Left:1.66%;
+  margin-Right: 1.66%;
+  margin-Top: 10px;
+  margin-Bottom: 10px;
+  border-color:  rgb(14, 180, 64);
+}
+
+.MuiButton-root.registerButton:hover{
+  border-color: rgb(13, 156, 56);
+  background-color:rgb(14, 180, 64);
+  box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
+}
+
 .newuser {
   padding-top: 10px;
 }
+
 .loginForm {
-  width: 55%;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 20px;
 }
