@@ -8,7 +8,6 @@ import RestaurantTraining from "./RestaurantTraining.js";
 import "./RestaurantUserPage.css";
 
 class RestaurantUserPage extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -86,7 +85,7 @@ class RestaurantUserPage extends React.Component {
                   </Tab.Pane>
                   <Tab.Pane eventKey="second" className="m-height">
                     <div className="order-div">
-                      <Orders email = {this.state.email}/> 
+                      <Orders email={this.state.email} />
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third" className="m-height">
