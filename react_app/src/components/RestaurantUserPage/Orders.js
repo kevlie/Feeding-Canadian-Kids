@@ -71,7 +71,7 @@ class Orders extends React.Component {
       return this.state.orders;
     })
     .then((value) => {
-
+      console.log(value)
     })
 
     // .then((value) =>{
