@@ -63,7 +63,7 @@ class RestaurantUserPage extends React.Component {
               <Col sm={2} className="pill-tabs-color m-height">
                 <Nav variant="pills" className="flex-column pill-tabs">
                   <Nav.Item>
-                    <Nav.Link eventKey="first">{this.state.email}</Nav.Link>
+                    <Nav.Link eventKey="first">Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="fourth">Onboarding Guide</Nav.Link>
