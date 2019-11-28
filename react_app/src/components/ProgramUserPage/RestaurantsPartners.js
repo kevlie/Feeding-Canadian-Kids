@@ -1,39 +1,73 @@
+import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import React from "react";
-import { Table } from "react-bootstrap";
+
+const columns = [
+  {
+    dataField: "name",
+    text: "Restaurant Name"
+  },
+  {
+    dataField: "address",
+    text: "Address"
+  },
+  {
+    dataField: "contact_email",
+    text: "Email"
+  },
+  {
+    dataField: "phone",
+    text: "Phone Number"
+  }
+];
 
 class RestaurantsPartners extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+
+  componentWillMount() {
+    fetch("http://localhost:9000/api/programPairings")
+      .then(res => res.json())
+      .then(data => {
+        let test1 = {
+          name: "k3",
+          address: "mkk",
+          contact_email: "kwada",
+          phone: "adwa"
+        };
+        let test2 = {
+          name: "k3213",
+          address: "mk32k",
+          contact_email: "kw23ada",
+          phone: "a23dwa"
+        };
+        let test3 = {
+          name: "k23",
+          address: "m23kk",
+          contact_email: "kw23ada",
+          phone: "a12dwa"
+        };
+        this.setState({ data });
+      });
+  }
+
   render() {
     return (
-      <div>
-        <h1> Your Restaurant Partners Information</h1>
-        <Table striped bordered>
-          <thead>
-            <tr>
-              <th>Restaurant Name</th>
-              <th>Status</th>
-              <th>PA Days</th>
-              <th>Last Day of Programming</th>
-              <th>Restaurant Address</th>
-              <th>Radius</th>
-              <th>Delivery Time</th>
-              <th>Contact e-mail</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Taylor's Landing</td>
-              <td>Active (Feb 8th)</td>
-              <td>Feb 15th, June 7th, June 28th</td>
-              <td></td>
-              <td>150 Grenoble Dr, North York, ON M3C 0H1</td>
-              <td>3.6 Km</td>
-              <td>3:30:00 PM (11:30 on PA Days)</td>
-              <td>winston@thelandinggroup.ca</td>
-            </tr>
-          </tbody>
-        </Table>
-      </div>
+      <BootstrapTable data={this.state.data}>
+        <TableHeaderColumn dataField="name" isKey>
+          Restaurant Name
+        </TableHeaderColumn>
+        <TableHeaderColumn dataField="address">Address</TableHeaderColumn>
+        <TableHeaderColumn dataField="contact_email">
+          Contact Email
+        </TableHeaderColumn>
+        <TableHeaderColumn dataField="phone">Phone Number</TableHeaderColumn>
+      </BootstrapTable>
     );
   }
 }
+
 export default RestaurantsPartners;
