@@ -5,6 +5,7 @@ import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistr
 import CourierRegistration from "./components/CourierRegistration/CourierRegistration";
 import RestaurantUserPage from "./components/RestaurantUserPage/RestaurantUserPage.js";
 import ProgramUserPage from "./components/ProgramUserPage/ProgramUserPage.js";
+import CourierUserPage from "./components/CourierUserPage/CourierUserPage.js";
 import Login from "./components/Login/Login.js";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -77,6 +78,7 @@ class App extends Component {
             path="/restaurantuserpage"
             component={RestaurantUserPage}
           />
+          <Route exact path="/courieruserpage" component={CourierUserPage} />
           <Route exact path="/programuserpage" component={ProgramUserPage} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/new" component={NewSignups} />
