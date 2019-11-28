@@ -1,9 +1,87 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import "./Orders.css";
+import { withRouter } from "react-router-dom";
 import OrderSlot from "./OrderSlot.js";
 
+
+
+
+
 class Orders extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      email: this.props.email,
+      orders: []
+    };
+
+  }
+  // handleOrders = e => {
+  //   e.preventDefault();
+  //   this.getOrders({
+  //     restaurantEmail: this.state.email
+  //   })
+  // }
+
+  getOrders = data =>{
+    return new Promise (function(resolve, reject) {
+      fetch("http://localhost:9000/api/restaurantuserpage/orders", {
+            method: "post",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify(data)
+          }).then((res) => {
+            resolve(res.json())
+          })
+
+    });
+    
+          // .then(response => {
+          //    if(response.status === 404) {
+          //      console.log('bumbaclot')
+          //    }
+
+          //     if (response.status === 200){
+          //         response.json().then(resJSON => {
+          //           let state = {
+          //             email: this.props.email,
+          //             orders: resJSON
+          //           }
+          //         this.setState(state)
+          //         console.log(this.state)
+          //         }
+          //         )
+          //     }
+          // })
+  }
+
+  componentDidMount(){
+    console.log(this.state.email);
+    this.getOrders({restaurantEmail: this.state.email})
+    .then((value) => {
+      let state = {
+          email: this.props.email,
+          orders: value
+      }
+      this.setState(state)
+      return this.state.orders;
+    })
+    .then((value) => {
+
+    })
+
+    // .then((value) =>{
+    //   console.log(value)
+    //   console.log(this.state.orders);
+    // })
+    
+
+  }
+  
   render() {
     return (
       <>
@@ -40,4 +118,4 @@ class Orders extends React.Component {
     );
   }
 }
-export default Orders;
+export default withRouter(Orders);

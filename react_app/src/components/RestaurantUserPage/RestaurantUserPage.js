@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Nav, Tab } from "react-bootstrap";
-
+import { withRouter } from "react-router-dom";
 import Orders from "./Orders.js";
 import WelcomeMessage from "./WelcomeMessage.js";
 import ProgramsPartners from "./ProgramsPartners.js";
@@ -8,15 +8,47 @@ import RestaurantTraining from "./RestaurantTraining.js";
 import "./RestaurantUserPage.css";
 
 class RestaurantUserPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: this.props.history.location.state.email
+    };
+  }
   componentDidMount() {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
+    //this.setUser()
+    //console.log(this.props.history.location);
+    //this.setState({email: this.props.history.location.state.email})
   }
 
   componentWillUnmount() {
     document.body.classList.remove("hunnid");
     document.documentElement.classList.remove("hunnid");
   }
+
+  // setUser(){
+  //   fetch("http://localhost:9000/api/restaurantUserPage/get-user-info", {
+  //     method: "get",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     credentials: "include"
+  //   }).then(res => {
+  //     if (res.status === 200 || res.status === 304) {
+  //       res.json().then(resJSON => {
+  //         let state = {
+  //           email: resJSON.email
+  //         };
+  //         this.setState(state);
+  //       })
+  //       // this.props.history.push("/programuserpage");
+  //       // return <Redirect to='/programuserpage' />
+  //     }
+  //   });
+  // }
 
   render() {
     return (
@@ -31,7 +63,7 @@ class RestaurantUserPage extends React.Component {
               <Col sm={2} className="pill-tabs-color m-height">
                 <Nav variant="pills" className="flex-column pill-tabs">
                   <Nav.Item>
-                    <Nav.Link eventKey="first">Home</Nav.Link>
+                    <Nav.Link eventKey="first">{this.state.email}</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="fourth">Onboarding Guide</Nav.Link>
@@ -54,7 +86,7 @@ class RestaurantUserPage extends React.Component {
                   </Tab.Pane>
                   <Tab.Pane eventKey="second" className="m-height">
                     <div className="order-div">
-                      <Orders />
+                      <Orders email = {this.state.email}/> 
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third" className="m-height">
@@ -70,4 +102,4 @@ class RestaurantUserPage extends React.Component {
   }
 }
 
-export default RestaurantUserPage;
+export default withRouter(RestaurantUserPage);
