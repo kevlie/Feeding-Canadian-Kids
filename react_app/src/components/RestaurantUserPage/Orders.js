@@ -14,14 +14,6 @@ class Orders extends React.Component {
     };
 
   }
-  // handleOrders = e => {
-  //   e.preventDefault();
-  //   this.getOrders({
-  //     restaurantEmail: this.state.email
-  //   })
-  // }
-  
-  
 
   // bad practice to use post in this case, but makes it so 
   // one doesn't have to deal with security issues involving emails
@@ -40,24 +32,6 @@ class Orders extends React.Component {
           })
 
     });
-    
-          // .then(response => {
-          //    if(response.status === 404) {
-          //      console.log('bumbaclot')
-          //    }
-
-          //     if (response.status === 200){
-          //         response.json().then(resJSON => {
-          //           let state = {
-          //             email: this.props.email,
-          //             orders: resJSON
-          //           }
-          //         this.setState(state)
-          //         console.log(this.state)
-          //         }
-          //         )
-          //     }
-          // })
   }
 
   componentDidMount(){
@@ -74,12 +48,6 @@ class Orders extends React.Component {
     .then((value) => {
       console.log(value)
     })
-
-    // .then((value) =>{
-    //   console.log(value)
-    //   console.log(this.state.orders);
-    // })
-    
 
   }
   
@@ -110,7 +78,8 @@ class Orders extends React.Component {
         return <OrderSlot time = {programOrderObj[orderDayTime]} 
                           address = {programOrderObj.address}
                           meals = {programOrderObj[orderDayMeals]}
-                          program = {programOrderObj.name}/>
+                          program = {programOrderObj.name}
+                          dietary_restriction = {programOrderObj.dietary_restriction}/>
       }
     }
     
