@@ -98,7 +98,7 @@ class Login extends React.Component {
                 this.props.history.push("/programuserpage");
                 window.location.reload();
               } else if (resJSON.partnerType === "restaurant") {
-                this.props.history.push("/restaurantuserpage");
+                this.props.history.push("/restaurantuserpage", state);
                 window.location.reload();
               } else {
                 this.props.history.push("/admin");
