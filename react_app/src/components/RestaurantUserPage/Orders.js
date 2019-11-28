@@ -5,9 +5,6 @@ import { withRouter } from "react-router-dom";
 import OrderSlot from "./OrderSlot.js";
 
 
-
-
-
 class Orders extends React.Component {
   constructor(props){
     super(props);
@@ -23,7 +20,11 @@ class Orders extends React.Component {
   //     restaurantEmail: this.state.email
   //   })
   // }
+  
+  
 
+  // bad practice to use post in this case, but makes it so 
+  // one doesn't have to deal with security issues involving emails
   getOrders = data =>{
     return new Promise (function(resolve, reject) {
       fetch("http://localhost:9000/api/restaurantuserpage/orders", {
@@ -83,6 +84,37 @@ class Orders extends React.Component {
   }
   
   render() {
+    const orderPrograms = this.state.orders
+
+    const dayToDayTime = {
+      Monday: "monday_time",
+      Tuesday: "tuesday_time",
+      Wednesday: "wednesday_time",
+      Thursday: "thursday_time",
+      Friday: "friday_time"
+    }
+    
+    const dayToDayMeals = {
+      Monday: "monday_meals",
+      Tuesday: "tuesday_meals",
+      Wednesday: "wednesday_meals",
+      Thursday: "thursday_meals",
+      Friday: "friday_meals"
+    }
+    
+    
+    
+    
+    const orderDaySelector = (programOrderObj, orderDayTime, orderDayMeals) => {
+      if (programOrderObj[orderDayTime] != null){
+        return <OrderSlot time = {programOrderObj[orderDayTime]} 
+                          address = {programOrderObj.address}
+                          meals = {programOrderObj[orderDayMeals]}
+                          program = {programOrderObj.name}/>
+      }
+    }
+    
+    
     return (
       <>
         <h1> Your Orders for the Week</h1>
@@ -100,16 +132,24 @@ class Orders extends React.Component {
           <tbody>
             <tr>
               <td>
-                <OrderSlot time="5:30" which="0" />
-                <OrderSlot time="6:00" which="1" />
+                {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Monday'], dayToDayMeals['Monday']))}
+                {/* <OrderSlot time="5:30" which="0" /> */}
+                {/* <OrderSlot time="6:00" which="1" /> */}
+                
               </td>
-              <td></td>
               <td>
-                <OrderSlot time="5:00" which="2" />
+                {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Tuesday'], dayToDayMeals['Tuesday']))}
               </td>
-              <td></td>
               <td>
-                <OrderSlot time="7:00" which="3" />
+                {/* <OrderSlot time="5:00" which="2" /> */}
+                {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Wednesday'], dayToDayMeals['Wednesday']))}
+              </td>
+              <td>
+                {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Thursday'], dayToDayMeals['Thursday']))}
+              </td>
+              <td>
+                {/* <OrderSlot time="7:00" which="3" /> */}
+                {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Friday'], dayToDayMeals['Friday']))}
               </td>
             </tr>
           </tbody>

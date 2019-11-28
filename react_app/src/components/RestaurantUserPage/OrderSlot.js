@@ -27,12 +27,20 @@ class OrderSlot extends React.Component {
           Meals: "25",
           Address: "16 Keele Street"
         }
-      ]
+      ],
+      time: this.props.time,
+      program: this.props.program,
+      meals: this.props.meals,
+      address: this.props.address
     };
   }
   render() {
-    const index = this.props.which;
-    const info = this.state.sampleInfo[index];
+    //const index = this.props.which;
+    //const info = this.state.sampleInfo[index];
+    const timeString12hr = (timeString) => { return new Date('1970-01-01T' + timeString + 'Z')
+      .toLocaleTimeString({},
+      {timeZone:'UTC',hour12:true,hour:'numeric',minute:'numeric'});
+      }
     return (
       <>
         <Button
@@ -41,7 +49,7 @@ class OrderSlot extends React.Component {
           id="slot"
           variant="outline-success"
         >
-          {this.props.time}
+          {timeString12hr(this.props.time)}
         </Button>
 
         <Modal
@@ -58,13 +66,13 @@ class OrderSlot extends React.Component {
           <Modal.Body>
             <h3>
               {"Program: "}
-              {info.Program}
+              {this.state.program}
             </h3>
             <h3>
-              {"Meals: "} {info.Meals}
+              {"Meals: "} {this.state.meals}
             </h3>
             <h3>
-              {"Address: "} {info.Address}
+              {"Address: "} {this.state.address}
             </h3>
           </Modal.Body>
         </Modal>
