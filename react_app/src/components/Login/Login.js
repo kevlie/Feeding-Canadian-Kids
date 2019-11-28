@@ -132,6 +132,11 @@ class Login extends React.Component {
       this.props.history.push("/restaurantRegistration");
     };
 
+    const handleCourier = e => {
+      e.preventDefault();
+      this.props.history.push("/courierRegistration");
+    };
+
     return (
       <Container>
         <div className="page">
@@ -197,11 +202,15 @@ class Login extends React.Component {
                 Register as a Program
               </Button>
               <Button
+                style={{ marginRight: "20px" }}
                 variant="primary"
                 type="submit"
                 onClick={handleRestaurant}
               >
                 Register as a Restaurant
+              </Button>
+              <Button variant="primary" type="submit" onClick={handleCourier}>
+                Register as a Courier
               </Button>
             </Form>
           </div>

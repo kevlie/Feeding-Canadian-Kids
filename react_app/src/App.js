@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import RestaurantRegistration from "./components/RestaurantRegistration/RestaurantRegistration";
 import ProgramRegistration from "./components/ProgramRegistration/ProgramRegistration";
+import CourierRegistration from "./components/CourierRegistration/CourierRegistration";
 import RestaurantUserPage from "./components/RestaurantUserPage/RestaurantUserPage.js";
 import ProgramUserPage from "./components/ProgramUserPage/ProgramUserPage.js";
 import Login from "./components/Login/Login.js";
@@ -49,6 +50,11 @@ class App extends Component {
             exact
             path="/registrationcomplete"
             component={RegistrationComplete}
+          />
+          <Route
+            exact
+            path="/courierRegistration"
+            component={CourierRegistration}
           />
           <Route exact path="/admin/newSignups" component={NewSignups} />
           <Route
