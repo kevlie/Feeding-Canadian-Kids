@@ -28,6 +28,10 @@ var restaurantInfoRouter = require('./routes/restaurantInfo');
 var programRegistrationStatusRouter = require('./routes/programRegistrationStatus');
 var restaurantRegistrationStatusRouter = require('./routes/restaurantRegistrationStatus');
 
+var restaurantRouter = require('./routes/restaurantUserPage');
+
+//var restaurantUserPageRouter = require('./routes/restaurantUserPage');
+
 var app = express();
 
 // view engine setup
@@ -83,6 +87,10 @@ app.use('/api/admin/programs', programsRouter);
 app.use('/api/admin/restaurants', restaurantsRouter);
 app.use('/api/admin/program', programInfoRouter);
 app.use('/api/admin/restaurant', restaurantInfoRouter);
+
+app.use('/api/restaurantuserpage', restaurantRouter);
+
+//app.use('/api/restaurantUserPage', restaurantUserPageRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
