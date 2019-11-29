@@ -29,7 +29,7 @@ class RestaurantsPartners extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch("http://localhost:9000/api/programRestaurants")
       .then(res => res.json())
       .then(data => {
