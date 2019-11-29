@@ -4,7 +4,7 @@ import { Row, Col, Nav, Tab, Tabs } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import WelcomeMessage from "./WelcomeMessage.js";
 // import ProgramsPartners from "./ProgramsPartners.js";
-import "./CourierUserPage.css";
+import RestaurantPartners from "./RestaurantPartners.js";
 
 class CourierUserPage extends React.Component {
   constructor(props) {
@@ -15,21 +15,7 @@ class CourierUserPage extends React.Component {
       approval_status: 0
     };
   }
-  // getCourierName = data => {
-  //   return new Promise(function(resolve, reject) {
-  //     fetch("http://localhost:9000/api/courieruserpage/name", {
-  //       method: "post",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json"
-  //       },
-  //       credentials: "include",
-  //       body: JSON.stringify(data)
-  //     }).then(res => {
-  //       resolve(res.json());
-  //     });
-  //   });
-  // };
+
   componentDidMount = () => {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
@@ -47,14 +33,6 @@ class CourierUserPage extends React.Component {
         this.setState({ approval_status: json[0].approval_status });
       });
 
-    // this.getCourierName({ email: this.state.email })
-    //   .then(value => {
-    //     this.setState({ name: value[0].name });
-    //     return this.state.name;
-    //   })
-    //   .then(value => {
-    //     console.log(value);
-    //   });
     fetch("http://localhost:9000/api/courieruserpage/name", {
       method: "post",
       headers: {
@@ -67,7 +45,6 @@ class CourierUserPage extends React.Component {
       .then(response => response.json())
       .then(json => {
         this.setState({ name: json[0].name });
-        console.log(this.state.name);
       });
   };
 
@@ -77,8 +54,6 @@ class CourierUserPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.approval_status);
-    console.log(this.state.name);
     return (
       <>
         {this.state.approval_status === 0 ? (
@@ -91,14 +66,9 @@ class CourierUserPage extends React.Component {
             <Tab eventKey="home" title="Home">
               <WelcomeMessage name={this.state.name} email={this.state.email} />
             </Tab>
-            <Tab eventKey="onboarding" title="Onboarding Guide">
-              {/* <ProgramTraining /> */}
-            </Tab>
-            <Tab eventKey="deliveries" title="Your Deliveries">
-              <div className="order-div">{/* <Deliveries /> */}</div>
-            </Tab>
+
             <Tab eventKey="restaurants" title="Your Restaurants">
-              {/* <RestaurantsPartners/> */}
+              <RestaurantPartners email={this.state.email} />
             </Tab>
           </Tabs>
 
