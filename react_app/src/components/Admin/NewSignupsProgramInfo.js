@@ -40,7 +40,7 @@ class NewSignupsProgramInfo extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div id="newSignupsProgramInfo">
 				<div>
 				<Sidebar />
 				</div>
@@ -108,10 +108,9 @@ class NewSignupsProgramInfo extends React.Component {
 						</td>
 					</tr>
 				</table>
-
 				<div class="appButtons">
-					<a class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
-					<a class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
+					<a href="/admin/newSignups"class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
+					<a href="/admin/newSignups"class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
 				</div>
 			</div>
 		)

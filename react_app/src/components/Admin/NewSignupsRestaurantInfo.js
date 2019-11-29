@@ -7,9 +7,6 @@ class NewSignupsRestaurantInfo extends React.Component {
 		super(props)
 		this.state = {
 			restaurant: [[]]
-			//restaurant: [{"name": "Dhruv", "discovery_info": "Website", "extra_info": "NAH", "in_kind_support": "Not at all",
-			//		   "dinner_needs": "need food", "applicant_name": "Dhruv", "applicant_phone": "123", 
-			//		   "applicant_email": "a@mail.com", "preferred_time": "morning"}]
 		}
 	}
 
@@ -109,8 +106,8 @@ class NewSignupsRestaurantInfo extends React.Component {
 					</tr>
 				</table>
 				<div class="appButtons">
-					<a class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
-					<a class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
+					<a href="/admin/newSignups" class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
+					<a href="/admin/newSignups" class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
 				</div>
 			</div>
 		)

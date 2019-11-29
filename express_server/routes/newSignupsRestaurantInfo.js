@@ -14,8 +14,12 @@ router.get("/:id", function(req, res) {
 })
 
 router.post("/:id/approve", function(req, res) {
-	query = "UPDATE restaurant_review SET approval_status = " + 1 + " WHERE restaurant_id = " + req.params.id;
-	sql.query(query, function(err, results) {
+	query1 = "UPDATE restaurant_review SET approval_status = " + 1 + " WHERE restaurant_id = " + req.params.id;
+	sql.query(query1, function(err, results) {
+		console.log(err);
+	})
+	query2 = "UPDATE restaurant_partners SET active_status = " + 1 + " WHERE restaurant_id = " + req.params.id;
+	sql.query(query2, function(err, results) {
 		console.log(err);
 	})
 })
