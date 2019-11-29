@@ -25,7 +25,8 @@ var programsRouter = require("./routes/programs");
 var restaurantsRouter = require("./routes/restaurants");
 var programInfoRouter = require("./routes/programInfo");
 var restaurantInfoRouter = require("./routes/restaurantInfo");
-var programPairings = require("./routes/programPairings")
+var programRestaurants = require("./routes/programRestaurants")
+var programDelivery = require("./routes/programDelivery")
 
 var programRegistrationStatusRouter = require("./routes/programRegistrationStatus");
 var restaurantRegistrationStatusRouter = require("./routes/restaurantRegistrationStatus");
@@ -101,7 +102,8 @@ app.use("/api/admin/program", programInfoRouter);
 app.use("/api/admin/restaurant", restaurantInfoRouter);
 
 app.use("/api/restaurantuserpage", restaurantRouter);
-app.use("/api/programPairings", programPairings);
+app.use("/api/programRestaurants", programRestaurants);
+app.use("/api/programDelivery", programDelivery)
 
 //app.use('/api/restaurantUserPage', restaurantUserPageRouter);
 

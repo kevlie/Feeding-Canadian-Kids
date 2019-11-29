@@ -30,7 +30,7 @@ class RestaurantsPartners extends React.Component {
   }
 
   componentWillMount() {
-    fetch("http://localhost:9000/api/programPairings")
+    fetch("http://localhost:9000/api/programRestaurants")
       .then(res => res.json())
       .then(data => {
         let rows = [];
