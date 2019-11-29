@@ -3,7 +3,7 @@ var router = express.Router();
 const sql = require("../db.js");
 
 router.get("/", (req, res) => {
-  const email = req.session.email;
+  console.log(req.session.email)
   let query1 = "SELECT program_id FROM program_partners WHERE email = ?";
   sql.query(query1, "fake@mail.com", function(err, results) {
     let program_id = JSON.parse(JSON.stringify(results))[0].program_id;
@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
       query3 =
         "SELECT name, address, contact_email, phone FROM restaurant_partners WHERE restaurant_id IN (?)";
       sql.query(query3, queryData, function(err, results) {
-        console.log(results);
         res.status(200).json(results);
       });
     });

@@ -4,6 +4,109 @@ import "./Deliveries.css";
 import DeliverySlot from "./DeliverySlot.js";
 
 class Deliveries extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:9000/api/programDelivery")
+      .then(res => res.json())
+      .then(json => {
+        let data = [];
+        let rows = [];
+        for (let j = 0; j < 5; j++) {
+          let rowData = [];
+          for (let i = 0; i < json.length; i++) {
+            if (
+              json[i].monday_time !== null &&
+              json[i].monday_meals !== null &&
+              j === 0
+            ) {
+              rowData.push(
+                <DeliverySlot
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].monday_time}
+                  meals={json[i].monday_meals}
+                />
+              );
+            }
+            if (
+              json[i].tuesday_time !== null &&
+              json[i].tuesday_meals !== null &&
+              j === 1
+            ) {
+              rowData.push(
+                <DeliverySlot
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].tuesday_time}
+                  meals={json[i].monday_meals}
+                />
+              );
+            }
+            if (
+              json[i].wednesday_time !== null &&
+              json[i].wednesday_meals !== null &&
+              j === 2
+            ) {
+              rowData.push(
+                <DeliverySlot
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].wednesday_time}
+                  meals={json[i].monday_meals}
+                />
+              );
+            }
+            if (
+              json[i].thursday_time !== null &&
+              json[i].thursday_meals !== null &&
+              j === 3
+            ) {
+              rowData.push(
+                <DeliverySlot
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].thursday_time}
+                  meals={json[i].monday_meals}
+                />
+              );
+            }
+            if (
+              json[i].friday_time !== null &&
+              json[i].friday_meals !== null &&
+              j === 4
+            ) {
+              rowData.push(
+                <DeliverySlot
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].friday_time}
+                  meals={json[i].monday_meals}
+                />
+              );
+            }
+          }
+          rows.push(<td> {rowData} </td>);
+        }
+        data.push(<tr> {rows} </tr>);
+        this.setState({ data });
+      });
+  }
   render() {
     return (
       <>
@@ -19,22 +122,7 @@ class Deliveries extends React.Component {
               <th>Friday</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>
-                <DeliverySlot time="5:30" which="0" />
-                <DeliverySlot time="6:00" which="1" />
-              </td>
-              <td></td>
-              <td>
-                <DeliverySlot time="5:00" which="2" />
-              </td>
-              <td></td>
-              <td>
-                <DeliverySlot time="7:00" which="3" />
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{this.state.data}</tbody>
         </Table>
       </>
     );

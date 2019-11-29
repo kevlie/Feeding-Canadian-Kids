@@ -28,12 +28,14 @@ var restaurantInfoRouter = require("./routes/restaurantInfo");
 var programPairings = require("./routes/programPairings");
 
 var pairingRouter = require("./routes/pairing");
+var programRestaurants = require("./routes/programRestaurants");
+var programDelivery = require("./routes/programDelivery");
 
 var programRegistrationStatusRouter = require("./routes/programRegistrationStatus");
 var restaurantRegistrationStatusRouter = require("./routes/restaurantRegistrationStatus");
 
 var restaurantRouter = require("./routes/restaurantUserPage");
-
+var courierRouter = require("./routes/courierUserPage");
 //var restaurantUserPageRouter = require('./routes/restaurantUserPage');
 
 var app = express();
@@ -103,7 +105,9 @@ app.use("/api/admin/program", programInfoRouter);
 app.use("/api/admin/restaurant", restaurantInfoRouter);
 app.use("/api/admin/pairing", pairingRouter);
 app.use("/api/restaurantuserpage", restaurantRouter);
-app.use("/api/programPairings", programPairings);
+app.use("/api/programRestaurants", programRestaurants);
+app.use("/api/programDelivery", programDelivery);
+app.use("/api/courieruserpage", courierRouter);
 
 //app.use('/api/restaurantUserPage', restaurantUserPageRouter);
 
