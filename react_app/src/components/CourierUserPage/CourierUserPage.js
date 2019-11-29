@@ -14,7 +14,6 @@ class CourierUserPage extends React.Component {
     };
   }
   componentDidMount = () => {
-    console.log(this.state.email);
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
     fetch("http://localhost:9000/api/courieruserpage", {
@@ -29,30 +28,8 @@ class CourierUserPage extends React.Component {
       .then(response => response.json())
       .then(json => {
         this.setState({ approval_status: json[0].approval_status });
-        console.log(this.state.approval_status);
       });
-
-    // fetch("http://localhost:9000/api/courieruserpage")
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     console.log(json);
-    //     this.setState({ approval_status: json.approval_status });
-    //   });
-    // fetch("http://localhost:9000/api/admin/newSignups")
-    //   .then(res => res.json())
-    //   .then(values => console.log(values));
   };
-
-  // componentDidMount = () => {
-  //   document.body.classList.add("hunnid");
-  //   document.documentElement.classList.add("hunnid");
-  //   fetch("http://localhost:9000/api/courieruserpage")
-  //     .then(res => res.json())
-  //     .then(json => {
-  //       console.log(json);
-  //       this.setState({ approval_status: json.approval_status });
-  //     });
-  // };
 
   componentWillUnmount() {
     document.body.classList.remove("hunnid");

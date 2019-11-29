@@ -104,11 +104,8 @@ app.use("/api/admin/restaurant", restaurantInfoRouter);
 app.use("/api/restaurantuserpage", restaurantRouter);
 app.use("/api/programRestaurants", programRestaurants);
 app.use("/api/programDelivery", programDelivery);
-<<<<<<< HEAD
 app.use("/api/courieruserpage", courierRouter);
-=======
 
->>>>>>> 5db092c792d4b9c95cc2c9b4bb07846ae382c3b7
 //app.use('/api/restaurantUserPage', restaurantUserPageRouter);
 
 // catch 404 and forward to error handler
