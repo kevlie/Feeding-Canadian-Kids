@@ -7,104 +7,104 @@ class Deliveries extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      info: []
+      data: []
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch("http://localhost:9000/api/programDelivery")
       .then(res => res.json())
-      .then(data => {
-        let info = [];
+      .then(json => {
+        let data = [];
         let rows = [];
         for (let j = 0; j < 5; j++) {
           let rowData = [];
-          for (let i = 0; i < data.length; i++) {
+          for (let i = 0; i < json.length; i++) {
             if (
-              data[i].monday_time !== null &&
-              data[i].monday_meals !== null &&
+              json[i].monday_time !== null &&
+              json[i].monday_meals !== null &&
               j === 0
             ) {
               rowData.push(
                 <DeliverySlot
-                  name={data[i].name}
-                  address={data[i].address}
-                  contact_email={data[i].contact_email}
-                  phone={data[i].phone}
-                  time={data[i].monday_time}
-                  meals={data[i].monday_meals}
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].monday_time}
+                  meals={json[i].monday_meals}
                 />
               );
             }
             if (
-              data[i].tuesday_time !== null &&
-              data[i].tuesday_meals !== null &&
+              json[i].tuesday_time !== null &&
+              json[i].tuesday_meals !== null &&
               j === 1
             ) {
               rowData.push(
                 <DeliverySlot
-                  name={data[i].name}
-                  address={data[i].address}
-                  contact_email={data[i].contact_email}
-                  phone={data[i].phone}
-                  time={data[i].tuesday_time}
-                  meals={data[i].monday_meals}
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].tuesday_time}
+                  meals={json[i].monday_meals}
                 />
               );
             }
             if (
-              data[i].wednesday_time !== null &&
-              data[i].wednesday_meals !== null &&
+              json[i].wednesday_time !== null &&
+              json[i].wednesday_meals !== null &&
               j === 2
             ) {
               rowData.push(
                 <DeliverySlot
-                  name={data[i].name}
-                  address={data[i].address}
-                  contact_email={data[i].contact_email}
-                  phone={data[i].phone}
-                  time={data[i].wednesday_time}
-                  meals={data[i].monday_meals}
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].wednesday_time}
+                  meals={json[i].monday_meals}
                 />
               );
             }
             if (
-              data[i].thursday_time !== null &&
-              data[i].thursday_meals !== null &&
+              json[i].thursday_time !== null &&
+              json[i].thursday_meals !== null &&
               j === 3
             ) {
               rowData.push(
                 <DeliverySlot
-                  name={data[i].name}
-                  address={data[i].address}
-                  contact_email={data[i].contact_email}
-                  phone={data[i].phone}
-                  time={data[i].thursday_time}
-                  meals={data[i].monday_meals}
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].thursday_time}
+                  meals={json[i].monday_meals}
                 />
               );
             }
             if (
-              data[i].friday_time !== null &&
-              data[i].friday_meals !== null &&
+              json[i].friday_time !== null &&
+              json[i].friday_meals !== null &&
               j === 4
             ) {
               rowData.push(
                 <DeliverySlot
-                  name={data[i].name}
-                  address={data[i].address}
-                  contact_email={data[i].contact_email}
-                  phone={data[i].phone}
-                  time={data[i].friday_time}
-                  meals={data[i].monday_meals}
+                  name={json[i].name}
+                  address={json[i].address}
+                  contact_email={json[i].contact_email}
+                  phone={json[i].phone}
+                  time={json[i].friday_time}
+                  meals={json[i].monday_meals}
                 />
               );
             }
           }
           rows.push(<td> {rowData} </td>);
         }
-        info.push(<tr> {rows} </tr>);
-        this.setState({ info });
+        data.push(<tr> {rows} </tr>);
+        this.setState({ data });
       });
   }
   render() {
@@ -122,7 +122,7 @@ class Deliveries extends React.Component {
               <th>Friday</th>
             </tr>
           </thead>
-          <tbody>{this.state.info}</tbody>
+          <tbody>{this.state.data}</tbody>
         </Table>
       </>
     );
