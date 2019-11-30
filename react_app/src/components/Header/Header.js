@@ -86,6 +86,7 @@ class Header extends Component {
           <Nav className="ml-auto">
             {!this.state.isLoggedIn ? (
               <Nav.Link
+                className="loginlink"
                 onClick={e => {
                   this.props.history.push("/login");
                 }}
