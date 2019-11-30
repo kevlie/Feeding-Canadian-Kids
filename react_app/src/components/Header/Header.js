@@ -24,7 +24,8 @@ class Header extends Component {
       isLoggedIn: false,
       error: "",
       partnerType: "",
-      isAdmin: ""
+      isAdmin: "",
+      activeStatus: 0
     };
   }
 
@@ -44,7 +45,8 @@ class Header extends Component {
               isLoggedIn: true,
               email: resJSON.email,
               partnerType: resJSON.partnerType,
-              isAdmin: resJSON.isAdmin
+              isAdmin: resJSON.isAdmin,
+              activeStatus: resJSON.activeStatus
             };
             this.setState(state);
           } else {
@@ -105,11 +107,19 @@ class Header extends Component {
                   onClick={e => {
                     let state = { email: this.state.email };
                     if (this.state.partnerType === "restaurant") {
-                      this.props.history.push("/restaurantuserpage", state);
+                      this.state.activeStatus === 1
+                        ? this.props.history.push("/restaurantuserpage", state)
+                        : this.props.history.push("/pendingapproval");
                     } else if (this.state.partnerType === "program") {
-                      this.props.history.push("programuserpage");
+                      this.state.activeStatus === 1
+                        ? this.props.history.push("/programuserpage")
+                        : this.props.history.push("/pendingapproval");
+                    } else if (this.state.partnerType === "courier") {
+                      this.state.activeStatus === 1
+                        ? this.props.history.push("/courieruserpage", state)
+                        : this.props.history.push("/pendingapproval");
                     } else {
-                      this.props.history.push("courieruserpage", state);
+                      this.props.history.push("admin");
                     }
                   }}
                 >

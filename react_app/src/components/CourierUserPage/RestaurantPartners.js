@@ -2,25 +2,6 @@ import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import { Table } from "react-bootstrap";
 import React from "react";
 
-// const columns = [
-//   {
-//     dataField: "name",
-//     text: "Restaurant Name"
-//   },
-//   {
-//     dataField: "address",
-//     text: "Address"
-//   },
-//   {
-//     dataField: "contact_email",
-//     text: "Email"
-//   },
-//   {
-//     dataField: "phone",
-//     text: "Phone Number"
-//   }
-// ];
-
 class RestaurantPartners extends React.Component {
   constructor(props) {
     super(props);
@@ -33,12 +14,8 @@ class RestaurantPartners extends React.Component {
   componentDidMount() {
     fetch("http://localhost:9000/api/courieruserpage/restaurants", {
       method: "get",
-      // headers: {
-      //   Accept: "application/json",
-      //   "Content-Type": "application/json"
-      // },
+
       credentials: "include"
-      // body: JSON.stringify({ email: this.props.email })
     }).then(res => {
       console.log(res);
       if (res.status != 200) {
