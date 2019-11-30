@@ -7,7 +7,8 @@ class Pairing extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			values: [[], [], [], []]
+			values: [[], [], [], []],
+			current: []
 		}
 	}
 
@@ -16,6 +17,10 @@ class Pairing extends React.Component {
 			.then((res) => res.json())
 			.then((values) => this.setState({values}))
 			.then(() => this.updateState())
+
+		fetch("http://localhost:9000/api/admin/pairing/current-restaurants")
+			.then((res) => res.json())
+			.then((values) => this.setState({values}))
 	}
 
 	updateState= () => {
@@ -237,8 +242,27 @@ class Pairing extends React.Component {
 					{ rows2 }
 				</table>
 
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
 				<div class="pairButton">
-					<a class="btn btn-info btn1" onClick = {() => this.submitPairing(programsCheckbox, restaurantsCheckbox) }>Submit Pairing</a>
+					<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-info btn1">Submit Pairing</a>
 				</div>
 
 				<div id="footer"></div>
