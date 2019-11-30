@@ -24,29 +24,6 @@ class Login extends React.Component {
     };
   }
 
-  setLoginStatus() {
-    fetch("http://localhost:9000/api/auth/validate-login", {
-      method: "get",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-    }).then(res => {
-      if (res.status === 200 || res.status === 304) {
-        this.setState({
-          isLoggedIn: true
-        });
-        // this.props.history.push("/programuserpage");
-        // return <Redirect to='/programuserpage' />
-      }
-    });
-  }
-
-  // componentDidMount() {
-  //   this.setLoginStatus();
-  // }
-
   render() {
     const loginApiCall = data => {
       if (this.state.isLoggedIn) {
