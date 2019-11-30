@@ -55,11 +55,9 @@ loginRouter.post("/login", function (req, res) {
                     if (err) {
                       return res.status(500).send(err);
                     }
-                    let program = JSON.parse(JSON.stringify(results))[0];
-                    let activeStatus = program.active_status;
                     if (results.length > 0) {
-                      console.log(results);
-                      console.log(req.session.email);
+                      let program = JSON.parse(JSON.stringify(results))[0];
+                      let activeStatus = program.active_status;
                       req.session.loggedin = true;
                       req.session.email = email;
                       req.session.isAdmin = false;
@@ -78,9 +76,9 @@ loginRouter.post("/login", function (req, res) {
                           if (err) {
                             return res.status(500).send(err);
                           }
-                          let courier = JSON.parse(JSON.stringify(results))[0];
-                          let activeStatus = courier.active_status;
                           if (results.length > 0) {
+                            let courier = JSON.parse(JSON.stringify(results))[0];
+                            let activeStatus = courier.active_status;
                             req.session.loggedin = true;
                             req.session.email = email;
                             req.session.isAdmin = false;
@@ -145,7 +143,7 @@ loginRouter.get("/get-partner-type", function (req, res) {
   }
 });
 
-loginRouter.get("/logout", function(req, res) {
+loginRouter.get("/logout", function (req, res) {
   req.session.destroy(error => {
     if (error) {
       console.log(error);
