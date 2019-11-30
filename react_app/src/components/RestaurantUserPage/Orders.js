@@ -17,16 +17,15 @@ class Orders extends React.Component {
 
   // bad practice to use post in this case, but makes it so 
   // one doesn't have to deal with security issues involving emails
-  getOrders = data =>{
+  getOrders = () =>{
     return new Promise (function(resolve, reject) {
       fetch("http://localhost:9000/api/restaurantuserpage/orders", {
-            method: "post",
+            method: "get",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json"
             },
             credentials: "include",
-            body: JSON.stringify(data)
           }).then((res) => {
             resolve(res.json())
           })
@@ -36,7 +35,7 @@ class Orders extends React.Component {
 
   componentDidMount(){
     console.log(this.state.email);
-    this.getOrders({restaurantEmail: this.state.email})
+    this.getOrders()
     .then((value) => {
       let state = {
           email: this.props.email,
@@ -98,25 +97,25 @@ class Orders extends React.Component {
               <th>Friday</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             <tr>
-              <td>
+              <td id = "orderTableCell">
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Monday'], dayToDayMeals['Monday']))}
                 {/* <OrderSlot time="5:30" which="0" /> */}
                 {/* <OrderSlot time="6:00" which="1" /> */}
                 
               </td>
-              <td>
+              <td id = "orderTableCell">
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Tuesday'], dayToDayMeals['Tuesday']))}
               </td>
-              <td>
+              <td id = "orderTableCell">
                 {/* <OrderSlot time="5:00" which="2" /> */}
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Wednesday'], dayToDayMeals['Wednesday']))}
               </td>
-              <td>
+              <td id = "orderTableCell">
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Thursday'], dayToDayMeals['Thursday']))}
               </td>
-              <td>
+              <td id = "orderTableCell">
                 {/* <OrderSlot time="7:00" which="3" /> */}
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Friday'], dayToDayMeals['Friday']))}
               </td>

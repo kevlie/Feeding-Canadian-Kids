@@ -4,8 +4,8 @@ var express = require('express');
 var restaurantRouter = express.Router();
 const sql = require('../db.js');
 
-restaurantRouter.post('/orders', function(req, res) {
-    let email = req.body.restaurantEmail;
+restaurantRouter.get('/orders', function(req, res) {
+    let email = req.session.email;
     //console.log(email)
     let query1 = 'SELECT pr.name, pr.address, pr.dietary_restrictions, monday_meals, monday_time, ' +
                  'tuesday_meals, tuesday_time, wednesday_meals, wednesday_time, ' +
@@ -26,8 +26,8 @@ restaurantRouter.post('/orders', function(req, res) {
     }
 })
 
-restaurantRouter.post('/name', function(req,res) {
-    let email = req.body.restaurantEmail;
+restaurantRouter.get('/name', function(req,res) {
+    let email = req.session.email;
     let query1 = 'SELECT name FROM restaurant_partners WHERE restaurant_partners.contact_email = ?'
     if (email){
         sql.query(query1, [email], (err, results) => {
@@ -41,4 +41,7 @@ restaurantRouter.post('/name', function(req,res) {
     }
 })
 
+restaurantRouter.get('/partners', function(req, res){
+    
+})
 module.exports = restaurantRouter;
