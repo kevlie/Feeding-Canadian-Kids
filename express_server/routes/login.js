@@ -24,7 +24,7 @@ loginRouter.post("/login", function (req, res) {
           res.status(200).send({
             email: email,
             isAdmin: true,
-            partnerType: ""
+            partnerType: "admin"
           });
         } else {
           sql.query(
