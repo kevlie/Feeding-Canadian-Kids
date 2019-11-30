@@ -35,8 +35,8 @@ class Programs extends React.PureComponent {
   }
 
   handleImport() {
-    if (this.state.uploadCSV) {
-      this.state.uploadCSV
+    if (this.state.uploadCSVData) {
+      this.state.uploadCSVData
         .text()
         .then(text => {
           csv2json()
@@ -146,7 +146,7 @@ class Programs extends React.PureComponent {
               style={{ marginLeft: "10px" }}
               onChange={e => {
                 this.setState({
-                  uploadCSV: e.target.files[0]
+                  uploadCSVData: e.target.files[0]
                 });
               }}
             />
