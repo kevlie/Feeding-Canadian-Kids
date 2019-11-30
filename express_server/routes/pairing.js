@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const sql = require('../db.js');
 
+//getting partners info
 router.get("/", function(req, res) {
 	let partners = []
 	let programPartners = []
@@ -35,6 +36,7 @@ router.get("/", function(req, res) {
 	})
 })
 
+//performing pairing
 router.post("/:programId/:restaurantId", function(req, res) {
 	progId = parseInt(req.params.programId)
 	restId = parseInt(req.params.restaurantId)
@@ -53,6 +55,30 @@ router.post("/:programId/:restaurantId", function(req, res) {
 				console.log(err);
 			})
 		}
+	})
+})
+
+//getting restaurants programId currently paired with
+router.get("/current-restaurants/:programId", function(req, res) {
+	restaurantsCurrentlyPairedWith = []
+	query = "SELECT p.program_id, rp.name FROM pairings p, restaurant_partners rp WHERE p.restaurant_id = rp.restaurant_id and p.program_id = " + req.params.programId;
+	sql.query(query, function(err, results) {
+		restaurantsCurrentlyPairedWith.push(results)
+		console.log(results)
+		console.log(restaurantsCurrentlyPairedWith);
+		res.json(restaurantsCurrentlyPairedWith)
+	})
+})
+
+//getting programs restaurantId currently paired with
+router.get("/current-programs/:restaurantId", function(req, res) {
+	programsCurrentlyPairedWith = []
+	query = "SELECT p.restaurant_id, pp.name FROM pairings p, program_partners pp WHERE p.program_id = pp.program_id and p.restaurant_id = " + req.params.restaurantId;
+	sql.query(query, function(err, results) {
+		programsCurrentlyPairedWith.push(results)
+		console.log(results)
+		console.log(programsCurrentlyPairedWith)
+		res.json(programsCurrentlyPairedWith)
 	})
 })
 

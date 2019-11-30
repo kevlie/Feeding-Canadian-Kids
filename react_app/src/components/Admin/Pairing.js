@@ -8,19 +8,20 @@ class Pairing extends React.Component {
 		super(props)
 		this.state = {
 			values: [[], [], [], []],
-			current: []
+			restaurantsCurrentlyPairedWith: [],
+			programsCurrentlyPairedWith: []
 		}
 	}
 
 	componentDidMount = () => {
 		fetch("http://localhost:9000/api/admin/pairing")
 			.then((res) => res.json())
-			.then((values) => this.setState({values}))
+			.then((values) => { this.setState({values}); console.log(this.state.values); })
 			.then(() => this.updateState())
 
-		fetch("http://localhost:9000/api/admin/pairing/current-restaurants")
-			.then((res) => res.json())
-			.then((values) => this.setState({values}))
+		// fetch("http://localhost:9000/api/admin/pairing/current")
+		// 	.then((res) => res.json())
+		// 	.then((values) => this.setState({values}))
 	}
 
 	updateState= () => {
@@ -106,23 +107,35 @@ class Pairing extends React.Component {
 	}
 
 	handleProgramChange = (e) => {
-		console.log(e.target.name)
 		if (this.state.programsChecked[e.target.name] == true) {
 			this.state.programsChecked[e.target.name] = false
 		} else {
 			this.state.programsChecked[e.target.name] = true
 		}
-		console.log(this.state.programsChecked);
 	}
 
 	handleRestaurantChange = (e) => {
-		console.log(e.target.name)
 		if (this.state.restaurantsChecked[e.target.name] == true) {
 			this.state.restaurantsChecked[e.target.name] = false
 		} else {
 			this.state.restaurantsChecked[e.target.name] = true
 		}
-		console.log(this.state.restaurantsChecked);
+	}
+
+	handleProgramModal = (e) => {
+		console.log(e.target.name)
+		const fetchString = "http://localhost:9000/api/admin/pairing/current-restaurants/" + e.target.name
+		fetch(fetchString)
+			.then((res) => res.json())
+			.then((restaurantsCurrentlyPairedWith) => { this.setState({restaurantsCurrentlyPairedWith}); console.log(this.state.restaurantsCurrentlyPairedWith); })
+	}
+
+	handleRestaurantModal = (e) => {
+		console.log(e.target.name)
+		const fetchString = "http://localhost:9000/api/admin/pairing/current-programs/" + e.target.name
+		fetch(fetchString)
+			.then((res) => res.json())
+			.then((programsCurrentlyPairedWith) => { this.setState({programsCurrentlyPairedWith}); console.log(this.state.programsCurrentlyPairedWith); })
 	}
 
 	render() {
@@ -136,9 +149,8 @@ class Pairing extends React.Component {
 		var restaurantsCheckbox = [];
 		var programsCheckboxStatus = this.state.programsChecked
 		var restaurantsCheckboxStatus = this.state.restaurantsChecked
-
-		console.log(programsCheckboxStatus)
-		console.log(restaurantsCheckboxStatus)
+		var restaurantsCurrentlyPairedWith = this.state.restaurantsCurrentlyPairedWith
+		var programsCurrentlyPairedWith = this.state.programsCurrentlyPairedWith
 
 		var rows1 = []
 		var rows2 = []
@@ -153,14 +165,16 @@ class Pairing extends React.Component {
 	      			numRestaurantsPairedWith = this.state.values[2][j]["numRestaurantsPairedWith"]
 	      		}
 	      	}
-	      	cell.push(<td class="narrowCell"><a href={ "newSignups/program/" + program["program_id"] }> { program["name"] } </a></td>)
+	      	cell.push(<td class="narrowCell"><a href="#" data-toggle="modal" data-target="#programModal" 
+	      										name={ program["program_id"] } 
+	      										onClick={ this.handleProgramModal }> { program["name"] } </a></td>)
 	      	cell.push(<td class="wideCell"> { program["address"] } </td>)
 	      	cell.push(<td class="narrowCell"> { numRestaurantsPairedWith } </td>)
 	      	if (programsCheckboxStatus) {
 		      	programsCheckbox.push(<input type="checkbox"
-		      									name={ program["program_id"] }
-		      									defaultChecked={this.state.programsChecked[program["program_id"]]}
-	    	  							  		onChange={ this.handleProgramChange }></input>)
+		      								 name={ program["program_id"] }
+		      								 defaultChecked={this.state.programsChecked[program["program_id"]]}
+	    	  							  	 onChange={ this.handleProgramChange }></input>)
 	    	}
 	      	cell.push(<td class="narrowCell"> { programsCheckbox[i] } </td>)
 	      	rows1.push(<tr id={ oddOrEven }> { cell } </tr>)
@@ -178,7 +192,9 @@ class Pairing extends React.Component {
 	      			numProgramsPairedWith = this.state.values[3][j]["numProgramsPairedWith"]
 	      		}
 	      	}
-	      	cell.push(<td class="narrowCell"><a href={ "newSignups/restaurant/" + restaurant["restaurant_id"] }> { restaurant["name"] } </a></td>)
+	      	cell.push(<td class="narrowCell"><a href="#" data-toggle="modal" data-target="#restaurantModal" 
+	      										name={ restaurant["restaurant_id"] } 
+	      										onClick={ this.handleRestaurantModal }> { restaurant["name"] } </a></td>)
 	      	cell.push(<td class="wideCell"> { restaurant["address"] } </td>)
 	      	cell.push(<td class="narrowCell"> { numProgramsPairedWith } </td>)
 	      	if (restaurantsCheckboxStatus) {
@@ -190,6 +206,20 @@ class Pairing extends React.Component {
 	      	cell.push(<td class="narrowCell"> {restaurantsCheckbox[i] } </td>)
 	      	rows2.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
+
+	    var restaurantNames = []
+	    if (restaurantsCurrentlyPairedWith[0]) {
+		    for (var i = 0; i < restaurantsCurrentlyPairedWith[0].length; i++) { 
+		    	restaurantNames.push(<p>{i + 1}. { restaurantsCurrentlyPairedWith[0][i]["name"] }</p>)
+			}
+		}
+
+		var programNames = []
+	    if (programsCurrentlyPairedWith[0]) {
+		    for (var i = 0; i < programsCurrentlyPairedWith[0].length; i++) { 
+		    	programNames.push(<p>{i + 1}. { programsCurrentlyPairedWith[0][i]["name"] }</p>)
+			}
+		}
 
 		return (
 			<div id="pairings">
@@ -242,16 +272,37 @@ class Pairing extends React.Component {
 					{ rows2 }
 				</table>
 
-				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade" id="programModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				        <h5 class="modal-title" id="exampleModalLabel">Restaurants Currently Paired With</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body">
+				      	{ restaurantNames }
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+				<div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Programs Currently Paired With</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				      	{ programNames }
 				      </div>
 				      <div class="modal-footer">
 				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -262,9 +313,8 @@ class Pairing extends React.Component {
 				</div>
 
 				<div class="pairButton">
-					<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-info btn1">Submit Pairing</a>
+					<a class="btn btn-info btn1" onClick = { this.submitPairing }>Submit Pairing</a>
 				</div>
-
 				<div id="footer"></div>
 			</div>
 		)
