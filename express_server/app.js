@@ -25,7 +25,6 @@ var programsRouter = require("./routes/programs");
 var restaurantsRouter = require("./routes/restaurants");
 var programInfoRouter = require("./routes/programInfo");
 var restaurantInfoRouter = require("./routes/restaurantInfo");
-var programPairings = require("./routes/programPairings");
 
 var pairingRouter = require("./routes/pairing");
 var programRestaurants = require("./routes/programRestaurants");

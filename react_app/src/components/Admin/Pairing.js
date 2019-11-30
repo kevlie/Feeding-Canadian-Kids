@@ -7,7 +7,7 @@ class Pairing extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			values: [[], []]
+			values: [[], [], [], []]
 		}
 	}
 
@@ -18,17 +18,85 @@ class Pairing extends React.Component {
 			.then(() => this.updateState())
 	}
 
-	updateState() {
-		if (this.state.values[0]) {
+	updateState= () => {
+		let checked1 = {}
+		let checked2 = {}
+		if (this.state.values[0].length > 0) {
 			this.setState({
 				numPrograms: this.state.values[0].length
 			})
+			for (var i = 0; i < this.state.numPrograms; i++) {
+				checked1[this.state.values[0][i]["program_id"]] = false
+			}
+			this.setState({
+				programsChecked: checked1
+			})
 		}
-		if (this.state.values[1]) {
+		if (this.state.values[1].length > 0) {
 			this.setState({
 				numRestaurants: this.state.values[1].length
 			})
+			for (var j = 0; j < this.state.numRestaurants; j++) {
+				checked2[this.state.values[1][j]["restaurant_id"]] = false
+			}
+			this.setState({
+				restaurantsChecked: checked2
+			})
 		}
+	}
+
+	// submitPairing = (programsCheckbox, restaurantsCheckbox) => {
+	// 	console.log(programsCheckbox[0].props);
+	// 	console.log(restaurantsCheckbox);
+	// 	// console.log(programsCheckbox[0].props["name"])
+	// 	// if (programsCheckbox[0].props["checked"] == true) {
+	// 	// 	console.log("NAH");
+	// 	// } else {
+	// 	// 	console.log("CHECKED");
+	// 	// }
+	// }
+
+	submitPairing = () => {
+		var numProgramsChecked = 0
+		var numRestaurantsChecked = 0
+
+		for (var programId in this.state.programsChecked) {
+			if (this.state.programsChecked[programId] == true) {
+				numProgramsChecked++
+			}
+		}
+		for (var restaurantId in this.state.restaurantsChecked) {
+			if (this.state.restaurantsChecked[restaurantId] == true) {
+				numRestaurantsChecked++
+			}
+		}
+		console.log(numProgramsChecked);
+		console.log(numRestaurantsChecked);
+		if (numProgramsChecked === 0 || numRestaurantsChecked === 0) {
+			console.log("CANT HAVE ZEROS");
+		} else if (numProgramsChecked > 1 && numRestaurantsChecked > 1) {
+			console.log("CANT HAVE MULTIPLES");
+		}
+	}
+
+	handleProgramChange = (e) => {
+		console.log(e.target.name)
+		if (this.state.programsChecked[e.target.name] == true) {
+			this.state.programsChecked[e.target.name] = false
+		} else {
+			this.state.programsChecked[e.target.name] = true
+		}
+		console.log(this.state.programsChecked);
+	}
+
+	handleRestaurantChange = (e) => {
+		console.log(e.target.name)
+		if (this.state.restaurantsChecked[e.target.name] == true) {
+			this.state.restaurantsChecked[e.target.name] = false
+		} else {
+			this.state.restaurantsChecked[e.target.name] = true
+		}
+		console.log(this.state.restaurantsChecked);
 	}
 
 	render() {
@@ -36,27 +104,64 @@ class Pairing extends React.Component {
 
 		const numPrograms = this.state.numPrograms;
 		const numRestaurants = this.state.numRestaurants;
+		var numRestaurantsPairedWith;
+		var numProgramsPairedWith;
+		var programsCheckbox = [];
+		var restaurantsCheckbox = [];
+		var programsCheckboxStatus = this.state.programsChecked
+		var restaurantsCheckboxStatus = this.state.restaurantsChecked
+
+		console.log(programsCheckboxStatus)
+		console.log(restaurantsCheckboxStatus)
 
 		var rows1 = []
 		var rows2 = []
 
 	    for (var i = 0; i < numPrograms; i++) {
-			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
+	    	numRestaurantsPairedWith = 0
+			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even"
 	      	var cell = []
 	      	var program = this.state.values[0][i]
-	      	cell.push(<td><a href={ "newSignups/program/" + program["program_id"] }> { program["name"] } </a></td>)
-	      	cell.push(<td> { program["address"] } </td>)
+	      	for (var j = 0; j < this.state.values[2].length; j++) {
+	      		if (this.state.values[2][j]["program_id"] === program["program_id"]) {
+	      			numRestaurantsPairedWith = this.state.values[2][j]["numRestaurantsPairedWith"]
+	      		}
+	      	}
+	      	cell.push(<td class="narrowCell"><a href={ "newSignups/program/" + program["program_id"] }> { program["name"] } </a></td>)
+	      	cell.push(<td class="wideCell"> { program["address"] } </td>)
+	      	cell.push(<td class="narrowCell"> { numRestaurantsPairedWith } </td>)
+	      	if (programsCheckboxStatus) {
+		      	programsCheckbox.push(<input type="checkbox"
+		      									name={ program["program_id"] }
+		      									defaultChecked={this.state.programsChecked[program["program_id"]]}
+	    	  							  		onChange={ this.handleProgramChange }></input>)
+	    	}
+	      	cell.push(<td class="narrowCell"> { programsCheckbox[i] } </td>)
 	      	rows1.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
 
 	    oddOrEven = "even";
 
 	  	for (var i = 0; i < numRestaurants; i++) {
+	  		numProgramsPairedWith = 0
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
 	      	var cell = []
 	      	var restaurant = this.state.values[1][i]
-	      	cell.push(<td><a href={ "newSignups/restaurant/" + restaurant["restaurant_id"] }> { restaurant["name"] } </a></td>)
-	      	cell.push(<td> { restaurant["address"] } </td>)
+	      	for (var j = 0; j < this.state.values[3].length; j++) {
+	      		if (this.state.values[3][j]["restaurant_id"] === restaurant["restaurant_id"]) {
+	      			numProgramsPairedWith = this.state.values[3][j]["numProgramsPairedWith"]
+	      		}
+	      	}
+	      	cell.push(<td class="narrowCell"><a href={ "newSignups/restaurant/" + restaurant["restaurant_id"] }> { restaurant["name"] } </a></td>)
+	      	cell.push(<td class="wideCell"> { restaurant["address"] } </td>)
+	      	cell.push(<td class="narrowCell"> { numProgramsPairedWith } </td>)
+	      	if (restaurantsCheckboxStatus) {
+		      	restaurantsCheckbox.push(<input type="checkbox"
+		      									name={ restaurant["restaurant_id"] }
+		      									defaultChecked={this.state.restaurantsChecked[restaurant["restaurant_id"]]}
+	    	  							  		onChange={ this.handleRestaurantChange }></input>)
+	    	}
+	      	cell.push(<td class="narrowCell"> {restaurantsCheckbox[i] } </td>)
 	      	rows2.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
 
@@ -75,11 +180,17 @@ class Pairing extends React.Component {
 
 				<table id="activeProgramsTable">
 					<tr>
-						<th id="tableHeader">
+						<th id="tableHeader" class="narrowCell">
 							Program Name
 						</th>
-						<th id="tableHeader">
+						<th id="tableHeader" class="narrowCell">
 							Program Address
+						</th>
+						<th id="tableHeader" class="narrowCell">
+							Restaurants Paired With
+						</th>
+						<th id="tableHeader" class="narrowCell">
+							Pair?
 						</th>
 					</tr>
 					{ rows1 }
@@ -89,15 +200,25 @@ class Pairing extends React.Component {
 
 				<table id="activeRestaurantsTable">
 					<tr>
-						<th id="tableHeader">
+						<th id="tableHeader" class="narrowCell">
 							Restaurant Name
 						</th>
-						<th id="tableHeader">
+						<th id="tableHeader" class="narrowCell">
 							Restaurant Address
+						</th>
+						<th id="tableHeader" class="narrowCell">
+							Programs Paired With
+						</th>
+						<th id="tableHeader" class="narrowCell">
+							Pair?
 						</th>
 					</tr>
 					{ rows2 }
 				</table>
+
+				<div class="pairButton">
+					<a class="btn btn-info btn1" onClick = {() => this.submitPairing(programsCheckbox, restaurantsCheckbox) }>Submit Pairing</a>
+				</div>
 
 				<div id="footer"></div>
 			</div>
