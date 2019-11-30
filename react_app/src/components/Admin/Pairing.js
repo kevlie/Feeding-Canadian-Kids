@@ -70,12 +70,17 @@ class Pairing extends React.Component {
 				numRestaurantsChecked++
 			}
 		}
-		console.log(numProgramsChecked);
-		console.log(numRestaurantsChecked);
-		if (numProgramsChecked === 0 || numRestaurantsChecked === 0) {
-			console.log("CANT HAVE ZEROS");
-		} else if (numProgramsChecked > 1 && numRestaurantsChecked > 1) {
-			console.log("CANT HAVE MULTIPLES");
+		console.log(numProgramsChecked)
+		console.log(numRestaurantsChecked)
+		if (numProgramsChecked === 0) {
+			alert("Please select a program to pair!")
+		} else if (numRestaurantsChecked === 0) {
+			alert("Please select a restaurant to pair!")
+		}
+		else if (numProgramsChecked > 1 && numRestaurantsChecked > 1) {
+			alert("Cannot pair multiple programs to multiple restaurants!")
+		} else {
+			window.location.reload()
 		}
 	}
 
