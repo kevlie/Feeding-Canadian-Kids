@@ -39,6 +39,8 @@ var restaurantRegistrationStatusRouter = require("./routes/restaurantRegistratio
 
 var restaurantRouter = require("./routes/restaurantUserPage");
 var courierRouter = require("./routes/courierUserPage");
+
+var programUserRouter = require("./routes/programUserPage");
 //var restaurantUserPageRouter = require('./routes/restaurantUserPage');
 
 var app = express();
@@ -114,6 +116,7 @@ app.use("/api/restaurantuserpage", restaurantRouter);
 app.use("/api/programRestaurants", programRestaurants);
 app.use("/api/programDelivery", programDelivery);
 app.use("/api/courieruserpage", courierRouter);
+app.use("/api/programuserpage", programUserRouter);
 
 //app.use('/api/restaurantUserPage', restaurantUserPageRouter);
 
