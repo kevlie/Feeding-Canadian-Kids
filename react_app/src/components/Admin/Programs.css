@@ -50,15 +50,15 @@ tr, th, td {
 
 .btn-primary.exportbutton{
 	margin-Right: 10px;
-	background-color: #cb9eff;
+	background-color:  #17a2b8;
 	/* color: black; */
-	border-color: #cb9eff
+	border-color:  #17a2b8
 }
 
 .btn-primary.exportbutton:hover{
 	margin-Right: 10px;
-	background-color: #913df1;;
-	border-color: #913df1;
+	background-color:  #0f8ea1;
+	border-color:  #0f8ea1;
 	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
 }
 
@@ -68,14 +68,14 @@ tr, th, td {
 
 .btn-primary.uploadbutton{
 	margin-Right: 10px;
-	background-color: #cb9eff;
-	border-color: #cb9eff
+	background-color: #17a2b8;
+	border-color: #17a2b8
 }
 
 .btn-primary.uploadbutton:hover{
 	margin-Right: 10px;
-	background-color: #913df1;;
-	border-color: #913df1;
+	background-color: #0f8ea1;
+	border-color: #0f8ea1;
 	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
 }
 
@@ -83,13 +83,13 @@ tr, th, td {
 	font-family: "Comic Sans MS";
 	border: solid;
 	border-width: 2px;
-	border-color: #cb9eff;
+	border-color:  #17a2b8;
 	border-radius: 5px;
 	margin-top: 5px;
 }
 
 .choosefile:hover{
-	border-color: #913df1;;
+	border-color:#0f8ea1;
 	cursor: pointer;
 	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
 }
