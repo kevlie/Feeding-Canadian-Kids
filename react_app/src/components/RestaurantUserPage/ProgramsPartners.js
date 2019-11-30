@@ -1,7 +1,15 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import "./ProgramPartners.css";
 
 class ProgramsPartners extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      partners: []
+    }
+  }
+
   render() {
     return (
       <div>
@@ -9,18 +17,23 @@ class ProgramsPartners extends React.Component {
         <Table striped bordered>
           <thead>
             <tr>
-              <th>Program Location</th>
-              <th>Toronto Neighbourhood Area</th>
-              <th>Weekday</th>
+              <th>Program Name</th>
+              <th>Address</th>
+              <th>Phone</th>
               <th>Active Service</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Kerr St. Mission</td>
-              <td>Oakville</td>
-              <td>Wednesday</td>
-              <td>Yes</td>
+              <td id = "programTableCell">Kerr St. Mission</td>
+              <td id = "programTableCell">Oakville</td>
+              <td id = "programTableCell">Wednesday</td>
+              <td id = "programTableCell">Yes</td>
+            </tr>
+            <tr>
+              <td id = "programTableCell"> 
+                What's
+              </td>
             </tr>
           </tbody>
         </Table>

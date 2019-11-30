@@ -12,6 +12,6 @@ m-height{
     max-height: 80%;
 }
 
-tbody tr td{
+#orderTableCell{
     height: 50vh;
 }
