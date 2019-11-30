@@ -141,6 +141,7 @@ class Restaurants extends React.PureComponent {
               style={{ marginRight: "10px" }}
               onClick={() => {
                 this.handleImport();
+                window.location.reload();
               }}
             >
               Upload CSV
