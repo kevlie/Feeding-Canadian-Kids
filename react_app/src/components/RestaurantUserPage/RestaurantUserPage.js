@@ -16,16 +16,16 @@ class RestaurantUserPage extends React.Component {
     };
   }
 
-  getRestaurantName = data => {
+  getRestaurantName = () => {
     return new Promise(function(resolve, reject) {
       fetch("http://localhost:9000/api/restaurantuserpage/name", {
-        method: "post",
+        method: "get",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
         credentials: "include",
-        body: JSON.stringify(data)
+        //body: JSON.stringify(data)
       }).then(res => {
         resolve(res.json());
       });
@@ -36,8 +36,9 @@ class RestaurantUserPage extends React.Component {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
 
-    this.getRestaurantName({ restaurantEmail: this.state.email })
+    this.getRestaurantName()
       .then(value => {
+        console.log(value)
         let state = {
           email: this.state.email,
           name: value[0].name
@@ -48,9 +49,7 @@ class RestaurantUserPage extends React.Component {
       .then(value => {
         console.log(value);
       });
-    //this.setUser()
-    //console.log(this.props.history.location);
-    //this.setState({email: this.props.history.location.state.email})
+
   }
 
   componentWillUnmount() {
@@ -58,27 +57,6 @@ class RestaurantUserPage extends React.Component {
     document.documentElement.classList.remove("hunnid");
   }
 
-  // setUser(){
-  //   fetch("http://localhost:9000/api/restaurantUserPage/get-user-info", {
-  //     method: "get",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json"
-  //     },
-  //     credentials: "include"
-  //   }).then(res => {
-  //     if (res.status === 200 || res.status === 304) {
-  //       res.json().then(resJSON => {
-  //         let state = {
-  //           email: resJSON.email
-  //         };
-  //         this.setState(state);
-  //       })
-  //       // this.props.history.push("/programuserpage");
-  //       // return <Redirect to='/programuserpage' />
-  //     }
-  //   });
-  // }
 
   render() {
     return (
