@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Container } from "react-bootstrap";
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
@@ -27,7 +28,6 @@ class Login extends React.Component {
           error: "You are already logged in!"
         });
       } else {
-
         fetch("http://localhost:9000/api/auth/login", {
           method: "post",
           headers: {
@@ -105,13 +105,13 @@ class Login extends React.Component {
               <h5>
                 Interested in joining us as a Feeding Canadian Kids partner?
                 That’s great! Whether you’re a program in need of meals, a
-                restaurant able to donate meals or a courier hoping to connect the
-                two. You’re at the right place!
+                restaurant able to donate meals or a courier hoping to connect
+                the two. You’re at the right place!
               </h5>
               <br></br>
               <em>
-                If you already have a Feeding Canadian Kids profile, please log in
-                with your credentials.
+                If you already have a Feeding Canadian Kids profile, please log
+                in with your credentials.
               </em>
               <br></br>
               <p className="error">{this.state.error}</p>
@@ -155,7 +155,7 @@ class Login extends React.Component {
                 onClick={handleLogin}
               >
                 Login
-                </Button>
+              </Button>
               <br></br>
               <div className="buttonGroup">
                 <Button
@@ -181,7 +181,8 @@ class Login extends React.Component {
                   type="submit"
                   size="small"
                   className="registerButton"
-                  onClick={handleCourier}>
+                  onClick={handleCourier}
+                >
                   Register as a Courier
                 </Button>
               </div>

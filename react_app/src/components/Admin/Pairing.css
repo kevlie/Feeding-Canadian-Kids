@@ -57,10 +57,19 @@
 	margin-right: 20px;
 }
 
-.narrow {
-	width: 200px;
+.narrowCell {
+	width: 220px;
 }
 
-.wide {
-	width:680px;
+.wideCell {
+	max-width: 10px;
+}
+
+.pairButton {
+	margin-top: 40px;
+	margin-left: 570px;
+}
+
+.btn1:hover{
+	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
 }

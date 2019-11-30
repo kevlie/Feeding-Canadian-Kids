@@ -1,7 +1,16 @@
 .banner-container{
     border-bottom: 0px;
 }
+
 .banner-image{
     max-height: 70px;
     max-width: 100%;
+}
+
+.navbar-light .navbar-nav .nav-link.loginlink{
+    color: rgb(14, 180, 64);
+}
+
+.navbar-light .navbar-nav .nav-link.loginlink:hover{
+    color: rgb(13, 156, 56);
 }

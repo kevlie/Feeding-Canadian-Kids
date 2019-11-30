@@ -42,3 +42,54 @@ tr, th, td {
 #even {
 	background-color: #a6ffa3;
 }
+
+.export{
+	margin-Top: 20px;
+	margin-left: 520px;
+}
+
+.btn-primary.exportbutton{
+	margin-Right: 10px;
+	background-color:  #17a2b8;
+	/* color: black; */
+	border-color:  #17a2b8
+}
+
+.btn-primary.exportbutton:hover{
+	margin-Right: 10px;
+	background-color:  #0f8ea1;
+	border-color:  #0f8ea1;
+	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
+}
+
+.upload{
+	margin-left: 520px;
+}
+
+.btn-primary.uploadbutton{
+	margin-Right: 10px;
+	background-color: #17a2b8;
+	border-color: #17a2b8
+}
+
+.btn-primary.uploadbutton:hover{
+	margin-Right: 10px;
+	background-color: #0f8ea1;
+	border-color: #0f8ea1;
+	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
+}
+
+.choosefile{
+	font-family: "Comic Sans MS";
+	border: solid;
+	border-width: 2px;
+	border-color:  #17a2b8;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.choosefile:hover{
+	border-color:#0f8ea1;
+	cursor: pointer;
+	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
+}

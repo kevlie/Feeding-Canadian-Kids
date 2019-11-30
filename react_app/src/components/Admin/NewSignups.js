@@ -7,7 +7,7 @@ class NewSignups extends React.PureComponent {
 	constructor(props) {
 		super(props)
 		this.state = {
-			values: [[], []]
+			values: [[], [], []]
 		}
 	}
 
@@ -52,17 +52,25 @@ class NewSignups extends React.PureComponent {
 				numRestaurants: this.state.values[1].length
 			})
 		}
+		if (this.state.values[2]) {
+			this.setState({
+				numCouriers: this.state.values[2].length
+			})
+		}
 	}
 
 	render() {
-		var oddOrEven = "even";
-		var indices = this.state.restaurantIndices;
+		var oddOrEven = "even"
+		var indices = this.state.restaurantIndices
 
-		const numPrograms = this.state.numPrograms;
-		const numRestaurants = this.state.numRestaurants;
+		const numPrograms = this.state.numPrograms
+		const numRestaurants = this.state.numRestaurants
+		const numCouriers = this.state.numCouriers
 
 		var rows1 = []
 		var rows2 = []
+		var rows3 = []
+		console.log(this.state.values[2]);
 
 	    for (var i = 0; i < numPrograms; i++) {
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
@@ -82,6 +90,17 @@ class NewSignups extends React.PureComponent {
 	      	cell.push(<td><a href={ "newSignups/restaurant/" + restaurant["restaurant_id"] }> { restaurant["name"] } </a></td>)
 	      	cell.push(<td> { restaurant["address"] } </td>)
 	      	rows2.push(<tr id={ oddOrEven }> { cell } </tr>)
+	    }
+
+	    oddOrEven = "even";
+
+	  	for (var i = 0; i < numCouriers; i++) {
+			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
+	      	var cell = []
+	      	var courier = this.state.values[2][i]
+	      	cell.push(<td><a href={ "newSignups/courier/" + courier["courier_id"] }> { courier["name"] } </a></td>)
+	      	cell.push(<td> { courier["email"] } </td>)
+	      	rows3.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
 
 		return (
@@ -121,6 +140,20 @@ class NewSignups extends React.PureComponent {
 						</th>
 					</tr>
 					{ rows2 }
+				</table>
+
+				<h3 class="tableHeadings">New Courier Signups</h3>
+
+				<table id="courierTable">
+					<tr>
+						<th id="tableHeader">
+							Courier Name
+						</th>
+						<th id="tableHeader">
+							Courier Email
+						</th>
+					</tr>
+					{ rows3 }
 				</table>
 
 				<div id="footer"></div>

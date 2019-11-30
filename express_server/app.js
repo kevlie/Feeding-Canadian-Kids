@@ -22,10 +22,13 @@ var adminRouter = require("./routes/admin");
 var newSignupsRouter = require("./routes/newSignups");
 var newSignupsProgramInfoRouter = require("./routes/newSignupsProgramInfo");
 var newSignupsRestaurantInfoRouter = require("./routes/newSignupsRestaurantInfo");
+var newSignupsCourierInfoRouter = require("./routes/newSignupsCourierInfo");
 var programsRouter = require("./routes/programs");
 var restaurantsRouter = require("./routes/restaurants");
+var couriersRouter = require("./routes/couriers");
 var programInfoRouter = require("./routes/programInfo");
 var restaurantInfoRouter = require("./routes/restaurantInfo");
+var courierInfoRouter = require("./routes/courierInfo");
 
 var pairingRouter = require("./routes/pairing");
 var programRestaurants = require("./routes/programRestaurants");
@@ -91,6 +94,7 @@ app.use("/api/admin/pendingPrograms", pendingPrograms);
 app.use("/api/admin/newSignups", newSignupsRouter);
 app.use("/api/admin/newSignups/program", newSignupsProgramInfoRouter);
 app.use("/api/admin/newSignups/restaurant", newSignupsRestaurantInfoRouter);
+app.use("/api/admin/newSignups/courier", newSignupsCourierInfoRouter);
 app.use(
   "/api/admin/programRegistrationStatus/:programId",
   programRegistrationStatusRouter
@@ -101,8 +105,10 @@ app.use(
 );
 app.use("/api/admin/programs", programsRouter);
 app.use("/api/admin/restaurants", restaurantsRouter);
+app.use("/api/admin/couriers", couriersRouter);
 app.use("/api/admin/program", programInfoRouter);
 app.use("/api/admin/restaurant", restaurantInfoRouter);
+app.use("/api/admin/courier", courierInfoRouter);
 app.use("/api/admin/pairing", pairingRouter);
 app.use("/api/restaurantuserpage", restaurantRouter);
 app.use("/api/programRestaurants", programRestaurants);

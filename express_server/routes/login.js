@@ -58,6 +58,8 @@ loginRouter.post("/login", function (req, res) {
                     let program = JSON.parse(JSON.stringify(results))[0];
                     let activeStatus = program.active_status;
                     if (results.length > 0) {
+                      console.log(results);
+                      console.log(req.session.email);
                       req.session.loggedin = true;
                       req.session.email = email;
                       req.session.isAdmin = false;
@@ -143,17 +145,16 @@ loginRouter.get("/get-partner-type", function (req, res) {
   }
 });
 
-loginRouter.get("/logout", function (req, res) {
-  if (req.session.loggedin === true) {
-    req.session.loggedin = false;
-    req.session.email = null;
-    req.session.isAdmin = null;
-
-    res.status(200).send("Logged out.");
-  } else {
-    res.status(304);
-    console.log("req.session.loggedin is undefined or not true");
-  }
+loginRouter.get("/logout", function(req, res) {
+  req.session.destroy(error => {
+    if (error) {
+      console.log(error);
+      res.status(500).send(error);
+    } else {
+      console.log("loggedout");
+      res.status(200).end();
+    }
+  });
 });
 
 module.exports = loginRouter;
