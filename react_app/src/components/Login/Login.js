@@ -48,17 +48,20 @@ class Login extends React.Component {
                 partnerType: resJSON.partnerType
               };
               this.setState(state);
-              if (resJSON.partnerType === "program") {
+              if (resJSON.partnerType === "program" && resJSON.activeStatus === 1) {
                 this.props.history.push("/programuserpage");
                 window.location.reload();
-              } else if (resJSON.partnerType === "restaurant") {
+              } else if (resJSON.partnerType === "restaurant" && resJSON.activeStatus === 1) {
                 this.props.history.push("/restaurantuserpage", state);
                 window.location.reload();
-              } else if (resJSON.partnerType === "courier") {
+              } else if (resJSON.partnerType === "courier" && resJSON.activeStatus === 1) {
                 this.props.history.push("/courieruserpage", state);
                 window.location.reload();
-              } else {
+              } else if (resJSON.partnerType === "admin") {
                 this.props.history.push("/admin");
+                window.location.reload();
+              } else if (resJSON.activeStatus === 0) {
+                this.props.history.push("/pendingapproval")
                 window.location.reload();
               }
             } else {
