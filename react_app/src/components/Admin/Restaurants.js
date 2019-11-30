@@ -1,10 +1,9 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import "./Restaurants.css";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { CSVLink } from "react-csv";
 import csv2json from "csvtojson/v2";
-const fs = require("fs");
 
 class Restaurants extends React.PureComponent {
   constructor(props) {
@@ -125,7 +124,7 @@ class Restaurants extends React.PureComponent {
           >
             <CSVLink
               data={this.state.exportData}
-              filename={"restaurantData"}
+              filename={"restaurant_data"}
               style={{
                 color: "white"
               }}

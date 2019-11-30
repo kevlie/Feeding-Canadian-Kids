@@ -12,19 +12,19 @@ router.get("/", function(req, res) {
 });
 
 router.get("/export", function(req, res) {
-  const query1 = "SELECT * FROM restaurant_partners";
+  const query1 = "SELECT * FROM program_partners";
   sql.query(query1, function(err, results) {
     res.json(results);
   });
 });
 
 router.post("/import", function(req, res) {
-  const deletequery = "DELETE FROM program_partners_copy";
+  const deletequery = "DELETE FROM program_partners";
   sql.query(deletequery, function(err, results) {
     console.log(results);
   });
   const query1 =
-    "INSERT INTO program_partners_copy (program_id, name, address, area, active_status, delivery_instructions, phone, email, age_range, num_kids, dietary_restrictions, monday, tuesday, wednesday, thursday, friday, password_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO program_partners (program_id, name, address, area, active_status, delivery_instructions, phone, email, age_range, num_kids, dietary_restrictions, monday, tuesday, wednesday, thursday, friday, password_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   for (let i = 0; i < req.body.length; i++) {
     const data = [
       req.body[i].program_id,
@@ -36,7 +36,8 @@ router.post("/import", function(req, res) {
       req.body[i].phone,
       req.body[i].email,
       req.body[i].age_range,
-      req.body[i].num_kids,
+	  req.body[i].num_kids,
+	  req.body[i].dietary_restrictions,
       req.body[i].monday,
       req.body[i].tuesday,
       req.body[i].wednesday,
