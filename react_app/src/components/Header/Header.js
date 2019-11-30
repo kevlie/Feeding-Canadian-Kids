@@ -78,12 +78,11 @@ class Header extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   this.setLoginStatus();
-  // }
+  componentDidMount() {
+    this.setLoginStatus();
+  }
 
   render() {
-    this.setLoginStatus();
     return (
       <>
         <Navbar bg="light" expand="lg">
