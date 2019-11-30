@@ -20,7 +20,7 @@ class ProgramInfo extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div id="programInfo">
 				<div>
 				<Sidebar />
 				</div>
@@ -96,6 +96,8 @@ class ProgramInfo extends React.Component {
 						</td>
 					</tr>
 				</table>
+
+				<div id="footer"></div>
 			</div>
 		)
 	}

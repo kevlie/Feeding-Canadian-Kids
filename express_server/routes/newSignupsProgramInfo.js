@@ -13,16 +13,19 @@ router.get("/:id", function(req, res) {
 })
 
 router.post("/:id/approve", function(req, res) {
-	query = "UPDATE program_review SET approval_status = " + 1 + " WHERE program_id = " + req.params.id;
-	sql.query(query, function(err, results) {
+	query1 = "UPDATE program_review SET approval_status = " + 1 + " WHERE program_id = " + req.params.id;
+	sql.query(query1, function(err, results) {
+		console.log(err);
+	})
+	query2 = "UPDATE program_partners SET active_status = " + 1 + " WHERE program_id = " + req.params.id;
+	sql.query(query2, function(err, results) {
 		console.log(err);
 	})
 })
 
 router.post("/:id/reject", function(req, res) {
-	console.log("DONE");
-	query = "DELETE FROM program_review WHERE program_id = " + req.params.id;
-	sql.query(query, function(err, results) {
+	query1 = "DELETE FROM program_review WHERE program_id = " + req.params.id;
+	sql.query(query1, function(err, results) {
 		query2 = "DELETE FROM program_partners WHERE program_id = " + req.params.id;
 		sql.query(query2)
 	})

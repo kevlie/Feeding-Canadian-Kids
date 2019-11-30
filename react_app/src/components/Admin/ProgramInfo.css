@@ -8,6 +8,10 @@
 	align-items: center;
 }
 
+#programInfo {
+	font-family: "Comic Sans MS";
+}
+
 .programName {
 	text-align: center;
 }

@@ -8,6 +8,10 @@
 	align-items: center;
 }
 
+#restaurantsInfo {
+	font-family: "Comic Sans MS";
+}
+
 .restaurantName {
 	text-align: center;
 }

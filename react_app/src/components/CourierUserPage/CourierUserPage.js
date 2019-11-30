@@ -11,7 +11,7 @@ class CourierUserPage extends React.Component {
     super(props);
     this.state = {
       name: "default",
-      email: this.props.history.location.state.email,
+      // email: this.props.history.location.state.email,
       approval_status: 0
     };
   }
@@ -20,27 +20,24 @@ class CourierUserPage extends React.Component {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
     fetch("http://localhost:9000/api/courieruserpage", {
-      method: "post",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include",
-      body: JSON.stringify({ email: this.state.email })
+      method: "get",
+      credentials: "include"
+      // body: JSON.stringify({ email: this.state.email })
     })
       .then(response => response.json())
       .then(json => {
+        console.log(json);
         this.setState({ approval_status: json[0].approval_status });
       });
 
     fetch("http://localhost:9000/api/courieruserpage/name", {
-      method: "post",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include",
-      body: JSON.stringify({ email: this.state.email })
+      method: "get",
+      // headers: {
+      //   Accept: "application/json",
+      //   "Content-Type": "application/json"
+      // },
+      credentials: "include"
+      // body: JSON.stringify({ email: this.state.email })
     })
       .then(response => response.json())
       .then(json => {
@@ -64,11 +61,11 @@ class CourierUserPage extends React.Component {
         ) : (
           <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
             <Tab eventKey="home" title="Home">
-              <WelcomeMessage name={this.state.name} email={this.state.email} />
+              <WelcomeMessage name={this.state.name} />
             </Tab>
 
             <Tab eventKey="restaurants" title="Your Restaurants">
-              <RestaurantPartners email={this.state.email} />
+              <RestaurantPartners />
             </Tab>
           </Tabs>
 

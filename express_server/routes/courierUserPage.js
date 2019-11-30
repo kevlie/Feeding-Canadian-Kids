@@ -4,18 +4,29 @@ var express = require("express");
 var courierRouter = express.Router();
 const sql = require("../db.js");
 
-courierRouter.post("/", function(req, res) {
-  const email = req.body.email;
-  console.log(email);
+// courierRouter.post("/", function(req, res) {
+//   console.log(req.session.email);
+//   const email = req.body.email;
+//   let query1 =
+//     "SELECT approval_status FROM courier_review WHERE applicant_email = ?";
+//   sql.query(query1, email, function(err, results) {
+//     res.json(results);
+//   });
+// });
+courierRouter.get("/", function(req, res) {
+  const email = req.session.email;
+  console.log(req.session.email);
+  // const email = req.body.email;
   let query1 =
     "SELECT approval_status FROM courier_review WHERE applicant_email = ?";
   sql.query(query1, email, function(err, results) {
     res.json(results);
+    // console.log(results);
   });
 });
 
-courierRouter.post("/name", function(req, res) {
-  let email = req.body.email;
+courierRouter.get("/name", function(req, res) {
+  let email = req.session.email;
   let query2 =
     "SELECT name FROM courier_partners WHERE courier_partners.email = ?";
   if (email) {
@@ -30,8 +41,8 @@ courierRouter.post("/name", function(req, res) {
   }
 });
 
-courierRouter.post("/restaurants", function(req, res) {
-  let email = req.body.email;
+courierRouter.get("/restaurants", function(req, res) {
+  let email = req.session.email;
   let query1 = "SELECT courier_id FROM courier_partners WHERE email = ?";
   sql.query(query1, email, function(err, results) {
     let courier_id = JSON.parse(JSON.stringify(results))[0].courier_id;

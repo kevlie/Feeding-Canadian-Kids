@@ -21,7 +21,7 @@ class RestaurantInfo extends React.Component {
 	render() {
 		console.log(this.state.restaurant)
 		return (
-			<div>
+			<div id="restaurantsInfo">
 				<div>
 				<Sidebar />
 				</div>

@@ -24,8 +24,8 @@ class Header extends Component {
       isLoggedIn: false,
       error: "",
       partnerType: "",
-      isAdmin: "",
-    }
+      isAdmin: ""
+    };
   }
 
   setLoginStatus() {
@@ -36,21 +36,21 @@ class Header extends Component {
         "Content-Type": "application/json"
       },
       credentials: "include"
-    }).then((response) => {
+    }).then(response => {
       if (response.status === 200 || response.status === 304) {
-        response.json().then((resJSON) => {
+        response.json().then(resJSON => {
           if (resJSON.email) {
             let state = {
               isLoggedIn: true,
               email: resJSON.email,
               partnerType: resJSON.partnerType,
-              isAdmin: resJSON.isAdmin,
-            }
+              isAdmin: resJSON.isAdmin
+            };
             this.setState(state);
           }
         });
       }
-    })
+    });
   }
 
   logout() {
@@ -65,11 +65,11 @@ class Header extends Component {
       if (res.status === 200 || res.status === 304) {
         let state = {
           isLoggedIn: false,
-          email: "",
-        }
+          email: ""
+        };
         this.setState(state);
       }
-    })
+    });
   }
 
   componentDidMount() {
@@ -94,20 +94,33 @@ class Header extends Component {
                 Login / Register
               </Nav.Link>
             ) : (
-                <NavDropdown title={this.state.email} id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                  <NavDropdown.Item
-                    href="#action/3.3"
-                    onClick={e => {
-                      this.logout();
-                      this.props.history.push("/login");
-                      window.location.reload();
-                    }}
-                  >
-                    Log Out
+              <NavDropdown title={this.state.email} id="basic-nav-dropdown">
+                <NavDropdown.Item
+                  onClick={e => {
+                    let state = { email: this.state.email };
+                    if (this.state.partnerType === "restaurant") {
+                      this.props.history.push("/restaurantuserpage", state);
+                    } else if (this.state.partnerType === "program") {
+                      this.props.history.push("programuserpage");
+                    } else {
+                      this.props.history.push("courieruserpage", state);
+                    }
+                  }}
+                >
+                  Profile
                 </NavDropdown.Item>
-                </NavDropdown>
-              )}
+                <NavDropdown.Item
+                  href="#action/3.3"
+                  onClick={e => {
+                    this.logout();
+                    this.props.history.push("/login");
+                    window.location.reload();
+                  }}
+                >
+                  Log Out
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar>
       </>

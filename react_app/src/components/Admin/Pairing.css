@@ -8,12 +8,35 @@
 	align-items: center;
 }
 
-.programName {
-	text-align: center;
+.jumbotron {
+	width: 70%;
+	margin-left: 200px;
+	height: 220px;
+	background-color: #cb9eff;
 }
 
-#newSignupsProgramInfo {
+#activeProgramsTable {
+	margin-left: 230px;
+	margin-top: 20px;
+	display: block;
+}
+
+#activeRestaurantsTable {
+	margin-top: 20px;
+	margin-left: 230px;
+	display: block;
+}
+
+#footer {
+	margin-bottom: 30px;
+}
+
+#pairings {
 	font-family: "Comic Sans MS";
+}
+
+.programName {
+	text-align: center;
 }
 
 #odd {
