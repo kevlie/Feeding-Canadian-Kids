@@ -12,7 +12,8 @@ class Restaurants extends React.PureComponent {
       //values: [[{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}],
       //		 [{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}, {"id": 3, "name": "name3", "address": "address3"}]],
       restaurants: [],
-      exportData: []
+      exportData: [],
+      error: ""
     };
   }
 
@@ -36,7 +37,10 @@ class Restaurants extends React.PureComponent {
   }
 
   handleImport() {
-    if (this.state.uploadCSVData) {
+    if (
+      this.state.uploadCSVData &&
+      this.state.uploadCSVData.name.includes(".csv")
+    ) {
       this.state.uploadCSVData
         .text()
         .then(text => {
@@ -53,15 +57,20 @@ class Restaurants extends React.PureComponent {
                 credentials: "include",
                 body: JSON.stringify(json)
               }).then(() => {
-                console.log("successful!");
+                window.location.reload();
               });
             });
         })
         .catch(err => {
-          console.log("unsuccessful!");
+          console.log(err);
+          this.setState({
+            error: "Error!"
+          });
         });
     } else {
-      console.log("No File Found");
+      this.setState({
+        error: "Please upload a CSV file!"
+      });
     }
   }
 
@@ -145,7 +154,6 @@ class Restaurants extends React.PureComponent {
               style={{ marginRight: "10px" }}
               onClick={() => {
                 this.handleImport();
-                window.location.reload();
               }}
             >
               Upload CSV
@@ -160,6 +168,7 @@ class Restaurants extends React.PureComponent {
                 });
               }}
             />
+            <p className="error">{this.state.error}</p>
           </div>
         </div>
         <div id="footer"></div>
