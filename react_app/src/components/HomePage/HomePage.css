@@ -1,0 +1,16 @@
+.HomeMessage-Image {
+  max-height: 150px;
+  max-width: 200 px;
+  position: absolute;
+  bottom: 0;
+  left: 250px;
+}
+
+#HomeMessage h1,
+h2 {
+  text-align: center;
+}
+
+#HomeMessage h1 {
+  font-size: 5em;
+}
