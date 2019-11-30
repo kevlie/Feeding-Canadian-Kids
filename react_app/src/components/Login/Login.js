@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import { Form, Container } from "react-bootstrap";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import "./Login.css";
 import { sign_in } from "../../redux/actions";
@@ -24,29 +24,6 @@ class Login extends React.Component {
     };
   }
 
-  setLoginStatus() {
-    fetch("http://localhost:9000/api/auth/validate-login", {
-      method: "get",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-    }).then(res => {
-      if (res.status === 200 || res.status === 304) {
-        this.setState({
-          isLoggedIn: true
-        });
-        // this.props.history.push("/programuserpage");
-        // return <Redirect to='/programuserpage' />
-      }
-    });
-  }
-
-  // componentDidMount() {
-  //   this.setLoginStatus();
-  // }
-
   render() {
     const loginApiCall = data => {
       if (this.state.isLoggedIn) {
@@ -54,30 +31,6 @@ class Login extends React.Component {
           error: "You are already logged in!"
         });
       } else {
-        // fetch("http://localhost:9000/api/auth/login", {
-        //   method: "post",
-        //   headers: {
-        //     Accept: "application/json",
-        //     "Content-Type": "application/json"
-        //   },
-        //   credentials: "include",
-        //   body: JSON.stringify(data)
-        // }).then(res => {
-        //   if (res.status === 200) {
-        //     this.setState({
-        //       isLoggedIn: true
-        //     });
-        //     this.props.history.push("/programuserpage");
-        //     // return <Redirect to='/restaurantuserpage' />
-        //     window.location.reload();
-        //   } else {
-        //     this.setState({
-        //       error: "Error"
-        //     })
-        //     console.error("Error");
-        //   }
-        // });
-
         fetch("http://localhost:9000/api/auth/login", {
           method: "post",
           headers: {
@@ -152,13 +105,13 @@ class Login extends React.Component {
               <h5>
                 Interested in joining us as a Feeding Canadian Kids partner?
                 That’s great! Whether you’re a program in need of meals, a
-                restaurant able to donate meals or a courier hoping to connect the
-                two. You’re at the right place!
+                restaurant able to donate meals or a courier hoping to connect
+                the two. You’re at the right place!
               </h5>
               <br></br>
               <em>
-                If you already have a Feeding Canadian Kids profile, please log in
-                with your credentials.
+                If you already have a Feeding Canadian Kids profile, please log
+                in with your credentials.
               </em>
               <br></br>
               <p className="error">{this.state.error}</p>
@@ -196,46 +149,46 @@ class Login extends React.Component {
 
               <div>
                 <TextField
-                    name="email"
-                    label="Email"
-                    margin="normal"
-                    className="textfield"
-                    value={this.state.email}
-                    onChange={e => {
-                      this.setState({
-                        email: e.target.value.toString()
-                      });
-                    }}
+                  name="email"
+                  label="Email"
+                  margin="normal"
+                  className="textfield"
+                  value={this.state.email}
+                  onChange={e => {
+                    this.setState({
+                      email: e.target.value.toString()
+                    });
+                  }}
                 />
 
                 <TextField
-                    name="password"
-                    label="Password"
-                    type="password"
-                    margin="normal"
-                    className="textfield"
-                    value={this.state.password}
-                    onChange={e => {
-                      this.setState({
-                        password: e.target.value.toString()
-                      });
-                    }}
+                  name="password"
+                  label="Password"
+                  type="password"
+                  margin="normal"
+                  className="textfield"
+                  value={this.state.password}
+                  onChange={e => {
+                    this.setState({
+                      password: e.target.value.toString()
+                    });
+                  }}
                 />
               </div>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  className="loginButton"
-                  style={{
-                    marginTop: "10px",
-                    marginBottom: "10px"
-                  }}
-                  onClick={handleLogin}
-                >
-                  Login
-                </Button>
-                <br></br>
-                <div className="buttonGroup">
+              <Button
+                variant="contained"
+                type="submit"
+                className="loginButton"
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "10px"
+                }}
+                onClick={handleLogin}
+              >
+                Login
+              </Button>
+              <br></br>
+              <div className="buttonGroup">
                 <Button
                   variant="outlined"
                   size="small"
@@ -254,20 +207,21 @@ class Login extends React.Component {
                 >
                   Register as a Restaurant
                 </Button>
-                <Button 
-                  variant="outlined" 
-                  type="submit" 
+                <Button
+                  variant="outlined"
+                  type="submit"
                   size="small"
                   className="registerButton"
-                  onClick={handleCourier}>
+                  onClick={handleCourier}
+                >
                   Register as a Courier
                 </Button>
-                </div>
+              </div>
               {/* </Form> */}
             </div>
           </div>
           <div className="FCKimg">
-            <img src={FeedingCKkids}/>
+            <img src={FeedingCKkids} />
           </div>
         </div>
       </Container>
