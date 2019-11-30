@@ -3,7 +3,7 @@ var router = express.Router();
 const sql = require("../db.js");
 
 router.get("/", function(req, res) {
-  query1 =
+  const query1 =
     "SELECT restaurant_id, name, address FROM restaurant_partners WHERE active_status = 1";
   sql.query(query1, function(err, results) {
     console.log(results);
@@ -12,15 +12,17 @@ router.get("/", function(req, res) {
 });
 
 router.get("/export", function(req, res) {
-  query1 = "SELECT * FROM restaurant_partners";
+  const query1 = "SELECT * FROM restaurant_partners";
   sql.query(query1, function(err, results) {
     res.json(results);
   });
 });
 
 router.post("/import", function(req, res) {
-	console.log("in")
-	console.log(req.body)
+  const deletequery = "DELETE FROM restaurant_partners";
+  sql.query(deletequery, function(err, results) {
+    console.log(results);
+  });
   const query1 =
     "INSERT INTO restaurant_partners (restaurant_id, name, address, contact_person, contact_email, active_status, phone, latitude, longitude, delivery_capability, num_meals, packaging, monday, tuesday, wednesday, thursday, friday, password_hash, uber_eats_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   for (let i = 0; i < req.body.length; i++) {
@@ -44,10 +46,10 @@ router.post("/import", function(req, res) {
       req.body[i].friday,
       req.body[i].password_hash,
       req.body[i].uber_eats_status
-	];
-	console.log(data)
-	sql.query(query1, data, function(err, results) {
-		console.log(err)
+    ];
+    console.log(data);
+    sql.query(query1, data, function(err, results) {
+      console.log(err);
       console.log(results);
     });
   }
