@@ -3,11 +3,7 @@ var router = express.Router();
 const sql = require("../db.js");
 
 router.get("/", (req, res) => {
-<<<<<<< HEAD
-  // console.log(req.session.email)
-=======
   let email = req.session.email;
->>>>>>> 43d199204195c8b6fa3eb1942e860befe92549c9
   let query1 = "SELECT program_id FROM program_partners WHERE email = ?";
   sql.query(query1, email, function (err, results) {
     if (results.length > 0) {
