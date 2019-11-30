@@ -4,7 +4,6 @@ const sql = require("../db.js");
 
 router.get("/", (req, res) => {
   let email = req.session.email;
-  console.log(email);
   let query1 = "SELECT program_id FROM program_partners WHERE email = ?";
   sql.query(query1, email, function (err, results) {
     let program_id = JSON.parse(JSON.stringify(results))[0].program_id;

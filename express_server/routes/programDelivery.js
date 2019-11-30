@@ -10,6 +10,10 @@ router.get("/", (req, res) => {
     let query2 =
       "SELECT restaurant_id, monday_time, tuesday_time, wednesday_time, thursday_time, friday_time, monday_meals, tuesday_meals, wednesday_meals, thursday_meals, friday_meals FROM pairings WHERE program_id = ?";
     sql.query(query2, program_id, function (err, results) {
+      // console.log(results)
+      // if (results) {
+      //   res.status(404).end();
+      // }
       let restaurants = JSON.parse(JSON.stringify(results));
       let data = [];
       for (let i = 0; i < restaurants.length; i++) {
