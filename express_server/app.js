@@ -6,6 +6,7 @@ var logger = require("morgan");
 var cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const cookieSession = require("cookie-session");
 
 // routers
 var indexRouter = require("./routes/index");
@@ -66,7 +67,7 @@ app.use(
   session({
     // session for login
     secret: "fck-secret", // for signing the cookie
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     cookie: {
       maxAge: 200000, // when the cookie/session expires
@@ -111,12 +112,12 @@ app.use("/api/courieruserpage", courierRouter);
 //app.use('/api/restaurantUserPage', restaurantUserPageRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
