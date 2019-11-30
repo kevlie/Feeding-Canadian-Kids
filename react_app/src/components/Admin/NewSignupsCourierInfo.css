@@ -1,0 +1,43 @@
+.infoTitle {
+	width: 70%;
+	margin-left: 200px;
+	height: 120px;
+	background-color: #cb9eff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.courierName {
+	text-align: center;
+}
+
+#newSignupsCourierInfo {
+	font-family: "Comic Sans MS";
+}
+
+#odd {
+	background-color: #dbeeff;
+}
+
+#even {
+	background-color: #a6ffa3;
+}
+
+.appButtons {
+	margin-top: 50px;
+	margin-left: 500px;
+	margin-bottom: 20px;
+}
+
+.btn1 {
+	margin-right: 20px;
+}
+
+.narrow {
+	width: 200px;
+}
+
+.wide {
+	width:680px;
+}

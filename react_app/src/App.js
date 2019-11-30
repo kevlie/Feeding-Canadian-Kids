@@ -14,6 +14,7 @@ import Admin from "./components/Admin/Admin";
 import NewSignups from "./components/Admin/NewSignups";
 import NewSignupsProgramInfo from "./components/Admin/NewSignupsProgramInfo";
 import NewSignupsRestaurantInfo from "./components/Admin/NewSignupsRestaurantInfo";
+import NewSignupsCourierInfo from "./components/Admin/NewSignupsCourierInfo";
 import Programs from "./components/Admin/Programs";
 import Restaurants from "./components/Admin/Restaurants";
 import ProgramInfo from "./components/Admin/ProgramInfo";
@@ -66,6 +67,11 @@ class App extends Component {
             exact
             path="/admin/newSignups/restaurant/:id"
             component={NewSignupsRestaurantInfo}
+          />
+          <Route
+            exact
+            path="/admin/newSignups/courier/:id"
+            component={NewSignupsCourierInfo}
           />
           <Route
             exact

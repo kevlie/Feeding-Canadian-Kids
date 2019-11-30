@@ -21,6 +21,12 @@
 	display: block;
 }
 
+#courierTable {
+	margin-top: 20px;
+	margin-left: 230px;
+	display: block;
+}
+
 .tableHeadings {
 	margin-left: 216px;
 	margin-top: 50px;
