@@ -34,12 +34,12 @@ class DeliverySlot extends React.Component {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Large Modal
+              Restaurant Details:
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <h3>
-              {"Restaurant: "}
+              {"Name: "}
               {this.props.name}
             </h3>
             <h3>
