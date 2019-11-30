@@ -32,13 +32,13 @@ class RestaurantPartners extends React.Component {
 
   componentDidMount() {
     fetch("http://localhost:9000/api/courieruserpage/restaurants", {
-      method: "post",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include",
-      body: JSON.stringify({ email: this.props.email })
+      method: "get",
+      // headers: {
+      //   Accept: "application/json",
+      //   "Content-Type": "application/json"
+      // },
+      credentials: "include"
+      // body: JSON.stringify({ email: this.props.email })
     }).then(res => {
       console.log(res);
       if (res.status != 200) {
