@@ -58,7 +58,7 @@ class Login extends React.Component {
                 this.props.history.push("/restaurantuserpage", state);
                 window.location.reload();
               } else if (resJSON.partnerType === "courier") {
-                this.props.history.push("/courieruserpage", state);
+                this.props.history.push("/courieruserpage");
                 window.location.reload();
               } else {
                 this.props.history.push("/admin");
