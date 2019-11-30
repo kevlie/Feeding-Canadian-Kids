@@ -1,4 +1,4 @@
-#newSignups {
+#couriers {
 	font-family: "Comic Sans MS";
 }
 
@@ -9,21 +9,9 @@
 	background-color: #cb9eff;
 }
 
-#programTable {
-	margin-left: 230px;
-	margin-top: 20px;
-	display: block;
-}
-
-#restaurantTable {
-	margin-top: 20px;
-	margin-left: 230px;
-	display: block;
-}
-
 #courierTable {
-	margin-top: 20px;
 	margin-left: 230px;
+	margin-top: 20px;
 	display: block;
 }
 

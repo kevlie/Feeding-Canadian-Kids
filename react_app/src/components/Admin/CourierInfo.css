@@ -1,0 +1,33 @@
+.infoTitle {
+	width: 70%;
+	margin-left: 200px;
+	height: 120px;
+	background-color: #cb9eff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#courierInfo {
+	font-family: "Comic Sans MS";
+}
+
+.courierName {
+	text-align: center;
+}
+
+#odd {
+	background-color: #dbeeff;
+}
+
+#even {
+	background-color: #a6ffa3;
+}
+
+.narrow {
+	width: 220px;
+}
+
+.wide {
+	width:660px;
+}

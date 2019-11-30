@@ -7,9 +7,6 @@ class NewSignupsProgramInfo extends React.Component {
 		super(props)
 		this.state = {
 			program: [[]]
-			//program: [{"name": "Dhruv", "discovery_info": "Website", "extra_info": "NAH", "in_kind_support": "Not at all",
-			//		   "dinner_needs": "need food", "applicant_name": "Dhruv", "applicant_phone": "123", 
-			//		   "applicant_email": "a@mail.com", "preferred_time": "morning"}]
 		}
 	}
 
@@ -53,38 +50,6 @@ class NewSignupsProgramInfo extends React.Component {
 				<table id="programTable">
 					<tr id="even">
 						<td class="narrow">
-							Dinner Needs
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["dinner_needs"]}
-						</td>
-					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							In-Kind Support
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["in_kind_support"]}
-						</td>
-					</tr>
-					<tr id="even">
-						<td class="narrow">
-							Discovery Info
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["discovery_info"]}
-						</td>
-					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							Preferred Time
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["preferred_time"]}
-						</td>
-					</tr>
-					<tr id="even">
-						<td class="narrow">
 							Applicant Name
 						</td>
 						<td class="wide">
@@ -105,6 +70,46 @@ class NewSignupsProgramInfo extends React.Component {
 						</td>
 						<td class="wide">
 							{ this.state.program[0]["applicant_email"]}
+						</td>
+					</tr>
+					<tr id="odd">
+						<td class="narrow">
+							Dinner Needs
+						</td>
+						<td class="wide">
+							{ this.state.program[0]["dinner_needs"]}
+						</td>
+					</tr>
+					<tr id="even">
+						<td class="narrow">
+							In-Kind Support
+						</td>
+						<td class="wide">
+							{ this.state.program[0]["in_kind_support"]}
+						</td>
+					</tr>
+					<tr id="odd">
+						<td class="narrow">
+							Discovery Info
+						</td>
+						<td class="wide">
+							{ this.state.program[0]["discovery_info"]}
+						</td>
+					</tr>
+					<tr id="even">
+						<td class="narrow">
+							Preferred Time
+						</td>
+						<td class="wide">
+							{ this.state.program[0]["preferred_time"]}
+						</td>
+					</tr>
+					<tr id="even">
+						<td class="narrow">
+							Extra Info
+						</td>
+						<td class="wide">
+							{ this.state.program[0]["extra_info"]}
 						</td>
 					</tr>
 				</table>
