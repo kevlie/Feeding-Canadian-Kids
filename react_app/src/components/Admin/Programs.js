@@ -109,31 +109,35 @@ class Programs extends React.PureComponent {
         </table>
         <div
           style={{
-            textAlign: "center",
             marginTop: "10px"
           }}
         >
-          <Button
-            style={{
-              marginRight: "5px"
-            }}
-          >
-            <CSVLink
-              data={this.state.exportData}
-              filename={"program_data"}
+          <div className="export"> 
+            <Button
+              className="exportbutton"
               style={{
-                color: "white"
+                marginRight: "5px"
               }}
             >
-              Export CSV
-            </CSVLink>
-          </Button>
-          <div
+              <CSVLink
+                data={this.state.exportData}
+                filename={"program_data"}
+                style={{
+                  color: "white"
+                }} 
+              >
+                Export CSV
+              </CSVLink>
+            </Button>
+          </div>
+          <div 
+            className="upload"
             style={{
               marginTop: "10px"
             }}
-          >
+          > 
             <Button
+              className="uploadbutton"
               style={{ marginRight: "10px" }}
               onClick={() => {
                 this.handleImport();
@@ -143,6 +147,7 @@ class Programs extends React.PureComponent {
               Upload CSV
             </Button>
             <input
+              className="choosefile"
               type="file"
               style={{ marginLeft: "10px" }}
               onChange={e => {
