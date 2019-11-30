@@ -80,8 +80,24 @@ class Pairing extends React.Component {
 		else if (numProgramsChecked > 1 && numRestaurantsChecked > 1) {
 			alert("Cannot pair multiple programs to multiple restaurants!")
 		} else {
+			this.performPairing(numProgramsChecked, numRestaurantsChecked)
 			window.location.reload()
 		}
+	}
+
+	performPairing = (numProgramsChecked, numRestaurantsChecked) => {
+		if (numProgramsChecked === 1) {
+			const programId = Object.keys(this.state.programsChecked).find(key => this.state.programsChecked[key] === true)
+			for (var restaurantId in this.state.restaurantsChecked) {
+				if (this.state.restaurantsChecked[restaurantId] == true) {
+					var fetchURL = "http://localhost:9000/api/admin/pairing/" + programId + "/" + restaurantId
+					fetch(fetchURL, {
+				      method: "post",
+				    })
+				}
+			}
+		}
+		
 	}
 
 	handleProgramChange = (e) => {
