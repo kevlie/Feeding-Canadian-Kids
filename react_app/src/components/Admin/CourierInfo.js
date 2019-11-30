@@ -1,8 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import "./NewSignupsCourierInfo.css";
+import "./CourierInfo.css";
 
-class NewSignupsCourierInfo extends React.Component {
+class CourierInfo extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -11,27 +11,11 @@ class NewSignupsCourierInfo extends React.Component {
 	}
 
 	componentDidMount = () => {
-		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/courier/" + newId;
+		const id = this.props.match.params.id;
+		const fetchURL = "http://localhost:9000/api/admin/courier/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((courier) => this.setState({courier}, () => console.log(this.state.courier)))
-	}
-
-	approveApp = () => {
-		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/courier/" + newId + "/approve";
-		fetch(fetchURL, {
-	      method: "post",
-	    })
-	}
-
-	rejectApp = () => {
-		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/courier/" + newId + "/reject";
-		fetch(fetchURL, {
-	      method: "post",
-	    })
 	}
 
 	render() {
@@ -62,7 +46,7 @@ class NewSignupsCourierInfo extends React.Component {
 	  		day.push("No")
 	  	}
 		return (
-			<div id="newSignupsCourierInfo">
+			<div id="courierInfo">
 				<div>
 				<Sidebar />
 				</div>
@@ -75,21 +59,13 @@ class NewSignupsCourierInfo extends React.Component {
 				<table id="courierTable">
 					<tr id="even">
 						<td class="narrow">
-							Applicant Name
+							Email
 						</td>
 						<td class="wide">
-							{ this.state.courier[0]["applicant_name"]}
+							{ this.state.courier[0]["email"]}
 						</td>
 					</tr>
 					<tr id="odd">
-						<td class="narrow">
-							Applicant Email
-						</td>
-						<td class="wide">
-							{ this.state.courier[0]["applicant_email"]}
-						</td>
-					</tr>
-					<tr id="even">
 						<td class="narrow">
 							Area of service
 						</td>
@@ -97,20 +73,12 @@ class NewSignupsCourierInfo extends React.Component {
 							{ this.state.courier[0]["area_service"]}
 						</td>
 					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							Discovery Info
-						</td>
-						<td class="wide">
-							{ this.state.courier[0]["discovery_info"]}
-						</td>
-					</tr>
 					<tr id="even">
 						<td class="narrow">
-							Extra Info
+							Vehicle Description
 						</td>
 						<td class="wide">
-							{ this.state.courier[0]["extra_info"]}
+							{ this.state.courier[0]["vehicle_description"]}
 						</td>
 					</tr>
 					<tr id="odd">
@@ -154,13 +122,11 @@ class NewSignupsCourierInfo extends React.Component {
 						</td>
 					</tr>
 				</table>
-				<div class="appButtons">
-					<a href="/admin/newSignups"class="btn btn-info btn1" onClick = { this.approveApp }>Approve Application</a>
-					<a href="/admin/newSignups"class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
-				</div>
+
+				<div id="footer"></div>
 			</div>
 		)
 	}
 }
 
-export default NewSignupsCourierInfo;
+export default CourierInfo;

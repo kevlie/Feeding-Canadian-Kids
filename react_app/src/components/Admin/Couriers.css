@@ -1,0 +1,44 @@
+#couriers {
+	font-family: "Comic Sans MS";
+}
+
+.jumbotron {
+	width: 70%;
+	margin-left: 200px;
+	height: 220px;
+	background-color: #cb9eff;
+}
+
+#courierTable {
+	margin-left: 230px;
+	margin-top: 20px;
+	display: block;
+}
+
+.tableHeadings {
+	margin-left: 216px;
+	margin-top: 50px;
+}
+
+#footer {
+	margin-bottom: 30px;
+}
+
+tr, th, td {
+	border: 1px solid black;
+	padding: 15px;
+	text-align: center;
+	width: 440px;
+}
+
+#tableHeader {
+	background-color: #cb9eff;
+}
+
+#odd {
+	background-color: #dbeeff;
+}
+
+#even {
+	background-color: #a6ffa3;
+}

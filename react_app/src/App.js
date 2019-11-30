@@ -17,8 +17,10 @@ import NewSignupsRestaurantInfo from "./components/Admin/NewSignupsRestaurantInf
 import NewSignupsCourierInfo from "./components/Admin/NewSignupsCourierInfo";
 import Programs from "./components/Admin/Programs";
 import Restaurants from "./components/Admin/Restaurants";
+import Couriers from "./components/Admin/Couriers";
 import ProgramInfo from "./components/Admin/ProgramInfo";
 import RestaurantInfo from "./components/Admin/RestaurantInfo";
+import CourierInfo from "./components/Admin/CourierInfo";
 import Pairing from "./components/Admin/Pairing";
 
 import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
@@ -90,12 +92,14 @@ class App extends Component {
           <Route exact path="/admin/new" component={NewSignups} />
           <Route exact path="/admin/programs" component={Programs} />
           <Route exact path="/admin/restaurants" component={Restaurants} />
+          <Route exact path="/admin/couriers" component={Couriers} />
           <Route exact path="/admin/program/:id" component={ProgramInfo} />
           <Route
             exact
             path="/admin/restaurant/:id"
             component={RestaurantInfo}
           />
+          <Route exact path="/admin/courier/:id" component={CourierInfo} />
           <Route exact path="/admin/pairing" component={Pairing} />
         </Switch>
       </div>
