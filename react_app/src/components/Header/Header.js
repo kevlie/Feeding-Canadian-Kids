@@ -47,6 +47,7 @@ class Header extends Component {
               isAdmin: resJSON.isAdmin
             };
             this.setState(state);
+          } else {
           }
         });
       }
@@ -62,21 +63,27 @@ class Header extends Component {
       },
       credentials: "include"
     }).then(res => {
-      if (res.status === 200 || res.status === 304) {
-        let state = {
-          isLoggedIn: false,
-          email: ""
-        };
-        this.setState(state);
+      if (res.status === 200) {
+        console.log("loggedout");
+        this.setState({ isLoggedIn: false });
+        this.props.history.push("/login");
+        window.location.reload();
+
+        // let state = {
+        //   isLoggedIn: false,
+        //   email: ""
+        // };
+        // this.setState(state);
       }
     });
   }
 
-  componentDidMount() {
-    this.setLoginStatus();
-  }
+  // componentDidMount() {
+  //   this.setLoginStatus();
+  // }
 
   render() {
+    this.setLoginStatus();
     return (
       <>
         <Navbar bg="light" expand="lg">
@@ -110,11 +117,9 @@ class Header extends Component {
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item
-                  href="#action/3.3"
+                  // href="#action/3.3"
                   onClick={e => {
                     this.logout();
-                    this.props.history.push("/login");
-                    window.location.reload();
                   }}
                 >
                   Log Out
