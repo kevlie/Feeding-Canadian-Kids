@@ -30,7 +30,14 @@ class RestaurantsPartners extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/api/programRestaurants")
+    fetch("http://localhost:9000/api/programRestaurants", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    })
       .then(res => res.json())
       .then(data => {
         let rows = [];

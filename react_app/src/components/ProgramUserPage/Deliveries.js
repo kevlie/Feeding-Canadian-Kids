@@ -12,7 +12,14 @@ class Deliveries extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/api/programDelivery")
+    fetch("http://localhost:9000/api/programDelivery", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    })
       .then(res => res.json())
       .then(json => {
         let data = [];
