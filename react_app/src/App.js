@@ -102,7 +102,7 @@ class App extends Component {
           />
           <Route exact path="/admin/courier/:id" component={CourierInfo} />
           <Route exact path="/admin/pairing" component={Pairing} />
-          <Route exact path="pendingapproval" component={PendingApproval} />
+          <Route exact path="/pendingapproval" component={PendingApproval} />
         </Switch>
       </div>
     );
