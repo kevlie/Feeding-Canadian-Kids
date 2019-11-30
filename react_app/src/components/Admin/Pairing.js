@@ -313,7 +313,7 @@ class Pairing extends React.Component {
 				</div>
 
 				<div class="pairButton">
-					<a class="btn btn-info btn1" onClick = { this.submitPairing }>Submit Pairing</a>
+					<a href="#" class="btn btn-info btn1" onClick = { this.submitPairing }>Submit Pairing</a>
 				</div>
 				<div id="footer"></div>
 			</div>
