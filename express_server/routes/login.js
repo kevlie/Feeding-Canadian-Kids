@@ -4,7 +4,7 @@ var express = require("express");
 var loginRouter = express.Router();
 const sql = require("../db.js");
 
-loginRouter.post("/login", function(req, res) {
+loginRouter.post("/login", function (req, res) {
   let email = req.body.contactEmail;
   let passwordHash = req.body.passwordHash;
 
@@ -12,7 +12,7 @@ loginRouter.post("/login", function(req, res) {
     sql.query(
       "SELECT * FROM admin WHERE email = ? AND password_hash = ?",
       [email, passwordHash],
-      function(err, results) {
+      function (err, results) {
         if (err) {
           return res.status(500).send(err);
         }
@@ -20,21 +20,23 @@ loginRouter.post("/login", function(req, res) {
           req.session.loggedin = true;
           req.session.email = email;
           req.session.isAdmin = true;
-          req.session.partnerType = "";
+          req.session.partnerType = "admin";
           res.status(200).send({
             email: email,
             isAdmin: true,
-            partnerType: ""
+            partnerType: "admin"
           });
         } else {
           sql.query(
             "SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?",
             [email, passwordHash],
-            function(err, results, fields) {
+            function (err, results, fields) {
               if (err) {
                 return res.status(500).send(err);
               }
               if (results.length > 0) {
+                let restaurant = JSON.parse(JSON.stringify(results))[0];
+                let activeStatus = restaurant.active_status;
                 req.session.loggedin = true;
                 req.session.email = email;
                 req.session.isAdmin = false;
@@ -42,16 +44,19 @@ loginRouter.post("/login", function(req, res) {
                 res.status(200).send({
                   email: email,
                   isAdmin: false,
-                  partnerType: "restaurant"
+                  partnerType: "restaurant",
+                  activeStatus: activeStatus,
                 });
               } else {
                 sql.query(
                   "SELECT * FROM program_partners WHERE email = ? AND password_hash = ?",
                   [email, passwordHash],
-                  function(err, results, fields) {
+                  function (err, results, fields) {
                     if (err) {
                       return res.status(500).send(err);
                     }
+                    let program = JSON.parse(JSON.stringify(results))[0];
+                    let activeStatus = program.active_status;
                     if (results.length > 0) {
                       console.log(results);
                       console.log(req.session.email);
@@ -62,16 +67,19 @@ loginRouter.post("/login", function(req, res) {
                       res.status(200).send({
                         email: email,
                         isAdmin: false,
-                        partnerType: "program"
+                        partnerType: "program",
+                        activeStatus: activeStatus
                       });
                     } else {
                       sql.query(
                         "SELECT * FROM courier_partners WHERE email = ? AND password_hash = ?",
                         [email, passwordHash],
-                        function(err, results, fields) {
+                        function (err, results, fields) {
                           if (err) {
                             return res.status(500).send(err);
                           }
+                          let courier = JSON.parse(JSON.stringify(results))[0];
+                          let activeStatus = courier.active_status;
                           if (results.length > 0) {
                             req.session.loggedin = true;
                             req.session.email = email;
@@ -80,7 +88,8 @@ loginRouter.post("/login", function(req, res) {
                             res.status(200).send({
                               email: email,
                               isAdmin: false,
-                              partnerType: "courier"
+                              partnerType: "courier",
+                              activeStatus: activeStatus
                             });
                           } else {
                             res
@@ -105,7 +114,7 @@ loginRouter.post("/login", function(req, res) {
   }
 });
 
-loginRouter.get("/validate-login", function(req, res) {
+loginRouter.get("/validate-login", function (req, res) {
   if (req.session.loggedin) {
     if (req.session.loggedin === true) {
       res.status(200).send({
@@ -119,7 +128,7 @@ loginRouter.get("/validate-login", function(req, res) {
   }
 });
 
-loginRouter.get("/validate-admin", function(req, res) {
+loginRouter.get("/validate-admin", function (req, res) {
   if (req.session.loggedin === true && req.session.isAdmin === true) {
     res.status(200).send(req.session.email);
   } else {
@@ -127,7 +136,7 @@ loginRouter.get("/validate-admin", function(req, res) {
   }
 });
 
-loginRouter.get("/get-partner-type", function(req, res) {
+loginRouter.get("/get-partner-type", function (req, res) {
   if (req.session.loggedin === true) {
     let partnerType = req.session.partnerType;
     res.status(200).send(partnerType);
@@ -145,16 +154,7 @@ loginRouter.get("/logout", function(req, res) {
       console.log("loggedout");
       res.status(200).end();
     }
-  }); // if (req.session.loggedin === true) {
-  //   req.session.loggedin = false;
-  //   req.session.email = null;
-  //   req.session.isAdmin = null;
-
-  //   res.status(200).send("Logged out.");
-  // } else {
-  //   res.status(304);
-  //   console.log("req.session.loggedin is undefined or not true");
-  // }
+  });
 });
 
 module.exports = loginRouter;
