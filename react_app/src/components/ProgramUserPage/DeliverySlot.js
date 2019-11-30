@@ -5,10 +5,16 @@ class DeliverySlot extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false,
+      show: false
     };
   }
   render() {
+    const timeString12hr = timeString => {
+      return new Date("1970-01-01T" + timeString + "Z").toLocaleTimeString(
+        {},
+        { timeZone: "UTC", hour12: true, hour: "numeric", minute: "numeric" }
+      );
+    };
     return (
       <>
         <Button
@@ -17,7 +23,7 @@ class DeliverySlot extends React.Component {
           id="slot"
           variant="outline-success"
         >
-          {this.props.time}
+          {timeString12hr(this.props.time)}
         </Button>
 
         <Modal
