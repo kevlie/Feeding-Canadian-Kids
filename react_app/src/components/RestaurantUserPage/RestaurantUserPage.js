@@ -59,11 +59,7 @@ class RestaurantUserPage extends React.Component {
     }).then(res => {
       if (res.status === 200) {
         this.setState({ hasAccess: true });
-        console.log(this.state.hasAccess);
       }
-      //   else {
-      //     console.log(res);
-      //   }
     });
 
     this.getRestaurantName()
@@ -95,7 +91,7 @@ class RestaurantUserPage extends React.Component {
           <h4> You do not have the permissions to access this page.</h4>
         ) : this.state.approval_status === 0 ? (
           <h4>
-            Your application is still currently being processed. Our staffs will
+            Your application is still currently being processed. Our staff will
             work to get back to you within 48 business hours.
           </h4>
         ) : (
