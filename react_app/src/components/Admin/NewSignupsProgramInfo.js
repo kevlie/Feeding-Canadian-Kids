@@ -17,6 +17,16 @@ class NewSignupsProgramInfo extends React.Component {
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((program) => this.setState({program}, () => console.log(this.state.program)))
+
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	      method: "get",
+	      credentials: "include"
+	    }).then(res => {
+	      if (res.status != 200) {
+	        this.setState({ fail: true });
+	        console.log(this.state.fail);
+	      }
+	    });
 	}
 
 	approveApp = () => {
@@ -37,6 +47,8 @@ class NewSignupsProgramInfo extends React.Component {
 
 	render() {
 		return (
+		  <>
+          {!this.state.fail ? (
 			<div id="newSignupsProgramInfo">
 				<div>
 				<Sidebar />
@@ -118,7 +130,11 @@ class NewSignupsProgramInfo extends React.Component {
 					<a href="/admin/newSignups"class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
 				</div>
 			</div>
-		)
+		) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+      )
 	}
 }
 
