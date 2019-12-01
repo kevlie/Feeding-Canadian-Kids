@@ -38,6 +38,8 @@ class ProgramUserPage extends React.Component {
       .then(json => {
         if (json.partnerType === "program") {
           this.setState({ isLoggedIn: true, loaded: true });
+        } else {
+          this.setState({ isLoggedIn: false, loaded: true });
         }
       });
   }
