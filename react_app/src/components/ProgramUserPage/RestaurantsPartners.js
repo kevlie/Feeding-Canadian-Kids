@@ -56,7 +56,7 @@ class RestaurantsPartners extends React.Component {
   render() {
     return (
       <div>
-        <h1> Your Restaurnt Partners Information</h1>
+        <h1> Your Restaurant Partners Information</h1>
         <Table striped bordered>
           <thead>
             <tr>
