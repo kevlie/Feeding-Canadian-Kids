@@ -10,7 +10,8 @@ class CourierUserPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "default"
+      name: "default",
+      hasAccess: false
     };
   }
 
@@ -18,6 +19,18 @@ class CourierUserPage extends React.Component {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
 
+    fetch("http://localhost:9000/api/courieruserpage/isCourier", {
+      method: "get",
+      credentials: "include"
+    }).then(res => {
+      if (res.status === 200) {
+        this.setState({ hasAccess: true });
+        console.log(this.state.hasAccess);
+      }
+      //   else {
+      //     console.log(res);
+      //   }
+    });
     fetch("http://localhost:9000/api/courieruserpage/name", {
       method: "get",
 
@@ -25,7 +38,10 @@ class CourierUserPage extends React.Component {
     })
       .then(response => response.json())
       .then(json => {
-        this.setState({ name: json[0].name });
+        if (json.length > 0) {
+          console.log("in");
+          this.setState({ name: json[0].name });
+        }
       });
   };
 
@@ -35,57 +51,44 @@ class CourierUserPage extends React.Component {
   }
 
   render() {
-    // console.log(this.state.approval_status);
     return (
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab eventKey="home" title="Home">
-          <WelcomeMessage name={this.state.name} />
-        </Tab>
+      <>
+        {!this.state.hasAccess ? (
+          <h4> You do not have the rights to access this page.</h4>
+        ) : (
+          <div>
+            <Tab.Container
+              id="left-tabs-example"
+              defaultActiveKey="first"
+              className="no-scroll m-height"
+            >
+              <Row className="no-scroll">
+                <Col sm={2} className="pill-tabs-color trial">
+                  <Nav variant="pills" className="flex-column pill-tabs">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first">Home</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="third">Your Restaurants</Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                </Col>
+                <Col sm={10} className="m-height">
+                  <Tab.Content className="m-height">
+                    <Tab.Pane eventKey="first" className="m-height">
+                      <WelcomeMessage name={this.state.name} />
+                    </Tab.Pane>
 
-        <Tab eventKey="restaurants" title="Your Restaurants">
-          <RestaurantPartners />
-        </Tab>
-      </Tabs>
-
-      // <div className="trial">
-      //   <Tab.Container
-      //     id="left-tabs-example"
-      //     defaultActiveKey="first"
-      //     className="no-scroll m-height"
-      //   >
-      //     <Row className="no-scroll m-height">
-      //       <Col sm={2} className="pill-tabs-color m-height">
-      //         <Nav variant="pills" className="flex-column pill-tabs">
-      //           <Nav.Item>
-      //             <Nav.Link eventKey="first">{this.state.email}</Nav.Link>
-      //           </Nav.Item>
-      //           <Nav.Item>
-      //             <Nav.Link eventKey="second">Your Deliveries</Nav.Link>
-      //           </Nav.Item>
-      //           <Nav.Item>
-      //             <Nav.Link eventKey="third">Your Partners</Nav.Link>
-      //           </Nav.Item>
-      //         </Nav>
-      //       </Col>
-      //       <Col sm={10} className="m-height">
-      //         <Tab.Content className="m-height">
-      //           <Tab.Pane eventKey="first" className="m-height">
-      //             <WelcomeMessage email={this.state.email} />
-      //           </Tab.Pane>
-
-      //           <Tab.Pane eventKey="second" className="m-height">
-      //             <div className="order-div">
-      //               {/* <Orders email={this.state.email} /> */}
-      //             </div>
-      //           </Tab.Pane>
-      //           <Tab.Pane eventKey="third" className="m-height">
-      //             {/* <ProgramsPartners /> */}
-      //           </Tab.Pane>
-      //         </Tab.Content>
-      //       </Col>
-      //     </Row>
-      //   </Tab.Container>
-      // </div>
+                    <Tab.Pane eventKey="third" className="m-height">
+                      <RestaurantPartners />
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
+          </div>
+        )}
+      </>
     );
   }
 }

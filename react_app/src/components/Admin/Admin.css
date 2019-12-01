@@ -1,41 +1,42 @@
 .jumbotron {
-	width: 70%;
-	margin-left: 200px;
-	height: 220px;
-	background-color: #cb9eff;
+  width: 70%;
+  margin-left: 200px;
+  height: 220px;
+  background-color: #cb9eff;
 }
 
 .programText {
-	font-family: "Comic Sans MS";
+  font-family: "Comic Sans MS";
 }
 
 .tab {
-	background-color: #b0f5c3;
-	width: 150px;
-	height: 150px;
-	margin-left: 100px;
-	margin-top: 70px;
-	padding: 0px;
-	display: inline-block;
+  background-color: #b0f5c3;
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+  /* margin-top: 70px; */
+  padding: 0px;
+  display: inline-block;
 }
 
 .first {
-	margin-left: 225px;
+  margin-left: 250px;
 }
 
 .tab:nth-of-type(1) {
-	margin-left: 225px;
+  margin-left: 350px;
+  margin-bottom: 20px;
 }
 
 #program {
-	margin-top: 0px;
-	text-align: center;
-	color: blue;
+  margin-top: 0px;
+  text-align: center;
+  color: blue;
 }
 
 #number {
-	margin-bottom: 0px;
-	color: blue;
-	font-size: 80px;
-	text-align: center;
+  margin-bottom: 0px;
+  color: blue;
+  font-size: 80px;
+  text-align: center;
 }
