@@ -2,8 +2,8 @@
 
 ## Iteration 2 - Review & Retrospect
 
- * When: October 25th, 2019
- * Where: November 13th, 2019
+ * Start Date: October 25th, 2019
+ * End Date: November 13th, 2019
 
 ## Process - Reflection
 #### Decisions that turned out well
