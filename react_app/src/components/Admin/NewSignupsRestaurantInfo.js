@@ -49,7 +49,7 @@ class NewSignupsRestaurantInfo extends React.Component {
 		return (
 		  <>
           {!this.state.fail ? (
-			<div>
+			<div id="newSignupsRestaurantInfo">>
 				<div>
 				<Sidebar />
 				</div>

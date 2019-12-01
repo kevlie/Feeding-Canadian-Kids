@@ -8,8 +8,12 @@
 	align-items: center;
 }
 
-.programName {
+.restaurantName {
 	text-align: center;
+}
+
+#newSignupsRestaurantInfo {
+	font-family: "Comic Sans MS";
 }
 
 #odd {

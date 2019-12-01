@@ -116,7 +116,7 @@ class NewSignupsProgramInfo extends React.Component {
 							{ this.state.program[0]["preferred_time"]}
 						</td>
 					</tr>
-					<tr id="even">
+					<tr id="odd">
 						<td class="narrow">
 							Extra Info
 						</td>
