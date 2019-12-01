@@ -5,7 +5,7 @@
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem?
 
- Our product is a mobile-friendly website that will provide a centralized platform for registration and communication between Feeding Canadian Kids (FCK) staff, restaurants, and programs.
+Our product is a website that will provide a centralized platform for registration and communication between Feeding Canadian Kids (FCK) staff, restaurants, and programs.
 
 Presently, there are several existing problems: An immense amount of resources are spent communicating between Program and Restaurant Partners to ensure that all parties involved have agreed upon and are clear about the goals, tasks, locations, etc. There is currently no central platform and it is not always easy for all parties to communicate in an efficient and organized manner.
 
@@ -75,7 +75,7 @@ With the help of our website, prospective partners and restaurants will have a s
 #### Program Partners:
 + To register:
     + Click on the ``REGISTER AS A PROGRAM`` button in the login page.
-    + Fill in the form to provide Feeding Canadian Kids staff with the necesary infromation to become a program partner.
+    + Fill in the form to provide Feeding Canadian Kids staff with the necessary information to become a program partner.
     + You can now log in with your email and password to check whether Feeding Canadian Kids staff have approved your application.
     + After you have been approved, you will be able to view your user page.
 + To operate on user page as a program partner:
@@ -83,7 +83,7 @@ With the help of our website, prospective partners and restaurants will have a s
 	+ Click on ``Your Deliveries`` tab on the left sidebar to check the schedule of deliveries for the current week.
 	+ If you want to check the details of any delivery, click on the time slot shown in the table, then you will see the details including restaurant name, contact information as well as the number of meals to be delivered.
 	+ To confirm delivery, click on the corresponding time slot and click the ``Confirm Delivery`` button.
-	+ Click on ``Your Restaurants`` tab on the left sidebar, you will see the details of all restaurants that are paired with you.
+	+ Click on ``Your Restaurants`` tab on the left sidebar, you will see the details of restaurants that are paired with you.
 	+ Click on ``Home`` tab on the left sidebar to return to home page.
 
  ## Development requirements
@@ -98,4 +98,5 @@ With the help of our website, prospective partners and restaurants will have a s
  * What type of license will you apply to your codebase?
  * What affect does it have on the development and use of your codebase?
  * Why did you or your partner make this choice?
+
 
