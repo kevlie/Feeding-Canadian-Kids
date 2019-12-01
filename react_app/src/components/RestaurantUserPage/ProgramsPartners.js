@@ -1,6 +1,7 @@
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import { Table } from "react-bootstrap";
 import React from "react";
+import "./ProgramPartners.css"
 
 
 class ProgramsPartners extends React.Component {
@@ -27,7 +28,7 @@ class ProgramsPartners extends React.Component {
           let rowData = [];
           rowData.push(<td> {data[i].name} </td>);
           rowData.push(<td> {data[i].address} </td>);
-          rowData.push(<td> {data[i].contact_email} </td>);
+          rowData.push(<td> {data[i].email} </td>);
           rowData.push(<td> {data[i].phone} </td>);
           rows.push(<tr> {rowData} </tr>);
         }
