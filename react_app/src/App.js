@@ -25,6 +25,7 @@ import Pairing from "./components/Admin/Pairing";
 import PendingApproval from "./components/PendingApproval/PendingApproval.js";
 
 import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
+import ChangePassword from "./components/Login/ChangePassword";
 
 function HomePage() {
   return <h1></h1>;
@@ -103,6 +104,7 @@ class App extends Component {
           <Route exact path="/admin/courier/:id" component={CourierInfo} />
           <Route exact path="/admin/pairing" component={Pairing} />
           <Route exact path="/pendingapproval" component={PendingApproval} />
+          <Route exact path="/changepassword" component={ChangePassword} />
         </Switch>
       </div>
     );
