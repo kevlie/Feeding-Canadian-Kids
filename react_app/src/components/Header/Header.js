@@ -114,21 +114,20 @@ class Header extends Component {
                     Profile
                 </NavDropdown.Item>
                   <NavDropdown.Item
-                    // href="#action/3.3"
-                    onClick={e => {
-                      this.logout();
-                    }}
-                  >
-                    Log Out
-                </NavDropdown.Item>
-                  <NavDropdown.Item
-                    // href="#action/3.3"
                     onClick={e => {
                       this.changePassword();
                     }}
                   >
                     Change Password
               </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    onClick={e => {
+                      this.logout();
+                    }}
+                  >
+                    Log Out
+                </NavDropdown.Item>
                 </NavDropdown>
               )}
           </Nav>

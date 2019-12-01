@@ -4,7 +4,7 @@ var express = require("express");
 var loginRouter = express.Router();
 const sql = require("../db.js");
 
-loginRouter.post("/login", function(req, res) {
+loginRouter.post("/login", function (req, res) {
   let email = req.body.contactEmail;
   let passwordHash = req.body.passwordHash;
 
@@ -12,7 +12,7 @@ loginRouter.post("/login", function(req, res) {
     sql.query(
       "SELECT * FROM admin WHERE email = ? AND password_hash = ?",
       [email, passwordHash],
-      function(err, results) {
+      function (err, results) {
         if (err) {
           return res.status(500).send(err);
         }
@@ -30,7 +30,7 @@ loginRouter.post("/login", function(req, res) {
           sql.query(
             "SELECT * FROM restaurant_partners WHERE contact_email = ? AND password_hash = ?",
             [email, passwordHash],
-            function(err, results, fields) {
+            function (err, results, fields) {
               if (err) {
                 return res.status(500).send(err);
               }
@@ -51,7 +51,7 @@ loginRouter.post("/login", function(req, res) {
                 sql.query(
                   "SELECT * FROM program_partners WHERE email = ? AND password_hash = ?",
                   [email, passwordHash],
-                  function(err, results, fields) {
+                  function (err, results, fields) {
                     if (err) {
                       return res.status(500).send(err);
                     }
@@ -72,7 +72,7 @@ loginRouter.post("/login", function(req, res) {
                       sql.query(
                         "SELECT * FROM courier_partners WHERE email = ? AND password_hash = ?",
                         [email, passwordHash],
-                        function(err, results, fields) {
+                        function (err, results, fields) {
                           if (err) {
                             return res.status(500).send(err);
                           }
@@ -114,7 +114,7 @@ loginRouter.post("/login", function(req, res) {
   }
 });
 
-loginRouter.get("/validate-login", function(req, res) {
+loginRouter.get("/validate-login", function (req, res) {
   if (req.session.loggedin) {
     if (req.session.loggedin === true) {
       res.status(200).send({
@@ -128,7 +128,7 @@ loginRouter.get("/validate-login", function(req, res) {
   }
 });
 
-loginRouter.get("/validate-admin", function(req, res) {
+loginRouter.get("/validate-admin", function (req, res) {
   if (req.session.loggedin === true && req.session.isAdmin === true) {
     res.status(200).send(req.session.email);
   } else {
@@ -136,7 +136,7 @@ loginRouter.get("/validate-admin", function(req, res) {
   }
 });
 
-loginRouter.get("/get-partner-type", function(req, res) {
+loginRouter.get("/get-partner-type", function (req, res) {
   if (req.session.loggedin === true) {
     let partnerType = req.session.partnerType;
     res.status(200).send(partnerType);
@@ -145,7 +145,7 @@ loginRouter.get("/get-partner-type", function(req, res) {
   }
 });
 
-loginRouter.get("/logout", function(req, res) {
+loginRouter.get("/logout", function (req, res) {
   req.session.destroy(error => {
     if (error) {
       console.log(error);
@@ -157,7 +157,7 @@ loginRouter.get("/logout", function(req, res) {
   });
 });
 
-loginRouter.post("/change-password", function(req, res) {
+loginRouter.post("/change-password", function (req, res) {
   if (!req.session.loggedin) {
     res.status(400).end();
   }

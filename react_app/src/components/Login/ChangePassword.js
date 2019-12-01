@@ -60,10 +60,10 @@ class ChangePassword extends Component {
                 "Content-Type": "application/json"
             },
             credentials: "include",
-            body: {
+            body: JSON.stringify({
                 oldPassword: hashedOldPassword,
                 newPassword: hashedNewPassword
-            }
+            })
         }).then(response => {
             if (response.status === 200) {
                 this.setState({
@@ -107,8 +107,6 @@ class ChangePassword extends Component {
                         />
                     </FormGroup>
                     <Button
-                        type="submit"
-                        className="submitBut"
                         onClick={e => {
                             if (this.state.confirmPassword === this.state.password) {
                                 this.changePassword(this.state.oldPassword, this.state.password);
@@ -117,7 +115,6 @@ class ChangePassword extends Component {
                                     message: "New passwords do not match."
                                 });
                             }
-
                         }}
                     >
                         Submit
