@@ -9,8 +9,9 @@ class WelcomeMessage extends React.Component {
       <div id="WelcomeMessage">
         <h1>Welcome {this.props.name}!</h1>
         <h2>
-          Manage your weekly deliveries and see your partnered restaurants. To
-          begin, choose an option from the menu on the top
+          Choose the option on the left to see all your partnered restaurants!
+          {/* Select see your partnered restaurants. To
+          begin, choose an option from the menu on the top */}
         </h2>
 
         <Image className="WelcomeMessage-Image" src={FeedingCKKids}></Image>
