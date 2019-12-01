@@ -51,7 +51,7 @@ class ProgramUserPage extends React.Component {
 
   render() {
     if (!this.state.loaded) {
-      return <div />
+      return <div>Loading.. please wait!</div>
     }
     return (
       <>{!this.state.isLoggedIn ? (
