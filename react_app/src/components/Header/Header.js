@@ -98,7 +98,7 @@ class Header extends Component {
                 Login / Register
               </Nav.Link>
             ) : (
-                <NavDropdown title={this.state.email} id="basic-nav-dropdown">
+                <NavDropdown alignRight title={this.state.email} id="dropdown-menu-align-right">
                   <NavDropdown.Item
                     onClick={e => {
                       let state = { email: this.state.email };
