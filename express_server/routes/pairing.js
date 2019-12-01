@@ -37,23 +37,68 @@ router.get("/", function(req, res) {
 })
 
 //performing pairing
-router.post("/:programId/:restaurantId", function(req, res) {
-	progId = parseInt(req.params.programId)
-	restId = parseInt(req.params.restaurantId)
+// router.post("/:programId/:restaurantId", function(req, res) {
+// 	progId = parseInt(req.params.programId)
+// 	restId = parseInt(req.params.restaurantId)
+// 	query1 = "SELECT program_id, restaurant_id FROM pairings"
+// 	var exists = false
+// 	sql.query(query1, function(err, results) {
+// 		for (var i = 0; i < results.length; i++) {
+// 			if (results[i]["program_id"] == progId && results[i]["restaurant_id"] == restId) {
+// 				console.log("HErE");
+// 				exists = true
+// 				break
+// 			}
+// 		}
+// 		if (!exists) {
+// 			console.log(progId);
+// 			console.log(restId);
+// 			query2 = "INSERT INTO pairings (program_id, restaurant_id, last_day, linear_distance, monday_time, tuesday_time, wednesday_time, thursday_time, friday_time, monday_meals, tuesday_meals, wednesday_meals, thursday_meals, friday_meals) VALUES (" + progId + ", " + restId + ", null, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)";
+// 			sql.query(query2, function(err, results) {
+// 				//console.log(err);
+// 			})
+// 		}
+// 	})
+// })
+
+router.post("/program-to-restaurants", function(req, res) {
+	console.log(req.body);
+	const progId = parseInt(req.body[0])
 	query1 = "SELECT program_id, restaurant_id FROM pairings"
-	var exists = false
 	sql.query(query1, function(err, results) {
 		for (var i = 0; i < results.length; i++) {
-			if (results[i]["program_id"] == progId && results[i]["restaurant_id"] == restId) {
-				exists = true
-				break
+			if (results[i]["program_id"] == progId && req.body[1][results[i]["restaurant_id"]] == true) {
+				req.body[1][results[i]["restaurant_id"]] = false
 			}
 		}
-		if (!exists) {
-			query2 = "INSERT INTO pairings (program_id, restaurant_id, last_day, linear_distance, monday_time, tuesday_time, wednesday_time, thursday_time, friday_time, monday_meals, tuesday_meals, wednesday_meals, thursday_meals, friday_meals) VALUES (" + progId + ", " + restId + ", null, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)";
-			sql.query(query2, function(err, results) {
-				console.log(err);
-			})
+		for (restId in req.body[1]) {
+			if (req.body[1][restId] == true) {
+				query2 = "INSERT INTO pairings (program_id, restaurant_id, last_day, linear_distance, monday_time, tuesday_time, wednesday_time, thursday_time, friday_time, monday_meals, tuesday_meals, wednesday_meals, thursday_meals, friday_meals) VALUES (" + progId + ", " + restId + ", null, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)";
+				sql.query(query2, function(err, results) {
+					//console.log(err);
+				})
+			}
+		}
+	})
+})
+
+router.post("/restaurant-to-programs", function(req, res) {
+	console.log(req.body);
+	const restId = parseInt(req.body[0])
+	query1 = "SELECT program_id, restaurant_id FROM pairings"
+	sql.query(query1, function(err, results) {
+		for (var i = 0; i < results.length; i++) {
+			if (results[i]["restaurant_id"] == restId && req.body[1][results[i]["program_id"]] == true) {
+				req.body[1][results[i]["program_id"]] = false
+			}
+		}
+		for (progId in req.body[1]) {
+			if (req.body[1][progId] == true) {
+				query2 = "INSERT INTO pairings (program_id, restaurant_id, last_day, linear_distance, monday_time, tuesday_time, wednesday_time, thursday_time, friday_time, monday_meals, tuesday_meals, wednesday_meals, thursday_meals, friday_meals) VALUES (" + progId + ", " + restId + ", null, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)";
+				sql.query(query2, function(err, results) {
+					//console.log(err);
+				})
+			}
 		}
 	})
 })

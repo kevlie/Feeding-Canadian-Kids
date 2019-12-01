@@ -19,15 +19,15 @@ class Pairing extends React.Component {
 			.then((values) => { this.setState({values}); console.log(this.state.values); })
 			.then(() => this.updateState())
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
-	      method: "get",
-	      credentials: "include"
-	    }).then(res => {
-	      if (res.status != 200) {
-	        this.setState({ fail: true });
-	        console.log(this.state.fail);
-	      }
-	    });
+		// fetch("http://localhost:9000/api/admin/isAdmin", {
+	 //      method: "get",
+	 //      credentials: "include"
+	 //    }).then(res => {
+	 //      if (res.status != 200) {
+	 //        this.setState({ fail: true });
+	 //        console.log(this.state.fail);
+	 //      }
+	 //    });
 	}
 
 	updateState= () => {
@@ -82,23 +82,56 @@ class Pairing extends React.Component {
 			alert("Cannot pair multiple programs to multiple restaurants!")
 		} else {
 			this.performPairing(numProgramsChecked, numRestaurantsChecked)
-			window.location.reload()
+			// window.location.reload()
 		}
 	}
 
 	performPairing = (numProgramsChecked, numRestaurantsChecked) => {
 		if (numProgramsChecked === 1) {
 			const programId = Object.keys(this.state.programsChecked).find(key => this.state.programsChecked[key] === true)
-			for (var restaurantId in this.state.restaurantsChecked) {
-				if (this.state.restaurantsChecked[restaurantId] == true) {
-					var fetchURL = "http://localhost:9000/api/admin/pairing/" + programId + "/" + restaurantId
-					fetch(fetchURL, {
-				      method: "post",
-				    })
-				}
-			}
-		}
-		
+
+			// setTimeout(function() {
+			// 	for (var restaurantId in this.state.restaurantsChecked) {
+			// 		if (this.state.restaurantsChecked[restaurantId] == true) {
+			// 			console.log(restaurantId);
+			// 			var fetchURL = "http://localhost:9000/api/admin/pairing/" + programId + "/" + restaurantId
+			// 				fetch(fetchURL, {
+			// 			      method: "post",
+			// 			    })
+			// 		}
+			// 	}
+			// }, 1);
+
+			var toSend = []
+			toSend.push(programId)
+			toSend.push(this.state.restaurantsChecked)
+			
+			var fetchURL = "http://localhost:9000/api/admin/pairing/program-to-restaurants"
+			fetch(fetchURL, {
+		      method: "post",
+		      headers: {
+			    Accept: "application/json",
+			    "Content-Type": "application/json"
+			  },
+		      body: JSON.stringify(toSend)
+		    })
+		} else if (numRestaurantsChecked === 1) {
+			const restaurantId = Object.keys(this.state.restaurantsChecked).find(key => this.state.restaurantsChecked[key] === true)
+
+			var toSend = []
+			toSend.push(restaurantId)
+			toSend.push(this.state.programsChecked)
+			
+			var fetchURL = "http://localhost:9000/api/admin/pairing/restaurant-to-programs"
+			fetch(fetchURL, {
+		      method: "post",
+		      headers: {
+			    Accept: "application/json",
+			    "Content-Type": "application/json"
+			  },
+		      body: JSON.stringify(toSend)
+		    })
+		}	
 	}
 
 	handleProgramChange = (e) => {
