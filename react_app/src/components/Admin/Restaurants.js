@@ -26,14 +26,14 @@ class Restaurants extends React.PureComponent {
       .then(exportData => this.setState({ exportData }));
 
     fetch("http://localhost:9000/api/admin/isAdmin", {
-        method: "get",
-        credentials: "include"
-      }).then(res => {
-        if (res.status != 200) {
-          this.setState({ fail: true });
-          console.log(this.state.fail);
-        }
-      });
+      method: "get",
+      credentials: "include"
+    }).then(res => {
+      if (res.status != 200) {
+        this.setState({ fail: true });
+        console.log(this.state.fail);
+      }
+    });
   };
 
   updateState() {
@@ -108,84 +108,84 @@ class Restaurants extends React.PureComponent {
 
     return (
       <>
-      {!this.state.fail ? (
-      <div id="restaurants">
-        <Sidebar />
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">Restaurants</h1>
-            <p class="lead">
-              Following table lists the restaurants signed-up with Feeding
-              Canadian Kids
+        {!this.state.fail ? (
+          <div id="restaurants">
+            <Sidebar />
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4">Restaurants</h1>
+                <p class="lead">
+                  Following table lists the restaurants signed-up with Feeding
+                  Canadian Kids
             </p>
-          </div>
-        </div>
+              </div>
+            </div>
 
-        <h3 class="tableHeadings">Restaurants</h3>
+            <h3 class="tableHeadings">Restaurants</h3>
 
-        <table id="restaurantTable">
-          <tr>
-            <th id="tableHeader">Restaurant Name</th>
-            <th id="tableHeader">Restaurant Address</th>
-          </tr>
-          {rows1}
-        </table>
-        <div
-          style={{
-            marginTop: "10px"
-          }}
-        >
-          <div className="restexport">
-            <Button
-              className="restexportbutton"
+            <table id="restaurantTable">
+              <tr>
+                <th id="tableHeader">Restaurant Name</th>
+                <th id="tableHeader">Restaurant Address</th>
+              </tr>
+              {rows1}
+            </table>
+            <div
               style={{
-                marginRight: "5px"
+                marginTop: "10px"
               }}
             >
-              <CSVLink
-                data={this.state.exportData}
-                filename={"restaurant_data"}
+              <div className="restexport">
+                <Button
+                  className="restexportbutton"
+                  style={{
+                    marginRight: "5px"
+                  }}
+                >
+                  <CSVLink
+                    data={this.state.exportData}
+                    filename={"restaurant_data"}
+                    style={{
+                      color: "white"
+                    }}
+                  >
+                    Export CSV
+              </CSVLink>
+                </Button>
+              </div>
+              <div
+                className="restupload"
                 style={{
-                  color: "white"
+                  marginTop: "10px"
                 }}
               >
-                Export CSV
-              </CSVLink>
+                <Button
+                  className="restuploadbutton"
+                  style={{ marginRight: "10px" }}
+                  onClick={() => {
+                    this.handleImport();
+                  }}
+                >
+                  Upload CSV
             </Button>
+                <input
+                  className="restchoosefile"
+                  type="file"
+                  style={{ marginLeft: "10px" }}
+                  onChange={e => {
+                    this.setState({
+                      uploadCSVData: e.target.files[0]
+                    });
+                  }}
+                />
+                <p className="error">{this.state.error}</p>
+              </div>
+            </div>
+            <div id="footer"></div>
           </div>
-          <div
-            className="restupload"
-            style={{
-              marginTop: "10px"
-            }}
-          >
-            <Button
-              className="restuploadbutton"
-              style={{ marginRight: "10px" }}
-              onClick={() => {
-                this.handleImport();
-              }}
-            >
-              Upload CSV
-            </Button>
-            <input
-              className="restchoosefile"
-              type="file"
-              style={{ marginLeft: "10px" }}
-              onChange={e => {
-                this.setState({
-                  uploadCSVData: e.target.files[0]
-                });
-              }}
-            />
-            <p className="error">{this.state.error}</p>
-          </div>
-        </div>
-        <div id="footer"></div>
-      </div>
-    ) : (
-          <h4> You do not have the rights to access this page.</h4>
-        )}
+        ) : (
+            <h4> You do not have the permissions to access this page.</h4>
+          )}
       </>
     )
   }

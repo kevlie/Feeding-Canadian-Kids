@@ -11,7 +11,9 @@ class ProgramUserPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Sample name"
+      name: "Sample name",
+      isLoggedIn: false,
+      loaded: null,
     };
   }
 
@@ -28,6 +30,18 @@ class ProgramUserPage extends React.Component {
           name: json[0].name
         });
       });
+
+    fetch("http://localhost:9000/api/auth/validate-login", {
+      method: "get",
+      credentials: "include"
+    }).then(res => res.json())
+      .then(json => {
+        if (json.partnerType === "program") {
+          this.setState({ isLoggedIn: true, loaded: true });
+        } else {
+          this.setState({ isLoggedIn: false, loaded: true });
+        }
+      });
   }
 
   componentWillUnmount() {
@@ -36,76 +50,60 @@ class ProgramUserPage extends React.Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return <div />
+    }
     return (
-      <>
-        <div>
-          <Tab.Container
-            id="left-tabs-example"
-            defaultActiveKey="first"
-            className="no-scroll m-height"
-          >
-            <Row className="no-scroll m-height">
-              <Col sm={2} className="pill-tabs-color trial">
-                <Nav variant="pills" className="flex-column pill-tabs">
-                  <Nav.Item>
-                    <Nav.Link eventKey="first">Home</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="fourth">Onboarding Guide</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second">Your Deliveries</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="third">Your Restaurants</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Col>
-              <Col sm={10}>
-                <Tab.Content className="m-height">
-                  <Tab.Pane eventKey="first" className="m-height">
-                    <WelcomeMessage name={this.state.name} />
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="fourth" className="m-height">
-                    <ProgramTraining />
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="second" className="m-height">
-                    <div className="order-div">
-                      <Deliveries />
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="third" className="m-height">
-                    <RestaurantsPartners />
-                  </Tab.Pane>
-                </Tab.Content>
-              </Col>
-            </Row>
-          </Tab.Container>
-        </div>
-      </>
+      <>{!this.state.isLoggedIn ? (
+        <h4> You do not have the permissions to access this page.</h4>
+      ) : (
+          <div>
+            <Tab.Container
+              id="left-tabs-example"
+              defaultActiveKey="first"
+              className="no-scroll m-height"
+            >
+              <Row className="no-scroll m-height">
+                <Col sm={2} className="pill-tabs-color trial">
+                  <Nav variant="pills" className="flex-column pill-tabs">
+                    <Nav.Item>
+                      <Nav.Link eventKey="first">Home</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="fourth">Onboarding Guide</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="second">Your Deliveries</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="third">Your Restaurants</Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                </Col>
+                <Col sm={10}>
+                  <Tab.Content className="m-height">
+                    <Tab.Pane eventKey="first" className="m-height">
+                      <WelcomeMessage name={this.state.name} />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="fourth" className="m-height">
+                      <ProgramTraining />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="second" className="m-height">
+                      <div className="order-div">
+                        <Deliveries />
+                      </div>
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="third" className="m-height">
+                      <RestaurantsPartners />
+                    </Tab.Pane>
+                  </Tab.Content>
+                </Col>
+              </Row>
+            </Tab.Container>
+          </div>
+        )}</>
     );
   }
-
-  // render() {
-  //   return (
-  //     <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-  //       <Tab eventKey="home" title="Home">
-  //         <WelcomeMessage />
-  //       </Tab>
-  //       <Tab eventKey="onboarding" title="Onboarding Guide">
-  //         <ProgramTraining />
-  //       </Tab>
-  //       <Tab eventKey="deliveries" title="Your Deliveries">
-  //         <div className="order-div">
-  //           <Deliveries />
-  //         </div>
-  //       </Tab>
-  //       <Tab eventKey="restaurants" title="Your Restaurants">
-  //           <RestaurantsPartners/>
-  //       </Tab>
-  //     </Tabs>
-  //   );
-  // }
 }
 
 export default ProgramUserPage;

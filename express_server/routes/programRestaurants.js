@@ -6,6 +6,9 @@ router.get("/", (req, res) => {
   let email = req.session.email;
   let query1 = "SELECT program_id FROM program_partners WHERE email = ?";
   sql.query(query1, email, function (err, results) {
+    if (err) {
+      return res.status(500).send(err);
+    }
     if (results.length > 0) {
       let program_id = JSON.parse(JSON.stringify(results))[0].program_id;
       let query2 = "SELECT restaurant_id FROM pairings WHERE program_id = ?";
