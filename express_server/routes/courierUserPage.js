@@ -70,4 +70,16 @@ courierRouter.get("/restaurants", function(req, res) {
     });
   });
 });
+
+courierRouter.get("/isCourier", (req, res) => {
+  if (
+    req.session.loggedin === undefined ||
+    req.session.partnerType !== "courier"
+  ) {
+    //console.log("not admin");
+    res.status(500).send();
+  } else {
+    res.json(true);
+  }
+});
 module.exports = courierRouter;

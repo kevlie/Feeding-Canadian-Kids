@@ -7,7 +7,9 @@ class WelcomeMessage extends React.Component {
   render() {
     return (
       <div id="WelcomeMessage">
-       <h1>{"Welcome "} {this.props.name} {"!"}</h1>
+        <h1>
+          {"Welcome "} {this.props.name} {"!"}
+        </h1>
         <h2>
           Manage your weekly orders and see your partnered programs. To begin,
           choose an option from the menu on the left
