@@ -15,107 +15,107 @@ class ProgramInfo extends React.Component {
 		const fetchURL = "http://localhost:9000/api/admin/program/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
-			.then((program) => this.setState({program}, () => console.log(this.state.program)))
-		
+			.then((program) => this.setState({ program }, () => console.log(this.state.program)))
+
 		fetch("http://localhost:9000/api/admin/isAdmin", {
-	      method: "get",
-	      credentials: "include"
-	    }).then(res => {
-	      if (res.status != 200) {
-	        this.setState({ fail: true });
-	        console.log(this.state.fail);
-	      }
-	    });
+			method: "get",
+			credentials: "include"
+		}).then(res => {
+			if (res.status != 200) {
+				this.setState({ fail: true });
+				console.log(this.state.fail);
+			}
+		});
 	}
 
 	render() {
 		return (
-		  <>
-          {!this.state.fail ? (
-			<div id="programInfo">
-				<div>
-				<Sidebar />
-				</div>
-				<div class="jumbotron jumbotron-fluid infoTitle">
-				  <div class="container">
-				    <h1 class="display-5 programName">Program Name: { this.state.program[0]["name"] }</h1>
-				  </div>
-				</div>
+			<>
+				{!this.state.fail ? (
+					<div id="programInfo">
+						<div>
+							<Sidebar />
+						</div>
+						<div class="jumbotron jumbotron-fluid infoTitle">
+							<div class="container">
+								<h1 class="display-5 programName">Program Name: {this.state.program[0]["name"]}</h1>
+							</div>
+						</div>
 
-				<table id="programTable">
-					<tr id="even">
-						<td class="narrow">
-							Address
+						<table id="programTable">
+							<tr id="even">
+								<td class="narrow">
+									Address
 						</td>
-						<td class="wide">
-							{ this.state.program[0]["address"]}
+								<td class="wide">
+									{this.state.program[0]["address"]}
+								</td>
+							</tr>
+							<tr id="odd">
+								<td class="narrow">
+									Area
 						</td>
-					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							Area
+								<td class="wide">
+									{this.state.program[0]["area"]}
+								</td>
+							</tr>
+							<tr id="even">
+								<td class="narrow">
+									Delivery Instructions
 						</td>
-						<td class="wide">
-							{ this.state.program[0]["area"]}
+								<td class="wide">
+									{this.state.program[0]["delivery_instructions"]}
+								</td>
+							</tr>
+							<tr id="odd">
+								<td class="narrow">
+									Phone
 						</td>
-					</tr>
-					<tr id="even">
-						<td class="narrow">
-							Delivery Instructions
+								<td class="wide">
+									{this.state.program[0]["phone"]}
+								</td>
+							</tr>
+							<tr id="even">
+								<td class="narrow">
+									Email
 						</td>
-						<td class="wide">
-							{ this.state.program[0]["delivery_instructions"]}
+								<td class="wide">
+									{this.state.program[0]["email"]}
+								</td>
+							</tr>
+							<tr id="odd">
+								<td class="narrow">
+									Age Range
 						</td>
-					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							Phone
+								<td class="wide">
+									{this.state.program[0]["age_range"]}
+								</td>
+							</tr>
+							<tr id="even">
+								<td class="narrow">
+									Number of Kids
 						</td>
-						<td class="wide">
-							{ this.state.program[0]["phone"]}
+								<td class="wide">
+									{this.state.program[0]["num_kids"]}
+								</td>
+							</tr>
+							<tr id="odd">
+								<td class="narrow">
+									Dietary Restrictions
 						</td>
-					</tr>
-					<tr id="even">
-						<td class="narrow">
-							Email
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["email"]}
-						</td>
-					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							Age Range
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["age_range"]}
-						</td>
-					</tr>
-					<tr id="even">
-						<td class="narrow">
-							Number of Kids
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["num_kids"]}
-						</td>
-					</tr>
-					<tr id="odd">
-						<td class="narrow">
-							Dietary Restrictions
-						</td>
-						<td class="wide">
-							{ this.state.program[0]["dietary_restrictions"]}
-						</td>
-					</tr>
-				</table>
+								<td class="wide">
+									{this.state.program[0]["dietary_restrictions"]}
+								</td>
+							</tr>
+						</table>
 
-				<div id="footer"></div>
-			</div>
-		) : (
-          <h4> You do not have the rights to access this page.</h4>
-        )}
-      </>
-      )
+						<div id="footer"></div>
+					</div>
+				) : (
+						<h4> You do not have the permissions to access this page.</h4>
+					)}
+			</>
+		)
 	}
 }
 
