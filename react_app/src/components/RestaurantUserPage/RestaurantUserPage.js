@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Nav, Tab } from "react-bootstrap";
+import { Row, Col, Nav, Tab, Tabs } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import Orders from "./Orders.js";
 import WelcomeMessage from "./WelcomeMessage.js";
@@ -11,8 +11,10 @@ class RestaurantUserPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: this.props.history.location.state.email,
-      name: ""
+      email: "",
+      name: "",
+      approval_status: 0,
+      hasAccess: false
     };
   }
 
@@ -35,6 +37,35 @@ class RestaurantUserPage extends React.Component {
   componentDidMount() {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
+
+    fetch("http://localhost:9000/api/restaurantuserpage", {
+      method: "get",
+      credentials: "include"
+      // body: JSON.stringify({ email: this.state.email })
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        if (json[0] === undefined){
+          this.setState({approval_status: null})
+        }
+        else {
+        this.setState({ approval_status: json[0].approval_status });
+        }
+      });
+
+      fetch("http://localhost:9000/api/restaurantuserpage/isRestaurant", {
+        method: "get",
+        credentials: "include"
+      }).then(res => {
+        if (res.status === 200) {
+          this.setState({ hasAccess: true });
+          console.log(this.state.hasAccess);
+        }
+        //   else {
+        //     console.log(res);
+        //   }
+      });
 
     this.getRestaurantName()
       .then(value => {
@@ -61,7 +92,15 @@ class RestaurantUserPage extends React.Component {
   render() {
     return (
       <>
-        <div>
+        {!this.state.hasAccess ? 
+        (<h4> You do not have the rights to access this page.</h4>)
+        : (this.state.approval_status === 0 ? (
+          <h4>
+            Your application is still currently being processed. Our staffs will
+            work to get back to you within 48 business hours.
+          </h4>
+        ) : (
+          <div>
           <Tab.Container
             id="left-tabs-example"
             defaultActiveKey="first"
@@ -105,6 +144,26 @@ class RestaurantUserPage extends React.Component {
             </Row>
           </Tab.Container>
         </div>
+        ))}
+
+        {/* <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+            <Tab eventKey="home" title="Home">
+              <WelcomeMessage name={this.state.name} />
+            </Tab>
+
+            <Tab eventKey="onboarding" title="Onboarding Guide">
+            <RestaurantTraining />
+            </Tab>
+
+            <Tab eventKey="orders" title="Your Orders">
+              <Orders email={this.state.email}/>
+            </Tab>
+            <Tab eventKey="programs" title="Your Programs">
+              <ProgramsPartners />
+            </Tab>
+            
+          </Tabs> */}
+        
       </>
     );
   }

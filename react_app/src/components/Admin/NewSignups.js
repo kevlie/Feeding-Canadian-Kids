@@ -38,7 +38,17 @@ class NewSignups extends React.PureComponent {
 		fetch("http://localhost:9000/api/admin/newSignups")
 			.then((res) => res.json())
 			.then((values) => this.setState({values}))
-			.then(() => this.updateState())
+			.then(() => this.updateState());
+
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	      method: "get",
+	      credentials: "include"
+	    }).then(res => {
+	      if (res.status != 200) {
+	        this.setState({ fail: true });
+	        console.log(this.state.fail);
+	      }
+	    });
 	}
 
 	updateState() {
@@ -104,6 +114,8 @@ class NewSignups extends React.PureComponent {
 	    }
 
 		return (
+		  <>
+          {!this.state.fail ? (
 			<div id="newSignups">
 				<Sidebar />
 				<div class="jumbotron jumbotron-fluid">
@@ -158,7 +170,11 @@ class NewSignups extends React.PureComponent {
 
 				<div id="footer"></div>
 			</div>
-		)
+		  ) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+	  )
 	}
 }
 

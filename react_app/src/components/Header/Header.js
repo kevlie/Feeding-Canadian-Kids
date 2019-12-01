@@ -23,7 +23,8 @@ class Header extends Component {
       isLoggedIn: false,
       error: "",
       partnerType: "",
-      isAdmin: ""
+      isAdmin: "",
+      activeStatus: 0
     };
   }
 
@@ -43,7 +44,8 @@ class Header extends Component {
               isLoggedIn: true,
               email: resJSON.email,
               partnerType: resJSON.partnerType,
-              isAdmin: resJSON.isAdmin
+              isAdmin: resJSON.isAdmin,
+              activeStatus: resJSON.activeStatus
             };
             this.setState(state);
           } else {
@@ -98,20 +100,28 @@ class Header extends Component {
                 Login / Register
               </Nav.Link>
             ) : (
-                <NavDropdown alignRight title={this.state.email} id="dropdown-menu-align-right">
-                  <NavDropdown.Item
-                    onClick={e => {
-                      let state = { email: this.state.email };
-                      if (this.state.partnerType === "restaurant") {
-                        this.props.history.push("/restaurantuserpage", state);
-                      } else if (this.state.partnerType === "program") {
-                        this.props.history.push("programuserpage");
-                      } else {
-                        this.props.history.push("courieruserpage", state);
-                      }
-                    }}
-                  >
-                    Profile
+              <NavDropdown alignRight title={this.state.email} id="basic-nav-dropdown">
+                <NavDropdown.Item
+                  onClick={e => {
+                    let state = { email: this.state.email };
+                    if (this.state.partnerType === "restaurant") {
+                      this.state.activeStatus === 1
+                        ? this.props.history.push("/restaurantuserpage", state)
+                        : this.props.history.push("/pendingapproval");
+                    } else if (this.state.partnerType === "program") {
+                      this.state.activeStatus === 1
+                        ? this.props.history.push("/programuserpage")
+                        : this.props.history.push("/pendingapproval");
+                    } else if (this.state.partnerType === "courier") {
+                      this.state.activeStatus === 1
+                        ? this.props.history.push("/courieruserpage", state)
+                        : this.props.history.push("/pendingapproval");
+                    } else {
+                      this.props.history.push("admin");
+                    }
+                  }}
+                >
+                  Profile
                 </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={e => {

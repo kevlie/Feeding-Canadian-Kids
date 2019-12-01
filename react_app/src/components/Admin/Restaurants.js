@@ -9,8 +9,6 @@ class Restaurants extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      //values: [[{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}],
-      //		 [{"id": 1, "name": "name1", "address": "address1"}, {"id": 2, "name": "name2", "address": "address2"}, {"id": 3, "name": "name3", "address": "address3"}]],
       restaurants: [],
       exportData: [],
       error: ""
@@ -26,6 +24,16 @@ class Restaurants extends React.PureComponent {
     fetch("http://localhost:9000/api/admin/restaurants/export")
       .then(res => res.json())
       .then(exportData => this.setState({ exportData }));
+
+    fetch("http://localhost:9000/api/admin/isAdmin", {
+        method: "get",
+        credentials: "include"
+      }).then(res => {
+        if (res.status != 200) {
+          this.setState({ fail: true });
+          console.log(this.state.fail);
+        }
+      });
   };
 
   updateState() {
@@ -99,6 +107,8 @@ class Restaurants extends React.PureComponent {
     }
 
     return (
+      <>
+      {!this.state.fail ? (
       <div id="restaurants">
         <Sidebar />
         <div class="jumbotron jumbotron-fluid">
@@ -173,7 +183,11 @@ class Restaurants extends React.PureComponent {
         </div>
         <div id="footer"></div>
       </div>
-    );
+    ) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+    )
   }
 }
 

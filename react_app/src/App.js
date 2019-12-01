@@ -23,13 +23,10 @@ import RestaurantInfo from "./components/Admin/RestaurantInfo";
 import CourierInfo from "./components/Admin/CourierInfo";
 import Pairing from "./components/Admin/Pairing";
 import PendingApproval from "./components/PendingApproval/PendingApproval.js";
-
+import HomePage from "./components/HomePage/HomePage.js"
 import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
 import ChangePassword from "./components/Login/ChangePassword";
 
-function HomePage() {
-  return <h1></h1>;
-}
 class App extends Component {
   constructor(props) {
     super(props);
