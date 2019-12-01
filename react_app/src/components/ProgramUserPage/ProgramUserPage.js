@@ -13,6 +13,7 @@ class ProgramUserPage extends React.Component {
     this.state = {
       name: "Sample name",
       isLoggedIn: false,
+      loaded: null,
     };
   }
 
@@ -36,7 +37,7 @@ class ProgramUserPage extends React.Component {
     }).then(res => res.json())
       .then(json => {
         if (json.partnerType === "program") {
-          this.setState({ isLoggedIn: true });
+          this.setState({ isLoggedIn: true, loaded: true });
         }
       });
   }
@@ -47,6 +48,9 @@ class ProgramUserPage extends React.Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return <div />
+    }
     return (
       <>{!this.state.isLoggedIn ? (
         <h4> You do not have the permissions to access this page.</h4>
