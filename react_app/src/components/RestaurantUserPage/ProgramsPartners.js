@@ -38,9 +38,15 @@ class ProgramsPartners extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="programPartners">
         <h1> Your Program Partners Information</h1>
-        <Table striped bordered>
+        <Table 
+          style={{
+            width: "97%",
+            marginTop: "20px"
+          }}
+          striped bordered
+        >
           <thead>
             <tr>
               <th>Name</th>

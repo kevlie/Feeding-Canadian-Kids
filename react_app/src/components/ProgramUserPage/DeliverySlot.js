@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
+import "./ProgramUserPage.css";
 
 class DeliverySlot extends React.Component {
   constructor(props) {
@@ -56,7 +57,9 @@ class DeliverySlot extends React.Component {
             </h3>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary">Confirm Delivery</Button>
+            <Button 
+              className="confirmdeliveryButton"
+              variant="primary">Confirm Delivery</Button>
           </Modal.Footer>
         </Modal>
       </>

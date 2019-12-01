@@ -15,3 +15,7 @@ m-height{
 #orderTableCell{
     height: 50vh;
 }
+
+#orders{
+    font-family: "Comic Sans MS";
+}

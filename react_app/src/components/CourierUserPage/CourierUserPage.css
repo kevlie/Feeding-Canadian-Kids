@@ -42,6 +42,7 @@
   text-decoration-color: white;
   margin-top: 10px;
   margin-left: 5px;
+  font-family: "Comic Sans MS";
 }
 
 .pill-tabs-color {
@@ -55,32 +56,38 @@
   height: 100%;
 }
 /******************************************/
-#WelcomeMessage h1,
+#cWelcomeMessage{
+  font-family: "Comic Sans MS"; 
+  height:85vh;
+}
+#cWelcomeMessage h1,
 h2 {
   text-align: center;
 }
-#WelcomeMessage h1 {
+#cWelcomeMessage h1 {
   font-size: 5em;
 }
 
-.WelcomeMessage-Image {
-  max-height: 150px;
-  max-width: 200 px;
+.cWelcomeMessage-Image {
+  max-height: 250px;
+  max-width:  700px;
   position: absolute;
   bottom: 0;
   left: 250px;
-  top: 380px;
 }
 
 /*****************************************/
-#programTraining h2 {
-  text-align: left;
+#programTraining {
+  font-family: "Comic Sans MS";
+}
+#programTraining h2{
+  text-align: center;
 }
 
-.cardLink {
+.cardLink{
   color: rgb(19, 168, 86);
 }
 
-.cardLink:hover {
+.cardLink:hover{
   color: rgb(8, 110, 54);
 }

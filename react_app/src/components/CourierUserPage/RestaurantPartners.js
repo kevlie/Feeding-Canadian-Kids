@@ -42,9 +42,19 @@ class RestaurantPartners extends React.Component {
     return (
       <>
         {!this.state.fail ? (
-          <div>
+          <div 
+            style={{
+              fontFamily:"Comic Sans MS"
+            }}
+          >
             <h1> Your Restaurant Partners Information</h1>
-            <Table striped bordered>
+            <Table 
+              style={{
+                width: "97%",
+                marginTop: "20px"
+              }}
+              striped bordered
+            >
               <thead>
                 <tr>
                   <th>Name</th>

@@ -9,10 +9,10 @@ class ProgramTraining extends React.Component {
             <div id="programTraining">
                 <h1>
                     Welcome to Feeding Canadian Kids!
-            </h1>
-                <h2>
+                </h1>
+                <h2 style={{textAlign:"left"}}>
                     Click below to get all you need to know
-            </h2>
+                </h2>
                 <div>
                     <Card
                         style={{

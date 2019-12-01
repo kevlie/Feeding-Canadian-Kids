@@ -42,6 +42,7 @@
   text-decoration-color: white;
   margin-top: 10px;
   margin-left: 5px;
+  font-family: "Comic Sans MS";
 }
 
 .pill-tabs-color {
@@ -55,6 +56,9 @@
   height: 100%;
 }
 /******************************************/
+#WelcomeMessage{
+  font-family: "Comic Sans MS";
+}
 #WelcomeMessage h1,
 h2 {
   text-align: center;
@@ -64,16 +68,19 @@ h2 {
 }
 
 .WelcomeMessage-Image {
-  max-height: 150px;
-  max-width: 200 px;
+  max-height: 250px;
+  max-width:  700px;
   position: absolute;
   bottom: 0;
   left: 250px;
 }
 
 /*****************************************/
+#programTraining {
+  font-family: "Comic Sans MS";
+}
 #programTraining h2{
-  text-align: left;
+  text-align: center;
 }
 
 .cardLink{
@@ -82,4 +89,24 @@ h2 {
 
 .cardLink:hover{
   color: rgb(8, 110, 54);
+}
+
+.btn-primary.confirmdeliveryButton{
+  background-color: rgb(14, 180, 64);
+  border-color: rgb(14, 180, 64);
+}
+
+.btn-primary.confirmdeliveryButton:hover{
+  background-color: rgb(13, 156, 56);
+  border-color: rgb(13, 156, 56);
+}
+
+
+
+#deliveries{
+  font-family: "Comic Sans MS";
+}
+
+#restaurantPartner{
+  font-family: "Comic Sans MS";
 }

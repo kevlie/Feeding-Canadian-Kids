@@ -1,6 +1,8 @@
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import { Table } from "react-bootstrap";
 import React from "react";
+import "./ProgramUserPage.css";
+
 
 const columns = [
   {
@@ -55,9 +57,15 @@ class RestaurantsPartners extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="restaurantPartner">
         <h1> Your Restaurant Partners Information</h1>
-        <Table striped bordered>
+        <Table striped bordered
+          className="restaurantTable"
+          style={{
+            width: "97%",
+            marginTop: "20px"
+          }}
+        >
           <thead>
             <tr>
               <th>Name</th>
