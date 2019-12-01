@@ -1,20 +1,20 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import "./Pairing.css";
+import "./CourierPairing.css";
 
-class Pairing extends React.Component {
+class CourierPairing extends React.Component {
 
 	constructor(props) {
 		super(props)
 		this.state = {
 			values: [[], [], [], []],
 			restaurantsCurrentlyPairedWith: [],
-			programsCurrentlyPairedWith: []
+			couriersCurrentlyPairedWith: []
 		}
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:9000/api/admin/pairing")
+		fetch("http://localhost:9000/api/admin/courierPairing")
 			.then((res) => res.json())
 			.then((values) => { this.setState({values}); console.log(this.state.values); })
 			.then(() => this.updateState())
@@ -35,13 +35,13 @@ class Pairing extends React.Component {
 		let checked2 = {}
 		if (this.state.values[0].length > 0) {
 			this.setState({
-				numPrograms: this.state.values[0].length
+				numCouriers: this.state.values[0].length
 			})
-			for (var i = 0; i < this.state.numPrograms; i++) {
-				checked1[this.state.values[0][i]["program_id"]] = false
+			for (var i = 0; i < this.state.numCouriers; i++) {
+				checked1[this.state.values[0][i]["courier_id"]] = false
 			}
 			this.setState({
-				programsChecked: checked1
+				couriersChecked: checked1
 			})
 		}
 		if (this.state.values[1].length > 0) {
@@ -58,12 +58,12 @@ class Pairing extends React.Component {
 	}
 
 	submitPairing = () => {
-		var numProgramsChecked = 0
+		var numCouriersChecked = 0
 		var numRestaurantsChecked = 0
 
-		for (var programId in this.state.programsChecked) {
-			if (this.state.programsChecked[programId] == true) {
-				numProgramsChecked++
+		for (var courierId in this.state.couriersChecked) {
+			if (this.state.couriersChecked[courierId] == true) {
+				numCouriersChecked++
 			}
 		}
 		for (var restaurantId in this.state.restaurantsChecked) {
@@ -71,30 +71,30 @@ class Pairing extends React.Component {
 				numRestaurantsChecked++
 			}
 		}
-		console.log(numProgramsChecked)
+		console.log(numCouriersChecked)
 		console.log(numRestaurantsChecked)
-		if (numProgramsChecked === 0) {
-			alert("Please select a program to pair!")
+		if (numCouriersChecked === 0) {
+			alert("Please select a courier to pair!")
 		} else if (numRestaurantsChecked === 0) {
 			alert("Please select a restaurant to pair!")
 		}
-		else if (numProgramsChecked > 1 && numRestaurantsChecked > 1) {
-			alert("Cannot pair multiple programs to multiple restaurants!")
+		else if (numCouriersChecked > 1 && numRestaurantsChecked > 1) {
+			alert("Cannot pair multiple couriers to multiple restaurants!")
 		} else {
-			this.performPairing(numProgramsChecked, numRestaurantsChecked)
+			this.performPairing(numCouriersChecked, numRestaurantsChecked)
 			// window.location.reload()
 		}
 	}
 
-	performPairing = (numProgramsChecked, numRestaurantsChecked) => {
-		if (numProgramsChecked === 1) {
-			const programId = Object.keys(this.state.programsChecked).find(key => this.state.programsChecked[key] === true)
+	performPairing = (numCouriersChecked, numRestaurantsChecked) => {
+		if (numCouriersChecked === 1) {
+			const courierId = Object.keys(this.state.couriersChecked).find(key => this.state.couriersChecked[key] === true)
 
 			// setTimeout(function() {
 			// 	for (var restaurantId in this.state.restaurantsChecked) {
 			// 		if (this.state.restaurantsChecked[restaurantId] == true) {
 			// 			console.log(restaurantId);
-			// 			var fetchURL = "http://localhost:9000/api/admin/pairing/" + programId + "/" + restaurantId
+			// 			var fetchURL = "http://localhost:9000/api/admin/courierPairing/" + courierId + "/" + restaurantId
 			// 				fetch(fetchURL, {
 			// 			      method: "post",
 			// 			    })
@@ -103,10 +103,10 @@ class Pairing extends React.Component {
 			// }, 1);
 
 			var toSend = []
-			toSend.push(programId)
+			toSend.push(courierId)
 			toSend.push(this.state.restaurantsChecked)
 			
-			var fetchURL = "http://localhost:9000/api/admin/pairing/program-to-restaurants"
+			var fetchURL = "http://localhost:9000/api/admin/courierPairing/courier-to-restaurants"
 			fetch(fetchURL, {
 		      method: "post",
 		      headers: {
@@ -120,9 +120,9 @@ class Pairing extends React.Component {
 
 			var toSend = []
 			toSend.push(restaurantId)
-			toSend.push(this.state.programsChecked)
+			toSend.push(this.state.couriersChecked)
 			
-			var fetchURL = "http://localhost:9000/api/admin/pairing/restaurant-to-programs"
+			var fetchURL = "http://localhost:9000/api/admin/courierPairing/restaurant-to-couriers"
 			fetch(fetchURL, {
 		      method: "post",
 		      headers: {
@@ -134,11 +134,11 @@ class Pairing extends React.Component {
 		}	
 	}
 
-	handleProgramChange = (e) => {
-		if (this.state.programsChecked[e.target.name] == true) {
-			this.state.programsChecked[e.target.name] = false
+	handleCourierChange = (e) => {
+		if (this.state.couriersChecked[e.target.name] == true) {
+			this.state.couriersChecked[e.target.name] = false
 		} else {
-			this.state.programsChecked[e.target.name] = true
+			this.state.couriersChecked[e.target.name] = true
 		}
 	}
 
@@ -150,9 +150,9 @@ class Pairing extends React.Component {
 		}
 	}
 
-	handleProgramModal = (e) => {
+	handleCourierModal = (e) => {
 		console.log(e.target.name)
-		const fetchString = "http://localhost:9000/api/admin/pairing/current-restaurants/" + e.target.name
+		const fetchString = "http://localhost:9000/api/admin/courierPairing/current-restaurants/" + e.target.name
 		fetch(fetchString)
 			.then((res) => res.json())
 			.then((restaurantsCurrentlyPairedWith) => { this.setState({restaurantsCurrentlyPairedWith}); console.log(this.state.restaurantsCurrentlyPairedWith); })
@@ -160,71 +160,71 @@ class Pairing extends React.Component {
 
 	handleRestaurantModal = (e) => {
 		console.log(e.target.name)
-		const fetchString = "http://localhost:9000/api/admin/pairing/current-programs/" + e.target.name
+		const fetchString = "http://localhost:9000/api/admin/courierPairing/current-couriers/" + e.target.name
 		fetch(fetchString)
 			.then((res) => res.json())
-			.then((programsCurrentlyPairedWith) => { this.setState({programsCurrentlyPairedWith}); console.log(this.state.programsCurrentlyPairedWith); })
+			.then((couriersCurrentlyPairedWith) => { this.setState({couriersCurrentlyPairedWith}); console.log(this.state.couriersCurrentlyPairedWith); })
 	}
 
 	render() {
 		var oddOrEven = "even";
 
-		const numPrograms = this.state.numPrograms;
+		const numCouriers = this.state.numCouriers;
 		const numRestaurants = this.state.numRestaurants;
 		var numRestaurantsPairedWith;
-		var numProgramsPairedWith;
-		var programsCheckbox = [];
+		var numCouriersPairedWith;
+		var couriersCheckbox = [];
 		var restaurantsCheckbox = [];
-		var programsCheckboxStatus = this.state.programsChecked
+		var couriersCheckboxStatus = this.state.couriersChecked
 		var restaurantsCheckboxStatus = this.state.restaurantsChecked
 		var restaurantsCurrentlyPairedWith = this.state.restaurantsCurrentlyPairedWith
-		var programsCurrentlyPairedWith = this.state.programsCurrentlyPairedWith
+		var couriersCurrentlyPairedWith = this.state.couriersCurrentlyPairedWith
 
 		var rows1 = []
 		var rows2 = []
 
-	    for (var i = 0; i < numPrograms; i++) {
+	    for (var i = 0; i < numCouriers; i++) {
 	    	numRestaurantsPairedWith = 0
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even"
 	      	var cell = []
-	      	var program = this.state.values[0][i]
+	      	var courier = this.state.values[0][i]
 	      	for (var j = 0; j < this.state.values[2].length; j++) {
-	      		if (this.state.values[2][j]["program_id"] === program["program_id"]) {
+	      		if (this.state.values[2][j]["courier_id"] === courier["courier_id"]) {
 	      			numRestaurantsPairedWith = this.state.values[2][j]["numRestaurantsPairedWith"]
 	      		}
 	      	}
-	      	cell.push(<td class="narrowCell"><a href="#" data-toggle="modal" data-target="#programModal" 
-	      										name={ program["program_id"] } 
-	      										onClick={ this.handleProgramModal }> { program["name"] } </a></td>)
-	      	cell.push(<td class="wideCell"> { program["address"] } </td>)
+	      	cell.push(<td class="narrowCell"><a href="#" data-toggle="modal" data-target="#courierModal" 
+	      										name={ courier["courier_id"] } 
+	      										onClick={ this.handleCourierModal }> { courier["name"] } </a></td>)
+	      	cell.push(<td class="wideCell"> { courier["area_service"] } </td>)
 	      	cell.push(<td class="narrowCell"> { numRestaurantsPairedWith } </td>)
-	      	if (programsCheckboxStatus) {
-		      	programsCheckbox.push(<input type="checkbox"
-		      								 name={ program["program_id"] }
-		      								 defaultChecked={this.state.programsChecked[program["program_id"]]}
-	    	  							  	 onChange={ this.handleProgramChange }></input>)
+	      	if (couriersCheckboxStatus) {
+		      	couriersCheckbox.push(<input type="checkbox"
+		      								 name={ courier["courier_id"] }
+		      								 defaultChecked={this.state.couriersChecked[courier["courier_id"]]}
+	    	  							  	 onChange={ this.handleCourierChange }></input>)
 	    	}
-	      	cell.push(<td class="narrowCell"> { programsCheckbox[i] } </td>)
+	      	cell.push(<td class="narrowCell"> { couriersCheckbox[i] } </td>)
 	      	rows1.push(<tr id={ oddOrEven }> { cell } </tr>)
 	    }
 
 	    oddOrEven = "even";
 
 	  	for (var i = 0; i < numRestaurants; i++) {
-	  		numProgramsPairedWith = 0
+	  		numCouriersPairedWith = 0
 			oddOrEven === "even" ? oddOrEven = "odd" : oddOrEven = "even";
 	      	var cell = []
 	      	var restaurant = this.state.values[1][i]
 	      	for (var j = 0; j < this.state.values[3].length; j++) {
 	      		if (this.state.values[3][j]["restaurant_id"] === restaurant["restaurant_id"]) {
-	      			numProgramsPairedWith = this.state.values[3][j]["numProgramsPairedWith"]
+	      			numCouriersPairedWith = this.state.values[3][j]["numCouriersPairedWith"]
 	      		}
 	      	}
 	      	cell.push(<td class="narrowCell"><a href="#" data-toggle="modal" data-target="#restaurantModal" 
 	      										name={ restaurant["restaurant_id"] } 
 	      										onClick={ this.handleRestaurantModal }> { restaurant["name"] } </a></td>)
 	      	cell.push(<td class="wideCell"> { restaurant["address"] } </td>)
-	      	cell.push(<td class="narrowCell"> { numProgramsPairedWith } </td>)
+	      	cell.push(<td class="narrowCell"> { numCouriersPairedWith } </td>)
 	      	if (restaurantsCheckboxStatus) {
 		      	restaurantsCheckbox.push(<input type="checkbox"
 		      									name={ restaurant["restaurant_id"] }
@@ -242,10 +242,10 @@ class Pairing extends React.Component {
 			}
 		}
 
-		var programNames = []
-	    if (programsCurrentlyPairedWith[0]) {
-		    for (var i = 0; i < programsCurrentlyPairedWith[0].length; i++) { 
-		    	programNames.push(<p>{i + 1}. { programsCurrentlyPairedWith[0][i]["name"] }</p>)
+		var courierNames = []
+	    if (couriersCurrentlyPairedWith[0]) {
+		    for (var i = 0; i < couriersCurrentlyPairedWith[0].length; i++) { 
+		    	courierNames.push(<p>{i + 1}. { couriersCurrentlyPairedWith[0][i]["name"] }</p>)
 			}
 		}
 
@@ -256,21 +256,21 @@ class Pairing extends React.Component {
 				<Sidebar />
 				<div class="jumbotron jumbotron-fluid">
 				  <div class="container">
-				    <h1 class="display-4">Programs Pairings</h1>
-				    <p class="lead">Following tables allow you to pair programs that request meals with
+				    <h1 class="display-4">Couriers Pairings</h1>
+				    <p class="lead">Following tables allow you to pair couriers that request meals with
 				                    restaurants that will help deliver those meals</p>
 				  </div>
 				</div>
 
-				<h3 class="tableHeadings">Active Programs</h3>
+				<h3 class="tableHeadings">Active Couriers</h3>
 
-				<table id="activeProgramsTable">
+				<table id="activeCouriersTable">
 					<tr>
 						<th id="tableHeader" class="narrowCell">
-							Program Name
+							Courier Name
 						</th>
 						<th id="tableHeader" class="narrowCell">
-							Program Address
+							Courier Service Area
 						</th>
 						<th id="tableHeader" class="narrowCell">
 							Restaurants Paired With
@@ -293,7 +293,7 @@ class Pairing extends React.Component {
 							Restaurant Address
 						</th>
 						<th id="tableHeader" class="narrowCell">
-							Programs Paired With
+							Couriers Paired With
 						</th>
 						<th id="tableHeader" class="narrowCell">
 							Pair?
@@ -302,7 +302,7 @@ class Pairing extends React.Component {
 					{ rows2 }
 				</table>
 
-				<div class="modal fade" id="programModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade" id="courierModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
@@ -326,13 +326,13 @@ class Pairing extends React.Component {
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Programs Currently Paired With</h5>
+				        <h5 class="modal-title" id="exampleModalLabel">Couriers Currently Paired With</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				      	{ programNames }
+				      	{ courierNames }
 				      </div>
 				      <div class="modal-footer">
 				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -355,4 +355,4 @@ class Pairing extends React.Component {
 	}
 }
 
-export default Pairing;
+export default CourierPairing;

@@ -1,0 +1,75 @@
+.infoTitle {
+	width: 70%;
+	margin-left: 200px;
+	height: 120px;
+	background-color: #cb9eff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.jumbotron {
+	width: 70%;
+	margin-left: 200px;
+	height: 220px;
+	background-color: #cb9eff;
+}
+
+#activeCouriersTable {
+	margin-left: 230px;
+	margin-top: 20px;
+	display: block;
+}
+
+#activeRestaurantsTable {
+	margin-top: 20px;
+	margin-left: 230px;
+	display: block;
+}
+
+#footer {
+	margin-bottom: 30px;
+}
+
+#pairings {
+	font-family: "Comic Sans MS";
+}
+
+.courierName {
+	text-align: center;
+}
+
+#odd {
+	background-color: #dbeeff;
+}
+
+#even {
+	background-color: #a6ffa3;
+}
+
+.appButtons {
+	margin-top: 50px;
+	margin-left: 500px;
+	margin-bottom: 20px;
+}
+
+.btn1 {
+	margin-right: 20px;
+}
+
+.narrowCell {
+	width: 220px;
+}
+
+.wideCell {
+	max-width: 10px;
+}
+
+.pairButton {
+	margin-top: 40px;
+	margin-left: 570px;
+}
+
+.btn1:hover{
+	box-shadow: 0 3px 6px 0 #D0D0D0, 0 3px 6px 0 #D0D0D0;
+}

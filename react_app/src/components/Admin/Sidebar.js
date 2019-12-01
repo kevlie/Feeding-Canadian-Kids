@@ -40,6 +40,7 @@ class Sidebar extends React.Component {
         <a href="/admin/restaurants">Restaurants Info</a>
         <a href="/admin/couriers">Couriers Info</a>
         <a href="/admin/pairing">Programs + Restaurants</a>
+        <a href="/admin/courierPairing">Couriers + Restaurants</a>
         <img id="logo" src={ logo }></img>
       </div>
 

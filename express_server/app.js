@@ -31,6 +31,7 @@ var restaurantInfoRouter = require("./routes/restaurantInfo");
 var courierInfoRouter = require("./routes/courierInfo");
 
 var pairingRouter = require("./routes/pairing");
+var courierPairingRouter = require("./routes/courierPairing");
 var programRestaurants = require("./routes/programRestaurants");
 var programDelivery = require("./routes/programDelivery");
 
@@ -112,6 +113,7 @@ app.use("/api/admin/program", programInfoRouter);
 app.use("/api/admin/restaurant", restaurantInfoRouter);
 app.use("/api/admin/courier", courierInfoRouter);
 app.use("/api/admin/pairing", pairingRouter);
+app.use("/api/admin/courierPairing", courierPairingRouter);
 app.use("/api/restaurantuserpage", restaurantRouter);
 app.use("/api/programRestaurants", programRestaurants);
 app.use("/api/programDelivery", programDelivery);

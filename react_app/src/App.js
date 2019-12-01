@@ -22,6 +22,7 @@ import ProgramInfo from "./components/Admin/ProgramInfo";
 import RestaurantInfo from "./components/Admin/RestaurantInfo";
 import CourierInfo from "./components/Admin/CourierInfo";
 import Pairing from "./components/Admin/Pairing";
+import CourierPairing from "./components/Admin/CourierPairing";
 import PendingApproval from "./components/PendingApproval/PendingApproval.js";
 import HomePage from "./components/HomePage/HomePage.js"
 import RegistrationComplete from "./components/RegistrationComplete/RegistrationComplete";
@@ -99,6 +100,7 @@ class App extends Component {
           />
           <Route exact path="/admin/courier/:id" component={CourierInfo} />
           <Route exact path="/admin/pairing" component={Pairing} />
+          <Route exact path="/admin/courierPairing" component={CourierPairing} />
           <Route exact path="/pendingapproval" component={PendingApproval} />
         </Switch>
       </div>
