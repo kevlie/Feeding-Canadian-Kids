@@ -49,12 +49,6 @@ class DeliverySlot extends React.Component {
             <h3>
               {"Address: "} {this.props.address}
             </h3>
-            <h3>
-              {"Contact Phone: "} {this.props.phone}
-            </h3>
-            <h3>
-              {"Contact Email: "} {this.props.contact_email}
-            </h3>
           </Modal.Body>
           <Modal.Footer>
             <Button 
