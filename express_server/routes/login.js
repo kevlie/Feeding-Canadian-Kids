@@ -181,7 +181,7 @@ loginRouter.post("/change-password", function(req, res) {
     case "courier":
       query =
         "UPDATE courier_partners SET password_hash = ? WHERE email = ? AND password_hash = ?";
-    case "default":
+    default:
       res.status(404).end();
   }
   const param = [newPassword, email, oldPassword];
