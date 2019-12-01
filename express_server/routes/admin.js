@@ -35,6 +35,23 @@ adminRouter.get("/", function(req, res) {
     let numNewRestaurants = results[0]["count"];
     let obj4 = { newRestaurants: numNewRestaurants };
     values.push(obj4);
+    // res.json(values);
+  });
+
+  query5 =
+    "SELECT count(courier_id) as count FROM courier_review WHERE approval_status=0";
+  sql.query(query5, function(err, results) {
+    let numNewCouriers = results[0]["count"];
+    let obj5 = { newCouriers: numNewCouriers };
+    values.push(obj5);
+  });
+
+  query6 =
+    "SELECT count(courier_id) as count FROM courier_review WHERE approval_status=1";
+  sql.query(query6, function(err, results) {
+    let numCouriers = results[0]["count"];
+    let obj6 = { couriers: numCouriers };
+    values.push(obj6);
     res.json(values);
   });
 });
