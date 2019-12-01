@@ -1,13 +1,39 @@
-import React from "react";
+import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import { Table } from "react-bootstrap";
-import "./ProgramPartners.css";
+import React from "react";
+import "./ProgramPartners.css"
+
 
 class ProgramsPartners extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      partners: []
-    }
+      rows: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:9000/api/restaurantuserpage/partneredPrograms", {
+      method: "get",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    })
+      .then(res => res.json())
+      .then(data => {
+        let rows = [];
+        for (let i = 0; i < data.length; i++) {
+          let rowData = [];
+          rowData.push(<td> {data[i].name} </td>);
+          rowData.push(<td> {data[i].address} </td>);
+          rowData.push(<td> {data[i].email} </td>);
+          rowData.push(<td> {data[i].phone} </td>);
+          rows.push(<tr> {rowData} </tr>);
+        }
+        this.setState({ rows });
+      });
   }
 
   render() {
@@ -17,28 +43,17 @@ class ProgramsPartners extends React.Component {
         <Table striped bordered>
           <thead>
             <tr>
-              <th>Program Name</th>
+              <th>Name</th>
               <th>Address</th>
+              <th>Email</th>
               <th>Phone</th>
-              <th>Active Service</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td id = "programTableCell">Kerr St. Mission</td>
-              <td id = "programTableCell">Oakville</td>
-              <td id = "programTableCell">Wednesday</td>
-              <td id = "programTableCell">Yes</td>
-            </tr>
-            <tr>
-              <td id = "programTableCell"> 
-                What's
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{this.state.rows}</tbody>
         </Table>
       </div>
     );
   }
 }
+
 export default ProgramsPartners;
