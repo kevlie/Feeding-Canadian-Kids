@@ -161,4 +161,43 @@ loginRouter.get("/logout", function(req, res) {
   });
 });
 
+loginRouter.post("/change-password", function (req, res) {
+  if (!req.session.loggedin) {
+    res.status(400).end();
+  }
+  const oldPassword = req.body.oldPassword;
+  const newPassword = req.body.newPassword;
+  const email = req.session.email;
+  const partnerType = req.session.partnerType;
+  let query;
+  switch (partnerType) {
+    case "admin":
+      query =
+        "UPDATE admin SET password_hash = ? WHERE email = ? AND password_hash = ?";
+      break;
+    case "restaurant":
+      query =
+        "UPDATE restaurant_partners SET password_hash = ? WHERE contact_email = ? AND password_hash = ?";
+      break;
+    case "program":
+      query =
+        "UPDATE program_partners SET password_hash = ? WHERE email = ? AND password_hash = ?";
+      break;
+    case "courier":
+      query =
+        "UPDATE courier_partners SET password_hash = ? WHERE email = ? AND password_hash = ?";
+      break;
+    default:
+      res.status(404).end();
+  }
+  const param = [newPassword, email, oldPassword];
+  sql.query(query, param, (err, result) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
 module.exports = loginRouter;
