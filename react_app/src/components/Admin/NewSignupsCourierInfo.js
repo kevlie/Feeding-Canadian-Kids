@@ -16,6 +16,16 @@ class NewSignupsCourierInfo extends React.Component {
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((courier) => this.setState({courier}, () => console.log(this.state.courier)))
+
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	      method: "get",
+	      credentials: "include"
+	    }).then(res => {
+	      if (res.status != 200) {
+	        this.setState({ fail: true });
+	        console.log(this.state.fail);
+	      }
+	    });
 	}
 
 	approveApp = () => {
@@ -62,6 +72,8 @@ class NewSignupsCourierInfo extends React.Component {
 	  		day.push("No")
 	  	}
 		return (
+		  <>
+          {!this.state.fail ? (
 			<div id="newSignupsCourierInfo">
 				<div>
 				<Sidebar />
@@ -159,7 +171,11 @@ class NewSignupsCourierInfo extends React.Component {
 					<a href="/admin/newSignups"class="btn btn-info" onClick = { this.rejectApp }>Reject Application</a>
 				</div>
 			</div>
-		)
+		) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+      )
 	}
 }
 

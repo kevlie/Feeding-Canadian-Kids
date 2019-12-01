@@ -16,6 +16,16 @@ class Couriers extends React.PureComponent {
 			.then((res) => res.json())
 			.then((couriers) => this.setState({couriers}))
 			.then(() => this.updateState())
+
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	      method: "get",
+	      credentials: "include"
+	    }).then(res => {
+	      if (res.status != 200) {
+	        this.setState({ fail: true });
+	        console.log(this.state.fail);
+	      }
+	    });
 	}
 
 	updateState() {
@@ -44,6 +54,8 @@ class Couriers extends React.PureComponent {
 	    }
 
 		return (
+		  <>
+          {!this.state.fail ? (
 			<div id="couriers">
 				<Sidebar />
 				<div class="jumbotron jumbotron-fluid">
@@ -69,7 +81,11 @@ class Couriers extends React.PureComponent {
 
 				<div id="footer"></div>
 			</div>
-		)
+		) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+      )
 	}
 }
 
