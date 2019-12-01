@@ -65,4 +65,32 @@ restaurantRouter.get('/isRestaurant', (req, res) =>{
         res.json(true);
       }
 })
+
+restaurantRouter.get('/partneredPrograms', (req,res) => {
+  let email = req.session.email;
+  let query1 = "SELECT restaurant_id FROM restaurant_partners WHERE contact_email = ?";
+  sql.query(query1, email, function(err, results) {
+    if (results.length > 0) {
+      let restaurant_id = JSON.parse(JSON.stringify(results))[0].restaurant_id;
+      let query2 = "SELECT program_id FROM pairings WHERE restaurant_id = ?";
+      sql.query(query2, restaurant_id, function(err, results) {
+        if (results.length > 0) {
+          let program_ids = JSON.parse(JSON.stringify(results));
+          let data = [];
+          for (let i = 0; i < program_ids.length; i++) {
+            data.push(program_ids[i].program_id);
+          }
+          let queryData = [data];
+          let query3 =
+            "SELECT name, address, email, phone FROM program_partners WHERE program_id IN (?)";
+          sql.query(query3, queryData, function(err, results) {
+            res.status(200).json(results);
+          });
+        }
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+});
 module.exports = restaurantRouter;
