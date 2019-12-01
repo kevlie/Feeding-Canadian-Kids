@@ -19,9 +19,15 @@ class Pairing extends React.Component {
 			.then((values) => { this.setState({values}); console.log(this.state.values); })
 			.then(() => this.updateState())
 
-		// fetch("http://localhost:9000/api/admin/pairing/current")
-		// 	.then((res) => res.json())
-		// 	.then((values) => this.setState({values}))
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	      method: "get",
+	      credentials: "include"
+	    }).then(res => {
+	      if (res.status != 200) {
+	        this.setState({ fail: true });
+	        console.log(this.state.fail);
+	      }
+	    });
 	}
 
 	updateState= () => {
@@ -50,17 +56,6 @@ class Pairing extends React.Component {
 			})
 		}
 	}
-
-	// submitPairing = (programsCheckbox, restaurantsCheckbox) => {
-	// 	console.log(programsCheckbox[0].props);
-	// 	console.log(restaurantsCheckbox);
-	// 	// console.log(programsCheckbox[0].props["name"])
-	// 	// if (programsCheckbox[0].props["checked"] == true) {
-	// 	// 	console.log("NAH");
-	// 	// } else {
-	// 	// 	console.log("CHECKED");
-	// 	// }
-	// }
 
 	submitPairing = () => {
 		var numProgramsChecked = 0
@@ -222,6 +217,8 @@ class Pairing extends React.Component {
 		}
 
 		return (
+		  <>
+          {!this.state.fail ? (
 			<div id="pairings">
 				<Sidebar />
 				<div class="jumbotron jumbotron-fluid">
@@ -317,7 +314,11 @@ class Pairing extends React.Component {
 				</div>
 				<div id="footer"></div>
 			</div>
-		)
+		) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+      )
 	}
 }
 

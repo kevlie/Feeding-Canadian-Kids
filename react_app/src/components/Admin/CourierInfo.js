@@ -15,7 +15,17 @@ class CourierInfo extends React.Component {
 		const fetchURL = "http://localhost:9000/api/admin/courier/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
-			.then((courier) => this.setState({courier}, () => console.log(this.state.courier)))
+			.then((courier) => this.setState({courier}, () => console.log(this.state.courier)));
+
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	      method: "get",
+	      credentials: "include"
+	    }).then(res => {
+	      if (res.status != 200) {
+	        this.setState({ fail: true });
+	        console.log(this.state.fail);
+	      }
+	    });
 	}
 
 	render() {
@@ -46,6 +56,8 @@ class CourierInfo extends React.Component {
 	  		day.push("No")
 	  	}
 		return (
+		  <>
+          {!this.state.fail ? (
 			<div id="courierInfo">
 				<div>
 				<Sidebar />
@@ -125,7 +137,11 @@ class CourierInfo extends React.Component {
 
 				<div id="footer"></div>
 			</div>
-		)
+		) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+      )
 	}
 }
 

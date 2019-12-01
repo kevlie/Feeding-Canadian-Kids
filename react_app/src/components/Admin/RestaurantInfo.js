@@ -16,11 +16,23 @@ class RestaurantInfo extends React.Component {
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((restaurant) => this.setState({restaurant}, () => console.log(this.state.restaurant)))
+	
+		fetch("http://localhost:9000/api/admin/isAdmin", {
+	        method: "get",
+	        credentials: "include"
+	      }).then(res => {
+	        if (res.status != 200) {
+	          this.setState({ fail: true });
+	          console.log(this.state.fail);
+	        }
+	      });
 	}
 
 	render() {
 		console.log(this.state.restaurant)
 		return (
+		  <>
+      	  {!this.state.fail ? (
 			<div id="restaurantsInfo">
 				<div>
 				<Sidebar />
@@ -74,7 +86,11 @@ class RestaurantInfo extends React.Component {
 					</tr>
 				</table>
 			</div>
-		)
+		) : (
+          <h4> You do not have the rights to access this page.</h4>
+        )}
+      </>
+    )
 	}
 }
 
