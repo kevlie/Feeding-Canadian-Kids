@@ -7,7 +7,6 @@ import { Image } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FeedingCKbanner from "../../img/FeedingCK-banner.png";
 import "./Header.css";
-import { sign_in } from "../../redux/actions";
 
 const mapStateToProps = state => {
   return {
@@ -68,14 +67,13 @@ class Header extends Component {
         this.setState({ isLoggedIn: false });
         this.props.history.push("/login");
         window.location.reload();
-
-        // let state = {
-        //   isLoggedIn: false,
-        //   email: ""
-        // };
-        // this.setState(state);
       }
     });
+  }
+
+  changePassword() {
+    this.props.history.push("/changepassword");
+    window.location.reload();
   }
 
   componentDidMount() {
@@ -100,31 +98,39 @@ class Header extends Component {
                 Login / Register
               </Nav.Link>
             ) : (
-              <NavDropdown title={this.state.email} id="basic-nav-dropdown">
-                <NavDropdown.Item
-                  onClick={e => {
-                    let state = { email: this.state.email };
-                    if (this.state.partnerType === "restaurant") {
-                      this.props.history.push("/restaurantuserpage", state);
-                    } else if (this.state.partnerType === "program") {
-                      this.props.history.push("programuserpage");
-                    } else {
-                      this.props.history.push("courieruserpage", state);
-                    }
-                  }}
-                >
-                  Profile
+                <NavDropdown title={this.state.email} id="basic-nav-dropdown">
+                  <NavDropdown.Item
+                    onClick={e => {
+                      let state = { email: this.state.email };
+                      if (this.state.partnerType === "restaurant") {
+                        this.props.history.push("/restaurantuserpage", state);
+                      } else if (this.state.partnerType === "program") {
+                        this.props.history.push("programuserpage");
+                      } else {
+                        this.props.history.push("courieruserpage", state);
+                      }
+                    }}
+                  >
+                    Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  // href="#action/3.3"
-                  onClick={e => {
-                    this.logout();
-                  }}
-                >
-                  Log Out
+                  <NavDropdown.Item
+                    // href="#action/3.3"
+                    onClick={e => {
+                      this.logout();
+                    }}
+                  >
+                    Log Out
                 </NavDropdown.Item>
-              </NavDropdown>
-            )}
+                  <NavDropdown.Item
+                    // href="#action/3.3"
+                    onClick={e => {
+                      this.changePassword();
+                    }}
+                  >
+                    Change Password
+              </NavDropdown.Item>
+                </NavDropdown>
+              )}
           </Nav>
         </Navbar>
       </>

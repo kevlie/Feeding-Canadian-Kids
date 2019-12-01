@@ -26,14 +26,7 @@ class Admin extends React.Component {
         this.setState({ fail: true });
         console.log(this.state.fail);
       }
-      //   else {
-      //     console.log(res);
-      //   }
     });
-    //   .then(json => {
-    //     console.log(json);
-    // this.setState({ approval_status: json[0].approval_status });
-    //   });
   };
 
   render() {
@@ -90,8 +83,8 @@ class Admin extends React.Component {
             </div>
           </div>
         ) : (
-          <h4> You do not have the rights to access this page.</h4>
-        )}
+            <h4> You do not have the permissions to access this page.</h4>
+          )}
       </>
     );
   }
