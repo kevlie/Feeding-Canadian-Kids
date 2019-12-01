@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import "./Deliveries.css";
 import DeliverySlot from "./DeliverySlot.js";
+import "./ProgramUserPage.css";
 
 class Deliveries extends React.Component {
   constructor(props) {
@@ -116,7 +117,7 @@ class Deliveries extends React.Component {
   }
   render() {
     return (
-      <>
+      <div id="deliveries">
         <h1> Your Deliveries for the Week</h1>
         <h2> Click on a scheduled delivery below to see further information</h2>
         <Table striped bordered size="sm">
@@ -131,7 +132,7 @@ class Deliveries extends React.Component {
           </thead>
           <tbody>{this.state.data}</tbody>
         </Table>
-      </>
+      </div>
     );
   }
 }

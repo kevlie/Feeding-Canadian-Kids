@@ -84,7 +84,7 @@ class Orders extends React.Component {
     
     
     return (
-      <>
+      <div id="orders">
         <h1> Your Orders for the Week</h1>
         <h2> Click on an order below to see further information</h2>
         <Table striped bordered size="sm">
@@ -122,7 +122,7 @@ class Orders extends React.Component {
             </tr>
           </tbody>
         </Table>
-      </>
+      </div>
     );
   }
 }

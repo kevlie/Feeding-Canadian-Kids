@@ -1,9 +1,9 @@
 .HomeMessage-Image {
-  max-height: 150px;
-  max-width: 200 px;
+  max-height: 200px;
+  max-width: 60%;
   position: absolute;
   bottom: 0;
-  left: 250px;
+  left: 20%;
 }
 
 #HomeMessage h1,
@@ -13,4 +13,16 @@ h2 {
 
 #HomeMessage h1 {
   font-size: 5em;
+}
+
+#HomeMessage{
+  font-family: "Comic Sans MS";
+}
+
+.hometitle{
+  margin-top: 20px;
+}
+
+.homesubtitle{
+  margin-top: 40px;
 }

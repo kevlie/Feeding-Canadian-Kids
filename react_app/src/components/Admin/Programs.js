@@ -25,14 +25,14 @@ class Programs extends React.PureComponent {
       .then(exportData => this.setState({ exportData }));
 
     fetch("http://localhost:9000/api/admin/isAdmin", {
-        method: "get",
-        credentials: "include"
-      }).then(res => {
-        if (res.status != 200) {
-          this.setState({ fail: true });
-          console.log(this.state.fail);
-        }
-      });
+      method: "get",
+      credentials: "include"
+    }).then(res => {
+      if (res.status != 200) {
+        this.setState({ fail: true });
+        console.log(this.state.fail);
+      }
+    });
   };
 
   updateState() {
@@ -104,84 +104,84 @@ class Programs extends React.PureComponent {
 
     return (
       <>
-      {!this.state.fail ? (
-      <div id="programs">
-        <Sidebar />
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">Programs</h1>
-            <p class="lead">
-              Following table lists the programs signed-up with Feeding Canadian
-              Kids
+        {!this.state.fail ? (
+          <div id="programs">
+            <Sidebar />
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4">Programs</h1>
+                <p class="lead">
+                  Following table lists the programs signed-up with Feeding Canadian
+                  Kids
             </p>
-          </div>
-        </div>
+              </div>
+            </div>
 
-        <h3 class="tableHeadings">Programs</h3>
+            <h3 class="tableHeadings">Programs</h3>
 
-        <table id="programTable">
-          <tr>
-            <th id="tableHeader">Program Name</th>
-            <th id="tableHeader">Program Address</th>
-          </tr>
-          {rows1}
-        </table>
-        <div
-          style={{
-            marginTop: "10px"
-          }}
-        >
-          <div className="export">
-            <Button
-              className="exportbutton"
+            <table id="programTable">
+              <tr>
+                <th id="tableHeader">Program Name</th>
+                <th id="tableHeader">Program Address</th>
+              </tr>
+              {rows1}
+            </table>
+            <div
               style={{
-                marginRight: "5px"
+                marginTop: "10px"
               }}
             >
-              <CSVLink
-                data={this.state.exportData}
-                filename={"program_data"}
+              <div className="export">
+                <Button
+                  className="exportbutton"
+                  style={{
+                    marginRight: "5px"
+                  }}
+                >
+                  <CSVLink
+                    data={this.state.exportData}
+                    filename={"program_data"}
+                    style={{
+                      color: "white"
+                    }}
+                  >
+                    Export CSV
+              </CSVLink>
+                </Button>
+              </div>
+              <div
+                className="upload"
                 style={{
-                  color: "white"
+                  marginTop: "10px"
                 }}
               >
-                Export CSV
-              </CSVLink>
+                <Button
+                  className="uploadbutton"
+                  style={{ marginRight: "10px" }}
+                  onClick={() => {
+                    this.handleImport();
+                  }}
+                >
+                  Upload CSV
             </Button>
+                <input
+                  className="choosefile"
+                  type="file"
+                  style={{ marginLeft: "10px" }}
+                  onChange={e => {
+                    this.setState({
+                      uploadCSVData: e.target.files[0]
+                    });
+                  }}
+                />
+                <p className="error">{this.state.error}</p>
+              </div>
+            </div>
+            <div id="footer"></div>
           </div>
-          <div
-            className="upload"
-            style={{
-              marginTop: "10px"
-            }}
-          >
-            <Button
-              className="uploadbutton"
-              style={{ marginRight: "10px" }}
-              onClick={() => {
-                this.handleImport();
-              }}
-            >
-              Upload CSV
-            </Button>
-            <input
-              className="choosefile"
-              type="file"
-              style={{ marginLeft: "10px" }}
-              onChange={e => {
-                this.setState({
-                  uploadCSVData: e.target.files[0]
-                });
-              }}
-            />
-            <p className="error">{this.state.error}</p>
-          </div>
-        </div>
-        <div id="footer"></div>
-      </div>
-    ) : (
-          <h4> You do not have the rights to access this page.</h4>
-        )}
+        ) : (
+            <h4> You do not have the permissions to access this page.</h4>
+          )}
       </>
     )
   }

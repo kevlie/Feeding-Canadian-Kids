@@ -1,3 +1,7 @@
+#login{
+  font-family: "Comic Sans MS";
+}
+
 .error {
   color: red;
   font-weight: bold;
@@ -30,6 +34,7 @@
   width: 30%;
   left:  35%;
   background-color: rgb(14, 180, 64);
+  font-family: "Comic Sans MS";
 }
 
 .MuiButton-root.loginButton:hover{
@@ -55,6 +60,7 @@
   margin-Top: 10px;
   margin-Bottom: 10px;
   border-color:  rgb(14, 180, 64);
+  font-family: "Comic Sans MS";
 }
 
 .MuiButton-root.registerButton:hover{
