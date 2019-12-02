@@ -115,6 +115,9 @@ class Deliveries extends React.Component {
         }
         data.push(<tr> {rows} </tr>);
         this.setState({ data });
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
   render() {

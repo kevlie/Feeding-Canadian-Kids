@@ -3,7 +3,6 @@ import { Table } from "react-bootstrap";
 import React from "react";
 import "./ProgramUserPage.css";
 
-
 const columns = [
   {
     dataField: "name",
@@ -52,6 +51,9 @@ class RestaurantsPartners extends React.Component {
           rows.push(<tr> {rowData} </tr>);
         }
         this.setState({ rows });
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
@@ -59,7 +61,9 @@ class RestaurantsPartners extends React.Component {
     return (
       <div id="restaurantPartner">
         <h1> Your Restaurant Partners Information</h1>
-        <Table striped bordered
+        <Table
+          striped
+          bordered
           className="restaurantTable"
           style={{
             width: "97%",
