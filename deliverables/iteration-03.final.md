@@ -24,7 +24,7 @@ We were unable to implement the feature that allows FCK staff to approve certain
 
 ### Handoff plan
 
-We will have a handoff meeting after the presentation. We will discuss the features that our product currently has. We are handing over the entire codebase to our project partner by providing the URL to the Github repository which will be made public. Our partner does not have the technical capacity to maintain the product .However, we plan to pass some technical notes regarding our codebase and how to maintain it. The notes can be passed on to the future developer that works on the app. 
+We will have a handoff meeting after the presentation. We will discuss the features that our product currently has. We are handing over the entire codebase to our project partner by providing the URL to the Github repository which will be made public. Our partner does not have the technical capacity to maintain the product. However, we plan to pass some technical notes regarding our codebase and how to maintain it. The notes can be passed on to the future developer that works on the app. 
  
 
 
