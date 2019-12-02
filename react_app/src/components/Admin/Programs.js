@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import { CSVLink } from "react-csv";
 import csv2json from "csvtojson/v2";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class Programs extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -16,15 +18,15 @@ class Programs extends React.PureComponent {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:9000/api/admin/programs")
+    fetch(express_server + "/api/admin/programs")
       .then(res => res.json())
       .then(programs => this.setState({ programs }))
       .then(() => this.updateState());
-    fetch("http://localhost:9000/api/admin/programs/export")
+    fetch(express_server + "/api/admin/programs/export")
       .then(res => res.json())
       .then(exportData => this.setState({ exportData }));
 
-    fetch("http://localhost:9000/api/admin/isAdmin", {
+    fetch(express_server + "/api/admin/isAdmin", {
       method: "get",
       credentials: "include"
     }).then(res => {
@@ -55,7 +57,7 @@ class Programs extends React.PureComponent {
             .fromString(text)
             .then(json => {
               console.log(json);
-              fetch("http://localhost:9000/api/admin/programs/import", {
+              fetch(express_server + "/api/admin/programs/import", {
                 method: "post",
                 headers: {
                   Accept: "application/json",

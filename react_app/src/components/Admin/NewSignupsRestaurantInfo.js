@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./NewSignupsRestaurantInfo.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class NewSignupsRestaurantInfo extends React.Component {
 	constructor(props) {
 		super(props)
@@ -12,13 +14,13 @@ class NewSignupsRestaurantInfo extends React.Component {
 
 	componentDidMount = () => {
 		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/restaurant/" + newId;
-		//const fetchURL = "http://localhost:9000/api/admin/newSignups/restaurant/7";
+		const fetchURL = express_server + "/api/admin/newSignups/restaurant/" + newId;
+		//const fetchURL = express_server + "/api/admin/newSignups/restaurant/7";
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((restaurant) => this.setState({ restaurant }, () => console.log(this.state.restaurant)))
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {
@@ -31,7 +33,7 @@ class NewSignupsRestaurantInfo extends React.Component {
 
 	approveApp = () => {
 		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/restaurant/" + newId + "/approve";
+		const fetchURL = express_server + "/api/admin/newSignups/restaurant/" + newId + "/approve";
 		fetch(fetchURL, {
 			method: "post",
 		})
@@ -39,7 +41,7 @@ class NewSignupsRestaurantInfo extends React.Component {
 
 	rejectApp = () => {
 		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/restaurant/" + newId + "/reject";
+		const fetchURL = express_server + "/api/admin/newSignups/restaurant/" + newId + "/reject";
 		fetch(fetchURL, {
 			method: "post",
 		})

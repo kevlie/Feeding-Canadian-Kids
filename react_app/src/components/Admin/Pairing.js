@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./Pairing.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class Pairing extends React.Component {
 
 	constructor(props) {
@@ -14,12 +16,12 @@ class Pairing extends React.Component {
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:9000/api/admin/pairing")
+		fetch(express_server + "/api/admin/pairing")
 			.then((res) => res.json())
 			.then((values) => { this.setState({ values }); console.log(this.state.values); })
 			.then(() => this.updateState())
 
-		// fetch("http://localhost:9000/api/admin/isAdmin", {
+		// fetch(express_server + "/api/admin/isAdmin", {
 		//      method: "get",
 		//      credentials: "include"
 		//    }).then(res => {
@@ -94,7 +96,7 @@ class Pairing extends React.Component {
 			// 	for (var restaurantId in this.state.restaurantsChecked) {
 			// 		if (this.state.restaurantsChecked[restaurantId] == true) {
 			// 			console.log(restaurantId);
-			// 			var fetchURL = "http://localhost:9000/api/admin/pairing/" + programId + "/" + restaurantId
+			// 			var fetchURL = express_server + "/api/admin/pairing/" + programId + "/" + restaurantId
 			// 				fetch(fetchURL, {
 			// 			      method: "post",
 			// 			    })
@@ -106,7 +108,7 @@ class Pairing extends React.Component {
 			toSend.push(programId)
 			toSend.push(this.state.restaurantsChecked)
 
-			var fetchURL = "http://localhost:9000/api/admin/pairing/program-to-restaurants"
+			var fetchURL = express_server + "/api/admin/pairing/program-to-restaurants"
 			fetch(fetchURL, {
 				method: "post",
 				headers: {
@@ -122,7 +124,7 @@ class Pairing extends React.Component {
 			toSend.push(restaurantId)
 			toSend.push(this.state.programsChecked)
 
-			var fetchURL = "http://localhost:9000/api/admin/pairing/restaurant-to-programs"
+			var fetchURL = express_server + "/api/admin/pairing/restaurant-to-programs"
 			fetch(fetchURL, {
 				method: "post",
 				headers: {
@@ -152,7 +154,7 @@ class Pairing extends React.Component {
 
 	handleProgramModal = (e) => {
 		console.log(e.target.name)
-		const fetchString = "http://localhost:9000/api/admin/pairing/current-restaurants/" + e.target.name
+		const fetchString = express_server + "/api/admin/pairing/current-restaurants/" + e.target.name
 		fetch(fetchString)
 			.then((res) => res.json())
 			.then((restaurantsCurrentlyPairedWith) => { this.setState({ restaurantsCurrentlyPairedWith }); console.log(this.state.restaurantsCurrentlyPairedWith); })
@@ -160,7 +162,7 @@ class Pairing extends React.Component {
 
 	handleRestaurantModal = (e) => {
 		console.log(e.target.name)
-		const fetchString = "http://localhost:9000/api/admin/pairing/current-programs/" + e.target.name
+		const fetchString = express_server + "/api/admin/pairing/current-programs/" + e.target.name
 		fetch(fetchString)
 			.then((res) => res.json())
 			.then((programsCurrentlyPairedWith) => { this.setState({ programsCurrentlyPairedWith }); console.log(this.state.programsCurrentlyPairedWith); })

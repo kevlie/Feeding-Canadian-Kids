@@ -7,6 +7,9 @@ import RestaurantsPartners from "./RestaurantsPartners.js";
 import ProgramTraining from "./ProgramTraining.js";
 import "./ProgramUserPage.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
+
 class ProgramUserPage extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +23,7 @@ class ProgramUserPage extends React.Component {
   componentDidMount() {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
-    fetch("http://localhost:9000/api/programuserpage/name", {
+    fetch(express_server + "/api/programuserpage/name", {
       method: "get",
       credentials: "include"
     })
@@ -31,7 +34,7 @@ class ProgramUserPage extends React.Component {
         });
       });
 
-    fetch("http://localhost:9000/api/auth/validate-login", {
+    fetch(express_server + "/api/auth/validate-login", {
       method: "get",
       credentials: "include"
     }).then(res => res.json())

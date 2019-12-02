@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import { CSVLink } from "react-csv";
 import csv2json from "csvtojson/v2";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class Restaurants extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -16,16 +18,16 @@ class Restaurants extends React.PureComponent {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:9000/api/admin/restaurants")
+    fetch(express_server + "/api/admin/restaurants")
       .then(res => res.json())
       .then(restaurants => this.setState({ restaurants }))
       .then(() => this.updateState());
 
-    fetch("http://localhost:9000/api/admin/restaurants/export")
+    fetch(express_server + "/api/admin/restaurants/export")
       .then(res => res.json())
       .then(exportData => this.setState({ exportData }));
 
-    fetch("http://localhost:9000/api/admin/isAdmin", {
+    fetch(express_server + "/api/admin/isAdmin", {
       method: "get",
       credentials: "include"
     }).then(res => {
@@ -56,7 +58,7 @@ class Restaurants extends React.PureComponent {
             .fromString(text)
             .then(json => {
               console.log(json);
-              fetch("http://localhost:9000/api/admin/restaurants/import", {
+              fetch(express_server + "/api/admin/restaurants/import", {
                 method: "post",
                 headers: {
                   Accept: "application/json",

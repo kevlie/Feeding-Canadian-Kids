@@ -7,6 +7,8 @@ import ProgramsPartners from "./ProgramsPartners.js";
 import RestaurantTraining from "./RestaurantTraining.js";
 import "./RestaurantUserPage.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class RestaurantUserPage extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ class RestaurantUserPage extends React.Component {
 
   getRestaurantName = () => {
     return new Promise(function (resolve, reject) {
-      fetch("http://localhost:9000/api/restaurantuserpage/name", {
+      fetch(express_server + "/api/restaurantuserpage/name", {
         method: "get",
         headers: {
           Accept: "application/json",
@@ -38,7 +40,7 @@ class RestaurantUserPage extends React.Component {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
 
-    fetch("http://localhost:9000/api/restaurantuserpage", {
+    fetch(express_server + "/api/restaurantuserpage", {
       method: "get",
       credentials: "include"
       // body: JSON.stringify({ email: this.state.email })
@@ -53,7 +55,7 @@ class RestaurantUserPage extends React.Component {
         }
       });
 
-    fetch("http://localhost:9000/api/restaurantuserpage/isRestaurant", {
+    fetch(express_server + "/api/restaurantuserpage/isRestaurant", {
       method: "get",
       credentials: "include"
     }).then(res => {
@@ -156,7 +158,7 @@ class RestaurantUserPage extends React.Component {
             <Tab eventKey="programs" title="Your Programs">
               <ProgramsPartners />
             </Tab>
-            
+
           </Tabs> */}
       </>
     );

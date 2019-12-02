@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormLabel, Button } from "react-bootstrap";
 import "./ChangePassword.css";
 const hash = require("object-hash");
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class ChangePassword extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +27,7 @@ class ChangePassword extends Component {
     };
 
     setLoginStatus() {
-        fetch("http://localhost:9000/api/auth/validate-login", {
+        fetch(express_server + "/api/auth/validate-login", {
             method: "get",
             headers: {
                 Accept: "application/json",
@@ -53,7 +55,7 @@ class ChangePassword extends Component {
     changePassword(oldPassword, newPassword) {
         let hashedOldPassword = hash(oldPassword);
         let hashedNewPassword = hash(newPassword);
-        fetch("http://localhost:9000/api/auth/change-password", {
+        fetch(express_server + "/api/auth/change-password", {
             method: "post",
             headers: {
                 Accept: "application/json",
@@ -113,7 +115,7 @@ class ChangePassword extends Component {
                             />
                         </FormGroup>
                         <div className="changepasswordButton">
-                            <Button 
+                            <Button
                                 className="cpbutton"
                                 onClick={e => {
                                     if (this.state.confirmPassword === this.state.password) {

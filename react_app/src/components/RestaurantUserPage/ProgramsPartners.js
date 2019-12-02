@@ -3,6 +3,9 @@ import { Table } from "react-bootstrap";
 import React from "react";
 import "./ProgramPartners.css"
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
+
 
 class ProgramsPartners extends React.Component {
   constructor(props) {
@@ -13,7 +16,7 @@ class ProgramsPartners extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/api/restaurantuserpage/partneredPrograms", {
+    fetch(express_server + "/api/restaurantuserpage/partneredPrograms", {
       method: "get",
       headers: {
         Accept: "application/json",
@@ -40,7 +43,7 @@ class ProgramsPartners extends React.Component {
     return (
       <div id="programPartners">
         <h1> Your Program Partners Information</h1>
-        <Table 
+        <Table
           style={{
             width: "97%",
             marginTop: "20px"

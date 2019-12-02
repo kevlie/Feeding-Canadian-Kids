@@ -4,6 +4,8 @@ import "./Orders.css";
 import { withRouter } from "react-router-dom";
 import OrderSlot from "./OrderSlot.js";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 
 class Orders extends React.Component {
   constructor(props){
@@ -15,11 +17,11 @@ class Orders extends React.Component {
 
   }
 
-  // bad practice to use post in this case, but makes it so 
+  // bad practice to use post in this case, but makes it so
   // one doesn't have to deal with security issues involving emails
   getOrders = () =>{
     return new Promise (function(resolve, reject) {
-      fetch("http://localhost:9000/api/restaurantuserpage/orders", {
+      fetch(express_server + "/api/restaurantuserpage/orders", {
             method: "get",
             headers: {
               Accept: "application/json",
@@ -49,7 +51,7 @@ class Orders extends React.Component {
     })
 
   }
-  
+
   render() {
     const orderPrograms = this.state.orders
 
@@ -60,7 +62,7 @@ class Orders extends React.Component {
       Thursday: "thursday_time",
       Friday: "friday_time"
     }
-    
+
     const dayToDayMeals = {
       Monday: "monday_meals",
       Tuesday: "tuesday_meals",
@@ -68,21 +70,21 @@ class Orders extends React.Component {
       Thursday: "thursday_meals",
       Friday: "friday_meals"
     }
-    
-    
-    
-    
+
+
+
+
     const orderDaySelector = (programOrderObj, orderDayTime, orderDayMeals) => {
       if (programOrderObj[orderDayTime] != null){
-        return <OrderSlot time = {programOrderObj[orderDayTime]} 
+        return <OrderSlot time = {programOrderObj[orderDayTime]}
                           address = {programOrderObj.address}
                           meals = {programOrderObj[orderDayMeals]}
                           program = {programOrderObj.name}
                           dietary_restriction = {programOrderObj.dietary_restriction}/>
       }
     }
-    
-    
+
+
     return (
       <div id="orders">
         <h1> Your Orders for the Week</h1>
@@ -103,7 +105,7 @@ class Orders extends React.Component {
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Monday'], dayToDayMeals['Monday']))}
                 {/* <OrderSlot time="5:30" which="0" /> */}
                 {/* <OrderSlot time="6:00" which="1" /> */}
-                
+
               </td>
               <td id = "orderTableCell">
                 {orderPrograms.map(member => orderDaySelector(member, dayToDayTime['Tuesday'], dayToDayMeals['Tuesday']))}

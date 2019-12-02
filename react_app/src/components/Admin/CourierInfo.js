@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./CourierInfo.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class CourierInfo extends React.Component {
 	constructor(props) {
 		super(props)
@@ -12,12 +14,12 @@ class CourierInfo extends React.Component {
 
 	componentDidMount = () => {
 		const id = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/courier/" + id;
+		const fetchURL = express_server + "/api/admin/courier/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((courier) => this.setState({ courier }, () => console.log(this.state.courier)));
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {

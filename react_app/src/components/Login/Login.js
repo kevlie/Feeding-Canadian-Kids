@@ -7,6 +7,8 @@ import "./Login.css";
 import { withRouter } from "react-router-dom";
 import FeedingCKkids from "../../img/FeedingCK-kids.png";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 const hash = require("object-hash");
 
 class Login extends React.Component {
@@ -28,7 +30,7 @@ class Login extends React.Component {
           error: "You are already logged in!"
         });
       } else {
-        fetch("http://localhost:9000/api/auth/login", {
+        fetch(express_server + "/api/auth/login", {
           method: "post",
           headers: {
             Accept: "application/json",
