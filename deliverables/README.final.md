@@ -44,13 +44,19 @@ With the help of our website, prospective partners and restaurants will have a s
 	+ First make sure that you have logged in as admin. (Admin credentials are pregenerated at the moment.)
 	+ You should see the number of active programs and active restaurants, number of new program applications, and new restaurant applications.
 	+ Click on the navigation button at the top left corner, you will see the sidebar.
-	+ Click on ``New Signups`` tab on the left sidebar to see the new program signups and the new restaurant signups.
-	+ Click on the restaurant name or program name to see their application details.
+	+ Click on ``New Signups`` tab on the left sidebar to see newly signed up programs, restaurants, and couriers.
+	+ Click on the name of any restaurant, program, or courier to see the application details.
 	+ Click on the ``Approve Application`` button if you want to approve the partner’s application or click on the ``Reject Application`` button if you want to reject the partner’s application.
 	+ Click on ``Programs Info`` tab on the left sidebar to see the current program partners.
 	+ Click on the program name to see its information.
 	+ Click on ``Restaurants Info`` tab on the left sidebar to see the current restaurant partners.
 	+ Click on the restaurant name to see its information.
+	+ Click on ``Couriers Info`` tab on the left sidebar to see all active courier partners.
+	+ Click on a courier's name to see its information.
+	+ Click on ``Programs + Restaurants`` tab in the left sidebar to see the programs and restaurants pairing page
+	+ Select the checkboxes beside each program/restaurant to include it in the pairing. Note that only 1-to-1, or many-to-1 pairings are allowed.
+	+ Click on ``Couriers + Restaurants`` tab in the left sidebar to see the couriers and restaurants pairing page
+	+ Select the checkboxes beside each courier/restaurant to include it in the pairing. Note that only 1-to-1, or many-to-1 pairings are allowed.
 	+ Click on ``Admin Home`` tab on the left sidebar to return to home page.
 
 + To log out:
