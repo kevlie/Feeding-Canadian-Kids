@@ -1,19 +1,11 @@
-# YOUR PRODUCT/TEAM NAME
+# Feeding Canadian Kids: Unified Platform for Services
 
-## Iteration XX
+## Iteration 3
 
  * Start date: November 14th, 2019
  * End date: December 1st, 2019
 
-### Changes from you `product.md`
-
-List the most significant changes you made to your product (if any). It's normal to change features mid-project or reduce the scope to meet timelines. 
-
- * Start with the most significant change
- * Identify either a change in features or a reduction of your original scope
- * For each change, explain why you are making it and what you are hoping to achieve from it
-
- > *Note:* If you are not making (or haven't made) any changes to your product, it means you successfully scoped, planned and executed the development of your application.This is a very rare occurrence - describe what you believed enabled your team to do so and why. 
+### Changes from `product.md`
  
 1. Mobile Friendly
     * We decided to not focus on making the website mobile-friendly due to time constraints. It still works on mobile but the UI can get clunky sometimes, but it works well with all needed functions on PC. And we believe that it is of higher value to have more functions done than to spend a lot of time making it mobile-friendly
@@ -24,16 +16,6 @@ List the most significant changes you made to your product (if any). It's normal
 In addition, this also adds to the ability of our partner to keep a stable copy of the database which makes them feel much safer.
 
 ### Handoff plan
-
-Describe your plan for handing off your product and all technical assets to your partner
-
- * Will you have a handoff meeting? If so, what will be discussed?
- * What assets/artifacts will you be handing off to your partner (e.g. codebase, deployment tools, running application, task tracker, etc.)? 
- * How will you hand off these assets/artifacts?
- * Does your partner have the technical capacity to manage/maintain/develop your product? How will that impact how you handoff the product?
-
-> *Note:* This is one of the most important aspects of the project. Please consult with your partner, your TA and the instructors on how to successfully execute this. 
-
 
 Yes, we are going to have a handoff meeting after the presentation. We will discuss the features that our product currently has. We are handing over the entire codebase in a USB stick to our project partner. Our partner does not have the technical capacity to maintain the product so we also plan to pass some technical notes regarding our codebase and how to maintain it. The notes can be passed on to the future developer that works on the app so that they can get to know our work more easily. 
 
