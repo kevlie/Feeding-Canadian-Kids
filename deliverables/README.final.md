@@ -91,6 +91,17 @@ With the help of our website, prospective partners and restaurants will have a s
 	+ To confirm delivery, click on the corresponding time slot and click the ``Confirm Delivery`` button.
 	+ Click on ``Your Restaurants`` tab on the left sidebar, you will see the details of restaurants that are paired with you.
 	+ Click on ``Home`` tab on the left sidebar to return to home page.
+	
+#### Courier Partners:
++ To register:
+    + Click on the ``REGISTER AS A COURIER`` button in the login page.
+    + Fill in the form to provide Feeding Canadian Kids staff with the necessary information to become a courier partner.
+    + You can now log in with your email and password to check whether Feeding Canadian Kids staff have approved your application.
+    + After you have been approved, you will be able to view your user page.
++ To operate on user page as a courier partner:
+	+ First make sure that you have registered as a program partner and logged in. 
+	+ Click on ``Your Restaurants`` tab on the left sidebar, you will see the details of restaurants that are paired with you.
+	+ Click on ``Home`` tab on the left sidebar to return to home page.
 
  ## Development requirements
  * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
