@@ -1,9 +1,6 @@
 # Feeding Canadian Kids: Unified Platform for Services
 
 ## Description 
- * Provide a high-level description of your application and it's value from an end-user's perspective
- * What is the problem you're trying to solve?
- * Is there any context required to understand **why** the application solves this problem?
 
 Our product is a website that will provide a centralized platform for registration and communication between Feeding Canadian Kids (FCK) staff, restaurants, and programs.
 
