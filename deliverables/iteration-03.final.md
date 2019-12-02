@@ -5,6 +5,7 @@
  * Start date: November 14th, 2019
  * End date: December 1st, 2019
 
+
 ### Changes from `product.md`
  
 #### Mobile Friendliness
@@ -12,7 +13,6 @@ We decided to not focus on making the website mobile-friendly due to time constr
 
 #### Import and Export
 We decided to add an import and export CSV files feature for the admin. This allows the admin to export the programs/restaurants as a CSV file and edit it locally and upload the new one. We were hoping to make an interface for the admin to edit the programs/restaurants on the site but we had a time constraint so we decided to opt for this.
-
 In addition, this also adds to the ability of our partner to keep a stable copy of the database which makes them feel much safer.
 
 #### Change Password
@@ -20,6 +20,7 @@ We decided to add the feature to change passwords because Rebecca (our project p
 
 #### Newly registered programs/restaurants approval process
 We were unable to implement the feature that allows FCK staff to approve certain fields of the application and provide feedback through the website. We were also unable to automatically inform applicants of their application status automatically. We did not have enough time to implement this feature.
+
 
 ### Handoff plan
 
