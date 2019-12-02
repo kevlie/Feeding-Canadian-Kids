@@ -7,13 +7,19 @@
 
 ### Changes from `product.md`
  
-1. Mobile Friendly
-    * We decided to not focus on making the website mobile-friendly due to time constraints. It still works on mobile but the UI can get clunky sometimes, but it works well with all needed functions on PC. And we believe that it is of higher value to have more functions done than to spend a lot of time making it mobile-friendly
-2. Change Password
-    * We decided to add the feature to change passwords because Rebecca (our project partner) requested us to do so. This also benefits our users just in case they feel like they need a password change.
-3. Import and Export
-    * We decided to add an import and export CSV files feature for the admin. This allows the admin to export the programs/restaurants as a CSV file and edit it locally and upload the new one. We were hoping to make an interface for the admin to edit the programs/restaurants on the site but we had a time constraint so we decided to opt for this.
+#### Mobile Friendliness
+We decided to not focus on making the website mobile-friendly due to time constraints. It still works on mobile but the UI can get clunky sometimes, but it works well with all needed functions on PC. And we believe that it is of higher value to have more functions done than to spend a lot of time making it mobile-friendly.
+
+#### Import and Export
+We decided to add an import and export CSV files feature for the admin. This allows the admin to export the programs/restaurants as a CSV file and edit it locally and upload the new one. We were hoping to make an interface for the admin to edit the programs/restaurants on the site but we had a time constraint so we decided to opt for this.
+
 In addition, this also adds to the ability of our partner to keep a stable copy of the database which makes them feel much safer.
+
+#### Change Password
+We decided to add the feature to change passwords because Rebecca (our project partner) requested us to do so. This also benefits our users just in case they feel like they need a password change.
+
+#### Newly registered programs/restaurants approval process
+We were unable to implement the feature that allows FCK staff to approve certain fields of the application and provide feedback through the website. We were also unable to automatically inform applicants of their application status automatically. We did not have enough time to implement this feature.
 
 ### Handoff plan
 
