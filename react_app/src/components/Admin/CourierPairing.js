@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./CourierPairing.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class CourierPairing extends React.Component {
 
 	constructor(props) {
@@ -14,12 +16,12 @@ class CourierPairing extends React.Component {
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:9000/api/admin/courierPairing")
+		fetch(express_server + "/api/admin/courierPairing")
 			.then((res) => res.json())
 			.then((values) => { this.setState({ values }); console.log(this.state.values); })
 			.then(() => this.updateState())
 
-		// fetch("http://localhost:9000/api/admin/isAdmin", {
+		// fetch(express_server + "/api/admin/isAdmin", {
 		//      method: "get",
 		//      credentials: "include"
 		//    }).then(res => {
@@ -94,7 +96,7 @@ class CourierPairing extends React.Component {
 			// 	for (var restaurantId in this.state.restaurantsChecked) {
 			// 		if (this.state.restaurantsChecked[restaurantId] == true) {
 			// 			console.log(restaurantId);
-			// 			var fetchURL = "http://localhost:9000/api/admin/courierPairing/" + courierId + "/" + restaurantId
+			// 			var fetchURL = express_server + "/api/admin/courierPairing/" + courierId + "/" + restaurantId
 			// 				fetch(fetchURL, {
 			// 			      method: "post",
 			// 			    })
@@ -106,7 +108,7 @@ class CourierPairing extends React.Component {
 			toSend.push(courierId)
 			toSend.push(this.state.restaurantsChecked)
 
-			var fetchURL = "http://localhost:9000/api/admin/courierPairing/courier-to-restaurants"
+			var fetchURL = express_server + "/api/admin/courierPairing/courier-to-restaurants"
 			fetch(fetchURL, {
 				method: "post",
 				headers: {
@@ -122,7 +124,7 @@ class CourierPairing extends React.Component {
 			toSend.push(restaurantId)
 			toSend.push(this.state.couriersChecked)
 
-			var fetchURL = "http://localhost:9000/api/admin/courierPairing/restaurant-to-couriers"
+			var fetchURL = express_server + "/api/admin/courierPairing/restaurant-to-couriers"
 			fetch(fetchURL, {
 				method: "post",
 				headers: {
@@ -152,7 +154,7 @@ class CourierPairing extends React.Component {
 
 	handleCourierModal = (e) => {
 		console.log(e.target.name)
-		const fetchString = "http://localhost:9000/api/admin/courierPairing/current-restaurants/" + e.target.name
+		const fetchString = express_server + "/api/admin/courierPairing/current-restaurants/" + e.target.name
 		fetch(fetchString)
 			.then((res) => res.json())
 			.then((restaurantsCurrentlyPairedWith) => { this.setState({ restaurantsCurrentlyPairedWith }); console.log(this.state.restaurantsCurrentlyPairedWith); })
@@ -160,7 +162,7 @@ class CourierPairing extends React.Component {
 
 	handleRestaurantModal = (e) => {
 		console.log(e.target.name)
-		const fetchString = "http://localhost:9000/api/admin/courierPairing/current-couriers/" + e.target.name
+		const fetchString = express_server + "/api/admin/courierPairing/current-couriers/" + e.target.name
 		fetch(fetchString)
 			.then((res) => res.json())
 			.then((couriersCurrentlyPairedWith) => { this.setState({ couriersCurrentlyPairedWith }); console.log(this.state.couriersCurrentlyPairedWith); })

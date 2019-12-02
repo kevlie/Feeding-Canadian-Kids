@@ -6,8 +6,10 @@ import { withRouter } from "react-router-dom";
 import './CourierRegistration.css';
 import FeedingCKkids from "../../img/FeedingCK-kids.png";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 const registerCourier = data => {
-  fetch("http://localhost:9000/api/courierApplication", {
+  fetch(express_server + "/api/courierApplication", {
     method: "post",
     headers: {
       Accept: "application/json",
@@ -50,8 +52,8 @@ class CourierRegistration extends React.Component {
               Courier Registration
             </h4>
           </div>
-          <div 
-            className="courierInstruction" 
+          <div
+            className="courierInstruction"
             style={{ marginBottom: "20px" }}
           >
             <em>

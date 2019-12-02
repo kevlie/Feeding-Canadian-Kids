@@ -2,6 +2,9 @@ import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import { Table } from "react-bootstrap";
 import React from "react";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
+
 class RestaurantPartners extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +15,7 @@ class RestaurantPartners extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/api/courieruserpage/restaurants", {
+    fetch(express_server + "/api/courieruserpage/restaurants", {
       method: "get",
 
       credentials: "include"
@@ -42,13 +45,13 @@ class RestaurantPartners extends React.Component {
     return (
       <>
         {!this.state.fail ? (
-          <div 
+          <div
             style={{
               fontFamily:"Comic Sans MS"
             }}
           >
             <h1> Your Restaurant Partners Information</h1>
-            <Table 
+            <Table
               style={{
                 width: "97%",
                 marginTop: "20px"

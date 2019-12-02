@@ -8,6 +8,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import FeedingCKbanner from "../../img/FeedingCK-banner.png";
 import "./Header.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
+
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.isLoggedIn
@@ -29,7 +32,7 @@ class Header extends Component {
   }
 
   setLoginStatus() {
-    fetch("http://localhost:9000/api/auth/validate-login", {
+    fetch(express_server + "/api/auth/validate-login", {
       method: "get",
       headers: {
         Accept: "application/json",
@@ -56,7 +59,7 @@ class Header extends Component {
   }
 
   logout() {
-    fetch("http://localhost:9000/api/auth/logout", {
+    fetch(express_server + "/api/auth/logout", {
       method: "get",
       headers: {
         Accept: "application/json",

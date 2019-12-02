@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./Admin.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class Admin extends React.Component {
   constructor(props) {
     super(props);
@@ -12,13 +14,13 @@ class Admin extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:9000/api/admin")
+    fetch(express_server + "/api/admin")
       .then(res => res.json())
       .then(values =>
         this.setState({ values }, () => console.log(this.state.values))
       );
 
-    fetch("http://localhost:9000/api/admin/isAdmin", {
+    fetch(express_server + "/api/admin/isAdmin", {
       method: "get",
       credentials: "include"
     }).then(res => {

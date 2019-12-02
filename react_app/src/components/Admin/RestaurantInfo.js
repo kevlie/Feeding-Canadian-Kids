@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./RestaurantInfo.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class RestaurantInfo extends React.Component {
 	constructor(props) {
 		super(props)
@@ -12,12 +14,12 @@ class RestaurantInfo extends React.Component {
 
 	componentDidMount = () => {
 		const id = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/restaurant/" + id;
+		const fetchURL = express_server + "/api/admin/restaurant/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((restaurant) => this.setState({ restaurant }, () => console.log(this.state.restaurant)))
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {

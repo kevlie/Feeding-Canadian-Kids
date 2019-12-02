@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./NewSignupsProgramInfo.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class NewSignupsProgramInfo extends React.Component {
 	constructor(props) {
 		super(props)
@@ -12,13 +14,13 @@ class NewSignupsProgramInfo extends React.Component {
 
 	componentDidMount = () => {
 		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/program/" + newId;
-		//const fetchURL = "http://localhost:9000/api/admin/newSignups/program/7";
+		const fetchURL = express_server + "/api/admin/newSignups/program/" + newId;
+		//const fetchURL = express_server + "/api/admin/newSignups/program/7";
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((program) => this.setState({ program }, () => console.log(this.state.program)))
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {
@@ -31,7 +33,7 @@ class NewSignupsProgramInfo extends React.Component {
 
 	approveApp = () => {
 		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/program/" + newId + "/approve";
+		const fetchURL = express_server + "/api/admin/newSignups/program/" + newId + "/approve";
 		fetch(fetchURL, {
 			method: "post",
 		})
@@ -39,7 +41,7 @@ class NewSignupsProgramInfo extends React.Component {
 
 	rejectApp = () => {
 		const newId = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/newSignups/program/" + newId + "/reject";
+		const fetchURL = express_server + "/api/admin/newSignups/program/" + newId + "/reject";
 		fetch(fetchURL, {
 			method: "post",
 		})

@@ -6,8 +6,10 @@ import { withRouter } from "react-router-dom";
 import "./RestaurantRegistration.css";
 import FeedingCKkids from "../../img/FeedingCK-kids.png";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 const registerRestaurant = data => {
-  fetch("http://localhost:9000/api/restaurantApplication", {
+  fetch(express_server + "/api/restaurantApplication", {
     method: "post",
     headers: {
       Accept: "application/json",
@@ -58,8 +60,8 @@ class RestaurantRegistration extends React.Component {
                 Restaurant Registration
               </h4>
           </div>
-          <div 
-            className="restInstruction" 
+          <div
+            className="restInstruction"
             style={{ marginBottom: "20px" }}
           >
             <em>

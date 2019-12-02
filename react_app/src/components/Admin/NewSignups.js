@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./NewSignups.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class NewSignups extends React.PureComponent {
 
 	constructor(props) {
@@ -35,12 +37,12 @@ class NewSignups extends React.PureComponent {
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:9000/api/admin/newSignups")
+		fetch(express_server + "/api/admin/newSignups")
 			.then((res) => res.json())
 			.then((values) => this.setState({ values }))
 			.then(() => this.updateState());
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {

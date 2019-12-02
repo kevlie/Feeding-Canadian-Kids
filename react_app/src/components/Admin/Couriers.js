@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./Couriers.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class Couriers extends React.PureComponent {
 
 	constructor(props) {
@@ -12,12 +14,12 @@ class Couriers extends React.PureComponent {
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:9000/api/admin/couriers")
+		fetch(express_server + "/api/admin/couriers")
 			.then((res) => res.json())
 			.then((couriers) => this.setState({ couriers }))
 			.then(() => this.updateState())
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {

@@ -6,6 +6,8 @@ import WelcomeMessage from "./WelcomeMessage.js";
 // import ProgramsPartners from "./ProgramsPartners.js";
 import RestaurantPartners from "./RestaurantPartners.js";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class CourierUserPage extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ class CourierUserPage extends React.Component {
     document.body.classList.add("hunnid");
     document.documentElement.classList.add("hunnid");
 
-    fetch("http://localhost:9000/api/courieruserpage/isCourier", {
+    fetch(express_server + "/api/courieruserpage/isCourier", {
       method: "get",
       credentials: "include"
     }).then(res => {
@@ -31,7 +33,7 @@ class CourierUserPage extends React.Component {
       //     console.log(res);
       //   }
     });
-    fetch("http://localhost:9000/api/courieruserpage/name", {
+    fetch(express_server + "/api/courieruserpage/name", {
       method: "get",
 
       credentials: "include"

@@ -4,6 +4,8 @@ import "./Deliveries.css";
 import DeliverySlot from "./DeliverySlot.js";
 import "./ProgramUserPage.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class Deliveries extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class Deliveries extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/api/programDelivery", {
+    fetch(express_server + "/api/programDelivery", {
       method: "get",
       headers: {
         Accept: "application/json",

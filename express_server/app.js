@@ -7,6 +7,7 @@ var cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieSession = require("cookie-session");
+require('dotenv').config()
 
 // routers
 var indexRouter = require("./routes/index");
@@ -52,7 +53,7 @@ app.set("view engine", "jade");
 
 // cors settings
 const corsOptions = {
-  origin: "http://localhost:3000", // address of React server
+  origin: process.env.REACT_SERVER, // address of React server
   methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS", // type of actions allowed
   credentials: true, // required to pass
   allowedHeaders: "Content-Type, Authorization, X-Requested-With"

@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import "./ProgramInfo.css";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 class ProgramInfo extends React.Component {
 	constructor(props) {
 		super(props)
@@ -12,12 +14,12 @@ class ProgramInfo extends React.Component {
 
 	componentDidMount = () => {
 		const id = this.props.match.params.id;
-		const fetchURL = "http://localhost:9000/api/admin/program/" + id;
+		const fetchURL = express_server + "/api/admin/program/" + id;
 		fetch(fetchURL)
 			.then((res) => res.json())
 			.then((program) => this.setState({ program }, () => console.log(this.state.program)))
 
-		fetch("http://localhost:9000/api/admin/isAdmin", {
+		fetch(express_server + "/api/admin/isAdmin", {
 			method: "get",
 			credentials: "include"
 		}).then(res => {

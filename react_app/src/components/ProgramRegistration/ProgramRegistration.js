@@ -6,9 +6,11 @@ import { withRouter } from "react-router-dom";
 import './ProgramRegistration.css';
 import FeedingCKkids from "../../img/FeedingCK-kids.png";
 
+var express_server = process.env.REACT_APP_EXPRESS_SERVER;
+
 const registerProgram = data => {
 
-  fetch("http://localhost:9000/api/programApplication", {
+  fetch(express_server + "/api/programApplication", {
     method: "post",
     headers: {
       Accept: "application/json",
@@ -67,8 +69,8 @@ class ProgramRegistration extends React.Component {
               After School Program Registration
             </h4>
           </div>
-          <div 
-            className="programInstruction" 
+          <div
+            className="programInstruction"
             style={{ marginBottom: "20px" }}
           >
             <em>
