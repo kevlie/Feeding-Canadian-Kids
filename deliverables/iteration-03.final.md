@@ -29,6 +29,7 @@ However, due to time constriants we are unable to implement this feature. We not
 Unfortunately we did not have sufficient time to implement this feature. Originally we planned to have the program partner be able to confirm the delivery so the restaurant could be notified. As of right now the only way the restaurant knows the food was delivered is through the courier or calling the program partner.
 
 ### Handoff plan
-Yes, we are going to have a handoff meeting after the presentation. We will discuss the features that our product currently has. We are handing over the entire codebase in a USB stick to our project partner. Our partner does not have the technical capacity to maintain the product so we also plan to pass some technical notes regarding our codebase and how to maintain it. The notes can be passed on to the future developer that works on the app so that they can get to know our work more easily. 
+We will have a handoff meeting after the presentation. We will discuss the features that our product currently has. We are handing over the entire codebase to our project partner by providing the URL to the Github repository which will be made public. Our partner does not have the technical capacity to maintain the product. However, we plan to pass some technical notes regarding our codebase and how to maintain it. The notes can be passed on to the future developer that works on the app. 
+ 
 
 

@@ -20,10 +20,6 @@ With the help of our website, prospective partners and restaurants will have a s
 - Once approved and registered, partners can view their information and obligations by logging on to their profile on the website.
 
 ## Instructions
- * Clear instructions for how to use the application from the end-user's perspective
- * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
- * Provide clear steps for using each feature described above
- * If you cannot deploy your application for technical reasons, please let your TA know at the beginning of the iteration. You will need to demo the application to your partner either way.
 
 #### General Usage:
 + To access the website:
