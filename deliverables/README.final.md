@@ -104,16 +104,53 @@ With the help of our website, prospective partners and restaurants will have a s
 	+ Click on ``Home`` tab on the left sidebar to return to home page.
 
  ## Development requirements
- * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
- * Briefly describe instructions for setting up and running the application (think a true README).
 
+ 1. Clone the project:
+```git clone https://github.com/csc301-fall-2019/team-project-feeding-canadian-kids-team-2.git```
+2. Enter the project root directory:
+```cd team-project-feeding-canadian-kids-team-2```
+3. Enter the backend server directory:
+```cd express_server```
+4. Install the necessary modules for Express:
+```npm install```
+5. Start the backend server:
+```npm start```
+6. In a separate window, go back to the project root directory.
+7. Enter the frontend server directory:
+```cd react_app```
+8. Install the necessary modules for React:
+```npm install```
+9. Start the frontend server:
+```npm start```
+10. You can now access the web app in a browser at local host, port 3000:
+```http://localhost:3000/```
 
  ## Licenses 
 
- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
+#### License Information
+We have chosen the MIT license for our project. We believe this license is the best choice for us and our partner because of its simplicity and permissiveness. We want members of the public to be able to improve on our work, if they wish to contribute to the great work that Feeding Canadian Kids does. At the same time, however, we believe that if the Feeding Canadian Kids team ever wished to hire their own technical team to improve on the codebase, they should be allowed to close source it if they wish to do so.
 
- * What type of license will you apply to your codebase?
- * What affect does it have on the development and use of your codebase?
- * Why did you or your partner make this choice?
+#### License
 
+MIT License
+
+Copyright (c) 2019 Feeding Canadian Kids Web App
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
