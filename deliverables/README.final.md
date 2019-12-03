@@ -34,7 +34,7 @@ With the help of our website, prospective partners and restaurants will have a s
 
 #### Admins:
  + To operate on user page as an administrator:
-	+ First make sure that you have logged in as admin. (Admin credentials are pregenerated at the moment.)
+	+ First make sure that you have logged in as admin. (Admin credentials are pregenerated at the moment. Use ``admin@mail.com`` as email and ``a@mail.com`` as password.)
 	+ You should see the number of active programs and active restaurants, number of new program applications, and new restaurant applications.
 	+ Click on the navigation button at the top left corner, you will see the sidebar.
 	+ Click on ``New Signups`` tab on the left sidebar to see newly signed up programs, restaurants, and couriers.
