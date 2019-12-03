@@ -23,7 +23,7 @@ With the help of our website, prospective partners and restaurants will have a s
 
 #### General Usage:
 + To access the website:
-    + Enter the URL ``feedingcanadiankids.org`` into your browser.
+    + Enter the URL ``http://18.222.133.7:3000`` into your browser.
 
 + To log in:
 	+ Click on ``Login/Register`` in the upper right corner in the navigation bar.
