@@ -1,0 +1,27 @@
+Feeding Canadian Kids Team 2
+
+Changes: 85
+- Very thorough!
+
+Handoff Plan: 85
+- Great that you're providing suggestions for improvement!
+
+README.md
+
+Description:85
+- Meets expectations
+
+Features: 75
+- Could use more details here - (i.e. what details are they able to view, how are they organizing partners?)
+
+Instructions: 
+
+Dev. Requirements: 75
+- How about your database, how would someone set that up? 
+
+Licenses: 85
+- Meets expectations
+
+Deployed Product: 85
+- Not able to view New Restaurant Signups
+- Overall the application looks good!

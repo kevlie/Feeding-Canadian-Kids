@@ -1,0 +1,87 @@
+Feeding Canadian Kids (Team 2) 
+
+PLAN.MD: Overall Grade - 2
+
+Process
+
+Roles & Responsibilities: 2
+- Your roles should be more specific to the product that you are building 
+
+Communication: 3
+- What happens if a member does not reach out after failing to attend a meeting? Who is designated to escalate the situation?
+
+Conflict Resolution:3
+- Meets expectations
+
+Events: 3
+- Meets expectations
+
+Partner Meetings: 3
+- meets expectations
+
+Artifacts: 385
+- Meets expectations
+
+Deployment and Github: 2
+- Who in your team will be handling pull requests? Who will be merging the code to master?
+- You should describe your overall deployment process - from writing code to seeing the live application
+
+Product
+
+Goals & Tasks: 3
+- Expected more details instead of just the user stories (i.e. some form of grouping of the stories based on your subteams)
+
+Artifacts: 3
+- Meets expectations
+
+--------------------------------------------------------------------------------------------------
+
+REVIEW.MD: Overall Grade - 2
+
+Process
+
+Good Decisions: 3
+- Meets expectations
+
+Bad Decisions: 3
+- Meets expectations
+
+Planned Changes: 2
+- Scraping code review altogether might not be the smartest thing to do - instead you can find a way to hold members accountable for implementing unit tests for their features
+
+Product
+
+Goals Met: 2
+- You should refer to links/artifacts here (i.e. screenshots would be good)
+
+Goals Not Met: 3
+- Meets expectations
+
+Demo: 3
+- Meets expectations
+
+Meeting Highlights: 1
+- You should not be discussing the next items on your to-do list here, this should be high level concepts that you can take away from this iteration into the next
+
+-----------------------------------------------------------------------------------------------------
+
+README.MD: 2
+
+Description: 3
+- Meets expectations
+
+Key Features: 2
+- Could use more details on details of how you implemented each feature
+
+Instructions: 2
+- You should state the requirements of running your application beforehand (i.e. you need to have node, npm and git already installed) 
+- Your instructions could be a bit more clear (i.e. I had to find out later on that I need to login as admin and approve requests before I can login as a restaurant or partner)
+- You could have orgnaized your instructions better
+----------------------------------------------------------------------------------------------------
+
+Deployed App: 3
+- Application not deployed for D2 
+- In the log in functionality, you state to use a Restaurant Email, but I was not asked to Register as a Restaurant
+- Overall, the application has all the features
+- Missing some details that might lead to better usability - i.e. there is no back button after the sign up page, missing some pop-ups for confirmation
+- Some of your UI (i.e. matching partners and restaurants) is not very intuitive
